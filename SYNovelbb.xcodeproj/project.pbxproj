@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BD5BA527C4D768B98C21749 /* Pods_SYNovelbb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */; };
+		50B5A2E0E46BAD0B2FA1EF79 /* Pods_SYNovelbb_SYNovelbbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */; };
 		7B99BC7D24C80C80003FF4E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* AppDelegate.swift */; };
 		7B99BC7F24C80C80003FF4E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7E24C80C80003FF4E1 /* SceneDelegate.swift */; };
 		7B99BC8124C80C80003FF4E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC8024C80C80003FF4E1 /* ViewController.swift */; };
@@ -15,6 +17,7 @@
 		7B99BC8924C80C81003FF4E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */; };
 		7B99BC9424C80C81003FF4E1 /* SYNovelbbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC9324C80C81003FF4E1 /* SYNovelbbTests.swift */; };
 		7B99BC9F24C80C81003FF4E1 /* SYNovelbbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC9E24C80C81003FF4E1 /* SYNovelbbUITests.swift */; };
+		B12D6D8ECE14252E767F1AF4 /* Pods_SYNovelbbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb_SYNovelbbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		427BB2E07AAE7B17F92A1C1D /* Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B99BC7924C80C80003FF4E1 /* SYNovelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SYNovelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99BC7C24C80C80003FF4E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B99BC7E24C80C80003FF4E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,12 @@
 		7B99BC9A24C80C81003FF4E1 /* SYNovelbbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SYNovelbbUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99BC9E24C80C81003FF4E1 /* SYNovelbbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYNovelbbUITests.swift; sourceTree = "<group>"; };
 		7B99BCA024C80C81003FF4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF4056E2A7DFF2964AAD32AF /* Pods-SYNovelbb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb.debug.xcconfig"; sourceTree = "<group>"; };
+		CE6468949C419153F8764CFB /* Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6C7116BFF8A8CFE1F1426D8 /* Pods-SYNovelbbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbbTests.release.xcconfig"; path = "Target Support Files/Pods-SYNovelbbTests/Pods-SYNovelbbTests.release.xcconfig"; sourceTree = "<group>"; };
+		ECD1E6604FB17EF283C2A70F /* Pods-SYNovelbb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb.release.xcconfig"; path = "Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb.release.xcconfig"; sourceTree = "<group>"; };
+		F9376D676453C7578AF1EE76 /* Pods-SYNovelbbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbbTests.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbbTests/Pods-SYNovelbbTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BD5BA527C4D768B98C21749 /* Pods_SYNovelbb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12D6D8ECE14252E767F1AF4 /* Pods_SYNovelbbTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B5A2E0E46BAD0B2FA1EF79 /* Pods_SYNovelbb_SYNovelbbUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				7B99BC9224C80C81003FF4E1 /* SYNovelbbTests */,
 				7B99BC9D24C80C81003FF4E1 /* SYNovelbbUITests */,
 				7B99BC7A24C80C80003FF4E1 /* Products */,
+				F88954DB11301B941DFC189E /* Pods */,
+				C334AC6AECFDE1EFA1DFFC9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +145,30 @@
 			path = SYNovelbbUITests;
 			sourceTree = "<group>";
 		};
+		C334AC6AECFDE1EFA1DFFC9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */,
+				3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */,
+				12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F88954DB11301B941DFC189E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF4056E2A7DFF2964AAD32AF /* Pods-SYNovelbb.debug.xcconfig */,
+				ECD1E6604FB17EF283C2A70F /* Pods-SYNovelbb.release.xcconfig */,
+				427BB2E07AAE7B17F92A1C1D /* Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig */,
+				CE6468949C419153F8764CFB /* Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig */,
+				F9376D676453C7578AF1EE76 /* Pods-SYNovelbbTests.debug.xcconfig */,
+				E6C7116BFF8A8CFE1F1426D8 /* Pods-SYNovelbbTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +176,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B99BCA324C80C81003FF4E1 /* Build configuration list for PBXNativeTarget "SYNovelbb" */;
 			buildPhases = (
+				5160B388CC0CA8CD6AEBFDEB /* [CP] Check Pods Manifest.lock */,
 				7B99BC7524C80C80003FF4E1 /* Sources */,
 				7B99BC7624C80C80003FF4E1 /* Frameworks */,
 				7B99BC7724C80C80003FF4E1 /* Resources */,
@@ -152,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B99BCA624C80C81003FF4E1 /* Build configuration list for PBXNativeTarget "SYNovelbbTests" */;
 			buildPhases = (
+				789F6DA9E8AD20E619325EAD /* [CP] Check Pods Manifest.lock */,
 				7B99BC8B24C80C81003FF4E1 /* Sources */,
 				7B99BC8C24C80C81003FF4E1 /* Frameworks */,
 				7B99BC8D24C80C81003FF4E1 /* Resources */,
@@ -170,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B99BCA924C80C81003FF4E1 /* Build configuration list for PBXNativeTarget "SYNovelbbUITests" */;
 			buildPhases = (
+				CACADF8546ACE23386C67DA8 /* [CP] Check Pods Manifest.lock */,
 				7B99BC9624C80C81003FF4E1 /* Sources */,
 				7B99BC9724C80C81003FF4E1 /* Frameworks */,
 				7B99BC9824C80C81003FF4E1 /* Resources */,
@@ -253,6 +297,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5160B388CC0CA8CD6AEBFDEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SYNovelbb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		789F6DA9E8AD20E619325EAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SYNovelbbTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CACADF8546ACE23386C67DA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SYNovelbb-SYNovelbbUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B99BC7524C80C80003FF4E1 /* Sources */ = {
@@ -432,6 +545,7 @@
 		};
 		7B99BCA424C80C81003FF4E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF4056E2A7DFF2964AAD32AF /* Pods-SYNovelbb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +564,7 @@
 		};
 		7B99BCA524C80C81003FF4E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECD1E6604FB17EF283C2A70F /* Pods-SYNovelbb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +583,7 @@
 		};
 		7B99BCA724C80C81003FF4E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9376D676453C7578AF1EE76 /* Pods-SYNovelbbTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +606,7 @@
 		};
 		7B99BCA824C80C81003FF4E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6C7116BFF8A8CFE1F1426D8 /* Pods-SYNovelbbTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +629,7 @@
 		};
 		7B99BCAA24C80C81003FF4E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 427BB2E07AAE7B17F92A1C1D /* Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +650,7 @@
 		};
 		7B99BCAB24C80C81003FF4E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE6468949C419153F8764CFB /* Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
