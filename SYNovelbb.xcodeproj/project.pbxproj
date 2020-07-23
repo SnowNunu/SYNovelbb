@@ -3,20 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0BD5BA527C4D768B98C21749 /* Pods_SYNovelbb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */; };
 		50B5A2E0E46BAD0B2FA1EF79 /* Pods_SYNovelbb_SYNovelbbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */; };
-		7B99BC7D24C80C80003FF4E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* AppDelegate.swift */; };
-		7B99BC7F24C80C80003FF4E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7E24C80C80003FF4E1 /* SceneDelegate.swift */; };
-		7B99BC8124C80C80003FF4E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC8024C80C80003FF4E1 /* ViewController.swift */; };
-		7B99BC8424C80C80003FF4E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8224C80C80003FF4E1 /* Main.storyboard */; };
+		7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623324C95A560090ACFF /* UIColor+Extension.swift */; };
+		7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643CA24C91E8C0025B65B /* R.generated.swift */; };
+		7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643CC24C922E60025B65B /* SYSingle+ModelMapper.swift */; };
+		7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643CE24C9250C0025B65B /* SYResponseModel.swift */; };
+		7B3643D124C928920025B65B /* SYResponse+ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643D024C928920025B65B /* SYResponse+ModelMapper.swift */; };
+		7B3643D524C934C20025B65B /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643D424C934C20025B65B /* UIDevice+Extension.swift */; };
+		7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643D724C9524E0025B65B /* SYNavigationController.swift */; };
+		7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */; };
+		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
 		7B99BC8624C80C81003FF4E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8524C80C81003FF4E1 /* Assets.xcassets */; };
 		7B99BC8924C80C81003FF4E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */; };
 		7B99BC9424C80C81003FF4E1 /* SYNovelbbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC9324C80C81003FF4E1 /* SYNovelbbTests.swift */; };
 		7B99BC9F24C80C81003FF4E1 /* SYNovelbbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC9E24C80C81003FF4E1 /* SYNovelbbUITests.swift */; };
+		7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB124C82D88003FF4E1 /* SYApis.swift */; };
+		7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */; };
+		7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */; };
+		7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */; };
 		B12D6D8ECE14252E767F1AF4 /* Pods_SYNovelbbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,11 +50,17 @@
 		12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb_SYNovelbbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		427BB2E07AAE7B17F92A1C1D /* Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		7B99BC7924C80C80003FF4E1 /* SYNovelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SYNovelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B99BC7C24C80C80003FF4E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B99BC7E24C80C80003FF4E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7B99BC8024C80C80003FF4E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7B99BC8324C80C80003FF4E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7B34623324C95A560090ACFF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7B3643CA24C91E8C0025B65B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		7B3643CC24C922E60025B65B /* SYSingle+ModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYSingle+ModelMapper.swift"; sourceTree = "<group>"; };
+		7B3643CE24C9250C0025B65B /* SYResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYResponseModel.swift; sourceTree = "<group>"; };
+		7B3643D024C928920025B65B /* SYResponse+ModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYResponse+ModelMapper.swift"; sourceTree = "<group>"; };
+		7B3643D424C934C20025B65B /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		7B3643D624C937AF0025B65B /* SYNovelbb-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SYNovelbb-Bridging-Header.h"; sourceTree = "<group>"; };
+		7B3643D724C9524E0025B65B /* SYNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYNavigationController.swift; sourceTree = "<group>"; };
+		7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYAppDelegate+log.swift"; sourceTree = "<group>"; };
+		7B99BC7924C80C80003FF4E1 /* Novelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppDelegate.swift; sourceTree = "<group>"; };
 		7B99BC8524C80C81003FF4E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B99BC8824C80C81003FF4E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B99BC8A24C80C81003FF4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +70,10 @@
 		7B99BC9A24C80C81003FF4E1 /* SYNovelbbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SYNovelbbUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99BC9E24C80C81003FF4E1 /* SYNovelbbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYNovelbbUITests.swift; sourceTree = "<group>"; };
 		7B99BCA024C80C81003FF4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B99BCB124C82D88003FF4E1 /* SYApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYApis.swift; sourceTree = "<group>"; };
+		7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppConfigs.swift; sourceTree = "<group>"; };
+		7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMoyaPlugins.swift; sourceTree = "<group>"; };
+		7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYTabBarController.swift; sourceTree = "<group>"; };
 		BF4056E2A7DFF2964AAD32AF /* Pods-SYNovelbb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6468949C419153F8764CFB /* Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +110,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B34623224C95A410090ACFF /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				7B34623324C95A560090ACFF /* UIColor+Extension.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		7B3643D224C9348F0025B65B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7B34623224C95A410090ACFF /* UIColor */,
+				7B3643D324C9349F0025B65B /* UIDevice */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7B3643D324C9349F0025B65B /* UIDevice */ = {
+			isa = PBXGroup;
+			children = (
+				7B3643D424C934C20025B65B /* UIDevice+Extension.swift */,
+			);
+			path = UIDevice;
+			sourceTree = "<group>";
+		};
+		7B3643D924C9553E0025B65B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7B3643D724C9524E0025B65B /* SYNavigationController.swift */,
+				7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		7B99BC7024C80C80003FF4E1 = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +159,7 @@
 		7B99BC7A24C80C80003FF4E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B99BC7924C80C80003FF4E1 /* SYNovelbb.app */,
+				7B99BC7924C80C80003FF4E1 /* Novelbb.app */,
 				7B99BC8F24C80C81003FF4E1 /* SYNovelbbTests.xctest */,
 				7B99BC9A24C80C81003FF4E1 /* SYNovelbbUITests.xctest */,
 			);
@@ -116,13 +169,11 @@
 		7B99BC7B24C80C80003FF4E1 /* SYNovelbb */ = {
 			isa = PBXGroup;
 			children = (
-				7B99BC7C24C80C80003FF4E1 /* AppDelegate.swift */,
-				7B99BC7E24C80C80003FF4E1 /* SceneDelegate.swift */,
-				7B99BC8024C80C80003FF4E1 /* ViewController.swift */,
-				7B99BC8224C80C80003FF4E1 /* Main.storyboard */,
-				7B99BC8524C80C81003FF4E1 /* Assets.xcassets */,
-				7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */,
-				7B99BC8A24C80C81003FF4E1 /* Info.plist */,
+				7B3643D224C9348F0025B65B /* Extensions */,
+				7B99BCB324C82FDB003FF4E1 /* Common */,
+				7B99BCB024C82D31003FF4E1 /* Networking */,
+				7B99BCAE24C81AC6003FF4E1 /* Module */,
+				7B99BCAC24C81985003FF4E1 /* Resources */,
 			);
 			path = SYNovelbb;
 			sourceTree = "<group>";
@@ -145,6 +196,72 @@
 			path = SYNovelbbUITests;
 			sourceTree = "<group>";
 		};
+		7B99BCAC24C81985003FF4E1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7B99BCAD24C81999003FF4E1 /* Assets */,
+				7B3643D624C937AF0025B65B /* SYNovelbb-Bridging-Header.h */,
+				7B3643CA24C91E8C0025B65B /* R.generated.swift */,
+				7B99BC8A24C80C81003FF4E1 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7B99BCAD24C81999003FF4E1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7B99BC8524C80C81003FF4E1 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		7B99BCAE24C81AC6003FF4E1 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				7B3643D924C9553E0025B65B /* Base */,
+				7B99BCB824C84362003FF4E1 /* Main */,
+				7B99BCAF24C81ACB003FF4E1 /* Featured */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		7B99BCAF24C81ACB003FF4E1 /* Featured */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Featured;
+			sourceTree = "<group>";
+		};
+		7B99BCB024C82D31003FF4E1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7B99BCB124C82D88003FF4E1 /* SYApis.swift */,
+				7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */,
+				7B3643CC24C922E60025B65B /* SYSingle+ModelMapper.swift */,
+				7B3643D024C928920025B65B /* SYResponse+ModelMapper.swift */,
+				7B3643CE24C9250C0025B65B /* SYResponseModel.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7B99BCB324C82FDB003FF4E1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7B99BCB824C84362003FF4E1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */,
+				7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */,
+				7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		C334AC6AECFDE1EFA1DFFC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +282,6 @@
 				F9376D676453C7578AF1EE76 /* Pods-SYNovelbbTests.debug.xcconfig */,
 				E6C7116BFF8A8CFE1F1426D8 /* Pods-SYNovelbbTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -177,9 +293,12 @@
 			buildConfigurationList = 7B99BCA324C80C81003FF4E1 /* Build configuration list for PBXNativeTarget "SYNovelbb" */;
 			buildPhases = (
 				5160B388CC0CA8CD6AEBFDEB /* [CP] Check Pods Manifest.lock */,
+				7B99BCBD24C844E3003FF4E1 /* R.swift */,
 				7B99BC7524C80C80003FF4E1 /* Sources */,
 				7B99BC7624C80C80003FF4E1 /* Frameworks */,
 				7B99BC7724C80C80003FF4E1 /* Resources */,
+				148D383D01D2A64C2D0FA1DC /* [CP] Embed Pods Frameworks */,
+				83C667944A0EE5564ECEDDB0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,7 +306,7 @@
 			);
 			name = SYNovelbb;
 			productName = SYNovelbb;
-			productReference = 7B99BC7924C80C80003FF4E1 /* SYNovelbb.app */;
+			productReference = 7B99BC7924C80C80003FF4E1 /* Novelbb.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7B99BC8E24C80C81003FF4E1 /* SYNovelbbTests */ = {
@@ -217,6 +336,8 @@
 				7B99BC9624C80C81003FF4E1 /* Sources */,
 				7B99BC9724C80C81003FF4E1 /* Frameworks */,
 				7B99BC9824C80C81003FF4E1 /* Resources */,
+				E310E302D5BD07A934C09B2F /* [CP] Embed Pods Frameworks */,
+				A1D0FDA94CA41C33BC865F00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +355,7 @@
 		7B99BC7124C80C80003FF4E1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SY;
 				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = Mandora;
@@ -278,7 +400,6 @@
 			files = (
 				7B99BC8924C80C81003FF4E1 /* LaunchScreen.storyboard in Resources */,
 				7B99BC8624C80C81003FF4E1 /* Assets.xcassets in Resources */,
-				7B99BC8424C80C80003FF4E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +420,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		148D383D01D2A64C2D0FA1DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5160B388CC0CA8CD6AEBFDEB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +481,60 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7B99BCBD24C844E3003FF4E1 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/SYNovelbb/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/SYNovelbb/Resources/R.generated.swift\"\n\n";
+		};
+		83C667944A0EE5564ECEDDB0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1D0FDA94CA41C33BC865F00 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CACADF8546ACE23386C67DA8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,6 +557,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E310E302D5BD07A934C09B2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -372,9 +581,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B99BC8124C80C80003FF4E1 /* ViewController.swift in Sources */,
-				7B99BC7D24C80C80003FF4E1 /* AppDelegate.swift in Sources */,
-				7B99BC7F24C80C80003FF4E1 /* SceneDelegate.swift in Sources */,
+				7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */,
+				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
+				7B3643D524C934C20025B65B /* UIDevice+Extension.swift in Sources */,
+				7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */,
+				7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */,
+				7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */,
+				7B3643D124C928920025B65B /* SYResponse+ModelMapper.swift in Sources */,
+				7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */,
+				7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */,
+				7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */,
+				7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */,
+				7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */,
+				7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,14 +629,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7B99BC8224C80C80003FF4E1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B99BC8324C80C80003FF4E1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -548,17 +759,24 @@
 			baseConfigurationReference = BF4056E2A7DFF2964AAD32AF /* Pods-SYNovelbb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N82XYB9GK8;
-				INFOPLIST_FILE = SYNovelbb/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2Z5WC9PKB7;
+				INFOPLIST_FILE = SYNovelbb/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.quwang.SYNovelbb;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novelbb.reader;
+				PRODUCT_NAME = Novelbb;
+				PROVISIONING_PROFILE_SPECIFIER = Novelbb_dev_2020_07_07;
+				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SYNovelbb/Resources/SYNovelbb-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -567,17 +785,24 @@
 			baseConfigurationReference = ECD1E6604FB17EF283C2A70F /* Pods-SYNovelbb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N82XYB9GK8;
-				INFOPLIST_FILE = SYNovelbb/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2Z5WC9PKB7;
+				INFOPLIST_FILE = SYNovelbb/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.quwang.SYNovelbb;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novelbb.reader;
+				PRODUCT_NAME = Novelbb;
+				PROVISIONING_PROFILE_SPECIFIER = Novelbb_dev_2020_07_07;
+				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SYNovelbb/Resources/SYNovelbb-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

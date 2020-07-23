@@ -1,11 +1,51 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '10.0'
 
 target 'SYNovelbb' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for SYNovelbb
+  pod 'RxSwift', '~> 5.1.0'
+  pod 'RxCocoa', '~> 5.1.0'
+  pod 'RxDataSources', '~> 4.0'
+  pod 'Moya/RxSwift', '~> 14.0'
+  pod 'R.swift'
+  # Mapping
+  pod 'HandyJSON', '~> 5.0.2'
+  
+  # 自动布局
+  pod 'SnapKit', '~> 4.0.0'
+  
+  # 图片加载
+  pod 'Kingfisher', '~> 4.6.1'
+  
+  # FireBae统计分析
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/DynamicLinks'
+  
+  # YYKit
+  pod 'YYCategories'
+  
+  # 右滑返回
+  pod 'FDFullscreenPopGesture'
+  
+  # 内购
+  pod 'SwiftyStoreKit'
+  
+  # 日志
+  pod 'CocoaLumberjack/Swift', '~> 3.6.1'
+  
+  # 第三方平台登录
+  pod 'mob_sharesdk'  # 主模块
+  pod 'mob_sharesdk/ShareSDKPlatforms/Apple' # 苹果登录
+  pod 'mob_sharesdk/ShareSDKPlatforms/Facebook_Lite'  # Facebook登录
+  # Google登录
+  pod 'GoogleSignIn'
+  # Line登录
+  pod 'LineSDKSwift', '~> 5.0'
+  
+  # 崩溃日志收集
+  pod 'Bugly'
 
   target 'SYNovelbbTests' do
     inherit! :search_paths
