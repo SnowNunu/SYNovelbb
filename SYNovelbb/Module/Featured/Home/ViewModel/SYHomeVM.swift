@@ -25,8 +25,11 @@ class SYHomeVM: RefreshVM<SectionModel<String,SYIndexModel>> {
             .subscribe(onSuccess: { [unowned self] (response) in
                 if response.success {
                     if response.data != nil {
-                        let model = [SectionModel.init(model: "slide", items: response.data!.slide)]
-                        self.datasource.accept(model)
+                        let slide = SectionModel.init(model: "slide", items: response.data!.slide)
+                        let index1 = SectionModel.init(model: "index1", items: response.data!.index1)
+                        let index2 = SectionModel.init(model: "index2", items: response.data!.index2)
+//                        let index3 = SectionModel.init(model: "index3", items: response.data!.index3)
+                        self.datasource.accept([slide, index1, index2])
                     }
                 }
             }) { (error) in

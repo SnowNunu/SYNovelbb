@@ -29,6 +29,7 @@ class SYIndexModel: HandyJSON {
     
     func mapping(mapper: HelpingMapper) {
         mapper.specify(property: &bid, name: "id")
+        mapper.specify(property: &bookTitle, name: "booktitle")
         mapper.specify(property: &readLabel, name: "readLable")
         mapper.specify(property: &intro, name: "Introduction")
     }

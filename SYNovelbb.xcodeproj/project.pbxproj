@@ -29,7 +29,9 @@
 		7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643D724C9524E0025B65B /* SYNavigationController.swift */; };
 		7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */; };
 		7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */; };
-		7B813C6B24CA862A00614BF6 /* SYHomeSliderHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B813C6A24CA862A00614BF6 /* SYHomeSliderHeader.swift */; };
+		7B813C6B24CA862A00614BF6 /* SYHomeSlideHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B813C6A24CA862A00614BF6 /* SYHomeSlideHeader.swift */; };
+		7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */; };
+		7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */; };
 		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
 		7B99BC8624C80C81003FF4E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8524C80C81003FF4E1 /* Assets.xcassets */; };
 		7B99BC8924C80C81003FF4E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */; };
@@ -85,7 +87,9 @@
 		7B3643D724C9524E0025B65B /* SYNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYNavigationController.swift; sourceTree = "<group>"; };
 		7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYAppDelegate+log.swift"; sourceTree = "<group>"; };
 		7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle1Cell.swift; sourceTree = "<group>"; };
-		7B813C6A24CA862A00614BF6 /* SYHomeSliderHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeSliderHeader.swift; sourceTree = "<group>"; };
+		7B813C6A24CA862A00614BF6 /* SYHomeSlideHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeSlideHeader.swift; sourceTree = "<group>"; };
+		7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle2Cell.swift; sourceTree = "<group>"; };
+		7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeNormalHeader.swift; sourceTree = "<group>"; };
 		7B99BC7924C80C80003FF4E1 /* Novelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppDelegate.swift; sourceTree = "<group>"; };
 		7B99BC8524C80C81003FF4E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -254,8 +258,8 @@
 		7B813C6724CA854700614BF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */,
-				7B813C6A24CA862A00614BF6 /* SYHomeSliderHeader.swift */,
+				7BA4DF3224CAD30A000663F6 /* header */,
+				7BA4DF3124CAD305000663F6 /* cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +386,24 @@
 				7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		7BA4DF3124CAD305000663F6 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */,
+				7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		7BA4DF3224CAD30A000663F6 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				7B813C6A24CA862A00614BF6 /* SYHomeSlideHeader.swift */,
+				7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */,
+			);
+			path = header;
 			sourceTree = "<group>";
 		};
 		C334AC6AECFDE1EFA1DFFC9F /* Frameworks */ = {
@@ -709,14 +731,16 @@
 				7B34623924C967CD0090ACFF /* SYFeaturedVC.swift in Sources */,
 				7B3643D524C934C20025B65B /* UIDevice+Extension.swift in Sources */,
 				7B34624324C97FB90090ACFF /* SYHomeVC.swift in Sources */,
+				7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */,
 				7B34623724C9668D0090ACFF /* SYBaseVC.swift in Sources */,
 				7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */,
 				7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */,
+				7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */,
 				7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */,
 				7B34624A24C983920090ACFF /* SYBaseVM.swift in Sources */,
 				7B3643D124C928920025B65B /* SYResponse+ModelMapper.swift in Sources */,
 				7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */,
-				7B813C6B24CA862A00614BF6 /* SYHomeSliderHeader.swift in Sources */,
+				7B813C6B24CA862A00614BF6 /* SYHomeSlideHeader.swift in Sources */,
 				7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */,
 				7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */,
 				7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */,
