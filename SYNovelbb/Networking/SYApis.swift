@@ -31,7 +31,7 @@ extension SYApis: TargetType {
     var path: String {
         switch self {
         case .homePage:
-            return ""
+            return "/1/book/index_1"
         default:
             return ""
         }

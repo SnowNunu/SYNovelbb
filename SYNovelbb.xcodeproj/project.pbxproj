@@ -10,6 +10,17 @@
 		0BD5BA527C4D768B98C21749 /* Pods_SYNovelbb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */; };
 		50B5A2E0E46BAD0B2FA1EF79 /* Pods_SYNovelbb_SYNovelbbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */; };
 		7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623324C95A560090ACFF /* UIColor+Extension.swift */; };
+		7B34623724C9668D0090ACFF /* SYBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623624C9668D0090ACFF /* SYBaseVC.swift */; };
+		7B34623924C967CD0090ACFF /* SYFeaturedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623824C967CD0090ACFF /* SYFeaturedVC.swift */; };
+		7B34623D24C975D80090ACFF /* ListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623C24C975D80090ACFF /* ListBaseViewController.swift */; };
+		7B34624324C97FB90090ACFF /* SYHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34624224C97FB90090ACFF /* SYHomeVC.swift */; };
+		7B34624824C982CA0090ACFF /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34624724C982CA0090ACFF /* LogManager.swift */; };
+		7B34624A24C983920090ACFF /* SYBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34624924C983920090ACFF /* SYBaseVM.swift */; };
+		7B34624C24C9871B0090ACFF /* SYHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34624B24C9871B0090ACFF /* SYHomeVM.swift */; };
+		7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34624E24C987D50090ACFF /* SYRefreshServer.swift */; };
+		7B34625124C9899B0090ACFF /* SYPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34625024C9899B0090ACFF /* SYPageModel.swift */; };
+		7B34625424C98BCC0090ACFF /* BehaviorRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34625324C98BCC0090ACFF /* BehaviorRelay+Extension.swift */; };
+		7B34625624C992730090ACFF /* SYIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34625524C992730090ACFF /* SYIndexModel.swift */; };
 		7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643CA24C91E8C0025B65B /* R.generated.swift */; };
 		7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643CC24C922E60025B65B /* SYSingle+ModelMapper.swift */; };
 		7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643CE24C9250C0025B65B /* SYResponseModel.swift */; };
@@ -17,6 +28,8 @@
 		7B3643D524C934C20025B65B /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643D424C934C20025B65B /* UIDevice+Extension.swift */; };
 		7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643D724C9524E0025B65B /* SYNavigationController.swift */; };
 		7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */; };
+		7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */; };
+		7B813C6B24CA862A00614BF6 /* SYHomeSliderHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B813C6A24CA862A00614BF6 /* SYHomeSliderHeader.swift */; };
 		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
 		7B99BC8624C80C81003FF4E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8524C80C81003FF4E1 /* Assets.xcassets */; };
 		7B99BC8924C80C81003FF4E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */; };
@@ -26,6 +39,7 @@
 		7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */; };
 		7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */; };
 		7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */; };
+		7BA2E10424C995B60027A128 /* SYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2E10324C995B60027A128 /* SYHomeModel.swift */; };
 		B12D6D8ECE14252E767F1AF4 /* Pods_SYNovelbbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +65,17 @@
 		3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb_SYNovelbbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		427BB2E07AAE7B17F92A1C1D /* Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B34623324C95A560090ACFF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7B34623624C9668D0090ACFF /* SYBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBaseVC.swift; sourceTree = "<group>"; };
+		7B34623824C967CD0090ACFF /* SYFeaturedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYFeaturedVC.swift; sourceTree = "<group>"; };
+		7B34623C24C975D80090ACFF /* ListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseViewController.swift; sourceTree = "<group>"; };
+		7B34624224C97FB90090ACFF /* SYHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeVC.swift; sourceTree = "<group>"; };
+		7B34624724C982CA0090ACFF /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		7B34624924C983920090ACFF /* SYBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBaseVM.swift; sourceTree = "<group>"; };
+		7B34624B24C9871B0090ACFF /* SYHomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeVM.swift; sourceTree = "<group>"; };
+		7B34624E24C987D50090ACFF /* SYRefreshServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYRefreshServer.swift; sourceTree = "<group>"; };
+		7B34625024C9899B0090ACFF /* SYPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYPageModel.swift; sourceTree = "<group>"; };
+		7B34625324C98BCC0090ACFF /* BehaviorRelay+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Extension.swift"; sourceTree = "<group>"; };
+		7B34625524C992730090ACFF /* SYIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYIndexModel.swift; sourceTree = "<group>"; };
 		7B3643CA24C91E8C0025B65B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		7B3643CC24C922E60025B65B /* SYSingle+ModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYSingle+ModelMapper.swift"; sourceTree = "<group>"; };
 		7B3643CE24C9250C0025B65B /* SYResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYResponseModel.swift; sourceTree = "<group>"; };
@@ -59,6 +84,8 @@
 		7B3643D624C937AF0025B65B /* SYNovelbb-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SYNovelbb-Bridging-Header.h"; sourceTree = "<group>"; };
 		7B3643D724C9524E0025B65B /* SYNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYNavigationController.swift; sourceTree = "<group>"; };
 		7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYAppDelegate+log.swift"; sourceTree = "<group>"; };
+		7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle1Cell.swift; sourceTree = "<group>"; };
+		7B813C6A24CA862A00614BF6 /* SYHomeSliderHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeSliderHeader.swift; sourceTree = "<group>"; };
 		7B99BC7924C80C80003FF4E1 /* Novelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppDelegate.swift; sourceTree = "<group>"; };
 		7B99BC8524C80C81003FF4E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +101,7 @@
 		7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppConfigs.swift; sourceTree = "<group>"; };
 		7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMoyaPlugins.swift; sourceTree = "<group>"; };
 		7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYTabBarController.swift; sourceTree = "<group>"; };
+		7BA2E10324C995B60027A128 /* SYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeModel.swift; sourceTree = "<group>"; };
 		BF4056E2A7DFF2964AAD32AF /* Pods-SYNovelbb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6468949C419153F8764CFB /* Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,9 +146,84 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		7B34623E24C97E0C0090ACFF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7B813C6724CA854700614BF6 /* View */,
+				7B34624D24C987370090ACFF /* Model */,
+				7B34624424C981D00090ACFF /* ViewModel */,
+				7B34624124C97F4B0090ACFF /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7B34623F24C97E180090ACFF /* Male */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Male;
+			sourceTree = "<group>";
+		};
+		7B34624024C97E200090ACFF /* Female */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Female;
+			sourceTree = "<group>";
+		};
+		7B34624124C97F4B0090ACFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B34624224C97FB90090ACFF /* SYHomeVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B34624424C981D00090ACFF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B34624B24C9871B0090ACFF /* SYHomeVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B34624524C982AB0090ACFF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7B34624624C982B30090ACFF /* Manager */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		7B34624624C982B30090ACFF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7B34624724C982CA0090ACFF /* LogManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7B34624D24C987370090ACFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B34625524C992730090ACFF /* SYIndexModel.swift */,
+				7BA2E10324C995B60027A128 /* SYHomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B34625224C98BB20090ACFF /* BehaviorRelay */ = {
+			isa = PBXGroup;
+			children = (
+				7B34625324C98BCC0090ACFF /* BehaviorRelay+Extension.swift */,
+			);
+			path = BehaviorRelay;
+			sourceTree = "<group>";
+		};
 		7B3643D224C9348F0025B65B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7B34625224C98BB20090ACFF /* BehaviorRelay */,
 				7B34623224C95A410090ACFF /* UIColor */,
 				7B3643D324C9349F0025B65B /* UIDevice */,
 			);
@@ -140,8 +243,21 @@
 			children = (
 				7B3643D724C9524E0025B65B /* SYNavigationController.swift */,
 				7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */,
+				7B34623624C9668D0090ACFF /* SYBaseVC.swift */,
+				7B34624924C983920090ACFF /* SYBaseVM.swift */,
+				7B34624E24C987D50090ACFF /* SYRefreshServer.swift */,
+				7B34625024C9899B0090ACFF /* SYPageModel.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		7B813C6724CA854700614BF6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */,
+				7B813C6A24CA862A00614BF6 /* SYHomeSliderHeader.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7B99BC7024C80C80003FF4E1 = {
@@ -169,6 +285,7 @@
 		7B99BC7B24C80C80003FF4E1 /* SYNovelbb */ = {
 			isa = PBXGroup;
 			children = (
+				7B34624524C982AB0090ACFF /* Utils */,
 				7B3643D224C9348F0025B65B /* Extensions */,
 				7B99BCB324C82FDB003FF4E1 /* Common */,
 				7B99BCB024C82D31003FF4E1 /* Networking */,
@@ -228,6 +345,11 @@
 		7B99BCAF24C81ACB003FF4E1 /* Featured */ = {
 			isa = PBXGroup;
 			children = (
+				7B34623E24C97E0C0090ACFF /* Home */,
+				7B34624024C97E200090ACFF /* Female */,
+				7B34623F24C97E180090ACFF /* Male */,
+				7B34623824C967CD0090ACFF /* SYFeaturedVC.swift */,
+				7B34623C24C975D80090ACFF /* ListBaseViewController.swift */,
 			);
 			path = Featured;
 			sourceTree = "<group>";
@@ -581,19 +703,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B34624824C982CA0090ACFF /* LogManager.swift in Sources */,
 				7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */,
 				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
+				7B34623924C967CD0090ACFF /* SYFeaturedVC.swift in Sources */,
 				7B3643D524C934C20025B65B /* UIDevice+Extension.swift in Sources */,
+				7B34624324C97FB90090ACFF /* SYHomeVC.swift in Sources */,
+				7B34623724C9668D0090ACFF /* SYBaseVC.swift in Sources */,
 				7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */,
 				7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */,
 				7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */,
+				7B34624A24C983920090ACFF /* SYBaseVM.swift in Sources */,
 				7B3643D124C928920025B65B /* SYResponse+ModelMapper.swift in Sources */,
 				7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */,
+				7B813C6B24CA862A00614BF6 /* SYHomeSliderHeader.swift in Sources */,
 				7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */,
 				7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */,
 				7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */,
+				7B34625124C9899B0090ACFF /* SYPageModel.swift in Sources */,
+				7BA2E10424C995B60027A128 /* SYHomeModel.swift in Sources */,
+				7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */,
+				7B34623D24C975D80090ACFF /* ListBaseViewController.swift in Sources */,
+				7B34625424C98BCC0090ACFF /* BehaviorRelay+Extension.swift in Sources */,
+				7B34624C24C9871B0090ACFF /* SYHomeVM.swift in Sources */,
 				7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */,
 				7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */,
+				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,
+				7B34625624C992730090ACFF /* SYIndexModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

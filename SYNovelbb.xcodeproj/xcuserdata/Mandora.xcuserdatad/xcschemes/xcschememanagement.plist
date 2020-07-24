@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SYNovelbb.xcscheme_^#shared#^_</key>
+		<key>SYNovelbb.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>44</integer>
+			<integer>0</integer>
+		</dict>
+		<key>SYNovelbbTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>50</integer>
 		</dict>
 	</dict>
 </dict>

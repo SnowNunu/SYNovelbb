@@ -8,7 +8,6 @@
 
 import UIKit
 import FDFullscreenPopGesture
-import CocoaLumberjack
 
 class SYNavigationController: UINavigationController {
 
@@ -42,7 +41,7 @@ class SYNavigationController: UINavigationController {
     }
     
     deinit {
-        DDLogInfo("\(self) 已释放")
+        logInfo("\(self) 已释放")
     }
 
 }

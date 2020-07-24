@@ -15,6 +15,9 @@ target 'SYNovelbb' do
   # 自动布局
   pod 'SnapKit', '~> 4.0.0'
   
+  # 滚动切换视图
+  pod 'JXSegmentedView'
+  
   # 图片加载
   pod 'Kingfisher', '~> 4.6.1'
   
@@ -25,9 +28,12 @@ target 'SYNovelbb' do
   
   # YYKit
   pod 'YYCategories'
-  
+  # 上下拉刷新
+  pod 'MJRefresh', '~> 3.4.3'
   # 右滑返回
   pod 'FDFullscreenPopGesture'
+  # 轮播
+  pod 'JXBanner'
   
   # 内购
   pod 'SwiftyStoreKit'
@@ -46,6 +52,9 @@ target 'SYNovelbb' do
   
   # 崩溃日志收集
   pod 'Bugly'
+  
+  # UI调试
+  pod 'LookinServer', :configurations => ['Debug']
 
   target 'SYNovelbbTests' do
     inherit! :search_paths
