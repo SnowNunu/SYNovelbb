@@ -51,6 +51,23 @@ extension Response {
         }
     }
     
+    internal func map<T: HandyJSON>(result type: T.Type) throws -> SYResponseModel<[T]> {
+        guard let jsonDictionary = try mapJSON() as? [String: Any] else {
+            throw SYMapperError.json(message: "json解析失败")
+        }
+        guard let serverModel = JSONDeserializer<SYResponseModel<[T]>>.deserializeFrom(dict: jsonDictionary) else {
+            throw SYMapperError.json(message: "json解析失败")
+        }
+        if serverModel.success == true {
+            return serverModel
+        }else {
+            if dealEmptyResult(serverModel.message) == true {
+                return serverModel
+            }
+            throw SYMapperError.server(message: serverModel.message.content)
+        }
+    }
+    
     // 处理查询结果为空
     private func dealEmptyResult(_ message: MessageModel) ->Bool {
         return message.content == "查询结果为空"

@@ -13,11 +13,15 @@ enum SYApis {
     
     case login
     
+    // MARK: Featured模块
     case homePage
     
     case malePage
     
     case femalePage
+    
+    // MARK: Library模块
+    case recommendBooks
 }
 
 extension SYApis: TargetType {
@@ -40,6 +44,8 @@ extension SYApis: TargetType {
             return "/1/book/male_index"
         case .femalePage:
             return "/1/book/female_index"
+        case .recommendBooks:
+            return "/1/book/bookcase"
         default:
             return ""
         }
@@ -89,6 +95,10 @@ extension SYApis {
             return paramters
             
         case .femalePage:
+            paramters["system"] = 2
+            return paramters
+            
+        case .recommendBooks:
             paramters["system"] = 2
             return paramters
         default:

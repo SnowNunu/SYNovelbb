@@ -20,4 +20,12 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
             .observeOn(MainScheduler.instance)
     }
     
+    func map<T: HandyJSON>(resultList type: T.Type) -> Single<SYResponseModel<[T]>> {
+        return observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .flatMap { response -> Single<SYResponseModel<[T]>> in
+                return Single.just(try response.map(result: type))
+            }
+            .observeOn(MainScheduler.instance)
+    }
+    
 }
