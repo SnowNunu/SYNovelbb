@@ -24,14 +24,14 @@ class SYGenderVC: SYBaseVC {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(SYBookStyle1Cell.self, forCellWithReuseIdentifier: SYBookStyle1Cell.className())
         collectionView.register(SYBookStyle2Cell.self, forCellWithReuseIdentifier: SYBookStyle2Cell.className())
-        collectionView.register(SYBookStyle3Cell.self, forCellWithReuseIdentifier: SYBookStyle3Cell.className())
-        collectionView.register(SYHomeSlideHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeSlideHeader.className())
+        collectionView.register(SYGenderSlideHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYGenderSlideHeader.className())
         collectionView.register(SYHomeNormalHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeNormalHeader.className())
         return collectionView
     }()
     
-    lazy var viewModel: SYHomeVM = {
-        let viewModel = SYHomeVM()
+    lazy var viewModel: SYGenderVM = {
+        let viewModel = SYGenderVM()
+        viewModel.gender = self.gender
         return viewModel
     }()
     
@@ -46,7 +46,7 @@ class SYGenderVC: SYBaseVC {
             let model = datasource.sectionModels[indexPath.section].items[indexPath.row]
             switch indexPath.section {
             case 1:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYBookStyle1Cell.className(), for: indexPath) as! SYBookStyle1Cell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYBookStyle2Cell.className(), for: indexPath) as! SYBookStyle2Cell
                 cell.model = model
                 return cell
             case 2:
@@ -54,7 +54,7 @@ class SYGenderVC: SYBaseVC {
                 cell.model = model
                 return cell
             case 3:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYBookStyle3Cell.className(), for: indexPath) as! SYBookStyle3Cell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYBookStyle1Cell.className(), for: indexPath) as! SYBookStyle1Cell
                 cell.model = model
                 return cell
             default:
@@ -63,25 +63,14 @@ class SYGenderVC: SYBaseVC {
             }
         }, configureSupplementaryView: { [unowned self] (datasource, collectionView, title, indexPath) -> UICollectionReusableView in
             if indexPath.section == 0 {
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeSlideHeader.className(), for: indexPath) as! SYHomeSlideHeader
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYGenderSlideHeader.className(), for: indexPath) as! SYGenderSlideHeader
                 header.banner.delegate = self
                 header.banner.dataSource = self
-                header.listBtn.rx.tap.bind { [unowned self] in
-                    let vc = UIViewController()
-                    vc.view.backgroundColor = .red
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }.disposed(by: header.disposeBag)
                 return header
             } else {
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeNormalHeader.className(), for: indexPath) as! SYHomeNormalHeader
-                switch indexPath.section {
-                case 1:
-                    header.titleLabel.text = "High Score"
-                case 2:
-                    header.titleLabel.text = "Editor's recommendation"
-                default:
-                    header.titleLabel.text = "Guess you like it"
-                }
+                let title = datasource.sectionModels[indexPath.section].model
+                header.titleLabel.text = title
                 return header
             }
         })
@@ -121,13 +110,13 @@ extension SYGenderVC: UICollectionViewDelegateFlowLayout {
         case 0:
             return .init(width: 0, height: 0)
         case 1:
-            let width = (ScreenWidth - 64.5) / 4
-            let height = width * (155 / 77.5)
-            return .init(width: width, height: height)
+            return .init(width: ScreenWidth - 30, height: 115)
         case 2:
             return .init(width: ScreenWidth - 30, height: 115)
         default:
-            return .init(width: ScreenWidth - 30, height: 64.5)
+            let width = (ScreenWidth - 64.5) / 4
+            let height = width * (155 / 77.5)
+            return .init(width: width, height: height)
         }
     }
 
@@ -135,7 +124,7 @@ extension SYGenderVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
             let width = (ScreenWidth - 30)
-            let height = 15 + width * (105 / 345) + width * (130 / 345) * (139 / 130)
+            let height = width * (105 / 345)
             return .init(width: width, height: height)
         } else {
             return .init(width: ScreenWidth - 30, height: 45)

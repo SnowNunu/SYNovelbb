@@ -32,6 +32,9 @@
 		7B847CFA24CE606200E9ADFD /* SYBookStyle3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847CF924CE606200E9ADFD /* SYBookStyle3Cell.swift */; };
 		7B847CFF24CE733F00E9ADFD /* SYGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847CFE24CE733F00E9ADFD /* SYGenderVC.swift */; };
 		7B847D0224CE73B900E9ADFD /* SYGenderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D0124CE73B900E9ADFD /* SYGenderVM.swift */; };
+		7B847D0624CE798400E9ADFD /* SYGenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D0524CE798400E9ADFD /* SYGenderModel.swift */; };
+		7B847D0824CE7A4A00E9ADFD /* SYGenderIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D0724CE7A4A00E9ADFD /* SYGenderIndexModel.swift */; };
+		7B847D0B24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D0A24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift */; };
 		7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */; };
 		7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */; };
 		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
@@ -92,6 +95,9 @@
 		7B847CF924CE606200E9ADFD /* SYBookStyle3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle3Cell.swift; sourceTree = "<group>"; };
 		7B847CFE24CE733F00E9ADFD /* SYGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYGenderVC.swift; sourceTree = "<group>"; };
 		7B847D0124CE73B900E9ADFD /* SYGenderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYGenderVM.swift; sourceTree = "<group>"; };
+		7B847D0524CE798400E9ADFD /* SYGenderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYGenderModel.swift; sourceTree = "<group>"; };
+		7B847D0724CE7A4A00E9ADFD /* SYGenderIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYGenderIndexModel.swift; sourceTree = "<group>"; };
+		7B847D0A24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYGenderSlideHeader.swift; sourceTree = "<group>"; };
 		7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle2Cell.swift; sourceTree = "<group>"; };
 		7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeNormalHeader.swift; sourceTree = "<group>"; };
 		7B99BC7924C80C80003FF4E1 /* Novelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				7B847D0324CE748E00E9ADFD /* View */,
+				7B847D0424CE791D00E9ADFD /* Model */,
 				7B847D0024CE739C00E9ADFD /* ViewModel */,
 				7B847CFB24CE72D600E9ADFD /* Controller */,
 			);
@@ -283,8 +290,26 @@
 		7B847D0324CE748E00E9ADFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B847D0924CE7E7B00E9ADFD /* Header */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7B847D0424CE791D00E9ADFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B847D0724CE7A4A00E9ADFD /* SYGenderIndexModel.swift */,
+				7B847D0524CE798400E9ADFD /* SYGenderModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B847D0924CE7E7B00E9ADFD /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				7B847D0A24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		7B99BC7024C80C80003FF4E1 = {
@@ -747,6 +772,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B847D0624CE798400E9ADFD /* SYGenderModel.swift in Sources */,
 				7B34624824C982CA0090ACFF /* LogManager.swift in Sources */,
 				7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */,
 				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
@@ -761,6 +787,7 @@
 				7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */,
 				7B34624A24C983920090ACFF /* SYBaseVM.swift in Sources */,
 				7B3643D124C928920025B65B /* SYResponse+ModelMapper.swift in Sources */,
+				7B847D0824CE7A4A00E9ADFD /* SYGenderIndexModel.swift in Sources */,
 				7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */,
 				7B847D0224CE73B900E9ADFD /* SYGenderVM.swift in Sources */,
 				7B813C6B24CA862A00614BF6 /* SYHomeSlideHeader.swift in Sources */,
@@ -774,6 +801,7 @@
 				7B34625424C98BCC0090ACFF /* BehaviorRelay+Extension.swift in Sources */,
 				7B34624C24C9871B0090ACFF /* SYHomeVM.swift in Sources */,
 				7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */,
+				7B847D0B24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift in Sources */,
 				7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */,
 				7B847CFF24CE733F00E9ADFD /* SYGenderVC.swift in Sources */,
 				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,

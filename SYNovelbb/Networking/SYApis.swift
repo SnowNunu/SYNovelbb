@@ -14,6 +14,10 @@ enum SYApis {
     case login
     
     case homePage
+    
+    case malePage
+    
+    case femalePage
 }
 
 extension SYApis: TargetType {
@@ -32,6 +36,10 @@ extension SYApis: TargetType {
         switch self {
         case .homePage:
             return "/1/book/index_1"
+        case .malePage:
+            return "/1/book/male_index"
+        case .femalePage:
+            return "/1/book/female_index"
         default:
             return ""
         }
@@ -75,7 +83,14 @@ extension SYApis {
         case .homePage:
             paramters["system"] = 2
             return paramters
+        
+        case .malePage:
+            paramters["system"] = 2
+            return paramters
             
+        case .femalePage:
+            paramters["system"] = 2
+            return paramters
         default:
             return paramters
         }
