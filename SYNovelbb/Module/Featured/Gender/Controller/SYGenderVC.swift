@@ -1,19 +1,21 @@
 //
-//  SYHomeVC.swift
+//  SYGenderVC.swift
 //  SYNovelbb
 //
-//  Created by Mandora on 2020/7/23.
+//  Created by Mandora on 2020/7/27.
 //  Copyright © 2020 Mandora. All rights reserved.
 //
 
 import UIKit
 import RxDataSources
-import JXSegmentedView
 import JXBanner
 import JXPageControl
-import Kingfisher
+import JXSegmentedView
 
-class SYHomeVC: SYBaseVC {
+class SYGenderVC: SYBaseVC {
+    
+    // 性别(默认为男性)
+    var gender: Bool = true
     
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -98,7 +100,7 @@ class SYHomeVC: SYBaseVC {
 
 }
 
-extension SYHomeVC: UICollectionViewDelegateFlowLayout {
+extension SYGenderVC: UICollectionViewDelegateFlowLayout {
     
     // 设置边距
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -143,7 +145,7 @@ extension SYHomeVC: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: JXSegmentedListContainerViewListDelegate
-extension SYHomeVC: JXSegmentedListContainerViewListDelegate {
+extension SYGenderVC: JXSegmentedListContainerViewListDelegate {
     
     func listView() -> UIView {
         return view
@@ -151,7 +153,7 @@ extension SYHomeVC: JXSegmentedListContainerViewListDelegate {
 }
 
 // MARK: JXBannerDelegate, JXBannerDataSource
-extension SYHomeVC: JXBannerDelegate, JXBannerDataSource {
+extension SYGenderVC: JXBannerDelegate, JXBannerDataSource {
     
     // 注册cell重用标识
     func jxBanner(_ banner: JXBannerType) -> (JXBannerCellRegister) {

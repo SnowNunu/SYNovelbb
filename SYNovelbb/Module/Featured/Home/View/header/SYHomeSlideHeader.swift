@@ -22,7 +22,6 @@ class SYHomeSlideHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         disposeBag = DisposeBag()
-        addSubview(searchBtn)
         addSubview(banner)
         addSubview(listBtn)
         listBtn.addSubview(listTitle)
@@ -50,15 +49,10 @@ class SYHomeSlideHeader: UICollectionReusableView {
         let listBtnHeight = listBtnWidth * (139 / 130)
         let rankBtnHeight = (listBtnHeight - 10) / 2
 
-        searchBtn.snp.makeConstraints { (make) in
-            make.centerX.top.equalToSuperview()
-            make.width.equalTo(width)
-            make.height.equalTo(30)
-        }
         banner.snp.makeConstraints { (make) in
-            make.top.equalTo(searchBtn.snp.bottom).offset(15)
+            make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.width.equalTo(searchBtn)
+            make.width.equalTo(width)
             make.height.equalTo(bannerHeight)
         }
         listBtn.snp.makeConstraints { (make) in
@@ -121,17 +115,7 @@ class SYHomeSlideHeader: UICollectionReusableView {
         }
     }
     
-    lazy var searchBtn: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = UIColor(240, 240, 240)
-        btn.setTitle("  Search anthor or book title", for: .normal)
-        btn.setTitleColor(UIColor(140, 140, 140), for: .normal)
-        btn.titleLabel?.textAlignment = .center
-        btn.setImage(R.image.home_search(), for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .regular)
-        btn.layer.cornerRadius = 15
-        return btn
-    }()
+    
     
     lazy var banner: JXBanner = {
         let banner = JXBanner()

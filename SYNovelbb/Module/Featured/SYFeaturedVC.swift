@@ -17,6 +17,18 @@ class SYFeaturedVC: SYBaseVC {
         return view
     }()
     
+    lazy var searchBtn: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = UIColor(240, 240, 240)
+        btn.setTitle("  Search anthor or book title", for: .normal)
+        btn.setTitleColor(UIColor(140, 140, 140), for: .normal)
+        btn.titleLabel?.textAlignment = .center
+        btn.setImage(R.image.home_search(), for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        btn.layer.cornerRadius = 15
+        return btn
+    }()
+    
     lazy var segmentedDataSource: JXSegmentedBaseDataSource = {
         let dataSource = JXSegmentedTitleDataSource()
         dataSource.titleNormalColor = UIColor(51, 51, 51)   // 设置常规颜色
@@ -41,7 +53,7 @@ class SYFeaturedVC: SYBaseVC {
         self.navigationController?.navigationBar.isHidden = true
         segmentedView.dataSource = segmentedDataSource
         view.addSubview(segmentedView)
-        
+        view.addSubview(searchBtn)
         segmentedView.listContainer = listContainerView
         view.addSubview(listContainerView)
         
@@ -51,10 +63,15 @@ class SYFeaturedVC: SYBaseVC {
             make.top.equalToSuperview().offset(StatusBarHeight)
             make.height.equalTo(46.5)
         }
-        
+        searchBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(segmentedView.snp_bottom)
+            make.height.equalTo(30)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().offset(-30)
+        }
         listContainerView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(segmentedView.snp.bottom)
+            make.top.equalTo(searchBtn.snp.bottom).offset(15)
         }
     }
 
@@ -71,7 +88,12 @@ extension SYFeaturedVC: JXSegmentedListContainerViewDataSource {
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
         if index == 0 {
             return SYHomeVC()
+        } else if (index == 1) {
+            return SYGenderVC()
+        } else {
+            let vc = SYGenderVC()
+            vc.gender = false
+            return vc
         }
-        return ListBaseViewController()
     }
 }
