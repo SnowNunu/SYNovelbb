@@ -65,11 +65,21 @@ class SYHomeVC: SYBaseVC {
                     let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYHomeSlideHeader.className(), for: indexPath) as! SYHomeSlideHeader
                     header.banner.delegate = self
                     header.banner.dataSource = self
-                    header.listBtn.rx.tap.bind { [unowned self] in
-                        let vc = UIViewController()
-                        vc.view.backgroundColor = .red
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }.disposed(by: header.disposeBag)
+                    
+                    // 随机推荐
+                    header.rankBtn.rx.tap
+                        .bind { [unowned self] in
+                            let vc = SYRankVC()
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                        .disposed(by: header.disposeBag)
+                    // 热门推荐
+                    header.hotBtn.rx.tap
+                        .bind { [unowned self] in
+                            let vc = SYHotBooksVC()
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                        .disposed(by: header.disposeBag)
                     return header
                 } else {
                     let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYHomeNormalHeader.className(), for: indexPath) as! SYHomeNormalHeader

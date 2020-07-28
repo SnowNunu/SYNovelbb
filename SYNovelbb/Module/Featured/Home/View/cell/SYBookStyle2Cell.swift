@@ -33,6 +33,24 @@ class SYBookStyle2Cell: UICollectionViewCell {
         }
     }
     
+    var bookModel: SYBaseBookModel? {
+        didSet {
+            cover.kf.setImage(with: URL(string: bookModel?.cover ?? ""))
+            title.text = bookModel?.bookTitle
+            content.text = bookModel?.intro
+            author.text = bookModel?.tclass
+        }
+    }
+    
+    var rankModel: SYRankListModel! {
+        didSet {
+            cover.kf.setImage(with: URL(string: rankModel?.cover ?? ""))
+            title.text = rankModel?.bookTitle
+            content.text = rankModel?.intro
+            author.text = rankModel.getDescription()
+        }
+    }
+    
     func setupLayouts() {
         let width = self.frame.size.width
         let height = self.frame.size.height

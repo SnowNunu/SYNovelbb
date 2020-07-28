@@ -31,7 +31,6 @@ class SYNavigationController: UINavigationController {
             backButton.sizeToFit()
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:backButton)
         }
-        
         super.pushViewController(viewController, animated: animated)
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 import RxDataSources
 
-class SYGenderVM: RefreshVM<SectionModel<String,SYIndexModel>> {
+class SYGenderVM: RefreshVM<SectionModel<String, SYIndexModel>> {
     
     var gender: Bool!
     
@@ -22,6 +22,7 @@ class SYGenderVM: RefreshVM<SectionModel<String,SYIndexModel>> {
     }
     
     override func requestData(_ refresh: Bool) {
+        super.requestData(refresh)
         SYProvider.rx.request(gender ? .malePage : .femalePage)
             .map(result: SYGenderModel.self)
             .subscribe(onSuccess: { [unowned self] (response) in

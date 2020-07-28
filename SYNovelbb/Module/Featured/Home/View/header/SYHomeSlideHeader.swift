@@ -64,12 +64,12 @@ class SYHomeSlideHeader: UICollectionReusableView {
         listTitle.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(17)
-            make.height.equalTo(13)
+            make.height.equalTo(18)
         }
         listContent.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(listTitle.snp.bottom).offset(9)
-            make.height.equalTo(10)
+            make.height.equalTo(11)
         }
         listImage.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-32.5)
@@ -82,14 +82,14 @@ class SYHomeSlideHeader: UICollectionReusableView {
             make.left.equalTo(listBtn.snp.right).offset(10)
         }
         rankTitle.snp.makeConstraints { (make) in
-            make.left.equalTo(rankImage.snp.right).offset(15)
-            make.top.equalToSuperview().offset(17)
-            make.height.equalTo(13)
+            make.left.equalToSuperview().offset(70)
+            make.bottom.equalTo(rankContent.snp_top).offset(-6.5)
+            make.height.equalTo(18)
         }
         rankContent.snp.makeConstraints { (make) in
-            make.left.equalTo(rankImage.snp.right).offset(15)
-            make.top.equalTo(rankTitle.snp.bottom).offset(6.5)
-            make.height.equalTo(10)
+            make.left.equalTo(rankTitle)
+            make.bottom.equalToSuperview().offset(-16.5)
+            make.height.equalTo(11)
         }
         rankImage.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
@@ -100,14 +100,14 @@ class SYHomeSlideHeader: UICollectionReusableView {
             make.width.right.height.equalTo(rankBtn)
         }
         hotTitle.snp.makeConstraints { (make) in
-            make.left.equalTo(hotImage.snp.right).offset(15)
-            make.top.equalToSuperview().offset(17)
-            make.height.equalTo(13)
+            make.left.equalToSuperview().offset(70)
+            make.bottom.equalTo(hotContent.snp_top).offset(-6.5)
+            make.height.equalTo(18)
         }
         hotContent.snp.makeConstraints { (make) in
-            make.left.equalTo(hotImage.snp.right).offset(15)
-            make.top.equalTo(hotTitle.snp.bottom).offset(6.5)
-            make.height.equalTo(10)
+            make.left.equalTo(hotTitle)
+            make.bottom.equalToSuperview().offset(-16.5)
+            make.height.equalTo(11)
         }
         hotImage.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()

@@ -21,7 +21,7 @@ let NavgationBarHeight:CGFloat = 64
 let TabBarHeight:CGFloat = 49
 
 /// StatusBar高度
-let StatusBarHeight:CGFloat = 20
+let StatusBarHeight:CGFloat = UIDevice().isX ? 44 : 20
 
 struct Configs {
     

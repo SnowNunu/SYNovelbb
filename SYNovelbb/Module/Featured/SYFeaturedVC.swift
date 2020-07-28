@@ -48,9 +48,18 @@ class SYFeaturedVC: SYBaseVC {
     lazy var listContainerView: JXSegmentedListContainerView! = {
         return JXSegmentedListContainerView(dataSource: self)
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
     override func setupUI() {
-        self.navigationController?.navigationBar.isHidden = true
         segmentedView.dataSource = segmentedDataSource
         view.addSubview(segmentedView)
         view.addSubview(searchBtn)

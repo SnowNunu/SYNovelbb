@@ -20,6 +20,10 @@ enum SYApis {
     
     case femalePage
     
+    case hotBooks
+    
+    case rankList(rankId: Int, pageIndex: Int)
+    
     // MARK: Library模块
     case recommendBooks
 }
@@ -46,6 +50,10 @@ extension SYApis: TargetType {
             return "/1/book/female_index"
         case .recommendBooks:
             return "/1/book/bookcase"
+        case .hotBooks:
+            return "/1/book/all"
+        case .rankList(_, _):
+            return "/1/book/top"
         default:
             return ""
         }
@@ -84,22 +92,30 @@ extension SYApis {
     private var parameters: [String: Any]? {
 //        var paramters = AppSetup.instance.requestParam
         var paramters = [String: Any]()
+        paramters["system"] = 2
         switch self {
-            
         case .homePage:
-            paramters["system"] = 2
             return paramters
         
         case .malePage:
-            paramters["system"] = 2
             return paramters
             
         case .femalePage:
-            paramters["system"] = 2
             return paramters
             
         case .recommendBooks:
-            paramters["system"] = 2
+            return paramters
+            
+        case .hotBooks:
+            paramters["d"] = 2
+            paramters["PageIndex"] = 1
+            paramters["PageSize"] = 20
+            return paramters
+            
+        case .rankList(let rankId, let pageIndex):
+            paramters["id"] = rankId
+            paramters["PageSize"] = 20
+            paramters["PageIndex"] = pageIndex
             return paramters
         default:
             return paramters

@@ -44,6 +44,13 @@
 		7B847D1A24CEB4D000E9ADFD /* SYLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1924CEB4D000E9ADFD /* SYLibraryVM.swift */; };
 		7B847D1C24CEBA3A00E9ADFD /* SYBaseBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1B24CEBA3A00E9ADFD /* SYBaseBookModel.swift */; };
 		7B847D2324CED67C00E9ADFD /* SYLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D2224CED67C00E9ADFD /* SYLibraryCell.swift */; };
+		7B8DB47C24CFF7A0005D9D6B /* SYHotBooksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB47B24CFF7A0005D9D6B /* SYHotBooksVC.swift */; };
+		7B8DB47E24CFF7EF005D9D6B /* SYHotBooksVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB47D24CFF7EF005D9D6B /* SYHotBooksVM.swift */; };
+		7B8DB48324D00AC9005D9D6B /* SYRankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB48224D00AC9005D9D6B /* SYRankVC.swift */; };
+		7B8DB48524D00ADB005D9D6B /* SYRankVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB48424D00ADB005D9D6B /* SYRankVM.swift */; };
+		7B8DB48724D01A32005D9D6B /* SYRankListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB48624D01A32005D9D6B /* SYRankListVC.swift */; };
+		7B8DB48924D02067005D9D6B /* SYRankListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB48824D02067005D9D6B /* SYRankListVM.swift */; };
+		7B8DB48C24D02ADC005D9D6B /* SYRankListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB48B24D02ADC005D9D6B /* SYRankListModel.swift */; };
 		7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */; };
 		7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */; };
 		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
@@ -116,6 +123,13 @@
 		7B847D1924CEB4D000E9ADFD /* SYLibraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryVM.swift; sourceTree = "<group>"; };
 		7B847D1B24CEBA3A00E9ADFD /* SYBaseBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBaseBookModel.swift; sourceTree = "<group>"; };
 		7B847D2224CED67C00E9ADFD /* SYLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryCell.swift; sourceTree = "<group>"; };
+		7B8DB47B24CFF7A0005D9D6B /* SYHotBooksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHotBooksVC.swift; sourceTree = "<group>"; };
+		7B8DB47D24CFF7EF005D9D6B /* SYHotBooksVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHotBooksVM.swift; sourceTree = "<group>"; };
+		7B8DB48224D00AC9005D9D6B /* SYRankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYRankVC.swift; sourceTree = "<group>"; };
+		7B8DB48424D00ADB005D9D6B /* SYRankVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYRankVM.swift; sourceTree = "<group>"; };
+		7B8DB48624D01A32005D9D6B /* SYRankListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYRankListVC.swift; sourceTree = "<group>"; };
+		7B8DB48824D02067005D9D6B /* SYRankListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYRankListVM.swift; sourceTree = "<group>"; };
+		7B8DB48B24D02ADC005D9D6B /* SYRankListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYRankListModel.swift; sourceTree = "<group>"; };
 		7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle2Cell.swift; sourceTree = "<group>"; };
 		7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeNormalHeader.swift; sourceTree = "<group>"; };
 		7B99BC7924C80C80003FF4E1 /* Novelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,6 +415,67 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		7B8DB47824CFF76B005D9D6B /* Hot */ = {
+			isa = PBXGroup;
+			children = (
+				7B8DB47A24CFF785005D9D6B /* ViewModel */,
+				7B8DB47924CFF77E005D9D6B /* Controller */,
+			);
+			path = Hot;
+			sourceTree = "<group>";
+		};
+		7B8DB47924CFF77E005D9D6B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B8DB47B24CFF7A0005D9D6B /* SYHotBooksVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B8DB47A24CFF785005D9D6B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B8DB47D24CFF7EF005D9D6B /* SYHotBooksVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B8DB47F24D00787005D9D6B /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				7B8DB48A24D02ACA005D9D6B /* Model */,
+				7B8DB48124D00AB4005D9D6B /* ViewModel */,
+				7B8DB48024D00AAE005D9D6B /* Controller */,
+			);
+			path = Rank;
+			sourceTree = "<group>";
+		};
+		7B8DB48024D00AAE005D9D6B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B8DB48224D00AC9005D9D6B /* SYRankVC.swift */,
+				7B8DB48624D01A32005D9D6B /* SYRankListVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B8DB48124D00AB4005D9D6B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B8DB48424D00ADB005D9D6B /* SYRankVM.swift */,
+				7B8DB48824D02067005D9D6B /* SYRankListVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B8DB48A24D02ACA005D9D6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B8DB48B24D02ADC005D9D6B /* SYRankListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7B99BC7024C80C80003FF4E1 = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +564,8 @@
 			children = (
 				7B34623E24C97E0C0090ACFF /* Home */,
 				7B34623F24C97E180090ACFF /* Gender */,
+				7B8DB47F24D00787005D9D6B /* Rank */,
+				7B8DB47824CFF76B005D9D6B /* Hot */,
 				7B34623824C967CD0090ACFF /* SYFeaturedVC.swift */,
 			);
 			path = Featured;
@@ -877,9 +954,11 @@
 				7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */,
 				7B34623724C9668D0090ACFF /* SYBaseVC.swift in Sources */,
 				7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */,
+				7B8DB47E24CFF7EF005D9D6B /* SYHotBooksVM.swift in Sources */,
 				7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */,
 				7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */,
 				7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */,
+				7B8DB47C24CFF7A0005D9D6B /* SYHotBooksVC.swift in Sources */,
 				7B847D1724CEAB2300E9ADFD /* SYLibraryEditHeader.swift in Sources */,
 				7B34624A24C983920090ACFF /* SYBaseVM.swift in Sources */,
 				7B3643D124C928920025B65B /* SYResponse+ModelMapper.swift in Sources */,
@@ -891,13 +970,18 @@
 				7B847D1A24CEB4D000E9ADFD /* SYLibraryVM.swift in Sources */,
 				7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */,
 				7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */,
+				7B8DB48C24D02ADC005D9D6B /* SYRankListModel.swift in Sources */,
 				7B34625124C9899B0090ACFF /* SYPageModel.swift in Sources */,
 				7B847CFA24CE606200E9ADFD /* SYBookStyle3Cell.swift in Sources */,
 				7BA2E10424C995B60027A128 /* SYHomeModel.swift in Sources */,
 				7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */,
+				7B8DB48324D00AC9005D9D6B /* SYRankVC.swift in Sources */,
+				7B8DB48524D00ADB005D9D6B /* SYRankVM.swift in Sources */,
 				7B34625424C98BCC0090ACFF /* BehaviorRelay+Extension.swift in Sources */,
+				7B8DB48924D02067005D9D6B /* SYRankListVM.swift in Sources */,
 				7B847D2324CED67C00E9ADFD /* SYLibraryCell.swift in Sources */,
 				7B34624C24C9871B0090ACFF /* SYHomeVM.swift in Sources */,
+				7B8DB48724D01A32005D9D6B /* SYRankListVC.swift in Sources */,
 				7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */,
 				7B847D0B24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift in Sources */,
 				7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */,
