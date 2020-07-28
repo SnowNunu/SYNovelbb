@@ -45,7 +45,6 @@ class SYBookStyle2Cell: UICollectionViewCell {
             make.width.equalTo(width - 94.5)
             make.top.equalToSuperview().offset(5)
             make.left.equalTo(cover.snp.right).offset(13.5)
-            make.height.equalTo(15)
         }
         content.snp.makeConstraints { (make) in
             make.top.equalTo(title.snp.bottom).offset(17.5)

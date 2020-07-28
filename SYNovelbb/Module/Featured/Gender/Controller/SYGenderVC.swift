@@ -22,10 +22,12 @@ class SYGenderVC: SYBaseVC {
         let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .white
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(SYEmptyCell.self, forCellWithReuseIdentifier: SYEmptyCell.className())
         collectionView.register(SYBookStyle1Cell.self, forCellWithReuseIdentifier: SYBookStyle1Cell.className())
         collectionView.register(SYBookStyle2Cell.self, forCellWithReuseIdentifier: SYBookStyle2Cell.className())
         collectionView.register(SYGenderSlideHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYGenderSlideHeader.className())
         collectionView.register(SYHomeNormalHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeNormalHeader.className())
+        collectionView.register(SYBlankFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: SYBlankFooter.className())
         return collectionView
     }()
     
@@ -38,10 +40,9 @@ class SYGenderVC: SYBaseVC {
     override func setupUI() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.width.equalToSuperview().offset(-30)
+            make.edges.equalToSuperview()
         }
+        
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYIndexModel>>.init(configureCell: { (datasource, collectionView, indexPath, element) -> UICollectionViewCell in
             let model = datasource.sectionModels[indexPath.section].items[indexPath.row]
             switch indexPath.section {
@@ -58,20 +59,25 @@ class SYGenderVC: SYBaseVC {
                 cell.model = model
                 return cell
             default:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYBookStyle1Cell.className(), for: indexPath) as! SYBookStyle1Cell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYEmptyCell.className(), for: indexPath) as! SYEmptyCell
                 return cell
             }
-        }, configureSupplementaryView: { [unowned self] (datasource, collectionView, title, indexPath) -> UICollectionReusableView in
-            if indexPath.section == 0 {
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYGenderSlideHeader.className(), for: indexPath) as! SYGenderSlideHeader
-                header.banner.delegate = self
-                header.banner.dataSource = self
-                return header
+        }, configureSupplementaryView: { [unowned self] (datasource, collectionView, kind, indexPath) -> UICollectionReusableView in
+            if kind == UICollectionView.elementKindSectionHeader {
+                if indexPath.section == 0 {
+                    let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYGenderSlideHeader.className(), for: indexPath) as! SYGenderSlideHeader
+                    header.banner.delegate = self
+                    header.banner.dataSource = self
+                    return header
+                } else {
+                    let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYHomeNormalHeader.className(), for: indexPath) as! SYHomeNormalHeader
+                    let title = datasource.sectionModels[indexPath.section].model
+                    header.titleLabel.text = title
+                    return header
+                }
             } else {
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeNormalHeader.className(), for: indexPath) as! SYHomeNormalHeader
-                let title = datasource.sectionModels[indexPath.section].model
-                header.titleLabel.text = title
-                return header
+                let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYBlankFooter.className(), for: indexPath)
+                return footer
             }
         })
         
@@ -84,23 +90,30 @@ class SYGenderVC: SYBaseVC {
     }
     
     override func rxBind() {
-        viewModel.reloadSubject.onNext(true)
+        collectionView.prepare(viewModel, SectionModel<String, SYIndexModel>.self)
+        collectionView.headerRefreshing()
     }
-
+    
 }
 
 extension SYGenderVC: UICollectionViewDelegateFlowLayout {
     
     // 设置边距
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 0, bottom: 15, right: 0)
+        return .init(top: 0, left: 15, bottom: 0, right: 15)
+    }
+
+    // 设置行间距
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    // 设置列间距
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if section == 3 {
-            return 0
+            return 11.5
         } else {
-            return 15
+            return 0
         }
     }
     
@@ -108,7 +121,7 @@ extension SYGenderVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case 0:
-            return .init(width: 0, height: 0)
+            return .init(width: 0.1, height: 0.1)
         case 1:
             return .init(width: ScreenWidth - 30, height: 115)
         case 2:
@@ -123,11 +136,19 @@ extension SYGenderVC: UICollectionViewDelegateFlowLayout {
     // 设置header大小
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
-            let width = (ScreenWidth - 30)
-            let height = width * (105 / 345)
-            return .init(width: width, height: height)
+            return .init(width: ScreenWidth, height: (ScreenWidth - 30) * (105 / 345) + 15)
         } else {
-            return .init(width: ScreenWidth - 30, height: 45)
+            return .init(width: ScreenWidth, height: 45)
+        }
+    }
+    
+    // 设置footer大小
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        switch section {
+        case 1, 2:
+            return .init(width: ScreenWidth, height: 15)
+        default:
+            return .init(width: ScreenWidth, height: 0.01)
         }
     }
     

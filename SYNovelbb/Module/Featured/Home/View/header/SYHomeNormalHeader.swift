@@ -51,12 +51,12 @@ class SYHomeNormalHeader: UICollectionReusableView {
         titleLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.height.equalTo(18)
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
         }
         changeBtn.snp.makeConstraints { (make) in
             make.width.equalTo(65)
             make.centerY.height.equalToSuperview()
-            make.right.equalToSuperview()
+            make.right.equalToSuperview().offset(-15)
         }
         changeLabel.snp.makeConstraints { (make) in
             make.width.equalTo(40)

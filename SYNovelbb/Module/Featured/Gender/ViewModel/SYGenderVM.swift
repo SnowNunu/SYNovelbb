@@ -31,7 +31,7 @@ class SYGenderVM: RefreshVM<SectionModel<String,SYIndexModel>> {
                         let index1 = SectionModel.init(model: response.data!.index1.title!, items: response.data!.index1.data)
                         let index2 = SectionModel.init(model: response.data!.index2.title!, items: response.data!.index2.data)
                         let index3 = SectionModel.init(model: response.data!.index3.title!, items: response.data!.index3.data)
-                        self.datasource.accept([slide, index1, index2, index3])
+                        self.updateRefresh(true, [slide, index1, index2, index3], 4)
                     }
                 }
             }) { (error) in

@@ -43,7 +43,7 @@ class SYHomeSlideHeader: UICollectionReusableView {
     }
     
     func setupLayouts() {
-        let width = self.frame.size.width
+        let width = self.frame.size.width - 30
         let bannerHeight = width * (105 / 345)
         let listBtnWidth = width * (130 / 345)
         let listBtnHeight = listBtnWidth * (139 / 130)
@@ -57,7 +57,7 @@ class SYHomeSlideHeader: UICollectionReusableView {
         }
         listBtn.snp.makeConstraints { (make) in
             make.top.equalTo(banner.snp.bottom).offset(15)
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
             make.width.equalTo(listBtnWidth)
             make.height.equalTo(listBtnHeight)
         }
@@ -78,7 +78,7 @@ class SYHomeSlideHeader: UICollectionReusableView {
         rankBtn.snp.makeConstraints { (make) in
             make.top.equalTo(listBtn)
             make.height.equalTo(rankBtnHeight)
-            make.right.equalToSuperview()
+            make.right.equalToSuperview().offset(-15)
             make.left.equalTo(listBtn.snp.right).offset(10)
         }
         rankTitle.snp.makeConstraints { (make) in

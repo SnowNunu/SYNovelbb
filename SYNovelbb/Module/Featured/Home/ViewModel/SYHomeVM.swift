@@ -20,16 +20,17 @@ class SYHomeVM: RefreshVM<SectionModel<String,SYIndexModel>> {
     }
     
     override func requestData(_ refresh: Bool) {
+        super.requestData(refresh)
         SYProvider.rx.request(.homePage)
             .map(result: SYHomeModel.self)
             .subscribe(onSuccess: { [unowned self] (response) in
                 if response.success {
                     if response.data != nil {
                         let slide = SectionModel.init(model: "slide", items: response.data!.slide)
-                        let index1 = SectionModel.init(model: "index1", items: response.data!.index1)
-                        let index2 = SectionModel.init(model: "index2", items: response.data!.index2)
-                        let index3 = SectionModel.init(model: "index3", items: response.data!.index3)
-                        self.datasource.accept([slide, index1, index2, index3])
+                        let index1 = SectionModel.init(model: "High Score", items: response.data!.index1)
+                        let index2 = SectionModel.init(model: "Editor's recommendation", items: response.data!.index2)
+                        let index3 = SectionModel.init(model: "Guess you like it", items: response.data!.index3)
+                        self.updateRefresh(true, [slide, index1, index2, index3], 4)
                     }
                 }
             }) { (error) in

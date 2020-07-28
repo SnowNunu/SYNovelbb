@@ -31,7 +31,7 @@ class SYGenderSlideHeader: UICollectionReusableView {
     }
     
     func setupLayouts() {
-        let width = self.frame.size.width
+        let width = self.frame.size.width - 30
         let bannerHeight = width * (105 / 345)
 
         banner.snp.makeConstraints { (make) in
@@ -40,7 +40,6 @@ class SYGenderSlideHeader: UICollectionReusableView {
             make.width.equalTo(width)
             make.height.equalTo(bannerHeight)
         }
-        
     }
     
     lazy var banner: JXBanner = {

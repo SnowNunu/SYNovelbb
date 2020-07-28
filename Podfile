@@ -6,7 +6,7 @@ target 'SYNovelbb' do
 
   pod 'RxSwift', '~> 5.1.0'
   pod 'RxCocoa', '~> 5.1.0'
-  pod 'RxDataSources', '~> 4.0'
+  pod 'RxDataSources', '~> 4.0.1'
   pod 'Moya/RxSwift', '~> 14.0'
   pod 'R.swift'
   # Mapping

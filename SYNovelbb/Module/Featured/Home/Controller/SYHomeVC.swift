@@ -20,11 +20,13 @@ class SYHomeVC: SYBaseVC {
         let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .white
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(SYEmptyCell.self, forCellWithReuseIdentifier: SYEmptyCell.className())
         collectionView.register(SYBookStyle1Cell.self, forCellWithReuseIdentifier: SYBookStyle1Cell.className())
         collectionView.register(SYBookStyle2Cell.self, forCellWithReuseIdentifier: SYBookStyle2Cell.className())
         collectionView.register(SYBookStyle3Cell.self, forCellWithReuseIdentifier: SYBookStyle3Cell.className())
         collectionView.register(SYHomeSlideHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeSlideHeader.className())
         collectionView.register(SYHomeNormalHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeNormalHeader.className())
+        collectionView.register(SYBlankFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: SYBlankFooter.className())
         return collectionView
     }()
     
@@ -36,9 +38,7 @@ class SYHomeVC: SYBaseVC {
     override func setupUI() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.width.equalToSuperview().offset(-30)
+            make.edges.equalToSuperview()
         }
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYIndexModel>>.init(configureCell: { (datasource, collectionView, indexPath, element) -> UICollectionViewCell in
             let model = datasource.sectionModels[indexPath.section].items[indexPath.row]
@@ -56,32 +56,31 @@ class SYHomeVC: SYBaseVC {
                 cell.model = model
                 return cell
             default:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYBookStyle1Cell.className(), for: indexPath) as! SYBookStyle1Cell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYEmptyCell.className(), for: indexPath) as! SYEmptyCell
                 return cell
             }
-        }, configureSupplementaryView: { [unowned self] (datasource, collectionView, title, indexPath) -> UICollectionReusableView in
-            if indexPath.section == 0 {
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeSlideHeader.className(), for: indexPath) as! SYHomeSlideHeader
-                header.banner.delegate = self
-                header.banner.dataSource = self
-                header.listBtn.rx.tap.bind { [unowned self] in
-                    let vc = UIViewController()
-                    vc.view.backgroundColor = .red
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }.disposed(by: header.disposeBag)
-                return header
-            } else {
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SYHomeNormalHeader.className(), for: indexPath) as! SYHomeNormalHeader
-                switch indexPath.section {
-                case 1:
-                    header.titleLabel.text = "High Score"
-                case 2:
-                    header.titleLabel.text = "Editor's recommendation"
-                default:
-                    header.titleLabel.text = "Guess you like it"
+        }, configureSupplementaryView: { [unowned self] (datasource, collectionView, kind, indexPath) -> UICollectionReusableView in
+            if kind == UICollectionView.elementKindSectionHeader {
+                if indexPath.section == 0 {
+                    let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYHomeSlideHeader.className(), for: indexPath) as! SYHomeSlideHeader
+                    header.banner.delegate = self
+                    header.banner.dataSource = self
+                    header.listBtn.rx.tap.bind { [unowned self] in
+                        let vc = UIViewController()
+                        vc.view.backgroundColor = .red
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }.disposed(by: header.disposeBag)
+                    return header
+                } else {
+                    let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYHomeNormalHeader.className(), for: indexPath) as! SYHomeNormalHeader
+                    header.titleLabel.text = datasource.sectionModels[indexPath.section].model
+                    return header
                 }
-                return header
+            } else {
+                let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYBlankFooter.className(), for: indexPath)
+                return footer
             }
+            
         })
         
         viewModel.datasource.asDriver()
@@ -93,7 +92,8 @@ class SYHomeVC: SYBaseVC {
     }
     
     override func rxBind() {
-        viewModel.reloadSubject.onNext(true)
+        collectionView.prepare(viewModel, SectionModel<String, SYIndexModel>.self)
+        collectionView.headerRefreshing()
     }
 
 }
@@ -102,14 +102,26 @@ extension SYHomeVC: UICollectionViewDelegateFlowLayout {
     
     // 设置边距
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 0, bottom: 15, right: 0)
+        return .init(top: 0, left: 15, bottom: 0, right: 15)
     }
     
+    // 设置行间距
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if section == 3 {
-            return 0
-        } else {
+        switch section {
+        case 1, 2:
             return 15
+        default:
+            return 0
+        }
+    }
+    
+    // 设置列间距
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        switch section {
+        case 1:
+            return 0
+        default:
+            return 0
         }
     }
     
@@ -117,7 +129,7 @@ extension SYHomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case 0:
-            return .init(width: 0, height: 0)
+            return .init(width: 0.1, height: 0.1)
         case 1:
             let width = (ScreenWidth - 64.5) / 4
             let height = width * (155 / 77.5)
@@ -133,10 +145,20 @@ extension SYHomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
             let width = (ScreenWidth - 30)
-            let height = 15 + width * (105 / 345) + width * (130 / 345) * (139 / 130)
-            return .init(width: width, height: height)
+            let height = 30 + width * (105 / 345) + width * (130 / 345) * (139 / 130)
+            return .init(width: ScreenWidth, height: height)
         } else {
-            return .init(width: ScreenWidth - 30, height: 45)
+            return .init(width: ScreenWidth, height: 45)
+        }
+    }
+    
+    // 设置footer大小
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        switch section {
+        case 0, 3:
+            return .init(width: ScreenWidth, height: 0.01)
+        default:
+            return .init(width: ScreenWidth, height: 15)
         }
     }
     

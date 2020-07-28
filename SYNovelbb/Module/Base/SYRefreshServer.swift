@@ -116,10 +116,14 @@ class RefreshVM<T>: SYBaseVM {
 }
 
 extension RefreshVM {
-
-    /**
-     刷新方法，发射刷新信号
-     */
+    
+    /// 更新刷新控件和数据源
+    /// - Parameters:
+    ///   - refresh: 上(false)/下(true)拉刷新
+    ///   - models: 本次请求的数据
+    ///   - total: 数据总数
+    ///   - psize: 分页大小
+    ///   - addData: 是否更新datasource
     public final func updateRefresh(_ refresh: Bool, _ models: [T]?, _ total: Int?, pageSize psize: Int? = 10, _ addData: Bool = true) {
         pageModel.pageSize = psize!
         pageModel.total = total ?? 0

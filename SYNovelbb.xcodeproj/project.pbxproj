@@ -27,6 +27,8 @@
 		7B3643D524C934C20025B65B /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643D424C934C20025B65B /* UIDevice+Extension.swift */; };
 		7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643D724C9524E0025B65B /* SYNavigationController.swift */; };
 		7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */; };
+		7B710ACB24CFDB5500517F43 /* SYEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B710ACA24CFDB5500517F43 /* SYEmptyCell.swift */; };
+		7B710ACE24CFEBA700517F43 /* SYBlankFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B710ACD24CFEBA700517F43 /* SYBlankFooter.swift */; };
 		7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */; };
 		7B813C6B24CA862A00614BF6 /* SYHomeSlideHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B813C6A24CA862A00614BF6 /* SYHomeSlideHeader.swift */; };
 		7B847CFA24CE606200E9ADFD /* SYBookStyle3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847CF924CE606200E9ADFD /* SYBookStyle3Cell.swift */; };
@@ -97,6 +99,8 @@
 		7B3643D624C937AF0025B65B /* SYNovelbb-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SYNovelbb-Bridging-Header.h"; sourceTree = "<group>"; };
 		7B3643D724C9524E0025B65B /* SYNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYNavigationController.swift; sourceTree = "<group>"; };
 		7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYAppDelegate+log.swift"; sourceTree = "<group>"; };
+		7B710ACA24CFDB5500517F43 /* SYEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYEmptyCell.swift; sourceTree = "<group>"; };
+		7B710ACD24CFEBA700517F43 /* SYBlankFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBlankFooter.swift; sourceTree = "<group>"; };
 		7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle1Cell.swift; sourceTree = "<group>"; };
 		7B813C6A24CA862A00614BF6 /* SYHomeSlideHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeSlideHeader.swift; sourceTree = "<group>"; };
 		7B847CF924CE606200E9ADFD /* SYBookStyle3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle3Cell.swift; sourceTree = "<group>"; };
@@ -277,9 +281,18 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		7B710ACC24CFEB6700517F43 /* footer */ = {
+			isa = PBXGroup;
+			children = (
+				7B710ACD24CFEBA700517F43 /* SYBlankFooter.swift */,
+			);
+			path = footer;
+			sourceTree = "<group>";
+		};
 		7B813C6724CA854700614BF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B710ACC24CFEB6700517F43 /* footer */,
 				7BA4DF3224CAD30A000663F6 /* header */,
 				7BA4DF3124CAD305000663F6 /* cell */,
 			);
@@ -517,6 +530,7 @@
 				7B813C6824CA858D00614BF6 /* SYBookStyle1Cell.swift */,
 				7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */,
 				7B847CF924CE606200E9ADFD /* SYBookStyle3Cell.swift */,
+				7B710ACA24CFDB5500517F43 /* SYEmptyCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -857,6 +871,7 @@
 				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
 				7B847D1C24CEBA3A00E9ADFD /* SYBaseBookModel.swift in Sources */,
 				7B34623924C967CD0090ACFF /* SYFeaturedVC.swift in Sources */,
+				7B710ACB24CFDB5500517F43 /* SYEmptyCell.swift in Sources */,
 				7B3643D524C934C20025B65B /* UIDevice+Extension.swift in Sources */,
 				7B34624324C97FB90090ACFF /* SYHomeVC.swift in Sources */,
 				7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */,
@@ -890,6 +905,7 @@
 				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,
 				7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift in Sources */,
 				7B34625624C992730090ACFF /* SYIndexModel.swift in Sources */,
+				7B710ACE24CFEBA700517F43 /* SYBlankFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
