@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		0BD5BA527C4D768B98C21749 /* Pods_SYNovelbb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */; };
 		50B5A2E0E46BAD0B2FA1EF79 /* Pods_SYNovelbb_SYNovelbbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */; };
+		7B22C79124D2B60E002F8037 /* SYMineRechargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22C79024D2B60E002F8037 /* SYMineRechargeVC.swift */; };
+		7B22C79324D2B626002F8037 /* SYMineRechargeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22C79224D2B626002F8037 /* SYMineRechargeVM.swift */; };
+		7B22C79A24D2BADA002F8037 /* SYMineAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22C79924D2BADA002F8037 /* SYMineAccountVC.swift */; };
+		7B22C79C24D2BAEF002F8037 /* SYMineAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22C79B24D2BAEF002F8037 /* SYMineAccountVM.swift */; };
+		7B22C7A024D2C3E9002F8037 /* SYMineAccountHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22C79F24D2C3E9002F8037 /* SYMineAccountHeader.swift */; };
+		7B22C7A224D2CD48002F8037 /* SYMineAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22C7A124D2CD48002F8037 /* SYMineAccountCell.swift */; };
+		7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22C7A324D2CF53002F8037 /* SYMineAccountModel.swift */; };
 		7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623324C95A560090ACFF /* UIColor+Extension.swift */; };
 		7B34623724C9668D0090ACFF /* SYBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623624C9668D0090ACFF /* SYBaseVC.swift */; };
 		7B34623924C967CD0090ACFF /* SYFeaturedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623824C967CD0090ACFF /* SYFeaturedVC.swift */; };
@@ -114,6 +121,13 @@
 		12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A81DDD98061C368E5F20417 /* Pods_SYNovelbb_SYNovelbbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb_SYNovelbbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		427BB2E07AAE7B17F92A1C1D /* Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B22C79024D2B60E002F8037 /* SYMineRechargeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineRechargeVC.swift; sourceTree = "<group>"; };
+		7B22C79224D2B626002F8037 /* SYMineRechargeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineRechargeVM.swift; sourceTree = "<group>"; };
+		7B22C79924D2BADA002F8037 /* SYMineAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineAccountVC.swift; sourceTree = "<group>"; };
+		7B22C79B24D2BAEF002F8037 /* SYMineAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineAccountVM.swift; sourceTree = "<group>"; };
+		7B22C79F24D2C3E9002F8037 /* SYMineAccountHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineAccountHeader.swift; sourceTree = "<group>"; };
+		7B22C7A124D2CD48002F8037 /* SYMineAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineAccountCell.swift; sourceTree = "<group>"; };
+		7B22C7A324D2CF53002F8037 /* SYMineAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineAccountModel.swift; sourceTree = "<group>"; };
 		7B34623324C95A560090ACFF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7B34623624C9668D0090ACFF /* SYBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBaseVC.swift; sourceTree = "<group>"; };
 		7B34623824C967CD0090ACFF /* SYFeaturedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYFeaturedVC.swift; sourceTree = "<group>"; };
@@ -238,6 +252,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B22C78C24D2B5C6002F8037 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C79024D2B60E002F8037 /* SYMineRechargeVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B22C78D24D2B5D1002F8037 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C79224D2B626002F8037 /* SYMineRechargeVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B22C78E24D2B5DA002F8037 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B22C78F24D2B5DF002F8037 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B22C79424D2B92F002F8037 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C79824D2BA8E002F8037 /* Model */,
+				7B22C79724D2BA88002F8037 /* View */,
+				7B22C79624D2BA81002F8037 /* ViewModel */,
+				7B22C79524D2BA7A002F8037 /* Controller */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		7B22C79524D2BA7A002F8037 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C79924D2BADA002F8037 /* SYMineAccountVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B22C79624D2BA81002F8037 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C79B24D2BAEF002F8037 /* SYMineAccountVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B22C79724D2BA88002F8037 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C79E24D2C3B2002F8037 /* cell */,
+				7B22C79D24D2C3AC002F8037 /* header */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B22C79824D2BA8E002F8037 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C7A324D2CF53002F8037 /* SYMineAccountModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B22C79D24D2C3AC002F8037 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C79F24D2C3E9002F8037 /* SYMineAccountHeader.swift */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
+		7B22C79E24D2C3B2002F8037 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7B22C7A124D2CD48002F8037 /* SYMineAccountCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		7B34623224C95A410090ACFF /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +509,10 @@
 		7B7DAB4624D2A260004944AE /* Recharge */ = {
 			isa = PBXGroup;
 			children = (
+				7B22C78F24D2B5DF002F8037 /* Model */,
+				7B22C78E24D2B5DA002F8037 /* View */,
+				7B22C78D24D2B5D1002F8037 /* ViewModel */,
+				7B22C78C24D2B5C6002F8037 /* Controller */,
 			);
 			path = Recharge;
 			sourceTree = "<group>";
@@ -799,6 +907,7 @@
 			isa = PBXGroup;
 			children = (
 				7B8DB48E24D0324C005D9D6B /* MineCenter */,
+				7B22C79424D2B92F002F8037 /* Account */,
 				7B7DAB4724D2A27F004944AE /* Subscription */,
 				7B7DAB4624D2A260004944AE /* Recharge */,
 				7B7DAB3924D2639D004944AE /* SystemMsg */,
@@ -1309,7 +1418,9 @@
 				7B34624824C982CA0090ACFF /* LogManager.swift in Sources */,
 				7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */,
 				7B7DAB3F24D2640A004944AE /* SYMineSystemMsgVM.swift in Sources */,
+				7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */,
 				7B8DB49424D03379005D9D6B /* SYMineCenterVC.swift in Sources */,
+				7B22C79C24D2BAEF002F8037 /* SYMineAccountVM.swift in Sources */,
 				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
 				7B847D1C24CEBA3A00E9ADFD /* SYBaseBookModel.swift in Sources */,
 				7B8576C224D1556D002D99EF /* SYMineCenterFooter.swift in Sources */,
@@ -1347,9 +1458,11 @@
 				7B7DAB3D24D263F9004944AE /* SYMineSystemMsgVC.swift in Sources */,
 				7B847D1A24CEB4D000E9ADFD /* SYLibraryVM.swift in Sources */,
 				7B7DAB5124D2A7BB004944AE /* SYMineSubscriptionCell.swift in Sources */,
+				7B22C79124D2B60E002F8037 /* SYMineRechargeVC.swift in Sources */,
 				7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */,
 				7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */,
 				7B8DB48C24D02ADC005D9D6B /* SYRankListModel.swift in Sources */,
+				7B22C7A224D2CD48002F8037 /* SYMineAccountCell.swift in Sources */,
 				7B8576C024D14783002D99EF /* UIView+Extension.swift in Sources */,
 				7B34625124C9899B0090ACFF /* SYPageModel.swift in Sources */,
 				7B8DB49624D0338C005D9D6B /* SYMineCenterVM.swift in Sources */,
@@ -1363,6 +1476,7 @@
 				7B34625424C98BCC0090ACFF /* BehaviorRelay+Extension.swift in Sources */,
 				7B8576D124D174BF002D99EF /* SYMineSettingFooter.swift in Sources */,
 				7B8DB48924D02067005D9D6B /* SYRankListVM.swift in Sources */,
+				7B22C79A24D2BADA002F8037 /* SYMineAccountVC.swift in Sources */,
 				7B847D2324CED67C00E9ADFD /* SYLibraryCell.swift in Sources */,
 				7B34624C24C9871B0090ACFF /* SYHomeVM.swift in Sources */,
 				7B8576C924D173D8002D99EF /* SYMineSettingVM.swift in Sources */,
@@ -1378,6 +1492,8 @@
 				7B34625624C992730090ACFF /* SYIndexModel.swift in Sources */,
 				7B710ACE24CFEBA700517F43 /* SYBlankFooter.swift in Sources */,
 				7B8576D324D176AC002D99EF /* SYMineSettingModel.swift in Sources */,
+				7B22C79324D2B626002F8037 /* SYMineRechargeVM.swift in Sources */,
+				7B22C7A024D2C3E9002F8037 /* SYMineAccountHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
