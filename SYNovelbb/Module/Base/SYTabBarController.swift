@@ -35,13 +35,13 @@ class SYTabBarController: UITabBarController {
     }
     
     func setViewControllers() {
-        let feature = getViewController(controller: SYFeaturedVC(), title: "Featured", image: R.image.tabBar_featured_unselected()!, selectedImage: R.image.tabBar_featured_selected()!)
-        let library = getViewController(controller: R.storyboard.library.libraryVC()!, title: "Library", image: R.image.tabBar_library_unselected()!, selectedImage: R.image.tabBar_library_selected()!)
-        let mine = getViewController(controller: R.storyboard.mine.mineCenterVC()!, title: "Mine", image: R.image.tabBar_mine_unselected()!, selectedImage: R.image.tabBar_mine_selected()!)
+        let feature = getController(controller: SYFeaturedVC(), title: "Featured", image: R.image.tabBar_featured_unselected()!, selectedImage: R.image.tabBar_featured_selected()!)
+        let library = getController(controller: R.storyboard.library.libraryVC()!, title: "Library", image: R.image.tabBar_library_unselected()!, selectedImage: R.image.tabBar_library_selected()!)
+        let mine = getController(controller: R.storyboard.mine.mineCenterVC()!, title: "Mine", image: R.image.tabBar_mine_unselected()!, selectedImage: R.image.tabBar_mine_selected()!)
         viewControllers = [feature, library, mine]
     }
     
-    private func getViewController(controller: UIViewController, title: String, image: UIImage, selectedImage: UIImage) -> SYNavigationController {
+    private func getController(controller: UIViewController, title: String, image: UIImage, selectedImage: UIImage) -> SYNavigationController {
         controller.tabBarItem = UITabBarItem (title:title, image: image.withRenderingMode(.alwaysOriginal),selectedImage: selectedImage.withRenderingMode(.alwaysOriginal))
         return SYNavigationController.init(rootViewController: controller)
     }

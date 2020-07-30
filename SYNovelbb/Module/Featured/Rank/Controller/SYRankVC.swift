@@ -24,8 +24,8 @@ class SYRankVC: SYBaseVC {
     
     lazy var segmentedDataSource: JXSegmentedBaseDataSource = {
         let dataSource = JXSegmentedTitleDataSource()
-        dataSource.titleSelectedColor = UIColor(255, 242, 195)    // 设置常规颜色
-        dataSource.titleNormalColor = UIColor(51, 51, 51) // 设置选中后的颜色
+        dataSource.titleSelectedColor = UIColor(51, 51, 51) // 设置常规颜色
+        dataSource.titleNormalColor = UIColor(255, 242, 195) // 设置选中后的颜色
         dataSource.titleNormalFont = UIFont.systemFont(ofSize: 15, weight: .regular)
         dataSource.isTitleColorGradientEnabled = true   // 颜色渐变
         dataSource.titles = ["Popular", "Recommend", "Fellow", "Cheers"]

@@ -20,12 +20,11 @@ class SYLibraryVC: SYBaseVC {
     
     override func setupUI() {
         self.navigationController?.navigationBar.isHidden = true
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYBaseBookModel>>.init(configureCell: { (datasource, collectionView, indexPath, element) -> UICollectionViewCell in
-            let model = datasource.sectionModels[indexPath.section].items[indexPath.row]
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYBaseBookModel>>.init(configureCell: { (_, collectionView, indexPath, model) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SYLibraryCell", for: indexPath) as! SYLibraryCell
             cell.model = model
             return cell
-        }, configureSupplementaryView: {[unowned self] (datasource, collectionView, title, indexPath) -> UICollectionReusableView in
+        }, configureSupplementaryView: { (_, collectionView, kind, indexPath) -> UICollectionReusableView in
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SYLibrayNormalHeader", for: indexPath) as! SYLibrayNormalHeader
             return header
         })

@@ -34,8 +34,7 @@ class SYHotBooksVC: SYBaseVC {
             make.edges.equalToSuperview()
         }
         
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYBaseBookModel>>.init(configureCell: { (datasource, collectionView, indexPath, element) -> UICollectionViewCell in
-            let model = datasource.sectionModels[indexPath.section].items[indexPath.row]
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYBaseBookModel>>.init(configureCell: { (_, collectionView, indexPath, model) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYBookStyle2Cell.className(), for: indexPath) as! SYBookStyle2Cell
             cell.bookModel = model
             return cell

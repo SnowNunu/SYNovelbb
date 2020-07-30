@@ -26,6 +26,9 @@ enum SYApis {
     
     // MARK: Library模块
     case recommendBooks
+    
+    // MARK: Mine模块
+    case systemMessage(pageIndex: Int)
 }
 
 extension SYApis: TargetType {
@@ -54,6 +57,8 @@ extension SYApis: TargetType {
             return "/1/book/all"
         case .rankList(_, _):
             return "/1/book/top"
+        case .systemMessage(_):
+            return "1/member/message"
         default:
             return ""
         }

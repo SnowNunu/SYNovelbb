@@ -43,8 +43,7 @@ class SYGenderVC: SYBaseVC {
             make.edges.equalToSuperview()
         }
         
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYIndexModel>>.init(configureCell: { (datasource, collectionView, indexPath, element) -> UICollectionViewCell in
-            let model = datasource.sectionModels[indexPath.section].items[indexPath.row]
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYIndexModel>>.init(configureCell: { (_, collectionView, indexPath, model) -> UICollectionViewCell in
             switch indexPath.section {
             case 1:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYBookStyle2Cell.className(), for: indexPath) as! SYBookStyle2Cell
