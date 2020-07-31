@@ -21,6 +21,9 @@ target 'SYNovelbb' do
   # 图片加载
   pod 'Kingfisher', '~> 4.6.1'
   
+  # 占位图
+  pod 'DZNEmptyDataSet'
+  
   # FireBae统计分析
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'

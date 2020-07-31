@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -285,29 +286,180 @@
                         <segue destination="ofp-uN-gOI" kind="show" identifier="enterSettingView" id="2F9-q5-2gR"/>
                         <segue destination="PVJ-dY-xxD" kind="show" identifier="enterSystemMsgView" id="EmR-KF-QTb"/>
                         <segue destination="yhi-ht-oDx" kind="show" identifier="enterSubscriptionView" id="VQE-g6-85e"/>
-                        <segue destination="F0c-Es-j7I" kind="show" id="bTP-Nl-bRY"/>
+                        <segue destination="F0c-Es-j7I" kind="show" identifier="enterRechargeView" id="bTP-Nl-bRY"/>
                         <segue destination="uGR-WG-4pT" kind="show" identifier="enterMyAccountView" id="P7R-SD-v1L"/>
+                        <segue destination="Osi-GM-O6k" kind="show" identifier="enterRecordView" id="2lS-iO-s0V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rI3-Ny-H5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1933" y="-632"/>
         </scene>
-        <!--View Controller-->
+        <!--Mine Recharge-->
         <scene sceneID="xeC-Pl-M03">
             <objects>
-                <viewController id="F0c-Es-j7I" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mineRechargeVC" title="Mine Recharge" id="F0c-Es-j7I" customClass="SYMineRechargeVC" customModule="Novelbb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Fq-2x-1wu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okM-cI-SSd">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3y9-Ca-TdA">
+                                    <size key="itemSize" width="163" height="83"/>
+                                    <size key="headerReferenceSize" width="50" height="45"/>
+                                    <size key="footerReferenceSize" width="50" height="210"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SYMineRechargeCell" id="sbF-qv-6dx" customClass="SYMineRechargeCell" customModule="Novelbb" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="45" width="167.5" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gea-9i-Hyj">
+                                            <rect key="frame" x="0.0" y="0.0" width="167.5" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Qg-sx-wiM">
+                                                    <rect key="frame" x="95" y="26" width="28" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="0K4-yl-qPe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70 coins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWH-pk-Edy">
+                                                    <rect key="frame" x="60" y="46" width="48" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="12" id="oUs-Hk-oCY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.9882352941176471" green="0.37647058823529411" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWK-Ah-VrT">
+                                                    <rect key="frame" x="42.5" y="20" width="47.5" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="0b5-e8-MOQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8Qg-sx-wiM" firstAttribute="leading" secondItem="kWK-Ah-VrT" secondAttribute="trailing" constant="5" id="BE5-rA-WOn"/>
+                                                <constraint firstItem="dWH-pk-Edy" firstAttribute="centerX" secondItem="Gea-9i-Hyj" secondAttribute="centerX" id="Ruj-Or-IJF"/>
+                                                <constraint firstItem="8Qg-sx-wiM" firstAttribute="centerX" secondItem="Gea-9i-Hyj" secondAttribute="centerX" constant="25" id="XBq-KM-PZ9"/>
+                                                <constraint firstItem="kWK-Ah-VrT" firstAttribute="bottom" secondItem="8Qg-sx-wiM" secondAttribute="bottom" id="fkO-RZ-72N"/>
+                                                <constraint firstItem="dWH-pk-Edy" firstAttribute="top" secondItem="8Qg-sx-wiM" secondAttribute="bottom" constant="10" id="q1J-wt-7Vs"/>
+                                                <constraint firstAttribute="bottom" secondItem="dWH-pk-Edy" secondAttribute="bottom" constant="12" id="rzs-kl-a1U"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="167.5" height="70"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.o" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="priceLabel" destination="kWK-Ah-VrT" id="f8h-l2-Wjf"/>
+                                            <outlet property="productLabel" destination="dWH-pk-Edy" id="Q8T-s9-ad8"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SYMineRechargeHeader" id="r6X-cA-h8e" customClass="SYMineRechargeHeader" customModule="Novelbb" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recharge amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1x2-Sq-b75">
+                                            <rect key="frame" x="15" y="27" width="121" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="1x2-Sq-b75" secondAttribute="bottom" id="18O-kV-U4h"/>
+                                        <constraint firstItem="1x2-Sq-b75" firstAttribute="leading" secondItem="r6X-cA-h8e" secondAttribute="leading" constant="15" id="k8v-hD-s78"/>
+                                    </constraints>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SYMineRechargeFooter" id="eZF-lr-bUo" customClass="SYMineRechargeFooter" customModule="Novelbb" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="115" width="414" height="210"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recharge method" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjF-q4-xP8">
+                                            <rect key="frame" x="15" y="0.0" width="122" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_apple_pay" translatesAutoresizingMaskIntoConstraints="NO" id="xiU-te-Q9o">
+                                            <rect key="frame" x="15" y="33" width="27.5" height="14"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITn-Rv-TUz">
+                                            <rect key="frame" x="15" y="147" width="384" height="40"/>
+                                            <color key="backgroundColor" red="0.95686274509803915" green="0.792156862745098" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="bvw-vT-nbp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="To Recharge">
+                                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking the recharge button, you agree to our recharge terms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otv-MX-esW">
+                                            <rect key="frame" x="37" y="196.5" width="340" height="13.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.45098039215686275" green="0.45098039215686275" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple pay" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfO-Sd-uKF">
+                                            <rect key="frame" x="52.5" y="32" width="60.5" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vjF-q4-xP8" firstAttribute="top" secondItem="eZF-lr-bUo" secondAttribute="top" id="3uA-Wa-U65"/>
+                                        <constraint firstItem="Otv-MX-esW" firstAttribute="centerX" secondItem="eZF-lr-bUo" secondAttribute="centerX" id="Fur-Ds-WCs"/>
+                                        <constraint firstItem="jfO-Sd-uKF" firstAttribute="leading" secondItem="xiU-te-Q9o" secondAttribute="trailing" constant="10" id="Gon-ve-5g7"/>
+                                        <constraint firstItem="xiU-te-Q9o" firstAttribute="top" secondItem="vjF-q4-xP8" secondAttribute="bottom" constant="15" id="HBm-2v-t7R"/>
+                                        <constraint firstAttribute="bottom" secondItem="Otv-MX-esW" secondAttribute="bottom" id="V12-12-Vpe"/>
+                                        <constraint firstItem="ITn-Rv-TUz" firstAttribute="leading" secondItem="eZF-lr-bUo" secondAttribute="leading" constant="15" id="eHG-bf-TPt"/>
+                                        <constraint firstItem="vjF-q4-xP8" firstAttribute="leading" secondItem="eZF-lr-bUo" secondAttribute="leading" constant="15" id="feD-xf-VaQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="ITn-Rv-TUz" secondAttribute="trailing" constant="15" id="gEY-8v-g72"/>
+                                        <constraint firstItem="jfO-Sd-uKF" firstAttribute="centerY" secondItem="xiU-te-Q9o" secondAttribute="centerY" id="hj3-Dh-7LJ"/>
+                                        <constraint firstItem="xiU-te-Q9o" firstAttribute="leading" secondItem="eZF-lr-bUo" secondAttribute="leading" constant="15" id="ptX-Ac-Hdc"/>
+                                        <constraint firstItem="ITn-Rv-TUz" firstAttribute="top" secondItem="xiU-te-Q9o" secondAttribute="bottom" constant="100" id="xtM-bY-AAY"/>
+                                    </constraints>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wED-VV-Un7" firstAttribute="trailing" secondItem="okM-cI-SSd" secondAttribute="trailing" id="IeV-Vb-z5C"/>
+                            <constraint firstItem="okM-cI-SSd" firstAttribute="leading" secondItem="wED-VV-Un7" secondAttribute="leading" id="VIb-Ur-Tj5"/>
+                            <constraint firstItem="okM-cI-SSd" firstAttribute="top" secondItem="wED-VV-Un7" secondAttribute="top" id="bPO-Zm-9JL"/>
+                            <constraint firstItem="wED-VV-Un7" firstAttribute="bottom" secondItem="okM-cI-SSd" secondAttribute="bottom" id="sic-Gc-Vb3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wED-VV-Un7"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QZ0-O4-rpp"/>
+                    <navigationItem key="navigationItem" title="Recharge" id="QZ0-O4-rpp"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="okM-cI-SSd" id="TF5-5a-sd9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E00-Fk-mNT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="-70"/>
+            <point key="canvasLocation" x="537.68115942028987" y="-70.3125"/>
         </scene>
         <!--Mine Subscription-->
         <scene sceneID="T1A-OI-chK">
@@ -405,6 +557,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0W-sP-Wpn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="538" y="-824"/>
+        </scene>
+        <!--Mine Record-->
+        <scene sceneID="cMQ-1u-4DN">
+            <objects>
+                <viewController storyboardIdentifier="mineRecordVC" title="Mine Record" id="Osi-GM-O6k" customClass="SYMineRecordVC" customModule="Novelbb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uaf-2g-hnk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="42A-di-Wj9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4zq-nY-kdT"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4d-9t-HrE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="-2250"/>
         </scene>
         <!--Mine Account-->
         <scene sceneID="mf4-u3-scT">
@@ -999,6 +1168,7 @@ All Rights Reserved</string>
     <resources>
         <image name="mine_about_logo" width="90" height="90"/>
         <image name="mine_account_bg" width="375" height="198.5"/>
+        <image name="mine_apple_pay" width="27.5" height="14"/>
         <image name="mine_head_default" width="72.5" height="72.5"/>
         <image name="mine_round_bg" width="279" height="178"/>
         <image name="mine_setting_arrow" width="8" height="13"/>

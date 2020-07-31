@@ -29,6 +29,8 @@ enum SYApis {
     
     // MARK: Mine模块
     case systemMessage(pageIndex: Int)
+    
+    case productIds
 }
 
 extension SYApis: TargetType {
@@ -58,7 +60,9 @@ extension SYApis: TargetType {
         case .rankList(_, _):
             return "/1/book/top"
         case .systemMessage(_):
-            return "1/member/message"
+            return "/1/member/message"
+        case .productIds:
+            return "/1/member/cardType"
         default:
             return ""
         }

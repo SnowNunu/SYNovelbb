@@ -43,7 +43,20 @@ class SYMineCenterVM: RefreshVM<SectionModel<String, SYMineCenterModel>> {
                 SYMineCenterModel.init(R.image.mine_center_setting(), "Setting", nil)
             ])
         ]
-        segueIds = [["", "enterMyAccountView", "enterSubscriptionView"], [""], ["enterSystemMsgView", "enterSettingView"]]
+        segueIds = [
+            [
+                "enterRecordView",
+                "enterMyAccountView",
+                "enterSubscriptionView"
+            ],
+            [
+                "enterRechargeView"
+            ],
+            [
+                "enterSystemMsgView",
+                "enterSettingView"
+            ]
+        ]
         self.updateRefresh(true, models, 3)
     }
 
