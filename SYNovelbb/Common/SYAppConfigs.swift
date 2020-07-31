@@ -23,6 +23,12 @@ let TabBarHeight:CGFloat = 49
 /// StatusBar高度
 let StatusBarHeight:CGFloat = UIDevice().isX ? 44 : 20
 
+// 顶部安全区域高度
+let TopSafeAreaHeight:CGFloat = UIDevice().isX ? 44 : 20
+
+// 底部安全区域高度
+let BottomSafeAreaHeight:CGFloat = UIDevice().isX ? 34 : 0
+
 struct Configs {
     
     struct Network {

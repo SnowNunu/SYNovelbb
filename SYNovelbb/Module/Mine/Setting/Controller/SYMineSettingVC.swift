@@ -13,6 +13,8 @@ class SYMineSettingVC: SYBaseVC {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var footerView: SYMineSettingFooter!
+    
     lazy var viewModel: SYMineSettingVM = {
         let vm = SYMineSettingVM.init(self)
         return vm
@@ -25,7 +27,9 @@ class SYMineSettingVC: SYBaseVC {
             automaticallyAdjustsScrollViewInsets = false
         }
         tableView.tableFooterView?.height = 69
-        
+    }
+    
+    override func rxBind() {
         let datasource = RxTableViewSectionedReloadDataSource<SectionModel<String, SYMineSettingModel>>.init(configureCell: {(datasouce, tableView, indexPath, model) in
             let cell = tableView.dequeueReusableCell(withIdentifier: "SYMineSettingCell", for: indexPath) as! SYMineSettingCell
             cell.model = model
@@ -45,10 +49,15 @@ class SYMineSettingVC: SYBaseVC {
             .asDriver()
             .drive(viewModel.enterNextView)
             .disposed(by: disposeBag)
-    }
-    
-    override func rxBind() {
         
+        footerView.switchBtn.rx
+            .tap
+            .subscribe(onNext: { [unowned self] _ in
+                let vc = R.storyboard.mine.mineBindingVC()!
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            })
+            .disposed(by: footerView.disposeBag)
     }
 
 }

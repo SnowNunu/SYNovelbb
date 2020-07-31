@@ -43,6 +43,8 @@
 		7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */; };
 		7B710ACB24CFDB5500517F43 /* SYEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B710ACA24CFDB5500517F43 /* SYEmptyCell.swift */; };
 		7B710ACE24CFEBA700517F43 /* SYBlankFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B710ACD24CFEBA700517F43 /* SYBlankFooter.swift */; };
+		7B750E2124D3FD360007BCD0 /* SYMineBindingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B750E2024D3FD360007BCD0 /* SYMineBindingVC.swift */; };
+		7B750E2324D3FD530007BCD0 /* SYMineBindingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B750E2224D3FD530007BCD0 /* SYMineBindingVM.swift */; };
 		7B7DAB3824D25846004944AE /* SYMineAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7DAB3724D25846004944AE /* SYMineAboutCell.swift */; };
 		7B7DAB3D24D263F9004944AE /* SYMineSystemMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7DAB3C24D263F9004944AE /* SYMineSystemMsgVC.swift */; };
 		7B7DAB3F24D2640A004944AE /* SYMineSystemMsgVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7DAB3E24D2640A004944AE /* SYMineSystemMsgVM.swift */; };
@@ -163,6 +165,8 @@
 		7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYAppDelegate+log.swift"; sourceTree = "<group>"; };
 		7B710ACA24CFDB5500517F43 /* SYEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYEmptyCell.swift; sourceTree = "<group>"; };
 		7B710ACD24CFEBA700517F43 /* SYBlankFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBlankFooter.swift; sourceTree = "<group>"; };
+		7B750E2024D3FD360007BCD0 /* SYMineBindingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineBindingVC.swift; sourceTree = "<group>"; };
+		7B750E2224D3FD530007BCD0 /* SYMineBindingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineBindingVM.swift; sourceTree = "<group>"; };
 		7B7DAB3724D25846004944AE /* SYMineAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineAboutCell.swift; sourceTree = "<group>"; };
 		7B7DAB3C24D263F9004944AE /* SYMineSystemMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineSystemMsgVC.swift; sourceTree = "<group>"; };
 		7B7DAB3E24D2640A004944AE /* SYMineSystemMsgVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineSystemMsgVM.swift; sourceTree = "<group>"; };
@@ -545,6 +549,31 @@
 				7B710ACD24CFEBA700517F43 /* SYBlankFooter.swift */,
 			);
 			path = footer;
+			sourceTree = "<group>";
+		};
+		7B750E1D24D3FCF00007BCD0 /* Binding */ = {
+			isa = PBXGroup;
+			children = (
+				7B750E1F24D3FD100007BCD0 /* ViewModel */,
+				7B750E1E24D3FD090007BCD0 /* Controller */,
+			);
+			path = Binding;
+			sourceTree = "<group>";
+		};
+		7B750E1E24D3FD090007BCD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B750E2024D3FD360007BCD0 /* SYMineBindingVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B750E1F24D3FD100007BCD0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B750E2224D3FD530007BCD0 /* SYMineBindingVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7B7DAB3924D2639D004944AE /* SystemMsg */ = {
@@ -998,6 +1027,7 @@
 				7B7DAB3924D2639D004944AE /* SystemMsg */,
 				7B8576C324D16343002D99EF /* Setting */,
 				7B8576D424D17E90002D99EF /* About */,
+				7B750E1D24D3FCF00007BCD0 /* Binding */,
 				7B8DB48F24D0327C005D9D6B /* Mine.storyboard */,
 			);
 			path = Mine;
@@ -1507,6 +1537,7 @@
 				7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */,
 				7B8DB49424D03379005D9D6B /* SYMineCenterVC.swift in Sources */,
 				7B22C79C24D2BAEF002F8037 /* SYMineAccountVM.swift in Sources */,
+				7B750E2324D3FD530007BCD0 /* SYMineBindingVM.swift in Sources */,
 				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
 				7B847D1C24CEBA3A00E9ADFD /* SYBaseBookModel.swift in Sources */,
 				7B8576C224D1556D002D99EF /* SYMineCenterFooter.swift in Sources */,
@@ -1576,6 +1607,7 @@
 				7B7DAB4D24D2A2D4004944AE /* SYMineSubscriptionVM.swift in Sources */,
 				7B847D0B24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift in Sources */,
 				7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */,
+				7B750E2124D3FD360007BCD0 /* SYMineBindingVC.swift in Sources */,
 				7B847CFF24CE733F00E9ADFD /* SYGenderVC.swift in Sources */,
 				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,
 				7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift in Sources */,
