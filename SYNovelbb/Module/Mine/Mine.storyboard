@@ -541,7 +541,7 @@
                                             <constraint firstAttribute="height" constant="44" id="BNI-fT-JQP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <state key="normal" title="  Sign in with Apple" image="mine_bind_facebook">
+                                        <state key="normal" title=" Sign in with Facebook" image="mine_bind_facebook">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -551,11 +551,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2z-6K-QHF">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2z-6K-QHF">
                                         <rect key="frame" x="25" y="244" width="334" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="310-Xf-6QZ"/>
                                         </constraints>
+                                        <state key="normal" title=" Sign in with Google" image="mine_bind_google">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -563,11 +566,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPy-C1-RQL">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPy-C1-RQL">
                                         <rect key="frame" x="25" y="348" width="334" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="p7a-wP-qcI"/>
                                         </constraints>
+                                        <state key="normal" title=" Sign in with Line" image="mine_bind_line">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -753,11 +759,48 @@ and privacy of this product.</string>
                     <view key="view" contentMode="scaleToFill" id="Uaf-2g-hnk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iFP-VT-us9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SYMineRecordCell" rowHeight="85" id="8Du-Kw-y5W" customClass="SYMineRecordCell" customModule="Novelbb" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Du-Kw-y5W" id="7dJ-d6-gTJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-07-23 17:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe2-XC-7ft">
+                                                    <rect key="frame" x="15" y="15" width="97" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.77647058823529413" green="0.74117647058823533" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fe2-XC-7ft" firstAttribute="leading" secondItem="7dJ-d6-gTJ" secondAttribute="leading" constant="15" id="aMn-BI-oR1"/>
+                                                <constraint firstItem="fe2-XC-7ft" firstAttribute="top" secondItem="7dJ-d6-gTJ" secondAttribute="top" constant="15" id="rNk-I1-VX4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="42A-di-Wj9" firstAttribute="trailing" secondItem="iFP-VT-us9" secondAttribute="trailing" id="JP2-ys-M9l"/>
+                            <constraint firstItem="iFP-VT-us9" firstAttribute="top" secondItem="42A-di-Wj9" secondAttribute="top" id="d6k-Kh-AOl"/>
+                            <constraint firstAttribute="bottom" secondItem="iFP-VT-us9" secondAttribute="bottom" id="fXb-6l-9Lv"/>
+                            <constraint firstItem="iFP-VT-us9" firstAttribute="leading" secondItem="42A-di-Wj9" secondAttribute="leading" id="nMu-hw-Ekl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="42A-di-Wj9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4zq-nY-kdT"/>
+                    <navigationItem key="navigationItem" title="Recharge record" id="4zq-nY-kdT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="iFP-VT-us9" id="drL-r8-MMA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4d-9t-HrE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1362,6 +1405,8 @@ All Rights Reserved</string>
         <image name="mine_account_bg" width="375" height="198.5"/>
         <image name="mine_apple_pay" width="27.5" height="14"/>
         <image name="mine_bind_facebook" width="16.5" height="16.5"/>
+        <image name="mine_bind_google" width="16.5" height="16.5"/>
+        <image name="mine_bind_line" width="16.5" height="15.5"/>
         <image name="mine_head_default" width="72.5" height="72.5"/>
         <image name="mine_round_bg" width="279" height="178"/>
         <image name="mine_setting_arrow" width="8" height="13"/>

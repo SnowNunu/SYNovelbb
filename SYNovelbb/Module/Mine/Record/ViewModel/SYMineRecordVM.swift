@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import RxDataSources
 
-class SYMineRecordVM: SYBaseVC {
+class SYMineRecordVM: RefreshVM<SYMineRecordModel> {
     
+    override func requestData(_ refresh: Bool) {
+        super.requestData(refresh)
+//        https://api.novelbb.com/1/qw/logPay?PageSize=10&pageIndex=1&token=ff314716fb66ea6e830934d1ec7ce648%2C164%2C1596453719&uid=164
+    }
     
 }

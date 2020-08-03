@@ -7,24 +7,35 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class SYMineRecordVC: SYBaseVC {
+    
+    @IBOutlet weak var tableView: UITableView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func setupUI() {
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func rxBind() {
+        
     }
-    */
 
+}
+
+extension SYMineRecordVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
+    // 设置占位图显示图片内容
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return R.image.mine_record_empty()!
+    }
+    
+    // 设置占位图图片下文字显示内容
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attributedString = NSMutableAttributedString.init(string: "No records!")
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(51, 51, 51), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular)], range: NSMakeRange(0, attributedString.length))
+        return attributedString
+    }
+    
 }

@@ -43,6 +43,8 @@ target 'SYNovelbb' do
   
   # 日志
   pod 'CocoaLumberjack/Swift', '~> 3.6.1'
+  # 数据库
+  pod 'RealmSwift'
   
   # 第三方平台登录
   pod 'mob_sharesdk'  # 主模块
