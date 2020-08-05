@@ -11,7 +11,8 @@ import Moya
 
 enum SYApis {
     
-    case login
+    // MARK: 注册绑定模块
+    case touristLogin
     
     // MARK: Featured模块
     case homePage
@@ -47,6 +48,8 @@ extension SYApis: TargetType {
     // 配置请求path
     var path: String {
         switch self {
+        case .touristLogin:
+            return "/1/member/tourist"
         case .homePage:
             return "/1/book/index_1"
         case .malePage:
@@ -71,7 +74,7 @@ extension SYApis: TargetType {
     // 配置请求方法
     var method: Moya.Method {
         switch self {
-        case .login:
+        case .touristLogin:
             return .post
         default:
             return .get

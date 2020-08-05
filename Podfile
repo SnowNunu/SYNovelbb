@@ -37,6 +37,10 @@ target 'SYNovelbb' do
   pod 'FDFullscreenPopGesture'
   # 轮播
   pod 'JXBanner'
+  # 加载框
+  pod 'NVActivityIndicatorView'
+  # 提示框
+  pod 'MBProgressHUD', '~> 1.2.0'
   
   # 内购
   pod 'SwiftyStoreKit'

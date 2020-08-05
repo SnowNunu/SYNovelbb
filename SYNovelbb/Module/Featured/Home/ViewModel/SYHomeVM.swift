@@ -34,7 +34,8 @@ class SYHomeVM: RefreshVM<SectionModel<String,SYIndexModel>> {
                     }
                 }
             }) { (error) in
-            
+//                error as? Mo
+                print(error)
             }
             .disposed(by: disposeBag)
     }

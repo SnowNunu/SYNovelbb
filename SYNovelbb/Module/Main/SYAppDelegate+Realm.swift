@@ -11,19 +11,17 @@ import RealmSwift
 extension SYAppDelegate {
     
     func setupRealm() {
-        let dbVersion: UInt64 = 1
         let docPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as String
-        let dbPath = docPath.appending("/NovelbbDB.realm")
-        let config = Realm.Configuration(fileURL: URL.init(string: dbPath), inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: dbVersion, migrationBlock: { (migration, oldSchemaVersion) in
+        let dbPath = docPath.appending("/\(Configs.dbName).realm")
+        let config = Realm.Configuration(fileURL: URL.init(string: dbPath), inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: Configs.dbVersion, migrationBlock: { (migration, oldSchemaVersion) in
             
         }, deleteRealmIfMigrationNeeded: false, shouldCompactOnLaunch: nil, objectTypes: nil)
         Realm.Configuration.defaultConfiguration = config
-        Realm.asyncOpen { (realm, error) in
-            if let _ = realm {
-                print("Realm 服务器配置成功!")
-            }else if let error = error {
-                print("Realm 数据库配置失败：\(error.localizedDescription)")
-            }
+        do {
+            _ = try Realm.init(configuration: config)
+            print("数据库创建成功")
+        } catch let error {
+            print("打开或者创建数据库失败:\n\(error.localizedDescription)")
         }
     }
     

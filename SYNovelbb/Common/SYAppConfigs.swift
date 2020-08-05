@@ -47,4 +47,8 @@ struct Configs {
         static let topHeight: CGFloat = statusBarHeight + naviBarHeight
     }
     
+    static let dbName: String = "NovelbbDB"
+    
+    static let dbVersion: UInt64 = 1
+    
 }

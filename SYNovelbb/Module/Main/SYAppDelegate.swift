@@ -20,7 +20,7 @@ class SYAppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame :UIScreen.main.bounds)
         window!.backgroundColor = UIColor.white
-        window?.rootViewController = SYTabBarController()
+        window?.rootViewController = R.storyboard.main().instantiateInitialViewController()!
         window?.makeKeyAndVisible()
         
         return true

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hPH-bd-unX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainVC-->
+        <scene sceneID="zOd-lA-a7U">
+            <objects>
+                <viewController id="hPH-bd-unX" customClass="SYMainVC" customModule="Novelbb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xdS-g3-3yK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sC1-kZ-wB8">
+                                <rect key="frame" x="0.0" y="410.5" width="414" height="85"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bad network" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdf-2x-kZw">
+                                        <rect key="frame" x="159" y="2" width="96" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="kYp-ir-dI2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jy4-zu-qv2">
+                                        <rect key="frame" x="157" y="50" width="100" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="ci4-0h-BW5"/>
+                                            <constraint firstAttribute="width" constant="100" id="tDh-vV-2t0"/>
+                                        </constraints>
+                                        <state key="normal" image="mine_reload"/>
+                                        <connections>
+                                            <action selector="reloadAction:" destination="hPH-bd-unX" eventType="touchUpInside" id="Yli-4K-Z04"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check if your phone is connected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZA-Xn-TER">
+                                        <rect key="frame" x="76.5" y="25" width="261" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="t17-M2-pCm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Jy4-zu-qv2" secondAttribute="bottom" id="APp-pq-Prb"/>
+                                    <constraint firstItem="Sdf-2x-kZw" firstAttribute="centerX" secondItem="sC1-kZ-wB8" secondAttribute="centerX" id="E4g-Lk-MQh"/>
+                                    <constraint firstAttribute="height" constant="85" id="It4-Ve-lg0"/>
+                                    <constraint firstItem="hZA-Xn-TER" firstAttribute="top" secondItem="Sdf-2x-kZw" secondAttribute="bottom" constant="5" id="ZOM-hQ-P20"/>
+                                    <constraint firstItem="Jy4-zu-qv2" firstAttribute="centerX" secondItem="sC1-kZ-wB8" secondAttribute="centerX" id="nci-0d-Oyh"/>
+                                    <constraint firstItem="Jy4-zu-qv2" firstAttribute="top" secondItem="hZA-Xn-TER" secondAttribute="bottom" constant="10" id="oTf-yg-STh"/>
+                                    <constraint firstItem="hZA-Xn-TER" firstAttribute="centerX" secondItem="sC1-kZ-wB8" secondAttribute="centerX" id="tuV-Ja-1fa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sC1-kZ-wB8" firstAttribute="centerX" secondItem="Fje-EI-7CX" secondAttribute="centerX" id="HUw-Bw-TyX"/>
+                            <constraint firstItem="sC1-kZ-wB8" firstAttribute="width" secondItem="xdS-g3-3yK" secondAttribute="width" id="Tft-3g-WlZ"/>
+                            <constraint firstItem="sC1-kZ-wB8" firstAttribute="centerY" secondItem="Fje-EI-7CX" secondAttribute="centerY" id="ec2-KS-nUe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fje-EI-7CX"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailLabel" destination="hZA-Xn-TER" id="Y7A-l5-j3f"/>
+                        <outlet property="tipsView" destination="sC1-kZ-wB8" id="N1Y-Wz-HEY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SE8-lX-uQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130" y="100"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mine_reload" width="100" height="35"/>
+    </resources>
+</document>

@@ -97,6 +97,10 @@
 		7B8DB49024D0327C005D9D6B /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8DB48F24D0327C005D9D6B /* Mine.storyboard */; };
 		7B8DB49424D03379005D9D6B /* SYMineCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB49324D03379005D9D6B /* SYMineCenterVC.swift */; };
 		7B8DB49624D0338C005D9D6B /* SYMineCenterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB49524D0338C005D9D6B /* SYMineCenterVM.swift */; };
+		7B947C8724DA4E5400735F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B947C8624DA4E5400735F7B /* Main.storyboard */; };
+		7B947C8924DA4E8C00735F7B /* SYMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C8824DA4E8C00735F7B /* SYMainVC.swift */; };
+		7B947C8E24DA5FEF00735F7B /* UserDefaults+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */; };
+		7B947C9224DA786500735F7B /* SYUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C9124DA786500735F7B /* SYUserModel.swift */; };
 		7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */; };
 		7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */; };
 		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
@@ -109,6 +113,7 @@
 		7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */; };
 		7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */; };
 		7BA2E10424C995B60027A128 /* SYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2E10324C995B60027A128 /* SYHomeModel.swift */; };
+		7BEE4F0424DAB60100D5823A /* SYMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE4F0324DAB60100D5823A /* SYMainVM.swift */; };
 		B12D6D8ECE14252E767F1AF4 /* Pods_SYNovelbbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +227,10 @@
 		7B8DB48F24D0327C005D9D6B /* Mine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		7B8DB49324D03379005D9D6B /* SYMineCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterVC.swift; sourceTree = "<group>"; };
 		7B8DB49524D0338C005D9D6B /* SYMineCenterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterVM.swift; sourceTree = "<group>"; };
+		7B947C8624DA4E5400735F7B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7B947C8824DA4E8C00735F7B /* SYMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMainVC.swift; sourceTree = "<group>"; };
+		7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Cache.swift"; sourceTree = "<group>"; };
+		7B947C9124DA786500735F7B /* SYUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYUserModel.swift; sourceTree = "<group>"; };
 		7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle2Cell.swift; sourceTree = "<group>"; };
 		7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeNormalHeader.swift; sourceTree = "<group>"; };
 		7B99BC7924C80C80003FF4E1 /* Novelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +249,7 @@
 		7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMoyaPlugins.swift; sourceTree = "<group>"; };
 		7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYTabBarController.swift; sourceTree = "<group>"; };
 		7BA2E10324C995B60027A128 /* SYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeModel.swift; sourceTree = "<group>"; };
+		7BEE4F0324DAB60100D5823A /* SYMainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMainVM.swift; sourceTree = "<group>"; };
 		BF4056E2A7DFF2964AAD32AF /* Pods-SYNovelbb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6468949C419153F8764CFB /* Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -520,6 +530,7 @@
 		7B3643D224C9348F0025B65B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7B947C8C24DA5FE000735F7B /* UserDefaults */,
 				7B8576E324D189B3002D99EF /* Bundle */,
 				7B8576BE24D14769002D99EF /* UIView */,
 				7B34625224C98BB20090ACFF /* BehaviorRelay */,
@@ -547,6 +558,7 @@
 				7B34624E24C987D50090ACFF /* SYRefreshServer.swift */,
 				7B34625024C9899B0090ACFF /* SYPageModel.swift */,
 				7B847D1B24CEBA3A00E9ADFD /* SYBaseBookModel.swift */,
+				7B947C9124DA786500735F7B /* SYUserModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1068,6 +1080,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7B947C8C24DA5FE000735F7B /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		7B99BC7024C80C80003FF4E1 = {
 			isa = PBXGroup;
 			children = (
@@ -1190,7 +1210,10 @@
 				7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */,
 				7B3643DA24C955B50025B65B /* SYAppDelegate+log.swift */,
 				7B8A347524D7A54B00E19384 /* SYAppDelegate+Realm.swift */,
+				7B947C8824DA4E8C00735F7B /* SYMainVC.swift */,
+				7BEE4F0324DAB60100D5823A /* SYMainVM.swift */,
 				7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */,
+				7B947C8624DA4E5400735F7B /* Main.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1352,6 +1375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B99BC8924C80C81003FF4E1 /* LaunchScreen.storyboard in Resources */,
+				7B947C8724DA4E5400735F7B /* Main.storyboard in Resources */,
 				7B847D1024CE9D1B00E9ADFD /* Library.storyboard in Resources */,
 				7B99BC8624C80C81003FF4E1 /* Assets.xcassets in Resources */,
 				7B8DB49024D0327C005D9D6B /* Mine.storyboard in Resources */,
@@ -1545,6 +1569,7 @@
 				7B7DAB3F24D2640A004944AE /* SYMineSystemMsgVM.swift in Sources */,
 				7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */,
 				7B8DB49424D03379005D9D6B /* SYMineCenterVC.swift in Sources */,
+				7B947C8924DA4E8C00735F7B /* SYMainVC.swift in Sources */,
 				7B22C79C24D2BAEF002F8037 /* SYMineAccountVM.swift in Sources */,
 				7B750E2324D3FD530007BCD0 /* SYMineBindingVM.swift in Sources */,
 				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
@@ -1600,10 +1625,12 @@
 				7B847CFA24CE606200E9ADFD /* SYBookStyle3Cell.swift in Sources */,
 				7BA2E10424C995B60027A128 /* SYHomeModel.swift in Sources */,
 				7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */,
+				7BEE4F0424DAB60100D5823A /* SYMainVM.swift in Sources */,
 				7B8DB48324D00AC9005D9D6B /* SYRankVC.swift in Sources */,
 				7B8DB48524D00ADB005D9D6B /* SYRankVM.swift in Sources */,
 				7B8A347624D7A54B00E19384 /* SYAppDelegate+Realm.swift in Sources */,
 				7B8576DA24D17F01002D99EF /* SYMineAboutVM.swift in Sources */,
+				7B947C9224DA786500735F7B /* SYUserModel.swift in Sources */,
 				7B34625424C98BCC0090ACFF /* BehaviorRelay+Extension.swift in Sources */,
 				7B8576D124D174BF002D99EF /* SYMineSettingFooter.swift in Sources */,
 				7B8DB48924D02067005D9D6B /* SYRankListVM.swift in Sources */,
@@ -1624,6 +1651,7 @@
 				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,
 				7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift in Sources */,
 				7B7DAB5324D2ABBE004944AE /* SYAutoSubscriptionModel.swift in Sources */,
+				7B947C8E24DA5FEF00735F7B /* UserDefaults+Cache.swift in Sources */,
 				7B34625624C992730090ACFF /* SYIndexModel.swift in Sources */,
 				7B710ACE24CFEBA700517F43 /* SYBlankFooter.swift in Sources */,
 				7B8576D324D176AC002D99EF /* SYMineSettingModel.swift in Sources */,
