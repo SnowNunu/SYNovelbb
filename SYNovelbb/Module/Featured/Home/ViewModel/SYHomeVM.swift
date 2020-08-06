@@ -31,11 +31,12 @@ class SYHomeVM: RefreshVM<SectionModel<String,SYIndexModel>> {
                         let index2 = SectionModel.init(model: "Editor's recommendation", items: response.data!.index2)
                         let index3 = SectionModel.init(model: "Guess you like it", items: response.data!.index3)
                         self.updateRefresh(true, [slide, index1, index2, index3], 4)
+                        self.requestStatus.accept((true, ""))
                     }
                 }
             }) { (error) in
-//                error as? Mo
                 print(error)
+                self.requestStatus.accept((false, self.errorMessage(error)))
             }
             .disposed(by: disposeBag)
     }

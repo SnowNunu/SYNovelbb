@@ -19,8 +19,8 @@ class SYMineRecordVC: SYBaseVC {
     }()
     
     override func setupUI() {
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
+//        tableView.emptyDataSetSource = self
+//        tableView.emptyDataSetDelegate = self
     }
     
     override func rxBind() {

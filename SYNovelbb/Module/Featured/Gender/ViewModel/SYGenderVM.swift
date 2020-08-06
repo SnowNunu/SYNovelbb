@@ -33,10 +33,12 @@ class SYGenderVM: RefreshVM<SectionModel<String, SYIndexModel>> {
                         let index2 = SectionModel.init(model: response.data!.index2.title!, items: response.data!.index2.data)
                         let index3 = SectionModel.init(model: response.data!.index3.title!, items: response.data!.index3.data)
                         self.updateRefresh(true, [slide, index1, index2, index3], 4)
+                        self.requestStatus.accept((true, ""))
                     }
                 }
             }) { (error) in
-            
+                print(error)
+                self.requestStatus.accept((false, self.errorMessage(error)))
             }
             .disposed(by: disposeBag)
     }

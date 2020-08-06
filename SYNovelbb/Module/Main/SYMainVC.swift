@@ -20,16 +20,14 @@ class SYMainVC: SYBaseVC {
     
     @IBOutlet weak var detailLabel: UILabel!
     
-    override func setupUI() {
-        viewModel.checkLocalUserInfo()
-    }
-    
     override func rxBind() {
         viewModel.userIsOK
             .skip(1)
             .subscribe(onNext: { (isOK) in
                 if isOK {
-                    UIApplication.shared.keyWindow?.rootViewController = SYTabBarController()
+                    DispatchQueue.main.async {
+                        UIApplication.shared.keyWindow?.rootViewController = SYTabBarController()
+                    }
                 }
             }).disposed(by: disposeBag)
         
@@ -46,6 +44,8 @@ class SYMainVC: SYBaseVC {
                 }
             })
             .disposed(by: disposeBag)
+        
+        viewModel.checkLocalUserInfo()
     }
 
     @IBAction func reloadAction(_ sender: UIButton) {

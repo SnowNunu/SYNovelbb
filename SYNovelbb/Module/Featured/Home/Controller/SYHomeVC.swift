@@ -12,6 +12,7 @@ import JXSegmentedView
 import JXBanner
 import JXPageControl
 import Kingfisher
+import DZNEmptyDataSet
 
 class SYHomeVC: SYBaseVC {
     
@@ -37,9 +38,27 @@ class SYHomeVC: SYBaseVC {
     
     override func setupUI() {
         view.addSubview(collectionView)
+        collectionView.emptyDataSetDelegate = self
+        collectionView.emptyDataSetSource = self
         collectionView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.edges.equalTo(collectionView)
+        }
+    }
+    
+    override func rxBind() {
+        viewModel.requestStatus
+            .skip(1)
+            .subscribe(onNext: { [unowned self] (bool, message) in
+                if self.activityIndicatorView.isAnimating {
+                    self.activityIndicatorView.stopAnimating()
+                }
+                self.collectionView.reloadEmptyDataSet()
+            })
+            .disposed(by: disposeBag)
+        collectionView.prepare(viewModel, SectionModel<String, SYIndexModel>.self)
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYIndexModel>>.init(configureCell: { (_, collectionView, indexPath, model) -> UICollectionViewCell in
             switch indexPath.section {
             case 1:
@@ -89,7 +108,6 @@ class SYHomeVC: SYBaseVC {
                 let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYBlankFooter.className(), for: indexPath)
                 return footer
             }
-            
         })
         
         viewModel.datasource.asDriver()
@@ -98,11 +116,9 @@ class SYHomeVC: SYBaseVC {
         
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
-    }
-    
-    override func rxBind() {
-        collectionView.prepare(viewModel, SectionModel<String, SYIndexModel>.self)
-        collectionView.headerRefreshing()
+        
+        activityIndicatorView.startAnimating()
+        viewModel.reloadSubject.onNext(true)
     }
 
 }
@@ -236,4 +252,35 @@ extension SYHomeVC: JXBannerDelegate, JXBannerDataSource {
         self.navigationController?.pushViewController(UIViewController(), animated: true)
     }
     
+}
+
+// MARK: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
+extension SYHomeVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+
+    // 设置占位图显示图片内容
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage()
+    }
+
+    // 设置占位图图片下文字显示内容
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        var (_, message) = viewModel.requestStatus.value
+        if  message.count == 0 {
+            message = "Please check if your phone is connected"
+        }
+        let attributedString = NSMutableAttributedString.init(string: "Bad network\n\(message)")
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(160, 160, 160), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)], range: NSMakeRange(0, attributedString.length))
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(200, 200, 200), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular)], range: NSMakeRange(11, attributedString.length - 11))
+        return attributedString
+    }
+
+    func buttonImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> UIImage! {
+        return R.image.mine_reload()!
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        activityIndicatorView.startAnimating()
+        viewModel.reloadSubject.onNext(true)
+    }
+
 }
