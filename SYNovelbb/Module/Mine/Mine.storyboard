@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -182,10 +182,13 @@
                                     </constraints>
                                     <connections>
                                         <outlet property="coinsBtn" destination="dDy-rU-zQn" id="tkV-s3-d4w"/>
+                                        <outlet property="coinsLabel" destination="XPN-ig-NfL" id="w8F-74-gUA"/>
                                         <outlet property="headImage" destination="lla-De-Zc0" id="5JM-0p-Zg6"/>
                                         <outlet property="nickname" destination="Ngh-3I-HpQ" id="Szs-vT-jV4"/>
                                         <outlet property="readTimeBtn" destination="8RK-6p-BuP" id="DAf-x9-FDu"/>
+                                        <outlet property="readTimeLabel" destination="XvA-DU-T4b" id="vGr-OX-FDN"/>
                                         <outlet property="vouchersBtn" destination="6kA-my-D2Z" id="1lg-MV-Cyl"/>
+                                        <outlet property="vouchersLabel" destination="SiX-Mc-wJX" id="uiw-Gp-bPk"/>
                                         <outlet property="welcome" destination="7NO-ZK-cC0" id="pfc-yO-Kfe"/>
                                     </connections>
                                 </view>
@@ -282,6 +285,7 @@
                     <navigationItem key="navigationItem" id="N1m-1I-6TL"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="headerView" destination="GyH-hF-h7f" id="T5L-6T-tDh"/>
                         <outlet property="tableView" destination="bLr-sR-sMb" id="5dE-38-prc"/>
                         <segue destination="ofp-uN-gOI" kind="show" identifier="enterSettingView" id="2F9-q5-2gR"/>
                         <segue destination="PVJ-dY-xxD" kind="show" identifier="enterSystemMsgView" id="EmR-KF-QTb"/>

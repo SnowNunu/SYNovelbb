@@ -8,10 +8,15 @@
 
 import UIKit
 import RxDataSources
+import RealmSwift
 
 class SYMineCenterVC: SYBaseVC {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var headerView: SYMineCenterHeader!
+    
+    var token : NotificationToken?
     
     lazy var viewModel: SYMineCenterVM = {
         let vm = SYMineCenterVM.init(self)
@@ -78,6 +83,26 @@ class SYMineCenterVC: SYBaseVC {
     override func rxBind() {
         tableView.prepare(viewModel, SectionModel<String, SYMineCenterModel>.self)
         tableView.headerRefreshing()
+        
+        let realm = try! Realm()
+        token = realm.objects(SYUserModel.self).observe(on: .main, { [unowned self] (change: RealmCollectionChange) in
+            switch change {
+                case .update(let results, _, _, _):
+                    let model = results.first!
+                    self.headerView.nickname.text = model.nickname
+                    self.headerView.headImage.kf.setImage(with: URL(string: model.Avatar))
+                    self.headerView.welcome.text = "Welcome back!"
+                    self.headerView.coinsLabel.text = "\(model.vipMoney)"
+                    self.headerView.vouchersLabel.text = "\(model.Diamonds)"
+                break
+            default:
+                break
+            }
+        })
+    }
+    
+    deinit {
+        token?.invalidate()
     }
 
 }

@@ -21,5 +21,11 @@ class SYMineCenterHeader: UIView {
     @IBOutlet weak var nickname: UILabel!
     
     @IBOutlet weak var welcome: UILabel!
+    
+    @IBOutlet weak var coinsLabel: UILabel!
+    
+    @IBOutlet weak var vouchersLabel: UILabel!
+    
+    @IBOutlet weak var readTimeLabel: UILabel!
 
 }

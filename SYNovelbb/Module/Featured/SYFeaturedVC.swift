@@ -83,6 +83,15 @@ class SYFeaturedVC: SYBaseVC {
             make.top.equalTo(searchBtn.snp.bottom).offset(15)
         }
     }
+    
+    override func rxBind() {
+        searchBtn.rx.tap
+            .bind { [unowned self] in
+                let vc = R.storyboard.featured.searchVC()!
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
 
 }
 

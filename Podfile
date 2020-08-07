@@ -41,6 +41,8 @@ target 'SYNovelbb' do
   pod 'NVActivityIndicatorView'
   # 提示框
   pod 'MBProgressHUD', '~> 1.2.0'
+  # 缓存库
+  pod 'Cache', '>= 5.0.0'
   
   # 内购
   pod 'SwiftyStoreKit'
@@ -64,6 +66,9 @@ target 'SYNovelbb' do
   
   # UI调试
   pod 'LookinServer', :configurations => ['Debug']
+  
+  # 网络请求监控
+  pod 'Bagel', :configurations => ['Debug']
 
   target 'SYNovelbbTests' do
     inherit! :search_paths

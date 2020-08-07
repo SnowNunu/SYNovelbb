@@ -9,6 +9,7 @@
 import UIKit
 import RxDataSources
 import RxSwift
+import RealmSwift
 
 class SYMineCenterVM: RefreshVM<SectionModel<String, SYMineCenterModel>> {
     
@@ -31,6 +32,7 @@ class SYMineCenterVM: RefreshVM<SectionModel<String, SYMineCenterModel>> {
     
     override func requestData(_ refresh: Bool) {
         super.requestData(refresh)
+        
         let models = [
             SectionModel.init(model: "Section1", items: [
                 SYMineCenterModel.init(R.image.mine_center_record(), "Recharge record", nil),
@@ -57,7 +59,25 @@ class SYMineCenterVM: RefreshVM<SectionModel<String, SYMineCenterModel>> {
                 "enterSettingView"
             ]
         ]
-        self.updateRefresh(true, models, 3)
+        
+        SYProvider.rx.request(.userInfo)
+            .map(result: SYUserModel.self)
+            .subscribe(onSuccess: { (response) in
+                if response.success {
+                    if response.data != nil {
+                        let model = response.data!
+                        model.token = response.token!
+                        let realm = try! Realm()
+                        try! realm.write() {
+                            realm.add(model, update: .modified)
+                        }
+                    }
+                }
+                self.updateRefresh(true, models, 3)
+            }) { (error) in
+                print(error)
+            }
+            .disposed(by: disposeBag)
     }
 
 }

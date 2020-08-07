@@ -7,6 +7,9 @@
 //
 
 import UIKit
+#if DEBUG
+import Bagel
+#endif
 
 @UIApplicationMain
 class SYAppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +25,10 @@ class SYAppDelegate: UIResponder, UIApplicationDelegate {
         window!.backgroundColor = UIColor.white
         window?.rootViewController = R.storyboard.main().instantiateInitialViewController()!
         window?.makeKeyAndVisible()
+        
+        #if DEBUG
+        Bagel.start()
+        #endif
         
         return true
     }

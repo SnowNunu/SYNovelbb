@@ -124,7 +124,7 @@ extension RefreshVM {
     ///   - total: 数据总数
     ///   - psize: 分页大小
     ///   - addData: 是否更新datasource
-    public final func updateRefresh(_ refresh: Bool, _ models: [T]?, _ total: Int?, pageSize psize: Int? = 10, _ addData: Bool = true) {
+    public final func updateRefresh(_ refresh: Bool, _ models: [T]?, _ total: Int?, pageSize psize: Int? = 20, _ addData: Bool = true) {
         pageModel.pageSize = psize!
         pageModel.total = total ?? 0
         if refresh {

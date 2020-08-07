@@ -8,11 +8,14 @@
 
 import UIKit
 import Moya
+import RealmSwift
 
 enum SYApis {
     
     // MARK: 注册绑定模块
     case touristLogin
+    
+    case userInfo
     
     // MARK: Featured模块
     case homePage
@@ -24,6 +27,10 @@ enum SYApis {
     case hotBooks
     
     case rankList(rankId: Int, pageIndex: Int)
+    
+    case searchBook(keyword: String, pageIndex: Int)
+    
+    case hotSearch
     
     // MARK: Library模块
     case recommendBooks
@@ -50,6 +57,8 @@ extension SYApis: TargetType {
         switch self {
         case .touristLogin:
             return "/1/member/tourist"
+        case .userInfo:
+            return "/1/member/Info"
         case .homePage:
             return "/1/book/index_1"
         case .malePage:
@@ -58,10 +67,14 @@ extension SYApis: TargetType {
             return "/1/book/female_index"
         case .recommendBooks:
             return "/1/book/bookcase"
+        case .hotSearch:
+            return "/1/book/search_hot"
         case .hotBooks:
             return "/1/book/all"
         case .rankList(_, _):
             return "/1/book/top"
+        case .searchBook(_,_):
+            return "/1/book/search"
         case .systemMessage(_):
             return "/1/member/message"
         case .productIds:
@@ -102,10 +115,16 @@ extension SYApis: TargetType {
 extension SYApis {
     
     private var parameters: [String: Any]? {
-//        var paramters = AppSetup.instance.requestParam
         var paramters = [String: Any]()
         paramters["system"] = 2
+        
         switch self {
+        case .touristLogin:
+            return paramters
+            
+        case .userInfo:
+            return addUserParams(paramters)
+            
         case .homePage:
             return paramters
         
@@ -129,9 +148,26 @@ extension SYApis {
             paramters["PageSize"] = 20
             paramters["PageIndex"] = pageIndex
             return paramters
+            
+        case .searchBook(let keyword, let pageIndex):
+            paramters["t"] = keyword
+            paramters["PageSize"] = 20
+            paramters["PageIndex"] = pageIndex
+            return paramters
+            
         default:
             return paramters
         }
+    }
+    
+    // 将用户相关参数添加的请求参数中
+    func addUserParams(_ params: [String: Any]) -> [String: Any] {
+        let realm = try! Realm()
+        let model = realm.objects(SYUserModel.self).first!
+        var parameters = params
+        parameters["uid"] = model.uid
+        parameters["token"] = model.token
+        return parameters
     }
     
 }

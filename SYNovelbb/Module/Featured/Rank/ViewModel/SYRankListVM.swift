@@ -20,11 +20,7 @@ class SYRankListVM: RefreshVM<SYRankListModel> {
             .subscribe(onSuccess: { [unowned self] (response) in
                 if response.success {
                     if response.data != nil {
-                        if self.pageModel.currentPage == 1 {
-                            self.updateRefresh(true, response.data!, response.total)
-                        } else {
-                            self.updateRefresh(false, response.data!, response.total)
-                        }
+                        self.updateRefresh(refresh, response.data!, response.total)
                     }
                 }
             }) { (error) in
