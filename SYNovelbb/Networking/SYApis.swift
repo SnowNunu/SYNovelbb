@@ -39,6 +39,14 @@ enum SYApis {
     case systemMessage(pageIndex: Int)
     
     case productIds
+    
+    // MARK: Reading模块
+    
+    /// 获取指定书籍第一章信息
+    case firstChapter(bid: String)
+    
+    /// 获取指定章节内容(next表示预加载当前章节后n个章节)
+    case chapterContent(bid: String, cid: String, next: Int = 0)
 }
 
 extension SYApis: TargetType {
@@ -73,14 +81,16 @@ extension SYApis: TargetType {
             return "/1/book/all"
         case .rankList(_, _):
             return "/1/book/top"
-        case .searchBook(_,_):
+        case .searchBook(_, _):
             return "/1/book/search"
         case .systemMessage(_):
             return "/1/member/message"
         case .productIds:
             return "/1/member/cardType"
-        default:
-            return ""
+        case .firstChapter(_):
+            return "/1/book/firstChapter"
+        case .chapterContent(_, _, _):
+            return "/1/book/content"
         }
     }
     
@@ -154,6 +164,16 @@ extension SYApis {
             paramters["PageSize"] = 20
             paramters["PageIndex"] = pageIndex
             return paramters
+            
+        case .firstChapter(let bid):
+            paramters["bid"] = bid
+            return paramters
+            
+        case .chapterContent(let bid, let cid, let next):
+            paramters["bid"] = bid
+            paramters["cid"] = cid
+            paramters["next"] = next
+            return addUserParams(paramters)
             
         default:
             return paramters

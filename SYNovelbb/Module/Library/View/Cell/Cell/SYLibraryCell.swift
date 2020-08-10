@@ -17,6 +17,13 @@ class SYLibraryCell: UICollectionViewCell {
     
     @IBOutlet weak var detail: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        cover.snp.updateConstraints { (make) in
+            make.width.equalTo((ScreenWidth - 85) / 3)
+        }
+    }
+    
     var model: SYBaseBookModel? {
         didSet {
             cover.kf.setImage(with: URL(string: model?.cover ?? ""))

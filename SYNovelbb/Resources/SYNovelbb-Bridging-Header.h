@@ -9,7 +9,10 @@
 #ifndef SYNovelbb_Bridging_Header_h
 #define SYNovelbb_Bridging_Header_h
 
-//#import <YYCategories/YYCategories.h>
+/// 小说阅读效果控制器 (覆盖/无效果)
+#import "DZMCoverController.h"
 
+/// 进度条
+#import "ASValueTrackingSlider.h"
 
 #endif /* SYNovelbb_Bridging_Header_h */
