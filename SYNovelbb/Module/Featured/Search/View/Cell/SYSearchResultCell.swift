@@ -18,6 +18,8 @@ class SYSearchResultCell: UICollectionViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     
+    var keywords: String!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.snp.updateConstraints { (make) in
@@ -34,8 +36,20 @@ class SYSearchResultCell: UICollectionViewCell {
     var model: SYBaseBookModel? {
         didSet {
             coverImage.kf.setImage(with: URL(string: model?.cover ?? ""))
-            titleLabel.text = model?.bookTitle
-            contentLabel.text = model?.intro
+            let title = NSMutableAttributedString(string: model?.bookTitle ?? "")
+            let titleRanges = model?.bookTitle.lowercased().nsranges(of: keywords)
+            for range in  titleRanges! {
+                title.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(244, 202, 28)], range: range)
+            }
+            titleLabel.attributedText = title
+            
+            let content = NSMutableAttributedString(string: model?.intro ?? "")
+            let contentRanges = model?.intro!.lowercased().nsranges(of: keywords)
+            for range in  contentRanges! {
+                content.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(244, 202, 28)], range: range)
+            }
+            contentLabel.attributedText = content
+            
             timeLabel.text = model?.lastUpdate
         }
     }

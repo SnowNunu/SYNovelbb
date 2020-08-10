@@ -27,6 +27,8 @@
 		7B2DCE9D24DD26EC005D86A0 /* SYMoyaCacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2DCE9C24DD26EC005D86A0 /* SYMoyaCacheProvider.swift */; };
 		7B2DCEA124DD31CB005D86A0 /* SYSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2DCEA024DD31CB005D86A0 /* SYSearchModel.swift */; };
 		7B2DCEA324DD35F3005D86A0 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2DCEA224DD35F3005D86A0 /* CacheManager.swift */; };
+		7B2DCEA524DD47DC005D86A0 /* SYSearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2DCEA424DD47DC005D86A0 /* SYSearchHistoryCell.swift */; };
+		7B2DCEA724DD4E4D005D86A0 /* SYSearchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2DCEA624DD4E4D005D86A0 /* SYSearchHeader.swift */; };
 		7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623324C95A560090ACFF /* UIColor+Extension.swift */; };
 		7B34623724C9668D0090ACFF /* SYBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623624C9668D0090ACFF /* SYBaseVC.swift */; };
 		7B34623924C967CD0090ACFF /* SYFeaturedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B34623824C967CD0090ACFF /* SYFeaturedVC.swift */; };
@@ -116,6 +118,9 @@
 		7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */; };
 		7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */; };
 		7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */; };
+		7B9B967024E0DF670011DB29 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B966F24E0DF670011DB29 /* String+Extension.swift */; };
+		7B9B967224E0F2DE0011DB29 /* SYHotSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B967124E0F2DE0011DB29 /* SYHotSearchCell.swift */; };
+		7B9B967424E10F730011DB29 /* SYSearchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B967324E10F730011DB29 /* SYSearchFooter.swift */; };
 		7BA2E10424C995B60027A128 /* SYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2E10324C995B60027A128 /* SYHomeModel.swift */; };
 		7BB4D05124DBF1CE00CAF8C0 /* SYSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4D05024DBF1CE00CAF8C0 /* SYSearchVC.swift */; };
 		7BB4D05324DBF1EC00CAF8C0 /* SYSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4D05224DBF1EC00CAF8C0 /* SYSearchVM.swift */; };
@@ -165,6 +170,8 @@
 		7B2DCE9C24DD26EC005D86A0 /* SYMoyaCacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMoyaCacheProvider.swift; sourceTree = "<group>"; };
 		7B2DCEA024DD31CB005D86A0 /* SYSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchModel.swift; sourceTree = "<group>"; };
 		7B2DCEA224DD35F3005D86A0 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		7B2DCEA424DD47DC005D86A0 /* SYSearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchHistoryCell.swift; sourceTree = "<group>"; };
+		7B2DCEA624DD4E4D005D86A0 /* SYSearchHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchHeader.swift; sourceTree = "<group>"; };
 		7B34623324C95A560090ACFF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7B34623624C9668D0090ACFF /* SYBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBaseVC.swift; sourceTree = "<group>"; };
 		7B34623824C967CD0090ACFF /* SYFeaturedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYFeaturedVC.swift; sourceTree = "<group>"; };
@@ -261,6 +268,9 @@
 		7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppConfigs.swift; sourceTree = "<group>"; };
 		7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMoyaPlugins.swift; sourceTree = "<group>"; };
 		7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYTabBarController.swift; sourceTree = "<group>"; };
+		7B9B966F24E0DF670011DB29 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7B9B967124E0F2DE0011DB29 /* SYHotSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHotSearchCell.swift; sourceTree = "<group>"; };
+		7B9B967324E10F730011DB29 /* SYSearchFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchFooter.swift; sourceTree = "<group>"; };
 		7BA2E10324C995B60027A128 /* SYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeModel.swift; sourceTree = "<group>"; };
 		7BB4D05024DBF1CE00CAF8C0 /* SYSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchVC.swift; sourceTree = "<group>"; };
 		7BB4D05224DBF1EC00CAF8C0 /* SYSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchVM.swift; sourceTree = "<group>"; };
@@ -565,6 +575,7 @@
 		7B3643D224C9348F0025B65B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7B9B966E24E0DF500011DB29 /* String */,
 				7B2DCE9824DCF0AF005D86A0 /* MBProgressHUD */,
 				7B8576E324D189B3002D99EF /* Bundle */,
 				7B947C8C24DA5FE000735F7B /* UserDefaults */,
@@ -1257,6 +1268,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		7B9B966E24E0DF500011DB29 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				7B9B966F24E0DF670011DB29 /* String+Extension.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		7BA4DF3124CAD305000663F6 /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1325,6 +1344,10 @@
 			isa = PBXGroup;
 			children = (
 				7BB4D05B24DC04A900CAF8C0 /* SYSearchResultCell.swift */,
+				7B2DCEA424DD47DC005D86A0 /* SYSearchHistoryCell.swift */,
+				7B9B967124E0F2DE0011DB29 /* SYHotSearchCell.swift */,
+				7B2DCEA624DD4E4D005D86A0 /* SYSearchHeader.swift */,
+				7B9B967324E10F730011DB29 /* SYSearchFooter.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1654,6 +1677,7 @@
 			files = (
 				7B8576BD24D1422F002D99EF /* SYMineCenterHeader.swift in Sources */,
 				7B847D1224CE9D4E00E9ADFD /* SYLibraryVC.swift in Sources */,
+				7B2DCEA724DD4E4D005D86A0 /* SYSearchHeader.swift in Sources */,
 				7B847D0624CE798400E9ADFD /* SYGenderModel.swift in Sources */,
 				7B34624824C982CA0090ACFF /* LogManager.swift in Sources */,
 				7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */,
@@ -1682,6 +1706,7 @@
 				7B3643DB24C955B50025B65B /* SYAppDelegate+log.swift in Sources */,
 				7B8576C724D163B3002D99EF /* SYMineSettingVC.swift in Sources */,
 				7B8A347A24D7DCFF00E19384 /* SYMineRecordModel.swift in Sources */,
+				7B9B967024E0DF670011DB29 /* String+Extension.swift in Sources */,
 				7B8DB47E24CFF7EF005D9D6B /* SYHotBooksVM.swift in Sources */,
 				7B8576E024D183C0002D99EF /* SYMineAboutModel.swift in Sources */,
 				7B8576CF24D174AE002D99EF /* SYMineSettingCell.swift in Sources */,
@@ -1690,6 +1715,7 @@
 				7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */,
 				7B8576E224D187EF002D99EF /* SYMineAboutHeader.swift in Sources */,
 				7B8576D824D17EF0002D99EF /* SYMineAboutVC.swift in Sources */,
+				7B9B967424E10F730011DB29 /* SYSearchFooter.swift in Sources */,
 				7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */,
 				7B11212C24D3DE700067C530 /* SYMineRechargeCell.swift in Sources */,
 				7B8576E524D189D2002D99EF /* Bundle+Extension.swift in Sources */,
@@ -1711,9 +1737,11 @@
 				7B847D1A24CEB4D000E9ADFD /* SYLibraryVM.swift in Sources */,
 				7B7DAB5124D2A7BB004944AE /* SYMineSubscriptionCell.swift in Sources */,
 				7B22C79124D2B60E002F8037 /* SYMineRechargeVC.swift in Sources */,
+				7B2DCEA524DD47DC005D86A0 /* SYSearchHistoryCell.swift in Sources */,
 				7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */,
 				7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */,
 				7B8DB48C24D02ADC005D9D6B /* SYRankListModel.swift in Sources */,
+				7B9B967224E0F2DE0011DB29 /* SYHotSearchCell.swift in Sources */,
 				7B22C7A224D2CD48002F8037 /* SYMineAccountCell.swift in Sources */,
 				7B8576C024D14783002D99EF /* UIView+Extension.swift in Sources */,
 				7B34625124C9899B0090ACFF /* SYPageModel.swift in Sources */,

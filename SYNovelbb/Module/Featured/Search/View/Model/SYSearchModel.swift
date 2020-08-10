@@ -8,21 +8,24 @@
 
 import UIKit
 import HandyJSON
+import RealmSwift
 
-class SYSearchModel: HandyJSON, Codable {
+class SYSearchModel: Object, HandyJSON, Codable {
     
-    var readTxt: String?
+    @objc dynamic var readTxt: String?
     
-    var readLable: String?
+    @objc dynamic var readLable: String?
     
-    var sid: String?
+    @objc dynamic var id: String?
     
-    var bookTitle: String?
+    @objc dynamic var booktitle: String?
+    
+    @objc dynamic var keyword: String?
     
     required init() {}
     
-    func mapping(mapper: HelpingMapper) {
-        mapper.specify(property: &sid, name: "id")
-        mapper.specify(property: &bookTitle, name: "booktitle")
+    override class func primaryKey() -> String? {
+        return "keyword"
     }
+    
 }
