@@ -180,6 +180,7 @@
 		7BB4D05824DC032000CAF8C0 /* SYSearchResultFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4D05724DC032000CAF8C0 /* SYSearchResultFlowLayout.swift */; };
 		7BB4D05C24DC04A900CAF8C0 /* SYSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4D05B24DC04A900CAF8C0 /* SYSearchResultCell.swift */; };
 		7BEE4F0424DAB60100D5823A /* SYMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE4F0324DAB60100D5823A /* SYMainVM.swift */; };
+		7BFDFC2624E3C67000331519 /* SYRMErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDFC2524E3C67000331519 /* SYRMErrorView.swift */; };
 		B12D6D8ECE14252E767F1AF4 /* Pods_SYNovelbbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A53077482730934EFBCEDF /* Pods_SYNovelbbTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -385,6 +386,7 @@
 		7BB4D05724DC032000CAF8C0 /* SYSearchResultFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchResultFlowLayout.swift; sourceTree = "<group>"; };
 		7BB4D05B24DC04A900CAF8C0 /* SYSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchResultCell.swift; sourceTree = "<group>"; };
 		7BEE4F0324DAB60100D5823A /* SYMainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMainVM.swift; sourceTree = "<group>"; };
+		7BFDFC2524E3C67000331519 /* SYRMErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYRMErrorView.swift; sourceTree = "<group>"; };
 		BF4056E2A7DFF2964AAD32AF /* Pods-SYNovelbb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb.debug.xcconfig"; path = "Target Support Files/Pods-SYNovelbb/Pods-SYNovelbb.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6468949C419153F8764CFB /* Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; path = "Target Support Files/Pods-SYNovelbb-SYNovelbbUITests/Pods-SYNovelbb-SYNovelbbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D6B6E642108756F412BE15E8 /* Pods_SYNovelbb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYNovelbb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1432,6 +1434,7 @@
 				7B9B969324E143F90011DB29 /* SYRMEffectTypeView.swift */,
 				7B9B969424E143F90011DB29 /* SYRMSpacingView.swift */,
 				7B9B969524E143F90011DB29 /* SYMRMBGColorView.swift */,
+				7BFDFC2524E3C67000331519 /* SYRMErrorView.swift */,
 			);
 			path = SYRMSettingView;
 			sourceTree = "<group>";
@@ -2115,6 +2118,7 @@
 				7B8DB48324D00AC9005D9D6B /* SYRankVC.swift in Sources */,
 				7B9B970A24E144100011DB29 /* SYReadCatalogCell.swift in Sources */,
 				7B8DB48524D00ADB005D9D6B /* SYRankVM.swift in Sources */,
+				7BFDFC2624E3C67000331519 /* SYRMErrorView.swift in Sources */,
 				7B8A347624D7A54B00E19384 /* SYAppDelegate+Realm.swift in Sources */,
 				7B8576DA24D17F01002D99EF /* SYMineAboutVM.swift in Sources */,
 				7B947C9224DA786500735F7B /* SYUserModel.swift in Sources */,

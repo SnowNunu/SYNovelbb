@@ -209,7 +209,7 @@ extension SYReadController {
         // 第一章 第一页
         if recordModel.isFirstChapter && recordModel.isFirstPage {
             
-            DZMLog("已经是第一页了")
+            logDebug("已经是第一页了")
             
             return nil
         }
@@ -295,7 +295,7 @@ extension SYReadController {
         // 最后一章 最后一页
         if recordModel.isLastChapter && recordModel.isLastPage {
             
-            DZMLog("已经是最后一页了")
+            logDebug("已经是最后一页了")
             
             return nil
         }

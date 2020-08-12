@@ -62,8 +62,8 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -90,7 +90,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         contentView = SYReadContentView()
         contentView.delegate = self
         view.addSubview(contentView)
-        contentView.frame = CGRect(x: 0, y: 0, width: DZM_READ_CONTENT_VIEW_WIDTH, height: DZM_READ_CONTENT_VIEW_HEIGHT)
+        contentView.frame = CGRect(x: 0, y: 0, width: SY_READ_CONTENT_VIEW_WIDTH, height: SY_READ_CONTENT_VIEW_HEIGHT)
     }
     
     // 处理通知
@@ -159,6 +159,12 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         navigationController?.popViewController(animated: true)
     }
     
+    /// 点击书架(将当前书籍加入或移出书架)
+    func readMenuClickBookcase(readMenu:SYReadMenu!) {
+        // TODO: 欠缺移出加入书架逻辑
+        print("点击了书架按钮")
+    }
+    
     /// 点击目录
     func readMenuClickCatalogue(readMenu:SYReadMenu!) {
         
@@ -174,7 +180,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         
         if readModel.recordModel.isFirstChapter {
             
-            DZMLog("已经是第一章了")
+            logDebug("已经是第一章了")
             
         }else{
             
@@ -190,7 +196,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         
         if readModel.recordModel.isLastChapter {
             
-            DZMLog("已经是最后一章了")
+            logDebug("已经是最后一章了")
             
         }else{
             
@@ -267,7 +273,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     // MARK: 展示动画
     
     /// 辅视图展示
-    func showLeftView(isShow:Bool, completion:DZMAnimationCompletion? = nil) {
+    func showLeftView(isShow: Bool, completion: SYAnimationCompletion? = nil) {
      
         if isShow { // leftView 将要显示
             
@@ -281,7 +287,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
             leftView.isHidden = false
         }
         
-        UIView.animate(withDuration: DZM_READ_AD_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
+        UIView.animate(withDuration: SY_READ_ANIMATION_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
             
             if isShow {
                 

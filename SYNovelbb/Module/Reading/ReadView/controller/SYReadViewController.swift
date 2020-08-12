@@ -94,7 +94,7 @@ class SYReadViewController: SYViewController {
             let progress:Float = DZM_READ_TOTAL_PROGRESS(readModel: readModel, recordModel: recordModel)
            
             // 显示进度
-            bottomView.progress.text = DZM_READ_TOTAL_PROGRESS_STRING(progress: progress)
+            bottomView.progress.text = SY_READ_TOTAL_PROGRESS_STRING(progress: progress)
             
             
         }else{ // 分页进度

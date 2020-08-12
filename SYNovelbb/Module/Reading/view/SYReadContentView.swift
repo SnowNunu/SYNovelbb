@@ -9,8 +9,8 @@
 import UIKit
 
 /// contentView 宽高
-let DZM_READ_CONTENT_VIEW_WIDTH:CGFloat = ScreenWidth
-let DZM_READ_CONTENT_VIEW_HEIGHT:CGFloat = ScreenHeight
+let SY_READ_CONTENT_VIEW_WIDTH: CGFloat = ScreenWidth
+let SY_READ_CONTENT_VIEW_HEIGHT: CGFloat = ScreenHeight
 
 @objc protocol SYReadContentViewDelegate:NSObjectProtocol {
     
@@ -69,7 +69,7 @@ class SYReadContentView: UIView {
         
         isShowCover = isShow
         
-        UIView.animate(withDuration: DZM_READ_AD_TIME) { [weak self] () in
+        UIView.animate(withDuration: SY_READ_ANIMATION_TIME) { [weak self] () in
             
             self?.cover.alpha = CGFloat(NSNumber(value: isShow).floatValue)
         }

@@ -39,12 +39,12 @@ class SYRMSettingView: SYRMBaseView {
 
     override init(frame: CGRect) { super.init(frame: frame) }
     
-    override func addSubviews() {
+    override func setupUI() {
         
-        super.addSubviews()
+        super.setupUI()
         
         let x = DZM_SPACE_SA_15
-        let w = DZM_READ_CONTENT_VIEW_WIDTH - DZM_SPACE_SA_30
+        let w = SY_READ_CONTENT_VIEW_WIDTH - DZM_SPACE_SA_30
         let h = DZM_READ_MENU_SETTING_SUB_VIEW_HEIGHT
         
         lightView = SYRMLightView(readMenu: readMenu)

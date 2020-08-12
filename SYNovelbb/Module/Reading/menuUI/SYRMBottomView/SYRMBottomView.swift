@@ -14,8 +14,8 @@ let DZM_READ_MENU_FUNC_VIEW_HEIGHT:CGFloat = DZM_SPACE_SA_55
 /// progressView 高度
 let DZM_READ_MENU_PROGRESS_VIEW_HEIGHT:CGFloat = DZM_SPACE_SA_55
 
-/// bottomView 高度 (TabBarHeight就包含了funcView高度, 所以只需要在上面在加progressView高度就好了)
-let DZM_READ_MENU_BOTTOM_VIEW_HEIGHT:CGFloat = TabBarHeight + DZM_READ_MENU_PROGRESS_VIEW_HEIGHT
+/// bottomView 高度
+let SY_READ_MENU_BOTTOM_VIEW_HEIGHT:CGFloat = BottomSafeAreaHeight + 100
 
 class SYRMBottomView: SYRMBaseView {
     
@@ -27,9 +27,9 @@ class SYRMBottomView: SYRMBaseView {
 
     override init(frame: CGRect) { super.init(frame: frame) }
     
-    override func addSubviews() {
+    override func setupUI() {
         
-        super.addSubviews()
+        super.setupUI()
         
         progressView = SYRMProgressView(readMenu: readMenu)
         addSubview(progressView)
@@ -38,13 +38,18 @@ class SYRMBottomView: SYRMBaseView {
         addSubview(funcView)
     }
     
-    override func layoutSubviews() {
-        
-        super.layoutSubviews()
-        
-        progressView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: DZM_READ_MENU_PROGRESS_VIEW_HEIGHT)
-        
-        funcView.frame = CGRect(x: 0, y: progressView.frame.maxY, width: frame.size.width, height: DZM_READ_MENU_FUNC_VIEW_HEIGHT)
+    override func setupConstraints() {
+        progressView.snp.makeConstraints { (make) in
+            make.width.equalToSuperview().offset(-136)
+            make.centerX.top.equalToSuperview()
+            make.height.equalTo(40)
+        }
+        funcView.snp.makeConstraints { (make) in
+            make.width.equalToSuperview().offset(-30)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(progressView.snp_bottom)
+            make.height.equalTo(60)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -23,13 +23,15 @@ class SYRMBaseView: UIView {
         
         self.readMenu = readMenu
         
-        addSubviews()
+        setupUI()
+        setupConstraints()
     }
     
-    func addSubviews() {
-        
-        backgroundColor = DZM_READ_COLOR_MENU_BG_COLOR
+    func setupUI() {
+        backgroundColor = .white
     }
+    
+    func setupConstraints() {}
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

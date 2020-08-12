@@ -11,43 +11,52 @@ import UIKit
 @objc protocol SYReadMenuDelegate:NSObjectProtocol {
     
     /// 菜单将要显示
-    @objc optional func readMenuWillDisplay(readMenu:SYReadMenu!)
+    @objc optional func readMenuWillDisplay(readMenu: SYReadMenu!)
     
     /// 菜单完成显示
-    @objc optional func readMenuDidDisplay(readMenu:SYReadMenu!)
+    @objc optional func readMenuDidDisplay(readMenu: SYReadMenu!)
     
     /// 菜单将要隐藏
-    @objc optional func readMenuWillEndDisplay(readMenu:SYReadMenu!)
+    @objc optional func readMenuWillEndDisplay(readMenu: SYReadMenu!)
     
     /// 菜单完成隐藏
-    @objc optional func readMenuDidEndDisplay(readMenu:SYReadMenu!)
+    @objc optional func readMenuDidEndDisplay(readMenu: SYReadMenu!)
     
     /// 点击返回
-    @objc optional func readMenuClickBack(readMenu:SYReadMenu!)
+    @objc optional func readMenuClickBack(readMenu: SYReadMenu!)
+    
+    /// 点击书架(将当前书籍加入或移出书架)
+    @objc optional func readMenuClickBookcase(readMenu: SYReadMenu!)
     
     /// 点击目录
-    @objc optional func readMenuClickCatalogue(readMenu:SYReadMenu!)
+    @objc optional func readMenuClickCatalogue(readMenu: SYReadMenu!)
     
     /// 点击上一章
-    @objc optional func readMenuClickPreviousChapter(readMenu:SYReadMenu!)
+    @objc optional func readMenuClickPreviousChapter(readMenu: SYReadMenu!)
     
     /// 点击下一章
-    @objc optional func readMenuClickNextChapter(readMenu:SYReadMenu!)
+    @objc optional func readMenuClickNextChapter(readMenu: SYReadMenu!)
     
     /// 拖拽章节进度(分页进度)
-    @objc optional func readMenuDraggingProgress(readMenu:SYReadMenu!, toPage:NSInteger)
+    @objc optional func readMenuDraggingProgress(readMenu: SYReadMenu!, toPage: NSInteger)
     
     /// 拖拽章节进度(总文章进度,网络文章也可以使用)
-    @objc optional func readMenuDraggingProgress(readMenu:SYReadMenu!, toChapterID:NSNumber, toPage:NSInteger)
+    @objc optional func readMenuDraggingProgress(readMenu: SYReadMenu!, toChapterID: NSNumber, toPage: NSInteger)
+    
+    /// 点击亮度调节
+    @objc optional func readMenuClickBrightness(readMenu: SYReadMenu!)
+    
+    /// 隐藏功能面板
+    @objc optional func readMenuHiddenFunctionView(readMenu: SYReadMenu!)
     
     /// 点击切换背景颜色
-    @objc optional func readMenuClickBGColor(readMenu:SYReadMenu)
+    @objc optional func readMenuClickBGColor(readMenu: SYReadMenu)
     
     /// 点击切换字体
-    @objc optional func readMenuClickFont(readMenu:SYReadMenu)
+    @objc optional func readMenuClickFont(readMenu: SYReadMenu)
     
     /// 点击切换字体大小
-    @objc optional func readMenuClickFontSize(readMenu:SYReadMenu)
+    @objc optional func readMenuClickFontSize(readMenu: SYReadMenu)
     
     /// 切换进度显示(分页 || 总进度)
     @objc optional func readMenuClickDisplayProgress(readMenu:SYReadMenu)
@@ -65,25 +74,31 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
     private(set) weak var vc: SYReadController!
     
     /// 阅读主视图
-    private(set) weak var contentView:SYReadContentView!
+    private(set) weak var contentView: SYReadContentView!
     
     /// 代理
-    private(set) weak var delegate:SYReadMenuDelegate!
+    private(set) weak var delegate: SYReadMenuDelegate!
     
     /// 菜单显示状态
-    private(set) var isMenuShow:Bool = false
+    private(set) var isMenuShow: Bool = false
     
     /// 单击手势
-    private(set) var singleTap:UITapGestureRecognizer!
+    private(set) var singleTap: UITapGestureRecognizer!
     
     /// TopView
-    private(set) var topView:SYRMTopView!
+    private(set) var topView: SYRMTopView!
     
     /// BottomView
-    private(set) var bottomView:SYRMBottomView!
+    private(set) var bottomView: SYRMBottomView!
+    
+    /// LightView
+    private(set) var lightView: SYRMLightView!
     
     /// SettingView
-    private(set) var settingView:SYRMSettingView!
+    private(set) var settingView: SYRMSettingView!
+    
+    /// ErrorView
+    private(set) var errorView: SYRMErrorView!
     
     /// 禁用系统初始化
     private override init() { super.init() }
@@ -104,9 +119,6 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
         // 允许获取电量信息
         UIDevice.current.isBatteryMonitoringEnabled = true
         
-        // 隐藏导航栏
-        vc.fd_prefersNavigationBarHidden = true
-        
         // 禁止手势返回
         vc.fd_interactivePopDisabled = true
         
@@ -118,6 +130,12 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
         
         // 初始化SettingView
         initSettingView()
+        
+        // 初始化LightView
+        initLightView()
+        
+        // 初始化ErrorView
+        initErrorView()
         
         // 初始化BottomView
         initBottomView()
@@ -144,7 +162,7 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
     // MARK: -- UIGestureRecognizerDelegate
     
     /// 点击这些控件不需要执行手势
-    private let ClassStrings:[String] = ["SYRMTopView","SYRMBottomView","SYRMSettingView","SYRMFontSizeView", "SYRMFontTypeView","SYRMLightView","SYRMSpacingView","SYRMEffectTypeView","SYMRMBGColorView","SYRMFuncView","SYRMProgressView","UIControl","UISlider","ASValueTrackingSlider"]
+    private let ClassStrings:[String] = ["SYRMTopView","SYRMBottomView","SYRMSettingView","SYRMFontSizeView", "SYRMFontTypeView","SYRMLightView","SYRMSpacingView","SYRMEffectTypeView","SYMRMBGColorView","SYRMFuncView","SYRMProgressView","UIControl","UISlider","ASValueTrackingSlider", "SYRMErrorView", "YYTextView", "YYTextContainerView"]
     
     /// 手势拦截
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -170,9 +188,9 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
         
         contentView.addSubview(topView)
         
-        let y = isMenuShow ? 0 : -DZM_READ_MENU_TOP_VIEW_HEIGHT
-        
-        topView.frame = CGRect(x: 0, y: y, width: DZM_READ_CONTENT_VIEW_WIDTH, height: DZM_READ_MENU_TOP_VIEW_HEIGHT)
+        let y = isMenuShow ? 0 : -SY_READ_MENU_TOP_VIEW_HEIGHT
+
+        topView.frame = CGRect(x: 0, y: y, width: SY_READ_CONTENT_VIEW_WIDTH, height: SY_READ_MENU_TOP_VIEW_HEIGHT)
     }
     
     // MARK: -- BottomView
@@ -186,39 +204,25 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
         
         contentView.addSubview(bottomView)
         
-        let y = isMenuShow ? (DZM_READ_CONTENT_VIEW_HEIGHT - DZM_READ_MENU_BOTTOM_VIEW_HEIGHT) : DZM_READ_CONTENT_VIEW_HEIGHT
+        let y = isMenuShow ? (SY_READ_CONTENT_VIEW_HEIGHT - SY_READ_MENU_BOTTOM_VIEW_HEIGHT) : SY_READ_CONTENT_VIEW_HEIGHT
         
-        bottomView.frame = CGRect(x: 0, y: y, width: DZM_READ_CONTENT_VIEW_WIDTH, height: DZM_READ_MENU_BOTTOM_VIEW_HEIGHT)
-        
-        
-        // 绘制中间虚线(如果不需要虚线可以去掉自己加个分割线)
-        let shapeLayer:CAShapeLayer = CAShapeLayer()
-        
-        shapeLayer.bounds = bottomView.bounds
-        
-        shapeLayer.position = CGPoint(x: bottomView.frame.width / 2, y: bottomView.frame.height / 2)
-        
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        
-        shapeLayer.strokeColor = DZM_READ_COLOR_MENU_COLOR.cgColor
-        
-        shapeLayer.lineWidth = DZM_SPACE_LINE
-        
-        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-        
-        shapeLayer.lineDashPhase = 0
-        
-        shapeLayer.lineDashPattern = [NSNumber(value: 1), NSNumber(value: 2)]
-        
-        let path:CGMutablePath = CGMutablePath()
-        
-        path.move(to: CGPoint(x: 0, y: DZM_READ_MENU_PROGRESS_VIEW_HEIGHT))
-        
-        path.addLine(to: CGPoint(x: bottomView.frame.width, y: DZM_READ_MENU_PROGRESS_VIEW_HEIGHT))
-        
-        shapeLayer.path = path
-        
-        bottomView.layer.addSublayer(shapeLayer)
+        bottomView.frame = CGRect(x: 0, y: y, width: SY_READ_CONTENT_VIEW_WIDTH, height: SY_READ_MENU_BOTTOM_VIEW_HEIGHT)
+    }
+    
+    // MARK: -- LightView
+    private func initLightView() {
+        lightView = SYRMLightView(readMenu: self)
+        lightView.isHidden = true
+        contentView.addSubview(lightView)
+        lightView.frame = CGRect(x: 0, y: SY_READ_CONTENT_VIEW_HEIGHT, width: SY_READ_CONTENT_VIEW_WIDTH, height: 52.5 + BottomSafeAreaHeight)
+    }
+    
+    // MARK: -- ErrorView
+    private func initErrorView() {
+        errorView = SYRMErrorView(readMenu: self)
+        errorView.isHidden = true
+        contentView.addSubview(errorView)
+        errorView.frame = CGRect(x: 0, y: SY_READ_CONTENT_VIEW_HEIGHT, width: SY_READ_CONTENT_VIEW_WIDTH, height: 250 + BottomSafeAreaHeight)
     }
     
     // MARK: -- SettingView
@@ -232,7 +236,7 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
         
         contentView.addSubview(settingView)
         
-        settingView.frame = CGRect(x: 0, y: DZM_READ_CONTENT_VIEW_HEIGHT, width: DZM_READ_CONTENT_VIEW_WIDTH, height: DZM_READ_MENU_SETTING_VIEW_TOTAL_HEIGHT)
+        settingView.frame = CGRect(x: 0, y: SY_READ_CONTENT_VIEW_HEIGHT, width: SY_READ_CONTENT_VIEW_WIDTH, height: DZM_READ_MENU_SETTING_VIEW_TOTAL_HEIGHT)
     }
     
     // MARK: 菜单展示
@@ -241,7 +245,7 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
     private var isAnimateComplete:Bool = true
     
     func showMenu(isShow:Bool) {
-        
+
         if isMenuShow == isShow || !isAnimateComplete {return}
         
         isAnimateComplete = false
@@ -253,6 +257,10 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
         isMenuShow = isShow
         
         showBottomView(isShow: isShow)
+        
+        showLightView(isShow: false)
+        
+        showErrorView(isShow: false)
 
         showSettingView(isShow: false)
         
@@ -267,15 +275,15 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
     }
     
     /// TopView展示
-    func showTopView(isShow:Bool, completion:DZMAnimationCompletion? = nil) {
+    func showTopView(isShow: Bool, completion: SYAnimationCompletion? = nil) {
         
         UIApplication.shared.setStatusBarHidden(!isShow, with: .slide)
         
         if isShow { topView.isHidden = false }
         
-        UIView.animate(withDuration: DZM_READ_AD_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
+        UIView.animate(withDuration: SY_READ_ANIMATION_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
             
-            let y = isShow ? 0 : -DZM_READ_MENU_TOP_VIEW_HEIGHT
+            let y = isShow ? 0 : -SY_READ_MENU_TOP_VIEW_HEIGHT
             
             self?.topView.frame.origin = CGPoint(x: 0, y: y)
             
@@ -288,13 +296,13 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
     }
     
     /// BottomView展示
-    func showBottomView(isShow:Bool, completion:DZMAnimationCompletion? = nil) {
+    func showBottomView(isShow: Bool, completion: SYAnimationCompletion? = nil) {
   
         if isShow { bottomView.isHidden = false }
 
-        UIView.animate(withDuration: DZM_READ_AD_TIME, animations: { [weak self] () in
+        UIView.animate(withDuration: SY_READ_ANIMATION_TIME, animations: { [weak self] () in
             
-            let y = isShow ? (DZM_READ_CONTENT_VIEW_HEIGHT - DZM_READ_MENU_BOTTOM_VIEW_HEIGHT) : DZM_READ_CONTENT_VIEW_HEIGHT
+            let y = isShow ? (SY_READ_CONTENT_VIEW_HEIGHT - SY_READ_MENU_BOTTOM_VIEW_HEIGHT) : SY_READ_CONTENT_VIEW_HEIGHT
             
             self?.bottomView.frame.origin = CGPoint(x: 0, y: y)
             
@@ -306,22 +314,59 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
         }
     }
     
-    /// SettingView展示
-    func showSettingView(isShow:Bool, completion:DZMAnimationCompletion? = nil) {
-      
-        if isShow { settingView.isHidden = false }
+    /// LightView展示
+    func showLightView(isShow: Bool, completion: SYAnimationCompletion? = nil) {
+        if isShow { lightView.isHidden = false }
         
-        UIView.animate(withDuration: DZM_READ_AD_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
-            
-            let y = isShow ? (DZM_READ_CONTENT_VIEW_HEIGHT - DZM_READ_MENU_SETTING_VIEW_TOTAL_HEIGHT) : DZM_READ_CONTENT_VIEW_HEIGHT
-            
-            self?.settingView.frame.origin = CGPoint(x: 0, y: y)
-            
+        UIView.animate(withDuration: SY_READ_ANIMATION_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
+
+            let y = isShow ? (SY_READ_CONTENT_VIEW_HEIGHT - BottomSafeAreaHeight - 52.5) : SY_READ_CONTENT_VIEW_HEIGHT
+
+            self?.lightView.frame.origin = CGPoint(x: 0, y: y)
+
         }) { [weak self] (isOK) in
-            
-            if !isShow { self?.settingView.isHidden = true }
-            
+
+            if !isShow { self?.lightView.isHidden = true }
+
             completion?()
         }
     }
+    
+    /// ErrorView展示
+    func showErrorView(isShow: Bool, completion: SYAnimationCompletion? = nil) {
+        if isShow { errorView.isHidden = false }
+        
+        UIView.animate(withDuration: SY_READ_ANIMATION_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
+
+            let y = isShow ? (SY_READ_CONTENT_VIEW_HEIGHT - BottomSafeAreaHeight - 250) : SY_READ_CONTENT_VIEW_HEIGHT
+
+            self?.errorView.frame.origin = CGPoint(x: 0, y: y)
+
+        }) { [weak self] (isOK) in
+
+            if !isShow { self?.errorView.isHidden = true }
+
+            completion?()
+        }
+    }
+    
+    /// SettingView展示
+    func showSettingView(isShow: Bool, completion: SYAnimationCompletion? = nil) {
+      
+        if isShow { settingView.isHidden = false }
+
+        UIView.animate(withDuration: SY_READ_ANIMATION_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
+
+            let y = isShow ? (SY_READ_CONTENT_VIEW_HEIGHT - DZM_READ_MENU_SETTING_VIEW_TOTAL_HEIGHT) : SY_READ_CONTENT_VIEW_HEIGHT
+
+            self?.settingView.frame.origin = CGPoint(x: 0, y: y)
+
+        }) { [weak self] (isOK) in
+
+            if !isShow { self?.settingView.isHidden = true }
+
+            completion?()
+        }
+    }
+    
 }

@@ -10,60 +10,38 @@ import UIKit
 
 class SYRMProgressView: SYRMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSliderDataSource {
     
-    /// 上一章
-    private var previousChapter:UIButton!
-    
     /// 进度
     private var slider:ASValueTrackingSlider!
     
-    /// 下一章
-    private var nextChapter:UIButton!
-    
     override init(frame: CGRect) { super.init(frame: frame) }
     
-    override func addSubviews() {
+    override func setupUI() {
         
-        super.addSubviews()
+        super.setupUI()
         
         backgroundColor = UIColor.clear
-        
-        // 上一章
-        previousChapter = UIButton(type:.custom)
-        previousChapter.titleLabel?.font = DZM_FONT_SA_14
-        previousChapter.setTitle("上一章", for: .normal)
-        previousChapter.setTitleColor(DZM_READ_COLOR_MENU_COLOR, for: .normal)
-        previousChapter.addTarget(self, action: #selector(clickPreviousChapter), for: .touchUpInside)
-        addSubview(previousChapter)
-        
-        // 下一章
-        nextChapter = UIButton(type:.custom)
-        nextChapter.titleLabel?.font = DZM_FONT_SA_14
-        nextChapter.setTitle("下一章", for: .normal)
-        nextChapter.setTitleColor(DZM_READ_COLOR_MENU_COLOR, for: .normal)
-        nextChapter.addTarget(self, action: #selector(clickNextChapter), for: .touchUpInside)
-        addSubview(nextChapter)
         
         // 进度条
         slider = ASValueTrackingSlider()
         slider.delegate = self
         slider.dataSource = self
-        slider.setThumbImage(UIImage(named:"slider")!.withRenderingMode(.alwaysTemplate), for: .normal)
+        slider.setThumbImage(R.image.reading_slider_thumb()!.withRenderingMode(.alwaysTemplate), for: .normal)
         // 设置显示进度保留几位小数 (由于重写了 dataSource 则不用不到该属性了)
         // slider.setMaxFractionDigitsDisplayed(0)
         // 设置气泡背景颜色
-        slider.popUpViewColor = DZM_READ_COLOR_MAIN
+        slider.popUpViewColor = UIColor(244, 202, 28)
         // 设置气泡字体颜色
-        slider.textColor = DZM_READ_COLOR_MENU_COLOR
+        slider.textColor = UIColor(238, 238, 238)
         // 设置气泡字体以及字体大小
         slider.font = UIFont(name: "Futura-CondensedExtraBold", size: 22)
         // 设置气泡箭头高度
-        slider.popUpViewArrowLength = DZM_SPACE_SA_5
+        slider.popUpViewArrowLength = 5
         // 设置当前进度颜色
-        slider.minimumTrackTintColor = DZM_READ_COLOR_MAIN
+        slider.minimumTrackTintColor = UIColor(244, 202, 28)
         // 设置总进度颜色
-        slider.maximumTrackTintColor = DZM_READ_COLOR_MENU_COLOR
+        slider.maximumTrackTintColor = UIColor(238, 238, 238)
         // 设置当前拖拽圆圈颜色
-        slider.tintColor = DZM_READ_COLOR_MENU_COLOR
+        slider.tintColor = UIColor(244, 202, 28)
         addSubview(slider)
         reloadProgress()
     }
@@ -98,18 +76,6 @@ class SYRMProgressView: SYRMBaseView,ASValueTrackingSliderDelegate,ASValueTracki
         }
     }
     
-    /// 上一章
-    @objc func clickPreviousChapter() {
-        
-        readMenu?.delegate?.readMenuClickPreviousChapter?(readMenu: readMenu)
-    }
-    
-    /// 下一章
-    @objc func clickNextChapter() {
-        
-        readMenu?.delegate?.readMenuClickNextChapter?(readMenu: readMenu)
-    }
-    
     // MARK: ASValueTrackingSliderDataSource
     
     func slider(_ slider: ASValueTrackingSlider!, stringForValue value: Float) -> String! {
@@ -117,9 +83,9 @@ class SYRMProgressView: SYRMBaseView,ASValueTrackingSliderDelegate,ASValueTracki
         if SYReadConfigure.shared().progressType == .total { // 总进度
             
             // 如果有需求可显示章节名
-            return DZM_READ_TOTAL_PROGRESS_STRING(progress: value)
+            return SY_READ_TOTAL_PROGRESS_STRING(progress: value)
             
-        }else{ // 分页进度
+        } else { // 分页进度
             
             return "\(NSInteger(value))"
         }
@@ -163,24 +129,10 @@ class SYRMProgressView: SYRMBaseView,ASValueTrackingSliderDelegate,ASValueTracki
         }
     }
     
-    override func layoutSubviews() {
-        
-        super.layoutSubviews()
-        
-        let w = frame.size.width
-        let h = frame.size.height
-        let buttonW = DZM_SPACE_SA_55
-        
-        // 上一章
-        previousChapter.frame = CGRect(x: DZM_SPACE_SA_5, y: 0, width: buttonW, height: h)
-        
-        // 下一章
-        nextChapter.frame = CGRect(x: w - buttonW - DZM_SPACE_SA_5, y: 0, width: buttonW, height: h)
-        
-        // 进度条
-        let sliderX = previousChapter.frame.maxX + DZM_SPACE_SA_10
-        let sliderW = w - 2 * sliderX
-        slider.frame = CGRect(x: sliderX, y: 0, width: sliderW, height: h)
+    override func setupConstraints() {
+        slider.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

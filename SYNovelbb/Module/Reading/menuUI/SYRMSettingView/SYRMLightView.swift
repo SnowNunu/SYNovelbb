@@ -10,71 +10,71 @@ import UIKit
 
 class SYRMLightView: SYRMBaseView {
     
-    private var leftIcon:UIImageView!
-    
-    private var slider:UISlider!
-    
-    private var rightIcon:UIImageView!
-    
     override init(frame: CGRect) { super.init(frame: frame) }
     
-    override func addSubviews() {
-        
-        super.addSubviews()
-    
-        backgroundColor = UIColor.clear
-        
-        leftIcon = UIImageView()
-        leftIcon.image = UIImage(named: "light_0")!.withRenderingMode(.alwaysTemplate)
-        leftIcon.tintColor = DZM_READ_COLOR_MENU_COLOR
-        addSubview(leftIcon)
-        
-        rightIcon = UIImageView()
-        rightIcon.image = UIImage(named: "light_1")!.withRenderingMode(.alwaysTemplate)
-        rightIcon.tintColor = DZM_READ_COLOR_MENU_COLOR
-        addSubview(rightIcon)
-        
-        // 进度条
-        slider = UISlider()
-        slider.minimumValue = 0.0
-        slider.maximumValue = 1.0
-        slider.value = Float(UIScreen.main.brightness)
-        slider.addTarget(self, action: #selector(sliderChanged(_:)), for: .valueChanged)
-        slider.setThumbImage(UIImage(named:"slider")!.withRenderingMode(.alwaysTemplate), for: .normal)
-        // 设置当前进度颜色
-        slider.minimumTrackTintColor = DZM_READ_COLOR_MAIN
-        // 设置总进度颜色
-        slider.maximumTrackTintColor = DZM_READ_COLOR_MENU_COLOR
-        // 设置当前拖拽圆圈颜色
-        slider.tintColor = DZM_READ_COLOR_MENU_COLOR
+    override func setupUI() {
+        super.setupUI()
+        addSubview(darkImageView)
+        addSubview(brightImageView)
         addSubview(slider)
+    }
+    
+    override func setupConstraints() {
+        darkImageView.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(15)
+            make.width.height.equalTo(20)
+            make.centerY.equalTo(slider)
+        }
+        slider.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.height.equalToSuperview().offset(-BottomSafeAreaHeight)
+            make.left.equalTo(darkImageView.snp.right).offset(20)
+            make.right.equalTo(brightImageView.snp.left).offset(-20)
+        }
+        brightImageView.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-15)
+            make.width.height.equalTo(darkImageView)
+            make.centerY.equalTo(slider)
+        }
     }
     
     /// 滑块变化
     @objc private func sliderChanged(_ slider:UISlider) {
-        
         UIScreen.main.brightness = CGFloat(slider.value)
     }
     
-    override func layoutSubviews() {
-        
-        super.layoutSubviews()
-        
-        let w = frame.size.width
-        let h = frame.size.height
-        
-        let iconWH = DZM_SPACE_SA_20
-        let iconY = (h - iconWH) / 2
-        leftIcon.frame = CGRect(x: 0, y: iconY, width: iconWH, height: iconWH)
-        rightIcon.frame = CGRect(x: w - iconWH, y: iconY, width: iconWH, height: iconWH)
-        
-        let sliderX = leftIcon.frame.maxX + DZM_SPACE_SA_15
-        let sliderW = rightIcon.frame.minX - DZM_SPACE_SA_15 - sliderX
-        slider.frame = CGRect(x: sliderX, y: 0, width: sliderW, height: h)
-    }
-    
     required init?(coder aDecoder: NSCoder) {
-        
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var darkImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.reading_light_dark()!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor(51, 51, 51)
+        return imageView
+    }()
+    
+    lazy var slider: UISlider = {
+        let slider = UISlider()
+        slider.minimumValue = 0.0
+        slider.maximumValue = 1.0
+        slider.value = Float(UIScreen.main.brightness)
+        slider.addTarget(self, action: #selector(sliderChanged(_:)), for: .valueChanged)
+        slider.setThumbImage(R.image.reading_slider_thumb()!.withRenderingMode(.alwaysTemplate), for: .normal)
+        // 设置当前进度颜色
+        slider.minimumTrackTintColor = UIColor(244, 202, 28)
+        // 设置总进度颜色
+        slider.maximumTrackTintColor = UIColor(238, 238, 238)
+        // 设置当前拖拽圆圈颜色
+        slider.tintColor = UIColor(244, 202, 28)
+        return slider
+    }()
+    
+    lazy var brightImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.reading_light_bright()!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor(51, 51, 51)
+        return imageView
+    }()
+    
 }

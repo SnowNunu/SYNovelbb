@@ -8,16 +8,6 @@
 
 import UIKit
 
-/// 日志输出
-func DZMLog<T>(_ message:T) {
-    
-    #if DEBUG
-    
-    print(message)
-
-    #endif
-}
-
 // MARK: -- 屏幕属性
 
 /// 屏幕Size
@@ -228,7 +218,7 @@ func DelayHandle(_ delay:TimeInterval, _ execute:@escaping ()->Void) {
 // MARK: Block
 
 /// 动画完成
-typealias DZMAnimationCompletion = ()->Void
+typealias SYAnimationCompletion = ()->Void
 
 
 // MARK: 其他属性
@@ -243,7 +233,7 @@ let DZM_READ_BOOK_HOME_PAGE:NSInteger = -1
 let DZM_READ_LAST_PAGE:NSInteger = -1
 
 /// 动画时间
-let DZM_READ_AD_TIME:TimeInterval = 0.2
+let SY_READ_ANIMATION_TIME:TimeInterval = 0.25
 
 /// 段落头部双圆角空格
 let DZM_READ_PH_SPACE:String = "　　"
@@ -292,7 +282,7 @@ var DZM_READ_VIEW_RECT:CGRect! {
 // MARK: 进度相关
 
 /// 总进度字符串
-func DZM_READ_TOTAL_PROGRESS_STRING(progress:Float) ->String {
+func SY_READ_TOTAL_PROGRESS_STRING(progress:Float) ->String {
     
     return String(format: "%.1f%%", (floor(progress * 1000) / 10))
 }

@@ -16,9 +16,9 @@ class SYMRMBGColorView: SYRMBaseView {
     
     override init(frame: CGRect) { super.init(frame: frame) }
     
-    override func addSubviews() {
+    override func setupUI() {
         
-        super.addSubviews()
+        super.setupUI()
         
         backgroundColor = UIColor.clear
         

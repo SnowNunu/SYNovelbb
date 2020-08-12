@@ -31,6 +31,8 @@ target 'SYNovelbb' do
   
   # YYKit
   pod 'YYCategories'
+  pod 'YYText'
+  
   # 上下拉刷新
   pod 'MJRefresh', '~> 3.4.3'
   # 右滑返回
