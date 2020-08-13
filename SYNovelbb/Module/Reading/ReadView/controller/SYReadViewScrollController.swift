@@ -44,7 +44,7 @@ class SYReadViewScrollController: SYViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         
         // 阅读记录开始阅读
-        chapterIDs.append(vc.readModel.recordModel.chapterModel.id)
+        chapterIDs.append(vc.readModel.recordModel.chapterModel.chapterId)
         
         // 刷新阅读进度
         reloadProgress()
@@ -112,23 +112,23 @@ class SYReadViewScrollController: SYViewController, UITableViewDelegate, UITable
         
         let pageModel = chapterModel!.pageModels[indexPath.row]
         
-        // 是否为书籍首页
-        if pageModel.isHomePage {
-            
-            let cell = SYReadHomeViewCell.cell(tableView)
-            
-            cell.homeView.readModel = vc.readModel
-            
-            return cell
-            
-        }else{
+//        // 是否为书籍首页
+//        if pageModel.isHomePage {
+//
+//            let cell = SYReadHomeViewCell.cell(tableView)
+//
+//            cell.homeView.readModel = vc.readModel
+//
+//            return cell
+//
+//        } else {
             
             let cell = SYReadViewCell.cell(tableView)
             
             cell.pageModel = pageModel
             
             return cell
-        }
+//        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -165,14 +165,14 @@ class SYReadViewScrollController: SYViewController, UITableViewDelegate, UITable
         
         let chapterModel = GetChapterModel(chapterID: chapterID)
         
-        let pageModel = chapterModel!.pageModels[indexPath.row]
+//        let pageModel = chapterModel!.pageModels[indexPath.row]
         
-        if pageModel.isHomePage {
-            
-            topView?.isHidden = true
-            
-            bottomView?.isHidden = true
-        }
+//        if pageModel.isHomePage {
+//
+//            topView?.isHidden = true
+//
+//            bottomView?.isHidden = true
+//        }
     }
     
     /// 书籍首页消失
@@ -184,14 +184,14 @@ class SYReadViewScrollController: SYViewController, UITableViewDelegate, UITable
         
         let chapterModel = GetChapterModel(chapterID: chapterID)
         
-        let pageModel = chapterModel!.pageModels[indexPath.row]
+//        let pageModel = chapterModel!.pageModels[indexPath.row]
         
-        if pageModel.isHomePage {
-            
-            topView?.isHidden = false
-            
-            bottomView?.isHidden = false
-        }
+//        if pageModel.isHomePage {
+//
+//            topView?.isHidden = false
+//
+//            bottomView?.isHidden = false
+//        }
     }
     
     
@@ -270,7 +270,7 @@ class SYReadViewScrollController: SYViewController, UITableViewDelegate, UITable
                 
                 self?.vc.readModel.recordModel.modify(chapterModel: chapterModel, page: indexPath.row)
                 
-                DZM_READ_RECORD_CURRENT_CHAPTER_LOCATION = self?.vc.readModel.recordModel.locationFirst
+                SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = self?.vc.readModel.recordModel.locationFirst
                     
                 DispatchQueue.main.async { [weak self] () in
                     

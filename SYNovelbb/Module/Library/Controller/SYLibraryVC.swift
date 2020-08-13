@@ -40,6 +40,16 @@ class SYLibraryVC: SYBaseVC {
     
     override func rxBind() {
 //        self.perform(#selector(test), afterDelay: 5)
+        collectionView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] (indexPath) in
+                let model = self.viewModel.datasource.value[indexPath.section].items[indexPath.row]
+                let readModel = SYReadModel.model(bookID: model.bid)
+                readModel.bookName = model.readTxt
+                let vc  = SYReadController()
+                vc.readModel = readModel
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {

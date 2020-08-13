@@ -18,11 +18,8 @@ class SYRMBaseView: UIView {
     
     /// 初始化
     convenience init(readMenu:SYReadMenu!) {
-        
         self.init(frame: CGRect.zero)
-        
         self.readMenu = readMenu
-        
         setupUI()
         setupConstraints()
     }

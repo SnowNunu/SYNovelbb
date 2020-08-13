@@ -224,10 +224,10 @@ typealias SYAnimationCompletion = ()->Void
 // MARK: 其他属性
 
 /// 没有章节了(可以指定为任意标识,默认是空则为没有更多章节)
-let DZM_READ_NO_MORE_CHAPTER:NSNumber! = nil
+let SY_READ_NO_MORE_CHAPTER: NSNumber! = NSNumber(value: 0)
 
-/// 书籍首页-书名页
-let DZM_READ_BOOK_HOME_PAGE:NSInteger = -1
+///// 书籍首页-书名页
+//let SY_READ_BOOK_HOME_PAGE:NSInteger = -1
 
 /// 用于指定章节最后一页
 let DZM_READ_LAST_PAGE:NSInteger = -1
@@ -236,13 +236,14 @@ let DZM_READ_LAST_PAGE:NSInteger = -1
 let SY_READ_ANIMATION_TIME:TimeInterval = 0.25
 
 /// 段落头部双圆角空格
-let DZM_READ_PH_SPACE:String = "　　"
+//let SY_READ_PH_SPACE: String = "　　"
+let SY_READ_PH_SPACE: String = "  "   // 网络小说格式已经处理好了
 
 /// 主文件夹名称
 let SY_READ_FOLDER_NAME:String = "SYNovelbbRead"
 
 /// Key - 配置
-let DZM_READ_KEY_CONFIGURE:String = "DZM_READ_CONFIGURE"
+let SY_READ_KEY_CONFIGURE:String = "SY_READ_CONFIGURE"
 
 /// Key - 阅读记录
 let SY_READ_KEY_RECORD:String = "SY_READ_RECORD"

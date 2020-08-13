@@ -56,7 +56,7 @@ class SYReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
        
             if !readModel.chapterListModels.isEmpty {
                 
-                let chapterListModel = (readModel.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", readModel.recordModel.chapterModel.id)).first as? SYReadChapterListModel
+                let chapterListModel = (readModel.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", readModel.recordModel.chapterModel.chapterId)).first as? SYReadChapterListModel
                 
                 if chapterListModel != nil {
                     
@@ -92,9 +92,9 @@ class SYReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
         cell.chapterName.text = readModel.chapterListModels[indexPath.row].name
         
         // 阅读记录
-        if readModel.recordModel.chapterModel.id == chapterListModel.id {
+        if readModel.recordModel.chapterModel.chapterId == chapterListModel.id {
             
-            cell.chapterName.textColor = DZM_READ_COLOR_MAIN
+            cell.chapterName.textColor = UIColor(253, 85, 103)
             
         }else{ cell.chapterName.textColor = DZM_COLOR_145_145_145 }
         

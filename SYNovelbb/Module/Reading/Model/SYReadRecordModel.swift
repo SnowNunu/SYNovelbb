@@ -9,7 +9,7 @@
 import UIKit
 
 /// 记录当前章节阅读到的坐标
-var DZM_READ_RECORD_CURRENT_CHAPTER_LOCATION:NSNumber!
+var SY_READ_RECORD_CURRENT_CHAPTER_LOCATION: NSNumber!
 
 class SYReadRecordModel: NSObject,NSCoding {
 
@@ -112,7 +112,7 @@ class SYReadRecordModel: NSObject,NSCoding {
             
             chapterModel.updateFont()
             
-            page = chapterModel.page(location: DZM_READ_RECORD_CURRENT_CHAPTER_LOCATION.intValue)
+            page = chapterModel.page(location: SY_READ_RECORD_CURRENT_CHAPTER_LOCATION.intValue)
             
             if isSave { save() }
         }

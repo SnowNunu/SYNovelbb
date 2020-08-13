@@ -25,9 +25,6 @@ class SYReadModel: NSObject,NSCoding {
     
     // MARK: 快速进入
     
-    /// 本地小说全文
-    var fullText:String!
-    
     /// 章节内容范围数组 [章节ID:[章节优先级:章节内容Range]]
     var ranges:[String:[String:NSRange]]!
     
@@ -42,7 +39,7 @@ class SYReadModel: NSObject,NSCoding {
     }
     
     /// 是否存在阅读对象
-    class func isExist(bookID:String!) ->Bool {
+    class func isExist(bookID:String!) -> Bool {
         
         return SYKeyedArchiver.isExist(folderName: bookID, fileName: SY_READ_KEY_OBJECT)
     }
@@ -82,8 +79,6 @@ class SYReadModel: NSObject,NSCoding {
         
         chapterListModels = aDecoder.decodeObject(forKey: "chapterListModels") as? [SYReadChapterListModel]
         
-        fullText = aDecoder.decodeObject(forKey: "fullText") as? String
-        
         ranges = aDecoder.decodeObject(forKey: "ranges") as? [String:[String:NSRange]]
     }
     
@@ -94,8 +89,6 @@ class SYReadModel: NSObject,NSCoding {
         aCoder.encode(bookName, forKey: "bookName")
         
         aCoder.encode(chapterListModels, forKey: "chapterListModels")
-        
-        aCoder.encode(fullText, forKey: "fullText")
         
         aCoder.encode(ranges, forKey: "ranges")
     }

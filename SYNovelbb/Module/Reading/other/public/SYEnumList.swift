@@ -45,7 +45,7 @@ enum SYSpacingType:NSInteger {
 }
 
 /// 阅读进度类型
-enum DZMProgressType:NSInteger {
+enum SYProgressType:NSInteger {
     /// 总进度
     case total
     /// 分页进度

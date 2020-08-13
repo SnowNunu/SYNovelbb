@@ -26,16 +26,17 @@ class SYReadParser: NSObject {
         
         var pageModels: [SYReadPageModel] = []
         
-        if isFirstChapter { // 第一页为书籍页面
-            
-            let pageModel = SYReadPageModel()
-            
-            pageModel.range = NSMakeRange(DZM_READ_BOOK_HOME_PAGE, 1)
-            
-            pageModel.contentSize = DZM_READ_VIEW_RECT.size
-            
-            pageModels.append(pageModel)
-        }
+        // 暂时没有为书籍添加封面页的需求
+//        if isFirstChapter { // 第一页为书籍页面
+//
+//            let pageModel = SYReadPageModel()
+//
+//            pageModel.range = NSMakeRange(SY_READ_BOOK_HOME_PAGE, 1)
+//
+//            pageModel.contentSize = DZM_READ_VIEW_RECT.size
+//
+//            pageModels.append(pageModel)
+//        }
         
         let ranges = SYCoreText.GetPageingRanges(attrString: attrString, rect: rect)
         
@@ -70,9 +71,9 @@ class SYReadParser: NSObject {
                 // 当前页面开头是什么数据开头 (滚动模式)
                 if i == 0 { pageModel.headType = .chapterName
                     
-                }else if content.string.hasPrefix(DZM_READ_PH_SPACE) { pageModel.headType = .paragraph
+                } else if content.string.hasPrefix(SY_READ_PH_SPACE) { pageModel.headType = .paragraph
                     
-                }else{ pageModel.headType = .line }
+                } else{ pageModel.headType = .line }
                 
                 
                 // 根据开头类型返回开头高度 (滚动模式)
@@ -101,11 +102,11 @@ class SYReadParser: NSObject {
     @objc class func contentTypesetting(content:String) ->String {
         
         // 替换单换行
-        var content = content.replacingOccurrences(of: "\r", with: "")
+//        var content = content.replacingOccurrences(of: "\r", with: "")
         
         // 替换换行 以及 多个换行 为 换行加空格
-        content = content.replacingCharacters("\\s*\\n+\\s*", "\n" + DZM_READ_PH_SPACE)
-        
+//        content = content.replacingCharacters("\\s*\\n+\\s*", "\n" + SY_READ_PH_SPACE)
+        // 后台返回的格式已经无需自己再处理一遍
         // 返回
         return content
     }

@@ -14,7 +14,7 @@ class SYReadChapterModel: NSObject,NSCoding {
     var bookID:String!
     
     /// 章节ID
-    var id:NSNumber!
+    var chapterId:NSNumber!
     
     /// 上一章ID
     var previousChapterID:NSNumber!
@@ -27,7 +27,7 @@ class SYReadChapterModel: NSObject,NSCoding {
     
     /// 内容
     /// 此处 content 是经过排版好且双空格开头的内容。
-    /// 如果是网络数据需要确认是否处理好了,也就是在网络章节数据拿到之后, 使用排版接口进行排版并在开头加上双空格。(例如: DZM_READ_PH_SPACE + 排版好的content )
+    /// 如果是网络数据需要确认是否处理好了,也就是在网络章节数据拿到之后, 使用排版接口进行排版并在开头加上双空格。(例如: SY_READ_PH_SPACE + 排版好的content )
     /// 排版内容搜索 contentTypesetting 方法
     var content:String!
     
@@ -44,10 +44,10 @@ class SYReadChapterModel: NSObject,NSCoding {
     // MARK: 快捷获取
     
     /// 当前章节是否为第一个章节
-    var isFirstChapter:Bool! { return (previousChapterID == DZM_READ_NO_MORE_CHAPTER) }
+    var isFirstChapter:Bool! { return (previousChapterID == SY_READ_NO_MORE_CHAPTER) }
     
     /// 当前章节是否为最后一个章节
-    var isLastChapter:Bool! { return (nextChapterID == DZM_READ_NO_MORE_CHAPTER) }
+    var isLastChapter:Bool! { return (nextChapterID == SY_READ_NO_MORE_CHAPTER) }
     
     /// 完整章节名称
     var fullName:String! { return DZM_READ_CHAPTER_NAME(name) }
@@ -96,13 +96,9 @@ class SYReadChapterModel: NSObject,NSCoding {
     /// 完整内容排版
     private func fullContentAttrString() ->NSMutableAttributedString {
         
-        let titleString = NSMutableAttributedString(string: fullName, attributes: SYReadConfigure.shared().attributes(isTitle: true))
-        
         let contentString = NSMutableAttributedString(string: content, attributes: SYReadConfigure.shared().attributes(isTitle: false))
         
-        titleString.append(contentString)
-        
-        return titleString
+        return contentString
     }
     
     // MARK: 辅助功能
@@ -160,7 +156,7 @@ class SYReadChapterModel: NSObject,NSCoding {
     }
     
     /// 保存
-    func save() { SYKeyedArchiver.archiver(folderName: bookID, fileName: id.stringValue, object: self) }
+    func save() { SYKeyedArchiver.archiver(folderName: bookID, fileName: chapterId.stringValue, object: self) }
     
     /// 是否存在章节内容
     class func isExist(bookID:String!, chapterID:NSNumber!) ->Bool {
@@ -187,7 +183,7 @@ class SYReadChapterModel: NSObject,NSCoding {
             
             chapterModel.bookID = bookID
             
-            chapterModel.id = chapterID
+            chapterModel.chapterId = chapterID
         }
         
         return chapterModel
@@ -200,7 +196,7 @@ class SYReadChapterModel: NSObject,NSCoding {
         
         bookID = aDecoder.decodeObject(forKey: "bookID") as? String
         
-        id = aDecoder.decodeObject(forKey: "id") as? NSNumber
+        chapterId = aDecoder.decodeObject(forKey: "chapterId") as? NSNumber
         
         previousChapterID = aDecoder.decodeObject(forKey: "previousChapterID") as? NSNumber
         
@@ -225,7 +221,7 @@ class SYReadChapterModel: NSObject,NSCoding {
         
         aCoder.encode(bookID, forKey: "bookID")
         
-        aCoder.encode(id, forKey: "id")
+        aCoder.encode(chapterId, forKey: "chapterId")
         
         aCoder.encode(previousChapterID, forKey: "previousChapterID")
         

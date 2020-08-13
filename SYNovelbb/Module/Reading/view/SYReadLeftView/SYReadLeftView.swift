@@ -9,8 +9,8 @@
 import UIKit
 
 /// leftView 宽高度
-let DZM_READ_LEFT_VIEW_WIDTH:CGFloat = DZM_SPACE_SA_335
-let DZM_READ_LEFT_VIEW_HEIGHT:CGFloat = ScreenHeight
+let SY_READ_LEFT_VIEW_WIDTH: CGFloat = ScreenWidth * 0.66
+let SY_READ_LEFT_VIEW_HEIGHT: CGFloat = ScreenHeight
 
 /// leftView headerView 高度
 let DZM_READ_LEFT_HEADER_VIEW_HEIGHT:CGFloat = DZM_SPACE_SA_50
@@ -34,12 +34,12 @@ class SYReadLeftView: UIView {
         
         // 分割线
         spaceLine = SpaceLine(self, DZM_COLOR_230_230_230)
-        spaceLine.frame = CGRect(x: 0, y: 50, width: DZM_READ_LEFT_VIEW_WIDTH, height: DZM_SPACE_LINE)
+        spaceLine.frame = CGRect(x: 0, y: 50, width: SY_READ_LEFT_VIEW_WIDTH, height: DZM_SPACE_LINE)
         
         // 目录
         catalogView = SYReadCatalogView()
         addSubview(catalogView)
-        catalogView.frame = CGRect(x: 0, y: spaceLine.frame.maxY, width: DZM_READ_LEFT_VIEW_WIDTH, height: DZM_READ_LEFT_VIEW_HEIGHT - spaceLine.frame.maxY)
+        catalogView.frame = CGRect(x: 0, y: spaceLine.frame.maxY, width: SY_READ_LEFT_VIEW_WIDTH, height: SY_READ_LEFT_VIEW_HEIGHT - spaceLine.frame.maxY)
         
         // 更新当前UI
         updateUI()

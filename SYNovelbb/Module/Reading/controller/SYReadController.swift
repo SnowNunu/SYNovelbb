@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RxSwift
 
-class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControllerDelegate , UIPageViewControllerDataSource, SYPageViewControllerDelegate, DZMCoverControllerDelegate,SYReadContentViewDelegate,SYReadCatalogViewDelegate {
+class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControllerDelegate , UIPageViewControllerDataSource, SYPageViewControllerDelegate, DZMCoverControllerDelegate, SYReadContentViewDelegate, SYReadCatalogViewDelegate {
 
     // MARK: 数据相关
     
@@ -19,13 +20,13 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     // MARK: UI相关
     
     /// 阅读主视图
-    var contentView:SYReadContentView!
+    var contentView: SYReadContentView!
     
     /// 章节列表
     var leftView: SYReadLeftView!
     
     /// 阅读菜单
-    var readMenu:SYReadMenu!
+    var readMenu: SYReadMenu!
     
     /// 翻页控制器 (仿真)
     var pageViewController: SYPageViewController!
@@ -34,29 +35,29 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     var scrollController: SYReadViewScrollController!
     
     /// 翻页控制器 (无效果,覆盖)
-    var coverController:DZMCoverController!
+    var coverController: DZMCoverController!
     
     /// 非滚动模式时,当前显示 SYReadViewController
-    var currentDisplayController:SYReadViewController?
+    var currentDisplayController: SYReadViewController?
     
     /// 用于区分正反面的值(勿动)
-    var tempNumber:NSInteger = 1
+    var tempNumber: NSInteger = 1
+    
+    lazy var disposeBag: DisposeBag = {
+        return DisposeBag()
+    }()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        // 初始化书籍阅读记录
-        updateReadRecord(recordModel: readModel.recordModel)
         
-        // 初始化菜单
-        readMenu = SYReadMenu(vc: self, delegate: self)
         
         // 背景颜色
         view.backgroundColor = SYReadConfigure.shared().bgColor
         
-        // 初始化控制器
-        creatPageController(displayController: GetCurrentReadViewController(isUpdateFont: true))
+        // 初始化书籍阅读记录
+        dealWithReadRecord()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +85,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
 
         leftView.isHidden = true
         view.addSubview(leftView)
-        leftView.frame = CGRect(x: -DZM_READ_LEFT_VIEW_WIDTH, y: 0, width: DZM_READ_LEFT_VIEW_WIDTH, height: DZM_READ_LEFT_VIEW_HEIGHT)
+        leftView.frame = CGRect(x: -SY_READ_LEFT_VIEW_WIDTH, y: 0, width: SY_READ_LEFT_VIEW_WIDTH, height: SY_READ_LEFT_VIEW_HEIGHT)
         
         // 阅读视图
         contentView = SYReadContentView()
@@ -93,16 +94,14 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         contentView.frame = CGRect(x: 0, y: 0, width: SY_READ_CONTENT_VIEW_WIDTH, height: SY_READ_CONTENT_VIEW_HEIGHT)
     }
     
-    // 处理通知
-    @objc private func longPressViewNotification(notification:Notification) {
+    // 
+    func showReadingView() {
+        // 初始化菜单
+        readMenu = SYReadMenu(vc: self, delegate: self)
         
-        // 获得状态
-        let info = notification.userInfo
-        
-        // 隐藏菜单
-        readMenu.showMenu(isShow: false)
+        // 初始化控制器
+        creatPageController(displayController: GetCurrentReadViewController(isUpdateFont: true))
     }
-    
     
     // MARK: SYReadCatalogViewDelegate
     
@@ -113,7 +112,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         
         contentView.showCover(isShow: false)
         
-        if readModel.recordModel.chapterModel.id == chapterListModel.id { return }
+        if readModel.recordModel.chapterModel.chapterId == chapterListModel.id { return }
         
         GoToChapter(chapterID: chapterListModel.id)
     }
@@ -153,7 +152,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         }
         
         // 清空坐标
-        DZM_READ_RECORD_CURRENT_CHAPTER_LOCATION = nil
+        SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = nil
         
         // 返回
         navigationController?.popViewController(animated: true)
@@ -222,7 +221,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     func readMenuDraggingProgress(readMenu: SYReadMenu!, toChapterID: NSNumber, toPage: NSInteger) {
         
         // 不是当前阅读记录章节
-        if toChapterID != readModel!.recordModel.chapterModel.id {
+        if toChapterID != readModel!.recordModel.chapterModel.chapterId {
             
             GoToChapter(chapterID: toChapterID, toPage: toPage)
         }
@@ -290,14 +289,14 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         UIView.animate(withDuration: SY_READ_ANIMATION_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
             
             if isShow {
-                
+
                 self?.leftView.frame.origin = CGPoint.zero
                 
-                self?.contentView.frame.origin = CGPoint(x: DZM_READ_LEFT_VIEW_WIDTH, y: 0)
+                self?.contentView.frame.origin = CGPoint(x: SY_READ_LEFT_VIEW_WIDTH, y: 0)
                 
             }else{
                 
-                self?.leftView.frame.origin = CGPoint(x: -DZM_READ_LEFT_VIEW_WIDTH, y: 0)
+                self?.leftView.frame.origin = CGPoint(x: -SY_READ_LEFT_VIEW_WIDTH, y: 0)
                 
                 self?.contentView.frame.origin = CGPoint.zero
             }
@@ -311,7 +310,7 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     }
     
     deinit {
-        
+        logInfo("\(self)释放了")
         // 清理阅读控制器
         clearPageController()
     }

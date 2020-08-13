@@ -8,12 +8,6 @@
 
 import UIKit
 
-/// 主题颜色
-var DZM_READ_COLOR_MAIN:UIColor = DZM_COLOR_253_85_103
-
-/// 菜单默认颜色
-var DZM_READ_COLOR_MENU_COLOR:UIColor = DZM_COLOR_230_230_230
-
 /// 阅读背景颜色列表
 let SY_READ_BG_COLORS:[UIColor] = [UIColor(238, 238, 238), UIColor(218, 227, 182), UIColor(251, 237, 200), UIColor(251, 252, 255)]
 
@@ -24,19 +18,19 @@ let SY_READ_BG_COLORS:[UIColor] = [UIColor(238, 238, 238), UIColor(218, 227, 182
 /// let DZM_READ_STATUS_TEXT_COLORS:[UIColor] = [DZM_COLOR_145_145_145]
 
 /// 阅读最小阅读字体大小
-let SY_READ_FONT_SIZE_MIN:NSInteger = 12
+let SY_READ_FONT_SIZE_MIN: NSInteger = 12
 
 /// 阅读最大阅读字体大小
-let SY_READ_FONT_SIZE_MAX:NSInteger = 24
+let SY_READ_FONT_SIZE_MAX: NSInteger = 24
 
 /// 阅读默认字体大小
-let SY_READ_FONT_SIZE_DEFAULT:NSInteger = 18
+let SY_READ_FONT_SIZE_DEFAULT: NSInteger = 18
 
 /// 阅读字体大小叠加指数
-let SY_READ_FONT_SIZE_SPACE:NSInteger = 2
+let SY_READ_FONT_SIZE_SPACE: NSInteger = 2
 
 /// 章节标题 - 在当前字体大小上叠加指数
-let DZM_READ_FONT_SIZE_SPACE_TITLE:NSInteger = 8
+let SY_READ_FONT_SIZE_SPACE_TITLE: NSInteger = 8
 
 /// 单利对象
 private var configure: SYReadConfigure?
@@ -46,22 +40,22 @@ class SYReadConfigure: NSObject {
     // MARK: 阅读内容配置
     
     /// 背景颜色索引
-    @objc var bgColorIndex:NSNumber!
+    @objc var bgColorIndex: NSNumber!
     
     /// 字体类型索引
-    @objc var fontIndex:NSNumber!
+    @objc var fontIndex: NSNumber!
     
     /// 翻页类型索引
-    @objc var effectIndex:NSNumber!
+    @objc var effectIndex: NSNumber!
     
     /// 间距类型索引
-    @objc var spacingIndex:NSNumber!
+    @objc var spacingIndex: NSNumber!
     
     /// 进度显示索引
-    @objc var progressIndex:NSNumber!
+    @objc var progressIndex: NSNumber!
     
     /// 字体大小
-    @objc var fontSize:NSNumber!
+    @objc var fontSize: NSNumber!
     
     
     // MARK: 快捷获取
@@ -69,7 +63,7 @@ class SYReadConfigure: NSObject {
     /// 使用分页进度 || 总文章进度(网络文章也可以使用)
     /// 总文章进度注意: 总文章进度需要有整本书的章节总数,以及当前章节带有从0开始排序的索引。
     /// 如果还需要在拖拽底部功能条上进度条过程中展示章节名,则需要带上章节列表数据,并去 SYRMProgressView 文件中找到 ASValueTrackingSliderDataSource 修改返回数据源为章节名。
-    var progressType:DZMProgressType! { return DZMProgressType(rawValue: progressIndex.intValue) }
+    var progressType: SYProgressType! { return SYProgressType(rawValue: progressIndex.intValue) }
     
     /// 翻页类型
     var effectType: SYEffectType! { return SYEffectType(rawValue: effectIndex.intValue) }
@@ -81,7 +75,7 @@ class SYReadConfigure: NSObject {
     var spacingType: SYSpacingType! { return SYSpacingType(rawValue: spacingIndex.intValue) }
     
     /// 背景颜色
-    var bgColor:UIColor! {
+    var bgColor: UIColor! {
         return SY_READ_BG_COLORS[bgColorIndex.intValue]
     }
     
@@ -148,7 +142,7 @@ class SYReadConfigure: NSObject {
     /// 阅读字体
     func font(isTitle:Bool = false) -> UIFont {
         
-        let size = SA_SIZE(CGFloat(fontSize.intValue + (isTitle ? DZM_READ_FONT_SIZE_SPACE_TITLE : 0)))
+        let size = SA_SIZE(CGFloat(fontSize.intValue + (isTitle ? SY_READ_FONT_SIZE_SPACE_TITLE : 0)))
         
         let fontType = self.fontType
         
@@ -165,7 +159,7 @@ class SYReadConfigure: NSObject {
     
     /// 字体属性
     /// isPaging: 为YES的时候只需要返回跟分页相关的属性即可 (原因:包含UIColor,小数点相关的...不可返回,因为无法进行比较)
-    func attributes(isTitle:Bool, isPageing:Bool = false) ->[NSAttributedString.Key:Any] {
+    func attributes(isTitle: Bool, isPageing: Bool = false) -> [NSAttributedString.Key : Any] {
         
         // 段落配置
         let paragraphStyle = NSMutableParagraphStyle()
@@ -181,10 +175,10 @@ class SYReadConfigure: NSObject {
             // 段间距
             paragraphStyle.paragraphSpacing = 0
             
-            // 对其
+            // 对齐方式
             paragraphStyle.alignment = .center
             
-        }else{
+        } else {
             
             // 行间距
             paragraphStyle.lineSpacing = lineSpacing
@@ -192,17 +186,18 @@ class SYReadConfigure: NSObject {
             // 段间距
             paragraphStyle.paragraphSpacing = paragraphSpacing
             
-            // 对其
-            paragraphStyle.alignment = .justified
+            // 对齐方式
+//            paragraphStyle.alignment = .justified
+            paragraphStyle.alignment = .left
         }
         
         if isPageing {
             
             return [.font: font(isTitle: isTitle), .paragraphStyle: paragraphStyle]
             
-        }else{
+        } else {
             
-            return [.foregroundColor: textColor, .font: font(isTitle: isTitle), .paragraphStyle: paragraphStyle]
+            return [.foregroundColor: textColor!, .font: font(isTitle: isTitle), .paragraphStyle: paragraphStyle]
         }
     }
     
@@ -219,7 +214,7 @@ class SYReadConfigure: NSObject {
                     "progressIndex": progressIndex,
                     "fontSize": fontSize]
     
-        SYUserDefaults.setObject(dict, DZM_READ_KEY_CONFIGURE)
+        SYUserDefaults.setObject(dict, SY_READ_KEY_CONFIGURE)
     }
     
     
@@ -228,7 +223,7 @@ class SYReadConfigure: NSObject {
     /// 获取对象
     class func shared() -> SYReadConfigure {
         
-        if configure == nil { configure = SYReadConfigure(SYUserDefaults.object(DZM_READ_KEY_CONFIGURE)) }
+        if configure == nil { configure = SYReadConfigure(SYUserDefaults.object(SY_READ_KEY_CONFIGURE)) }
         
         return configure!
     }
@@ -276,9 +271,9 @@ class SYReadConfigure: NSObject {
         }
         
         // 显示进度类型
-        if (progressIndex == nil) || (DZMProgressType(rawValue: progressIndex.intValue) == nil) {
+        if (progressIndex == nil) || (SYProgressType(rawValue: progressIndex.intValue) == nil) {
             
-            progressIndex = NSNumber(value: DZMProgressType.page.rawValue)
+            progressIndex = NSNumber(value: SYProgressType.page.rawValue)
         }
     }
     

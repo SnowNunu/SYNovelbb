@@ -52,7 +52,7 @@ class SYReadPageModel: NSObject,NSCoding {
     // MARK: 快捷获取
     
     /// 书籍首页
-    var isHomePage:Bool { return range.location == DZM_READ_BOOK_HOME_PAGE }
+//    var isHomePage:Bool { return range.location == SY_READ_BOOK_HOME_PAGE }
     
     /// 获取显示内容(考虑可能会变换字体颜色的情况)
     var showContent:NSAttributedString! {

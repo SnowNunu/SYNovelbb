@@ -107,6 +107,8 @@
 		7B947C8924DA4E8C00735F7B /* SYMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C8824DA4E8C00735F7B /* SYMainVC.swift */; };
 		7B947C8E24DA5FEF00735F7B /* UserDefaults+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */; };
 		7B947C9224DA786500735F7B /* SYUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C9124DA786500735F7B /* SYUserModel.swift */; };
+		7B9562E124E5321000695476 /* SYChapterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9562E024E5321000695476 /* SYChapterModel.swift */; };
+		7B9562E324E53CA100695476 /* SYChapterContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9562E224E53CA100695476 /* SYChapterContentModel.swift */; };
 		7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */; };
 		7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */; };
 		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
@@ -299,6 +301,8 @@
 		7B947C8824DA4E8C00735F7B /* SYMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMainVC.swift; sourceTree = "<group>"; };
 		7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Cache.swift"; sourceTree = "<group>"; };
 		7B947C9124DA786500735F7B /* SYUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYUserModel.swift; sourceTree = "<group>"; };
+		7B9562E024E5321000695476 /* SYChapterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYChapterModel.swift; sourceTree = "<group>"; };
+		7B9562E224E53CA100695476 /* SYChapterContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYChapterContentModel.swift; sourceTree = "<group>"; };
 		7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle2Cell.swift; sourceTree = "<group>"; };
 		7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeNormalHeader.swift; sourceTree = "<group>"; };
 		7B99BC7924C80C80003FF4E1 /* Novelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1235,6 +1239,15 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		7B9562DF24E531A400695476 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7B9562E024E5321000695476 /* SYChapterModel.swift */,
+				7B9562E224E53CA100695476 /* SYChapterContentModel.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		7B99BC7024C80C80003FF4E1 = {
 			isa = PBXGroup;
 			children = (
@@ -1569,6 +1582,7 @@
 		7B9B96E324E144100011DB29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B9562DF24E531A400695476 /* Network */,
 				7B9B96E424E144100011DB29 /* SYReadRecordModel.swift */,
 				7B9B96E524E144100011DB29 /* SYReadModel.swift */,
 				7B9B96E624E144100011DB29 /* SYReadChapterListModel.swift */,
@@ -1992,6 +2006,7 @@
 				7B34624824C982CA0090ACFF /* LogManager.swift in Sources */,
 				7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */,
 				7B9B970924E144100011DB29 /* SYPageViewController.swift in Sources */,
+				7B9562E324E53CA100695476 /* SYChapterContentModel.swift in Sources */,
 				7B11212A24D3C7250067C530 /* SYMineRechargeModel.swift in Sources */,
 				7B7DAB3F24D2640A004944AE /* SYMineSystemMsgVM.swift in Sources */,
 				7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */,
@@ -2004,6 +2019,7 @@
 				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
 				7B847D1C24CEBA3A00E9ADFD /* SYBaseBookModel.swift in Sources */,
 				7B9B96F024E144100011DB29 /* SYReadViewCell.swift in Sources */,
+				7B9562E124E5321000695476 /* SYChapterModel.swift in Sources */,
 				7B8576C224D1556D002D99EF /* SYMineCenterFooter.swift in Sources */,
 				7B9B96FB24E144100011DB29 /* SYSpaceList.swift in Sources */,
 				7B9B96F624E144100011DB29 /* SYReadView.swift in Sources */,

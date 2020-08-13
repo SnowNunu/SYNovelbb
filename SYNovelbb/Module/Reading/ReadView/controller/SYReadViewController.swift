@@ -49,7 +49,7 @@ class SYReadViewController: SYViewController {
         // 顶部状态栏
         topView = SYReadViewStatusTopView()
         topView.bookName.text = readModel.bookName
-        topView.chapterName.text = recordModel.chapterModel.name
+//        topView.chapterName.text = recordModel.chapterModel.name
         view.addSubview(topView)
         topView.frame = CGRect(x: readRect.minX, y: readRect.minY, width: readRect.width, height: DZM_READ_STATUS_TOP_VIEW_HEIGHT)
         
@@ -65,24 +65,24 @@ class SYReadViewController: SYViewController {
     /// 初始化阅读视图
     func initReadView() {
         
-        // 是否为书籍首页
-        if recordModel.pageModel.isHomePage {
-            
-            topView.isHidden = true
-            bottomView.isHidden = true
-            
-            homeView = SYReadHomeView()
-            homeView.readModel = readModel
-            view.addSubview(homeView)
-            homeView.frame = DZM_READ_VIEW_RECT
-            
-        }else{
+//        // 是否为书籍首页
+//        if recordModel.pageModel.isHomePage {
+//
+//            topView.isHidden = true
+//            bottomView.isHidden = true
+//
+//            homeView = SYReadHomeView()
+//            homeView.readModel = readModel
+//            view.addSubview(homeView)
+//            homeView.frame = DZM_READ_VIEW_RECT
+//
+//        }else{
             
             readView = SYReadView()
             readView.content = recordModel.contentAttributedString
             view.addSubview(readView)
             readView.frame = DZM_READ_VIEW_RECT
-        }
+//        }
     }
     
     /// 刷新阅读进度显示
