@@ -8,15 +8,6 @@
 
 import UIKit
 
-/// 一切为了好玩 》》》》》
-///// 主题颜色
-//var DZM_READ_COLOR_MAIN:UIColor { return DZM_COLOR_ARC } // DZM_COLOR_253_85_103
-//
-///// 菜单默认颜色
-//var DZM_READ_COLOR_MENU_COLOR:UIColor { return DZM_COLOR_ARC } // DZM_COLOR_235_235_235
-//
-///// 菜单背景颜色
-
 /// 主题颜色
 var DZM_READ_COLOR_MAIN:UIColor = DZM_COLOR_253_85_103
 
@@ -24,7 +15,7 @@ var DZM_READ_COLOR_MAIN:UIColor = DZM_COLOR_253_85_103
 var DZM_READ_COLOR_MENU_COLOR:UIColor = DZM_COLOR_230_230_230
 
 /// 阅读背景颜色列表
-let DZM_READ_BG_COLORS:[UIColor] = [UIColor.white, DZM_COLOR_238_224_202, DZM_COLOR_205_239_205, DZM_COLOR_206_233_241, DZM_COLOR_58_52_54, DZM_COLOR_BG_0]
+let SY_READ_BG_COLORS:[UIColor] = [UIColor(238, 238, 238), UIColor(218, 227, 182), UIColor(251, 237, 200), UIColor(251, 252, 255)]
 
 /// 阅读字体颜色列表
 /// let DZM_READ_TEXT_COLORS:[UIColor] = [DZM_COLOR_145_145_145]
@@ -33,16 +24,16 @@ let DZM_READ_BG_COLORS:[UIColor] = [UIColor.white, DZM_COLOR_238_224_202, DZM_CO
 /// let DZM_READ_STATUS_TEXT_COLORS:[UIColor] = [DZM_COLOR_145_145_145]
 
 /// 阅读最小阅读字体大小
-let DZM_READ_FONT_SIZE_MIN:NSInteger = 12
+let SY_READ_FONT_SIZE_MIN:NSInteger = 12
 
 /// 阅读最大阅读字体大小
-let DZM_READ_FONT_SIZE_MAX:NSInteger = 24
+let SY_READ_FONT_SIZE_MAX:NSInteger = 24
 
 /// 阅读默认字体大小
-let DZM_READ_FONT_SIZE_DEFAULT:NSInteger = 18
+let SY_READ_FONT_SIZE_DEFAULT:NSInteger = 18
 
 /// 阅读字体大小叠加指数
-let DZM_READ_FONT_SIZE_SPACE:NSInteger = 2
+let SY_READ_FONT_SIZE_SPACE:NSInteger = 2
 
 /// 章节标题 - 在当前字体大小上叠加指数
 let DZM_READ_FONT_SIZE_SPACE_TITLE:NSInteger = 8
@@ -81,25 +72,17 @@ class SYReadConfigure: NSObject {
     var progressType:DZMProgressType! { return DZMProgressType(rawValue: progressIndex.intValue) }
     
     /// 翻页类型
-    var effectType:SYEffectType! { return SYEffectType(rawValue: effectIndex.intValue) }
+    var effectType: SYEffectType! { return SYEffectType(rawValue: effectIndex.intValue) }
     
     /// 字体类型
-    var fontType:DZMFontType! { return DZMFontType(rawValue: fontIndex.intValue) }
+    var fontType: SYFontType! { return SYFontType(rawValue: fontIndex.intValue) }
     
     /// 间距类型
-    var spacingType:DZMSpacingType! { return DZMSpacingType(rawValue: spacingIndex.intValue) }
+    var spacingType: SYSpacingType! { return SYSpacingType(rawValue: spacingIndex.intValue) }
     
     /// 背景颜色
     var bgColor:UIColor! {
-        
-        if bgColorIndex.intValue == DZM_READ_BG_COLORS.firstIndex(of: DZM_COLOR_BG_0) { // 牛皮黄背景
-            
-            return UIColor(patternImage: UIImage(named: "read_bg_0")!)
-            
-        }else{
-            
-            return DZM_READ_BG_COLORS[bgColorIndex.intValue]
-        }
+        return SY_READ_BG_COLORS[bgColorIndex.intValue]
     }
     
     /// 字体颜色
@@ -135,11 +118,11 @@ class SYReadConfigure: NSObject {
             
             return DZM_SPACE_10
             
-        }else if spacingType == .middle { // 中间距
+        } else if spacingType == .middle { // 中间距
             
             return DZM_SPACE_7
             
-        }else{ // 小间距
+        } else { // 小间距
             
             return DZM_SPACE_5
         }
@@ -163,26 +146,19 @@ class SYReadConfigure: NSObject {
     }
     
     /// 阅读字体
-    func font(isTitle:Bool = false) ->UIFont {
+    func font(isTitle:Bool = false) -> UIFont {
         
         let size = SA_SIZE(CGFloat(fontSize.intValue + (isTitle ? DZM_READ_FONT_SIZE_SPACE_TITLE : 0)))
         
         let fontType = self.fontType
         
         if fontType == .one { // 黑体
-            
             return UIFont(name: "EuphemiaUCAS-Italic", size: size)!
-            
-        }else if fontType == .two { // 楷体
-            
+        } else if fontType == .two { // 楷体
             return UIFont(name: "AmericanTypewriter-Light", size: size)!
-            
-        }else if fontType == .three { // 宋体
-            
+        } else if fontType == .three { // 宋体
             return UIFont(name: "Papyrus", size: size)!
-            
-        }else{ // 系统
-            
+        } else { // 系统
             return UIFont.systemFont(ofSize: size)
         }
     }
@@ -270,21 +246,21 @@ class SYReadConfigure: NSObject {
     private func initData() {
         
         // 背景
-        if (bgColorIndex == nil) || (bgColorIndex.intValue >= DZM_READ_BG_COLORS.count) {
+        if (bgColorIndex == nil) || (bgColorIndex.intValue >= SY_READ_BG_COLORS.count) {
             
-            bgColorIndex = NSNumber(value: DZM_READ_BG_COLORS.index(of: DZM_COLOR_BG_0) ?? 0)
+            bgColorIndex = NSNumber(value: SY_READ_BG_COLORS.firstIndex(of: UIColor(251, 252, 255)) ?? 0)
         }
         
         // 字体类型
-        if (fontIndex == nil) || (DZMFontType(rawValue: fontIndex.intValue) == nil) {
+        if (fontIndex == nil) || (SYFontType(rawValue: fontIndex.intValue) == nil) {
             
-            fontIndex = NSNumber(value: DZMFontType.two.rawValue)
+            fontIndex = NSNumber(value: SYFontType.system.rawValue)
         }
         
         // 间距类型
-        if (spacingIndex == nil) || (DZMSpacingType(rawValue: spacingIndex.intValue) == nil) {
+        if (spacingIndex == nil) || (SYSpacingType(rawValue: spacingIndex.intValue) == nil) {
             
-            spacingIndex = NSNumber(value: DZMSpacingType.small.rawValue)
+            spacingIndex = NSNumber(value: SYSpacingType.small.rawValue)
         }
         
         // 翻页类型
@@ -294,9 +270,9 @@ class SYReadConfigure: NSObject {
         }
         
         // 字体大小
-        if (fontSize == nil) || (fontSize.intValue > DZM_READ_FONT_SIZE_MAX || fontSize.intValue < DZM_READ_FONT_SIZE_MIN) {
+        if (fontSize == nil) || (fontSize.intValue > SY_READ_FONT_SIZE_MAX || fontSize.intValue < SY_READ_FONT_SIZE_MIN) {
             
-            fontSize = NSNumber(value: DZM_READ_FONT_SIZE_DEFAULT)
+            fontSize = NSNumber(value: SY_READ_FONT_SIZE_DEFAULT)
         }
         
         // 显示进度类型

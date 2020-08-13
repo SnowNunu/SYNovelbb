@@ -162,7 +162,7 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
     // MARK: -- UIGestureRecognizerDelegate
     
     /// 点击这些控件不需要执行手势
-    private let ClassStrings:[String] = ["SYRMTopView","SYRMBottomView","SYRMSettingView","SYRMFontSizeView", "SYRMFontTypeView","SYRMLightView","SYRMSpacingView","SYRMEffectTypeView","SYMRMBGColorView","SYRMFuncView","SYRMProgressView","UIControl","UISlider","ASValueTrackingSlider", "SYRMErrorView", "YYTextView", "YYTextContainerView"]
+    private let ClassStrings:[String] = ["SYRMTopView", "SYRMBottomView", "SYRMSettingView", "SYRMLightView", "SYRMFuncView", "SYRMProgressView", "UIControl", "UISlider", "ASValueTrackingSlider", "SYRMErrorView", "YYTextView", "YYTextContainerView"]
     
     /// 手势拦截
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -236,7 +236,7 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
         
         contentView.addSubview(settingView)
         
-        settingView.frame = CGRect(x: 0, y: SY_READ_CONTENT_VIEW_HEIGHT, width: SY_READ_CONTENT_VIEW_WIDTH, height: DZM_READ_MENU_SETTING_VIEW_TOTAL_HEIGHT)
+        settingView.frame = CGRect(x: 0, y: SY_READ_CONTENT_VIEW_HEIGHT, width: SY_READ_CONTENT_VIEW_WIDTH, height: BottomSafeAreaHeight + 166)
     }
     
     // MARK: 菜单展示
@@ -357,7 +357,7 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
 
         UIView.animate(withDuration: SY_READ_ANIMATION_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
 
-            let y = isShow ? (SY_READ_CONTENT_VIEW_HEIGHT - DZM_READ_MENU_SETTING_VIEW_TOTAL_HEIGHT) : SY_READ_CONTENT_VIEW_HEIGHT
+            let y = isShow ? (SY_READ_CONTENT_VIEW_HEIGHT - BottomSafeAreaHeight - 166) : SY_READ_CONTENT_VIEW_HEIGHT
 
             self?.settingView.frame.origin = CGPoint(x: 0, y: y)
 

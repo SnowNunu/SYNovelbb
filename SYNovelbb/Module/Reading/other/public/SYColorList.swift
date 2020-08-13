@@ -18,9 +18,5 @@ let DZM_COLOR_230_230_230:UIColor = RGB(230, 230, 230)  // 分割线 || 菜单�
 let DZM_COLOR_238_224_202:UIColor = RGB(238, 224, 202)  // 阅读背景颜色支持
 let DZM_COLOR_253_85_103:UIColor = RGB(253, 85, 103)    // 粉红色
 
-/// 阅读背景颜色支持 - 牛皮黄
-//let DZM_COLOR_BG_0:UIColor = UIColor(patternImage: UIImage(named: "read_bg_0_icon")!)
-let DZM_COLOR_BG_0:UIColor = .white
-
 /// 随机颜色
 var DZM_COLOR_ARC:UIColor { return RGB(CGFloat(arc4random() % 255), CGFloat(arc4random() % 255), CGFloat(arc4random() % 255)) }

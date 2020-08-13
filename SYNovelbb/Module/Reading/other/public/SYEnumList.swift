@@ -23,7 +23,7 @@ enum SYEffectType:NSInteger {
 }
 
 /// 阅读字体类型
-enum DZMFontType:NSInteger {
+enum SYFontType:NSInteger {
     /// 系统
     case system
     /// 黑体
@@ -35,7 +35,7 @@ enum DZMFontType:NSInteger {
 }
 
 /// 阅读内容间距类型
-enum DZMSpacingType:NSInteger {
+enum SYSpacingType:NSInteger {
     /// 大间距
     case big
     /// 适中间距

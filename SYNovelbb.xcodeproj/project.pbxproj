@@ -125,13 +125,8 @@
 		7B9B968A24E143E90011DB29 /* SYReadConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B968624E143E90011DB29 /* SYReadConfigure.swift */; };
 		7B9B968B24E143E90011DB29 /* SYReadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B968724E143E90011DB29 /* SYReadController.swift */; };
 		7B9B968C24E143E90011DB29 /* SYReadController+EffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B968824E143E90011DB29 /* SYReadController+EffectType.swift */; };
-		7B9B969D24E143F90011DB29 /* SYRMFontSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B968F24E143F90011DB29 /* SYRMFontSizeView.swift */; };
-		7B9B969E24E143F90011DB29 /* SYRMFontTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969024E143F90011DB29 /* SYRMFontTypeView.swift */; };
 		7B9B969F24E143F90011DB29 /* SYRMSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969124E143F90011DB29 /* SYRMSettingView.swift */; };
 		7B9B96A024E143F90011DB29 /* SYRMLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969224E143F90011DB29 /* SYRMLightView.swift */; };
-		7B9B96A124E143F90011DB29 /* SYRMEffectTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969324E143F90011DB29 /* SYRMEffectTypeView.swift */; };
-		7B9B96A224E143F90011DB29 /* SYRMSpacingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969424E143F90011DB29 /* SYRMSpacingView.swift */; };
-		7B9B96A324E143F90011DB29 /* SYMRMBGColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969524E143F90011DB29 /* SYMRMBGColorView.swift */; };
 		7B9B96A424E143F90011DB29 /* SYReadMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969624E143F90011DB29 /* SYReadMenu.swift */; };
 		7B9B96A524E143F90011DB29 /* SYRMTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969724E143F90011DB29 /* SYRMTopView.swift */; };
 		7B9B96A624E143F90011DB29 /* SYRMBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B969824E143F90011DB29 /* SYRMBaseView.swift */; };
@@ -328,13 +323,8 @@
 		7B9B968624E143E90011DB29 /* SYReadConfigure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadConfigure.swift; sourceTree = "<group>"; };
 		7B9B968724E143E90011DB29 /* SYReadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadController.swift; sourceTree = "<group>"; };
 		7B9B968824E143E90011DB29 /* SYReadController+EffectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SYReadController+EffectType.swift"; sourceTree = "<group>"; };
-		7B9B968F24E143F90011DB29 /* SYRMFontSizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRMFontSizeView.swift; sourceTree = "<group>"; };
-		7B9B969024E143F90011DB29 /* SYRMFontTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRMFontTypeView.swift; sourceTree = "<group>"; };
 		7B9B969124E143F90011DB29 /* SYRMSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRMSettingView.swift; sourceTree = "<group>"; };
 		7B9B969224E143F90011DB29 /* SYRMLightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRMLightView.swift; sourceTree = "<group>"; };
-		7B9B969324E143F90011DB29 /* SYRMEffectTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRMEffectTypeView.swift; sourceTree = "<group>"; };
-		7B9B969424E143F90011DB29 /* SYRMSpacingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRMSpacingView.swift; sourceTree = "<group>"; };
-		7B9B969524E143F90011DB29 /* SYMRMBGColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYMRMBGColorView.swift; sourceTree = "<group>"; };
 		7B9B969624E143F90011DB29 /* SYReadMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadMenu.swift; sourceTree = "<group>"; };
 		7B9B969724E143F90011DB29 /* SYRMTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRMTopView.swift; sourceTree = "<group>"; };
 		7B9B969824E143F90011DB29 /* SYRMBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRMBaseView.swift; sourceTree = "<group>"; };
@@ -1427,13 +1417,8 @@
 		7B9B968E24E143F90011DB29 /* SYRMSettingView */ = {
 			isa = PBXGroup;
 			children = (
-				7B9B968F24E143F90011DB29 /* SYRMFontSizeView.swift */,
-				7B9B969024E143F90011DB29 /* SYRMFontTypeView.swift */,
 				7B9B969124E143F90011DB29 /* SYRMSettingView.swift */,
 				7B9B969224E143F90011DB29 /* SYRMLightView.swift */,
-				7B9B969324E143F90011DB29 /* SYRMEffectTypeView.swift */,
-				7B9B969424E143F90011DB29 /* SYRMSpacingView.swift */,
-				7B9B969524E143F90011DB29 /* SYMRMBGColorView.swift */,
 				7BFDFC2524E3C67000331519 /* SYRMErrorView.swift */,
 			);
 			path = SYRMSettingView;
@@ -2009,7 +1994,6 @@
 				7B9B970924E144100011DB29 /* SYPageViewController.swift in Sources */,
 				7B11212A24D3C7250067C530 /* SYMineRechargeModel.swift in Sources */,
 				7B7DAB3F24D2640A004944AE /* SYMineSystemMsgVM.swift in Sources */,
-				7B9B96A224E143F90011DB29 /* SYRMSpacingView.swift in Sources */,
 				7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */,
 				7B9B968924E143E90011DB29 /* SYReadController+Operation.swift in Sources */,
 				7B9B96EF24E144100011DB29 /* SYReadViewBGController.swift in Sources */,
@@ -2070,7 +2054,6 @@
 				7B9B970F24E144100011DB29 /* SYReadModel.swift in Sources */,
 				7B9B968B24E143E90011DB29 /* SYReadController.swift in Sources */,
 				7B847D0824CE7A4A00E9ADFD /* SYGenderIndexModel.swift in Sources */,
-				7B9B969D24E143F90011DB29 /* SYRMFontSizeView.swift in Sources */,
 				7B3643D824C9524E0025B65B /* SYNavigationController.swift in Sources */,
 				7B847D0224CE73B900E9ADFD /* SYGenderVM.swift in Sources */,
 				7B813C6B24CA862A00614BF6 /* SYHomeSlideHeader.swift in Sources */,
@@ -2112,7 +2095,6 @@
 				7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */,
 				7BEE4F0424DAB60100D5823A /* SYMainVM.swift in Sources */,
 				7B9B96F724E144100011DB29 /* SYReadHomeViewCell.swift in Sources */,
-				7B9B969E24E143F90011DB29 /* SYRMFontTypeView.swift in Sources */,
 				7B9B96EB24E144100011DB29 /* SYReadParser.swift in Sources */,
 				7B9B970024E144100011DB29 /* SYCoreText.swift in Sources */,
 				7B8DB48324D00AC9005D9D6B /* SYRankVC.swift in Sources */,
@@ -2123,7 +2105,6 @@
 				7B8576DA24D17F01002D99EF /* SYMineAboutVM.swift in Sources */,
 				7B947C9224DA786500735F7B /* SYUserModel.swift in Sources */,
 				7B34625424C98BCC0090ACFF /* BehaviorRelay+Extension.swift in Sources */,
-				7B9B96A324E143F90011DB29 /* SYMRMBGColorView.swift in Sources */,
 				7B8576D124D174BF002D99EF /* SYMineSettingFooter.swift in Sources */,
 				7B8DB48924D02067005D9D6B /* SYRankListVM.swift in Sources */,
 				7B9B970824E144100011DB29 /* SYViewController.swift in Sources */,
@@ -2154,7 +2135,6 @@
 				7B7DAB5324D2ABBE004944AE /* SYAutoSubscriptionModel.swift in Sources */,
 				7B9B971124E144100011DB29 /* SYReadChapterModel.swift in Sources */,
 				7B947C8E24DA5FEF00735F7B /* UserDefaults+Cache.swift in Sources */,
-				7B9B96A124E143F90011DB29 /* SYRMEffectTypeView.swift in Sources */,
 				7B34625624C992730090ACFF /* SYIndexModel.swift in Sources */,
 				7B9B970E24E144100011DB29 /* SYReadRecordModel.swift in Sources */,
 				7B710ACE24CFEBA700517F43 /* SYBlankFooter.swift in Sources */,
