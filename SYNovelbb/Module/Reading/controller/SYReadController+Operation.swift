@@ -387,51 +387,6 @@ extension SYReadController {
         return recordModel
     }
     
-    /// 查询本地阅读记录或初始化首次阅读记录
-    func dealWithReadRecord() {
-        if SYReadModel.isExist(bookID: readModel.bookID) {
-            // 本地有阅读记录
-        } else {
-            // 首次阅读
-            SYProvider.rx.request(.firstChapter(bid: readModel.bookID))
-                .map(resultList: SYChapterModel.self)
-                .subscribe(onSuccess: { [unowned self] (response) in
-                    if response.success {
-                        if response.data != nil {
-                            let chapter = response.data!.first!
-                            // 请求到第一章章节信息时需要接着去请求章节内容
-                            SYProvider.rx.request(.chapterContent(bid: self.readModel.bookID, cid: chapter.cid, next: 0))
-                                .map(result: SYChapterContentModel.self).subscribe(onSuccess: { (response) in
-                                    if response.success {
-                                        if response.data != nil {
-                                            let model = response.data!.chapter.first!   // 最终的章节内容
-                                            let chapterModel = SYReadChapterModel()
-                                            chapterModel.bookID = self.readModel.bookID
-                                            chapterModel.chapterId = NSNumber(value: Int(model.cid)!)
-                                            chapterModel.name = model.title
-                                            chapterModel.content = model.contents
-                                            chapterModel.nextChapterID = NSNumber(value: Int(chapter.nextID)!)
-                                            chapterModel.previousChapterID = NSNumber(value: Int(chapter.prevID)!)
-                                            chapterModel.save()
-                                            self.readModel.recordModel.modify(chapterID: chapterModel.chapterId, location: 0)
-                                            self.updateReadRecord(recordModel: self.readModel.recordModel)
-                                        }
-                                    }
-                                    
-                                }) { (error) in
-                                    logError(error.localizedDescription)
-                                }
-                            .disposed(by: self.disposeBag)
-                        }
-                    }
-                }) { [unowned self] (error) in
-                    logError(error.localizedDescription)
-                    self.navigationController?.popViewController(animated: true)
-                }
-                .disposed(by: disposeBag)
-        }
-    }
-    
     /// 更新阅读记录(左右翻页模式)
     func updateReadRecord(controller:SYReadViewController!) {
         
@@ -439,16 +394,54 @@ extension SYReadController {
     }
     
     /// 更新阅读记录(左右翻页模式)
-    func updateReadRecord(recordModel: SYReadRecordModel!) {
+    func updateReadRecord(recordModel:SYReadRecordModel!) {
         if recordModel != nil {
-            
-            readModel.recordModel = recordModel
-            
-            readModel.recordModel.save()
-            
-            SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = recordModel.locationFirst
-            
-            self.showReadingView()
+            if recordModel.chapterModel == nil {
+                // 首次阅读
+                SYProvider.rx.request(.firstChapter(bid: readModel.bookID))
+                    .map(resultList: SYChapterModel.self)
+                    .subscribe(onSuccess: { [unowned self] (response) in
+                        if response.success {
+                            if response.data != nil {
+                                let chapter = response.data!.first!
+                                // 请求到第一章章节信息时需要接着去请求章节内容
+                                SYProvider.rx.request(.chapterContent(bid: self.readModel.bookID, cid: chapter.cid, next: 0))
+                                    .map(result: SYChapterContentModel.self).subscribe(onSuccess: { (response) in
+                                        if response.success {
+                                            if response.data != nil {
+                                                let model = response.data!.chapter.first!   // 最终的章节内容
+                                                let chapterModel = SYReadChapterModel()
+                                                chapterModel.bookID = self.readModel.bookID
+                                                chapterModel.chapterId = NSNumber(value: Int(model.cid)!)
+                                                chapterModel.name = model.title
+                                                chapterModel.content = model.contents
+                                                chapterModel.nextChapterID = NSNumber(value: Int(chapter.nextID)!)
+                                                chapterModel.previousChapterID = NSNumber(value: Int(chapter.prevID)!)
+                                                chapterModel.save()
+
+                                                self.readModel.recordModel.modify(chapterID: chapterModel.chapterId, location: 0)
+                                                SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = recordModel.locationFirst
+                                                self.showReadingView()
+                                            }
+                                        }
+                                    }) { (error) in
+                                        logError(error.localizedDescription)
+                                    }
+                                .disposed(by: self.disposeBag)
+                            }
+                        }
+                    }) { [unowned self] (error) in
+                        logError(error.localizedDescription)
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    .disposed(by: disposeBag)
+            } else {
+                readModel.recordModel = recordModel
+                readModel.recordModel.save()
+                SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = recordModel.locationFirst
+                self.showReadingView()
+            }
         }
     }
+    
 }

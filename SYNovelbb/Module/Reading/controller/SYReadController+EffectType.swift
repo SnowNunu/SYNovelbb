@@ -237,6 +237,9 @@ extension SYReadController {
     /// 获取上一页
     func pageViewController(_ pageViewController: SYPageViewController, getViewControllerBefore viewController: UIViewController!) {
         
+        // 关闭菜单
+        readMenu.showMenu(isShow: false)
+        
         // 获取上一页
         let readViewController = GetAboveReadViewController() as? SYReadViewController
         
@@ -245,9 +248,6 @@ extension SYReadController {
         
         // 更新阅读记录
         updateReadRecord(controller: readViewController)
-        
-        // 关闭菜单
-        readMenu.showMenu(isShow: false)
     }
     
     /// 获取下一页

@@ -50,14 +50,11 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        
-        
         // 背景颜色
         view.backgroundColor = SYReadConfigure.shared().bgColor
         
         // 初始化书籍阅读记录
-        dealWithReadRecord()
+        updateReadRecord(recordModel: readModel.recordModel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,13 +91,16 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         contentView.frame = CGRect(x: 0, y: 0, width: SY_READ_CONTENT_VIEW_WIDTH, height: SY_READ_CONTENT_VIEW_HEIGHT)
     }
     
-    // 
+    
     func showReadingView() {
-        // 初始化菜单
-        readMenu = SYReadMenu(vc: self, delegate: self)
-        
-        // 初始化控制器
-        creatPageController(displayController: GetCurrentReadViewController(isUpdateFont: true))
+        // 这里需要避免重复创建，之前没注意到是这里的问题导致内存一直暴增
+        if currentDisplayController == nil {
+            // 初始化菜单
+            readMenu = SYReadMenu(vc: self, delegate: self)
+            
+            // 初始化控制器
+            creatPageController(displayController: GetCurrentReadViewController(isUpdateFont: true))
+        }
     }
     
     // MARK: SYReadCatalogViewDelegate
