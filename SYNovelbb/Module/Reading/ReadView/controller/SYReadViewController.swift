@@ -44,19 +44,18 @@ class SYReadViewController: SYViewController {
         super.addSubviews()
         
         // 阅读使用范围
-        let readRect = DZM_READ_RECT!
+        let readRect = SY_READ_RECT!
         
         // 顶部状态栏
         topView = SYReadViewStatusTopView()
-        topView.bookName.text = readModel.bookName
-//        topView.chapterName.text = recordModel.chapterModel.name
+        topView.chapterName.text = recordModel.chapterModel.name
         view.addSubview(topView)
-        topView.frame = CGRect(x: readRect.minX, y: readRect.minY, width: readRect.width, height: DZM_READ_STATUS_TOP_VIEW_HEIGHT)
+        topView.frame = CGRect(x: readRect.minX, y: readRect.minY, width: readRect.width, height: 30)
         
         // 底部状态栏
         bottomView = SYReadViewStatusBottomView()
         view.addSubview(bottomView)
-        bottomView.frame = CGRect(x: readRect.minX, y: readRect.maxY - DZM_READ_STATUS_BOTTOM_VIEW_HEIGHT, width: readRect.width, height: DZM_READ_STATUS_BOTTOM_VIEW_HEIGHT)
+        bottomView.frame = CGRect(x: readRect.minX, y: readRect.maxY - 30, width: readRect.width, height: 30)
         
         // 阅读视图
         initReadView()
@@ -81,7 +80,7 @@ class SYReadViewController: SYViewController {
             readView = SYReadView()
             readView.content = recordModel.contentAttributedString
             view.addSubview(readView)
-            readView.frame = DZM_READ_VIEW_RECT
+            readView.frame = SY_READ_VIEW_RECT
 //        }
     }
     

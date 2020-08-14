@@ -8,9 +8,6 @@
 
 import UIKit
 
-/// bottomView 高度
-let DZM_READ_STATUS_BOTTOM_VIEW_HEIGHT:CGFloat =  DZM_SPACE_SA_30
-
 class SYReadViewStatusBottomView: UIView {
     
     /// 进度

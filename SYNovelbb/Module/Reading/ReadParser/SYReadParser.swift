@@ -63,7 +63,7 @@ class SYReadParser: NSObject {
                 // 注意: 为什么这些数据会放到这里赋值，而不是封装起来， 原因是 contentSize 计算封装在 pageModel内部计算出现宽高为0的情况，所以放出来到这里计算，原因还未找到，但是放到这里计算就没有问题。封装起来则会出现宽高度不计算的情况。
                 
                 // 内容Size (滚动模式 || 长按菜单)
-                let maxW = DZM_READ_VIEW_RECT.width
+                let maxW = SY_READ_VIEW_RECT.width
                 
                 pageModel.contentSize = CGSize(width: maxW, height: SYCoreText.GetAttrStringHeight(attrString: content, maxW: maxW))
                 

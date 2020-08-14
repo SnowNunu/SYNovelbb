@@ -85,7 +85,7 @@ class SYReadChapterModel: NSObject,NSCoding {
             
             fullContent = fullContentAttrString()
             
-            pageModels = SYReadParser.pageing(attrString: fullContent, rect: CGRect(origin: CGPoint.zero, size: DZM_READ_VIEW_RECT.size), isFirstChapter: isFirstChapter)
+            pageModels = SYReadParser.pageing(attrString: fullContent, rect: CGRect(origin: CGPoint.zero, size: SY_READ_VIEW_RECT.size), isFirstChapter: isFirstChapter)
             
             pageCount = NSNumber(value: pageModels.count)
             

@@ -58,14 +58,13 @@ class SYReadViewScrollController: SYViewController, UITableViewDelegate, UITable
         super.addSubviews()
         
         // 阅读使用范围
-        let readRect = DZM_READ_RECT!
+        let readRect = SY_READ_RECT!
         
         // 顶部状态栏
         topView = SYReadViewStatusTopView()
-        topView.bookName.text = vc.readModel.bookName
         topView.chapterName.text = vc.readModel.recordModel.chapterModel.name
         view.addSubview(topView)
-        topView.frame = CGRect(x: readRect.minX, y: readRect.minY, width: readRect.width, height: DZM_READ_STATUS_TOP_VIEW_HEIGHT)
+        topView.frame = CGRect(x: readRect.minX, y: readRect.minY, width: readRect.width, height: 30)
         
         // 阅读视图
         tableView = SYTableView()
@@ -75,12 +74,12 @@ class SYReadViewScrollController: SYViewController, UITableViewDelegate, UITable
         tableView.showsHorizontalScrollIndicator = false
         tableView.separatorStyle = .none
         view.addSubview(tableView)
-        tableView.frame = DZM_READ_VIEW_RECT
+        tableView.frame = SY_READ_VIEW_RECT
         
         // 底部状态栏
         bottomView = SYReadViewStatusBottomView()
         view.addSubview(bottomView)
-        bottomView.frame = CGRect(x: readRect.minX, y: readRect.maxY - DZM_READ_STATUS_BOTTOM_VIEW_HEIGHT, width: readRect.width, height: DZM_READ_STATUS_BOTTOM_VIEW_HEIGHT)
+        bottomView.frame = CGRect(x: readRect.minX, y: readRect.maxY - 30, width: readRect.width, height: 30)
     }
     
     // MARK: UITableViewDelegate,UITableViewDataSource

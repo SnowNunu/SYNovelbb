@@ -1,9 +1,9 @@
 //
 //  UIPageViewController+Extension.swift
-//  DZMeBookRead
+//  SYNovelbb
 //
-//  Created by dengzemiao on 2019/4/30.
-//  Copyright © 2019年 DZM. All rights reserved.
+//  Created by Mandora on 2020/08/11.
+//  Copyright © 2020年 Mandora. All rights reserved.
 //
 
 private var IsGestureRecognizerEnabled = "IsGestureRecognizerEnabled"

@@ -261,23 +261,16 @@ func DZM_READ_CHAPTER_NAME(_ name:String) ->String { return "\n\(name)\n\n" }
 // MARK: 范围
 
 /// 阅读范围(阅读顶部状态栏 + 阅读View + 阅读底部状态栏)
-var DZM_READ_RECT:CGRect! {
-    
-    // 适配 X 顶部
-    let top = SA(isX: StatusBarHeight - DZM_SPACE_SA_15, 0)
-    
-    // 适配 X 底部
-    let bottom = SA(isX: DZM_SPACE_SA_30, 0)
-    
-    return CGRect(x: DZM_SPACE_SA_15, y: top, width: ScreenWidth - DZM_SPACE_SA_30, height: ScreenHeight - top - bottom)
+var SY_READ_RECT:CGRect! {
+    return CGRect(x: 15, y: TopSafeAreaHeight, width: ScreenWidth - 30, height: ScreenHeight - TopSafeAreaHeight - BottomSafeAreaHeight)
 }
 
 /// 阅读View范围
-var DZM_READ_VIEW_RECT:CGRect! {
+var SY_READ_VIEW_RECT:CGRect! {
     
-    let rect = DZM_READ_RECT!
+    let rect = SY_READ_RECT!
     
-    return CGRect(x: rect.minX, y: rect.minY + DZM_READ_STATUS_TOP_VIEW_HEIGHT, width: rect.width, height: rect.height - DZM_READ_STATUS_TOP_VIEW_HEIGHT - DZM_READ_STATUS_BOTTOM_VIEW_HEIGHT)
+    return CGRect(x: rect.minX, y: rect.minY + 30, width: rect.width, height: rect.height - 30 - 30)
 }
 
 // MARK: 进度相关

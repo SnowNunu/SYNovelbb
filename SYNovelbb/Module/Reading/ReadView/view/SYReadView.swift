@@ -24,7 +24,7 @@ class SYReadView: UIView {
         
         didSet{
             
-            frameRef = SYCoreText.GetFrameRef(attrString: content, rect: CGRect(origin: CGPoint.zero, size: DZM_READ_VIEW_RECT.size))
+            frameRef = SYCoreText.GetFrameRef(attrString: content, rect: CGRect(origin: CGPoint.zero, size: SY_READ_VIEW_RECT.size))
         }
     }
     

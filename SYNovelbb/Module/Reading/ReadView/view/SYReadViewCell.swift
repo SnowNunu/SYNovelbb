@@ -63,7 +63,7 @@ class SYReadViewCell: UITableViewCell {
         // 内容高度
         let h = pageModel?.contentSize.height ?? DZM_SPACE_MIN_HEIGHT
 
-        readView.frame = CGRect(x: 0, y: y, width: DZM_READ_VIEW_RECT.width, height: h)
+        readView.frame = CGRect(x: 0, y: y, width: SY_READ_VIEW_RECT.width, height: h)
     }
     
     required init?(coder aDecoder: NSCoder) {
