@@ -10,6 +10,18 @@ import UIKit
 import Moya
 import RealmSwift
 
+// MARK: 缓存规则
+public enum CacheKeyType {
+    /// 匹配url+path+params
+    case `default`
+    
+    /// 匹配url+path
+    case base
+    
+    /// 匹配url+path+custom
+    case custom(String)
+}
+
 enum SYApis {
     
     // MARK: 注册绑定模块
@@ -197,6 +209,45 @@ extension SYApis {
         parameters["uid"] = model.uid
         parameters["token"] = model.token
         return parameters
+    }
+    
+}
+
+// MARK: 缓存相关
+extension TargetType {
+    
+    func fetchCacheKey(_ type: CacheKeyType) -> String {
+        switch type {
+        case .base:
+            return baseCacheKey
+        case .default:
+            return cacheKey
+        case let .custom(key):
+            return cacheKey(with: key)
+        }
+    }
+    
+    private var baseCacheKey : String {
+        return "[\(self.method.rawValue)] \(self.baseURL.absoluteString)/\(self.path)"
+    }
+    
+    private var cacheKey: String {
+        let baseKey = baseCacheKey
+        if params.isEmpty { return baseKey }
+        return baseKey + params
+    }
+    
+    private func cacheKey(with customKey: String) -> String {
+        return baseCacheKey + "?" + customKey
+    }
+    
+    
+    private var params: String {
+        switch self.task {
+        case let .requestParameters(parameters, _):
+            return (parameters as NSDictionary?)?.keyValues() ?? ""
+        default: return  ""
+        }
     }
     
 }

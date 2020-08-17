@@ -181,16 +181,12 @@ class SYReadMenu: NSObject,UIGestureRecognizerDelegate {
     
     /// 初始化TopView
     private func initTopView() {
-        
         topView = SYRMTopView(readMenu: self)
-        
         topView.isHidden = !isMenuShow
-        
         contentView.addSubview(topView)
-        
         let y = isMenuShow ? 0 : -SY_READ_MENU_TOP_VIEW_HEIGHT
-
         topView.frame = CGRect(x: 0, y: y, width: SY_READ_CONTENT_VIEW_WIDTH, height: SY_READ_MENU_TOP_VIEW_HEIGHT)
+        topView.titleLabel.text = self.vc.readModel.bookName
     }
     
     // MARK: -- BottomView

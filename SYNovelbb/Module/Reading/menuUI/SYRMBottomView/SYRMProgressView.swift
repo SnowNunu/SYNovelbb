@@ -117,7 +117,7 @@ class SYRMProgressView: SYRMBaseView,ASValueTrackingSliderDelegate,ASValueTracki
                 let chapterListModel = readModel!.chapterListModels[index]
                 
                 // 页码
-                let toPage = (index == count) ? DZM_READ_LAST_PAGE : 0
+                let toPage = (index == count) ? SY_READ_LAST_PAGE : 0
                 
                 // 传递
                 readMenu?.delegate?.readMenuDraggingProgress?(readMenu: readMenu, toChapterID: chapterListModel.id, toPage: toPage)

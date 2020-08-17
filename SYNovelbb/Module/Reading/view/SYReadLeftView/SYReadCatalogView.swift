@@ -96,7 +96,7 @@ class SYReadCatalogView: UIView, UITableViewDelegate, UITableViewDataSource {
             attributedText.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor(116, 116, 116)], range: NSMakeRange(0, attributedText.length))
             cell.chapterName.attributedText = attributedText
         }
-        cell.vipImage.isHidden = chapterListModel.isVip
+        cell.vipImage.isHidden = !chapterListModel.isVip
         return cell
     }
     

@@ -20,6 +20,7 @@ class SYAppDelegate: UIResponder, UIApplicationDelegate {
         
         setupLog()
         setupRealm()
+        try? CacheManager().storage?.removeExpiredObjects() // 移出过期的缓存数据
         
         window = UIWindow(frame :UIScreen.main.bounds)
         window!.backgroundColor = UIColor.white

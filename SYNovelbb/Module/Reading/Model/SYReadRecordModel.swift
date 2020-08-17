@@ -90,14 +90,14 @@ class SYReadRecordModel: NSObject,NSCoding {
         }
     }
     
-    /// 修改阅读记录为指定章节页码 (toPage == DZM_READ_LAST_PAGE 为当前章节最后一页)
+    /// 修改阅读记录为指定章节页码 (toPage == SY_READ_LAST_PAGE 为当前章节最后一页)
     func modify(chapterID:NSNumber!, toPage:NSInteger, isSave:Bool = true) {
         
         if SYReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
             chapterModel = SYReadChapterModel.model(bookID: bookID, chapterID: chapterID)
             
-            if (toPage == DZM_READ_LAST_PAGE) { lastPage()
+            if (toPage == SY_READ_LAST_PAGE) { lastPage()
                 
             }else{ page = NSNumber(value: toPage) }
             

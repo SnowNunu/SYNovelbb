@@ -16,8 +16,8 @@ public extension Reactive where Base: MoyaProviderType {
         缓存部分不会经常变化的接口
         直接返回缓存结果，不会再去请求接口后刷新缓存
      */
-    func cacheRequest(_ token: Base.Target, callbackQueue: DispatchQueue? = nil) -> Single<Response> {
-        let hasCache = try! CacheManager().storage?.transformData().existsObject(forKey: token.baseURL.absoluteString + token.path)
+    func cacheRequest(_ token: Base.Target, cacheType: CacheKeyType, callbackQueue: DispatchQueue? = nil) -> Single<Response> {
+        let hasCache = try! CacheManager().storage?.transformData().existsObject(forKey: token.fetchCacheKey(cacheType))
         if hasCache! {
             var cacheResponse: Response? = nil
             cacheResponse = fetchResponseCache(token: token)
@@ -27,8 +27,7 @@ public extension Reactive where Base: MoyaProviderType {
                 let cancellableToken = base?.request(token, callbackQueue: callbackQueue, progress: nil) { result in
                     switch result {
                     case let .success(response):
-                        
-                        try? CacheManager().storage?.transformData().setObject(response.data, forKey: token.baseURL.absoluteString + token.path)
+                        try? CacheManager().storage?.transformData().setObject(response.data, forKey: token.fetchCacheKey(cacheType))
                         single(.success(response))
                     case let .failure(error):
                         single(.error(error))

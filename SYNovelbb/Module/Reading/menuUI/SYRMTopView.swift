@@ -72,7 +72,6 @@ class SYRMTopView: SYRMBaseView {
         label.textColor = UIColor(51, 51, 51)
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.text = "Take Along A Spring"
         return label
     }()
     

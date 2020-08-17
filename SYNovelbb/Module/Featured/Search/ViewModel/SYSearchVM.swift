@@ -55,7 +55,7 @@ class SYSearchVM: RefreshVM<SYBaseBookModel> {
     
     // 获取推荐数据
     func getRecommendData() {
-        SYProvider.rx.cacheRequest(.hotSearch)
+        SYProvider.rx.cacheRequest(.hotSearch, cacheType: .base)
             .map(resultList: SYSearchModel.self)
             .subscribe(onSuccess: { [unowned self] (response) in
                 if response.success {

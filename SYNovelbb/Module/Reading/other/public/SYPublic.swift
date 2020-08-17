@@ -230,7 +230,7 @@ let SY_READ_NO_MORE_CHAPTER: NSNumber! = NSNumber(value: 0)
 //let SY_READ_BOOK_HOME_PAGE:NSInteger = -1
 
 /// 用于指定章节最后一页
-let DZM_READ_LAST_PAGE: NSInteger = -1
+let SY_READ_LAST_PAGE: NSInteger = -1
 
 /// 动画时间
 let SY_READ_ANIMATION_TIME: TimeInterval = 0.25

@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import NVActivityIndicatorView
 
 class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControllerDelegate , UIPageViewControllerDataSource, SYPageViewControllerDelegate, DZMCoverControllerDelegate, SYReadContentViewDelegate, SYReadCatalogViewDelegate {
 
@@ -15,7 +16,6 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     
     /// 阅读对象
     var readModel: SYReadModel!
-    
     
     // MARK: UI相关
     
@@ -47,17 +47,25 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         return DisposeBag()
     }()
     
+    lazy var activityIndicatorView: NVActivityIndicatorView = {
+        let indicatorView = NVActivityIndicatorView(frame: .zero, type: .ballRotateChase, color: UIColor(83, 83, 83), padding: (ScreenWidth - 80) / 2)
+        indicatorView.backgroundColor = .clear
+        return indicatorView
+    }()
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         // 背景颜色
         view.backgroundColor = SYReadConfigure.shared().bgColor
-        
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         // 初始化书籍阅读记录
         updateReadRecord(recordModel: readModel.recordModel)
-        
         // 获取章节目录信息
         loadingCatalogData()
+        view.bringSubviewToFront(activityIndicatorView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +83,6 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     }
 
     override func addSubviews() {
-        
         super.addSubviews()
         
         // 目录侧滑栏
