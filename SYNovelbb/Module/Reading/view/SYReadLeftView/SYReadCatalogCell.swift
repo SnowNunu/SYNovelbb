@@ -9,58 +9,67 @@
 import UIKit
 
 class SYReadCatalogCell: UITableViewCell {
-
-    private(set) var chapterName:UILabel!
-    
-    private(set) var spaceLine:UIView!
     
     class func cell(_ tableView:UITableView) -> SYReadCatalogCell {
-        
         var cell = tableView.dequeueReusableCell(withIdentifier: "SYReadCatalogCell")
-        
         if cell == nil {
-            
             cell = SYReadCatalogCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "SYReadCatalogCell")
         }
-        
         return cell as! SYReadCatalogCell
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         selectionStyle = .none
-        
-        backgroundColor = UIColor.clear
-        
-        addSubviews()
+        setupUI()
+        setupConstraints()
     }
     
-    private func addSubviews() {
-        
-        chapterName = UILabel()
-        chapterName.font = DZM_FONT_SA_14
-        chapterName.textColor = DZM_COLOR_145_145_145
+    private func setupUI() {
         contentView.addSubview(chapterName)
-        
-        spaceLine = SpaceLine(contentView, DZM_COLOR_230_230_230)
+        contentView.addSubview(vipImage)
+        contentView.addSubview(lineView)
     }
     
-    override func layoutSubviews() {
-        
-        super.layoutSubviews()
-        
-        let w = frame.size.width
-        let h = frame.size.height
-        
-        chapterName.frame = CGRect(x: DZM_SPACE_SA_15, y: 0, width: w - DZM_SPACE_SA_30, height: h)
-        
-        spaceLine.frame = CGRect(x: DZM_SPACE_SA_15, y: h - DZM_SPACE_LINE, width: w - DZM_SPACE_SA_30, height: DZM_SPACE_LINE)
+    private func setupConstraints() {
+        chapterName.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(15.5)
+            make.right.equalTo(vipImage.snp.left).offset(-5)
+        }
+        vipImage.snp.makeConstraints { (make) in
+            make.width.height.equalTo(15)
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-10)
+        }
+        lineView.snp.makeConstraints { (make) in
+            make.centerX.bottom.equalToSuperview()
+            make.width.equalToSuperview().offset(-30)
+            make.height.equalTo(0.5)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var chapterName: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(116, 116, 116)
+        label.font = .systemFont(ofSize: 13, weight: .regular)
+        return label
+    }()
+    
+    lazy var vipImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.reading_vip()!
+        return imageView
+    }()
+    
+    lazy var lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(224, 224, 224)
+        return view
+    }()
+    
 }

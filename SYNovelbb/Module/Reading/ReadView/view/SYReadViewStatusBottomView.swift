@@ -64,7 +64,7 @@ class SYReadViewStatusBottomView: UIView {
         let h = frame.size.height
     
         // 电池
-        batteryView.frame.origin = CGPoint(x: w - DZMBatterySize.width, y: (h - DZMBatterySize.height) / 2)
+        batteryView.frame.origin = CGPoint(x: w - SYBatterySize.width, y: (h - SYBatterySize.height) / 2)
         
         // 时间
         timeLabel.frame = CGRect(x: batteryView.frame.minX - DZM_SPACE_SA_50, y: 0, width: DZM_SPACE_SA_50, height: h)

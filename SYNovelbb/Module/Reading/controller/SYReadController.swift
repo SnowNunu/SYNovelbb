@@ -55,6 +55,9 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         
         // 初始化书籍阅读记录
         updateReadRecord(recordModel: readModel.recordModel)
+        
+        // 获取章节目录信息
+        loadingCatalogData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

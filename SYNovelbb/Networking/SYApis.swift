@@ -47,6 +47,9 @@ enum SYApis {
     
     /// 获取指定章节内容(next表示预加载当前章节后n个章节)
     case chapterContent(bid: String, cid: String, next: Int = 0)
+    
+    /// 获取书籍的所有目录信息
+    case chapters(bid: String)
 }
 
 extension SYApis: TargetType {
@@ -91,6 +94,8 @@ extension SYApis: TargetType {
             return "/1/book/firstChapter"
         case .chapterContent(_, _, _):
             return "/1/book/content"
+        case .chapters(_):
+            return "/1/book/chapter"
         }
     }
     
@@ -174,6 +179,10 @@ extension SYApis {
             paramters["cid"] = cid
             paramters["next"] = next
             return addUserParams(paramters)
+            
+        case .chapters(let bid):
+            paramters["bid"] = bid
+            return paramters
             
         default:
             return paramters

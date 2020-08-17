@@ -8,11 +8,11 @@
 
 
 /// 电池宽推荐使用宽高
-var DZMBatterySize:CGSize = CGSize(width: 25, height: 10)
+var SYBatterySize:CGSize = CGSize(width: 25, height: 10)
 
 /// 电池量宽度 跟图片的比例
 private var HJBatteryLevelViewW:CGFloat = 20
-private var HJBatteryLevelViewScale = HJBatteryLevelViewW / DZMBatterySize.width
+private var HJBatteryLevelViewScale = HJBatteryLevelViewW / SYBatterySize.width
 
 import UIKit
 
@@ -36,13 +36,13 @@ class SYBatteryView: UIImageView {
     /// 初始化
     convenience init() {
         
-        self.init(frame: CGRect(x: 0, y: 0, width: DZMBatterySize.width, height: DZMBatterySize.height))
+        self.init(frame: CGRect(x: 0, y: 0, width: SYBatterySize.width, height: SYBatterySize.height))
     }
     
     /// 初始化
     override init(frame: CGRect) {
         
-        super.init(frame: CGRect(x: 0, y: 0, width: DZMBatterySize.width, height: DZMBatterySize.height))
+        super.init(frame: CGRect(x: 0, y: 0, width: SYBatterySize.width, height: SYBatterySize.height))
         
         addSubviews()
     }
@@ -55,15 +55,15 @@ class SYBatteryView: UIImageView {
         addSubview(batteryLevelView)
         
         // 设置样式
-        image = UIImage(named: "battery_black")?.withRenderingMode(.alwaysTemplate)
+        image = R.image.reading_battery_bg()?.withRenderingMode(.alwaysTemplate)
         tintColor = UIColor.white
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let spaceW:CGFloat = 1 * (frame.width / DZMBatterySize.width) * HJBatteryLevelViewScale
-        let spaceH:CGFloat = 1 * (frame.height / DZMBatterySize.height) * HJBatteryLevelViewScale
+        let spaceW:CGFloat = 1 * (frame.width / SYBatterySize.width) * HJBatteryLevelViewScale
+        let spaceH:CGFloat = 1 * (frame.height / SYBatterySize.height) * HJBatteryLevelViewScale
         
         let batteryLevelViewY:CGFloat = 2.1*spaceH
         let batteryLevelViewX:CGFloat = 1.4*spaceW

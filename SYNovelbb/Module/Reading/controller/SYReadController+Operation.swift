@@ -354,7 +354,7 @@ extension SYReadController {
 //                return nil
 //            }
             
-        }else{ recordModel.nextPage() }
+        } else { recordModel.nextPage() }
         
         // ----- 搜索网络小说 -----
         
@@ -442,6 +442,38 @@ extension SYReadController {
                 self.showReadingView()
             }
         }
+    }
+    
+    // 加载目录数据
+    func loadingCatalogData() {
+        SYProvider.rx.cacheRequest(.chapters(bid: readModel.bookID))
+            .map(resultList: SYCatalogModel.self)
+            .subscribe(onSuccess: { [unowned self] (response) in
+                if response.success {
+                    if response.data != nil {
+                        let catalog = response.data!.first!
+                        print(catalog)
+                        var catalogArray = [SYReadChapterListModel]()
+                        for chapter in catalog.chapters {
+                            let model = SYReadChapterListModel()
+                            model.bookID = self.readModel.bookID
+                            model.id = NSNumber(value: Int(chapter.cid)!)
+                            model.name = chapter.title
+                            model.isVip = chapter.isVip
+                            model.chapterMoney = chapter.chapterMoney
+                            model.nextID = chapter.nextID
+                            model.prevID = chapter.prevID
+                            catalogArray.append(model)
+                        }
+                        self.readModel.chapterListModels = catalogArray
+                        self.leftView.volumeTitle.text = catalog.volumeTitle
+                        self.leftView.updateUI()
+                    }
+                }
+            }) { (error) in
+                print(error)
+            }
+            .disposed(by: self.disposeBag)
     }
     
 }

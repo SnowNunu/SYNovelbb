@@ -120,6 +120,7 @@
 		7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */; };
 		7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */; };
 		7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */; };
+		7B9AB26524EA1FB500CF032B /* SYCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AB26424EA1FB500CF032B /* SYCatalogModel.swift */; };
 		7B9B967024E0DF670011DB29 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B966F24E0DF670011DB29 /* String+Extension.swift */; };
 		7B9B967224E0F2DE0011DB29 /* SYHotSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B967124E0F2DE0011DB29 /* SYHotSearchCell.swift */; };
 		7B9B967424E10F730011DB29 /* SYSearchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B967324E10F730011DB29 /* SYSearchFooter.swift */; };
@@ -320,6 +321,7 @@
 		7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppConfigs.swift; sourceTree = "<group>"; };
 		7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMoyaPlugins.swift; sourceTree = "<group>"; };
 		7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYTabBarController.swift; sourceTree = "<group>"; };
+		7B9AB26424EA1FB500CF032B /* SYCatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYCatalogModel.swift; sourceTree = "<group>"; };
 		7B9B966F24E0DF670011DB29 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		7B9B967124E0F2DE0011DB29 /* SYHotSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHotSearchCell.swift; sourceTree = "<group>"; };
 		7B9B967324E10F730011DB29 /* SYSearchFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchFooter.swift; sourceTree = "<group>"; };
@@ -1242,6 +1244,7 @@
 		7B9562DF24E531A400695476 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7B9AB26424EA1FB500CF032B /* SYCatalogModel.swift */,
 				7B9562E024E5321000695476 /* SYChapterModel.swift */,
 				7B9562E224E53CA100695476 /* SYChapterContentModel.swift */,
 			);
@@ -2034,6 +2037,7 @@
 				7B9B970D24E144100011DB29 /* SYReadContentView.swift in Sources */,
 				7B34624324C97FB90090ACFF /* SYHomeVC.swift in Sources */,
 				7B9B96A024E143F90011DB29 /* SYRMLightView.swift in Sources */,
+				7B9AB26524EA1FB500CF032B /* SYCatalogModel.swift in Sources */,
 				7B9B970124E144100011DB29 /* SYUserDefaults.swift in Sources */,
 				7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */,
 				7B9B96FE24E144100011DB29 /* SYFontList.swift in Sources */,

@@ -12,48 +12,87 @@ import UIKit
 let SY_READ_LEFT_VIEW_WIDTH: CGFloat = ScreenWidth * 0.66
 let SY_READ_LEFT_VIEW_HEIGHT: CGFloat = ScreenHeight
 
-/// leftView headerView 高度
-let DZM_READ_LEFT_HEADER_VIEW_HEIGHT:CGFloat = DZM_SPACE_SA_50
-
 class SYReadLeftView: UIView {
     
-    // 分割线
-    private var spaceLine:UIView!
-    
-    // 目录
-    private(set) var catalogView:SYReadCatalogView!
-    
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
-        
-        addSubviews()
+        setupUI()
+        setupConstraints()
     }
     
-    private func addSubviews() {
-        
-        // 分割线
-        spaceLine = SpaceLine(self, DZM_COLOR_230_230_230)
-        spaceLine.frame = CGRect(x: 0, y: 50, width: SY_READ_LEFT_VIEW_WIDTH, height: DZM_SPACE_LINE)
-        
-        // 目录
-        catalogView = SYReadCatalogView()
+    private func setupUI() {
+        addSubview(headerView)
+        headerView.addSubview(volumeTitle)
+        headerView.addSubview(scorllBtn)
+        headerView.addSubview(lineView)
         addSubview(catalogView)
-        catalogView.frame = CGRect(x: 0, y: spaceLine.frame.maxY, width: SY_READ_LEFT_VIEW_WIDTH, height: SY_READ_LEFT_VIEW_HEIGHT - spaceLine.frame.maxY)
-        
-        // 更新当前UI
         updateUI()
+    }
+    
+    private func setupConstraints() {
+        headerView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(StatusBarHeight)
+            make.centerX.width.equalToSuperview()
+            make.height.equalTo(44)
+        }
+        volumeTitle.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(15)
+            make.centerY.equalToSuperview()
+        }
+        scorllBtn.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-15)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(44)
+        }
+        lineView.snp.makeConstraints { (make) in
+            make.bottom.width.centerX.equalToSuperview()
+            make.height.equalTo(0.5)
+        }
+        catalogView.snp.makeConstraints { (make) in
+            make.centerX.bottom.width.equalToSuperview()
+            make.top.equalTo(headerView.snp.bottom)
+        }
     }
     
     /// 刷新UI 例如: 日夜间可以根据需求判断修改目录背景颜色,文字颜色等等
     func updateUI() {
-        
         // 刷新分割线颜色(如果不需要刷新分割线颜色可以去掉,目前我是做了日夜间修改分割线颜色的操作)
         catalogView.tableView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var headerView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    lazy var volumeTitle: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.textColor = UIColor(52, 52, 52)
+        return label
+    }()
+    
+    lazy var scorllBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(R.image.reading_to_bottom(), for: .normal)
+        btn.titleLabel?.textAlignment = .right
+        return btn
+    }()
+    
+    lazy var lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(224, 224, 224)
+        return view
+    }()
+    
+    /// 目录
+    lazy var catalogView: SYReadCatalogView = {
+        let view = SYReadCatalogView()
+        return view
+    }()
+    
 }

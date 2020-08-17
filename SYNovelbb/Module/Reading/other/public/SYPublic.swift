@@ -230,26 +230,26 @@ let SY_READ_NO_MORE_CHAPTER: NSNumber! = NSNumber(value: 0)
 //let SY_READ_BOOK_HOME_PAGE:NSInteger = -1
 
 /// 用于指定章节最后一页
-let DZM_READ_LAST_PAGE:NSInteger = -1
+let DZM_READ_LAST_PAGE: NSInteger = -1
 
 /// 动画时间
-let SY_READ_ANIMATION_TIME:TimeInterval = 0.25
+let SY_READ_ANIMATION_TIME: TimeInterval = 0.25
 
 /// 段落头部双圆角空格
 //let SY_READ_PH_SPACE: String = "　　"
 let SY_READ_PH_SPACE: String = "  "   // 网络小说格式已经处理好了
 
 /// 主文件夹名称
-let SY_READ_FOLDER_NAME:String = "SYNovelbbRead"
+let SY_READ_FOLDER_NAME: String = "SYNovelbbRead"
 
 /// Key - 配置
-let SY_READ_KEY_CONFIGURE:String = "SY_READ_CONFIGURE"
+let SY_READ_KEY_CONFIGURE: String = "SY_READ_CONFIGURE"
 
 /// Key - 阅读记录
-let SY_READ_KEY_RECORD:String = "SY_READ_RECORD"
+let SY_READ_KEY_RECORD: String = "SY_READ_RECORD"
 
 /// Key - 阅读对象
-let SY_READ_KEY_OBJECT:String = "SY_READ_OBJECT"
+let SY_READ_KEY_OBJECT: String = "SY_READ_OBJECT"
 
 /// 沙盒Documents路径
 let SY_SANDBOX_DOCUMENTS_DIRECTORY_PATH: String = (NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last! as String)
@@ -295,7 +295,7 @@ func DZM_READ_TOTAL_PROGRESS(readModel: SYReadModel!,recordModel:SYReadRecordMod
         // 获得当前阅读进度
         progress = 1.0
         
-    }else{
+    } else {
         
         // 当前章节在所有章节列表中的位置
         let chapterIndex:Float = recordModel.chapterModel.priority.floatValue
