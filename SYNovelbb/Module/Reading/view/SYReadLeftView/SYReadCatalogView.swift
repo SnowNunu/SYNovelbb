@@ -21,11 +21,8 @@ class SYReadCatalogView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     /// 数据源
     var readModel: SYReadModel! {
-        
-        didSet{
-            
+        didSet {
             tableView.reloadData()
-            
             scrollRecord()
         }
     }
@@ -33,14 +30,11 @@ class SYReadCatalogView: UIView, UITableViewDelegate, UITableViewDataSource {
     private(set) var tableView: SYTableView!
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
-        
         addSubviews()
     }
     
     private func addSubviews() {
-        
         tableView = SYTableView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,17 +46,11 @@ class SYReadCatalogView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     /// 滚动到阅读记录
     func scrollRecord() {
-        
         if readModel != nil {
-            
             tableView.reloadData()
-       
             if !readModel.chapterListModels.isEmpty {
-                
                 let chapterListModel = (readModel.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", readModel.recordModel.chapterModel.chapterId)).first as? SYReadChapterListModel
-                
                 if chapterListModel != nil {
-                    
                     tableView.scrollToRow(at: IndexPath(row: readModel.chapterListModels.firstIndex(of: chapterListModel!)!, section: 0), at: .middle, animated: false)
                 }
             }

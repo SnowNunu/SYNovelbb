@@ -7,24 +7,21 @@
 //
 
 import UIKit
-import Cache
+import YYCache
 
 class CacheManager: NSObject {
-
-    let storage = try? Storage(
-        diskConfig: DiskConfig(
-            name: "Novellbb",
-            expiry: .date(Date().addingTimeInterval(2 * 3600)),
-            maxSize: 10000,
-            directory: try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("Cache"),
-            protectionType: .complete
-        ),
-        memoryConfig: MemoryConfig(
-            expiry: .date(Date().addingTimeInterval(30 * 60)),
-            countLimit: 50,
-            totalCostLimit: 0
-        ),
-        transformer: TransformerFactory.forCodable(ofType: SYSearchModel.self)
-    )
+    
+    static let shared = CacheManager()
+    
+    var cache: YYCache! {
+        let cache = YYCache(name: "SYNovelbbCache")
+        cache?.memoryCache.countLimit = 50      // 内存最大缓存数据个数
+        cache?.memoryCache.ageLimit = 60 * 30     // 设置缓存失效时间
+        cache?.diskCache.costLimit = 10 * 1024  // 磁盘最大缓存开销
+        cache?.diskCache.countLimit = 50        //磁盘最大缓存数据个数
+        cache?.diskCache.autoTrimInterval = 60
+        cache?.diskCache.ageLimit = 60 * 30     // 设置缓存失效时间
+        return cache
+    }
 
 }

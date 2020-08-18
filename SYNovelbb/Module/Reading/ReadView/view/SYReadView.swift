@@ -20,7 +20,7 @@ class SYReadView: UIView {
     }
     
     /// 当前页内容(使用固定范围绘制)
-    var content:NSAttributedString! {
+    var content: NSAttributedString! {
         
         didSet{
             
@@ -29,7 +29,7 @@ class SYReadView: UIView {
     }
     
     /// CTFrame
-    var frameRef:CTFrame? {
+    var frameRef: CTFrame? {
         
         didSet{
             

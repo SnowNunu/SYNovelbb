@@ -11,54 +11,56 @@ import UIKit
 class SYReadChapterModel: NSObject,NSCoding {
     
     /// 小说ID
-    var bookID:String!
+    var bookID: String!
     
     /// 章节ID
-    var chapterId:NSNumber!
+    var chapterId: NSNumber!
     
     /// 上一章ID
-    var previousChapterID:NSNumber!
+    var previousChapterID: NSNumber!
     
     /// 下一章ID
-    var nextChapterID:NSNumber!
+    var nextChapterID: NSNumber!
     
     /// 章节名称
-    var name:String!
+    var name: String!
     
     /// 内容
     /// 此处 content 是经过排版好且双空格开头的内容。
     /// 如果是网络数据需要确认是否处理好了,也就是在网络章节数据拿到之后, 使用排版接口进行排版并在开头加上双空格。(例如: SY_READ_PH_SPACE + 排版好的content )
     /// 排版内容搜索 contentTypesetting 方法
-    var content:String!
+    var content: String!
     
     /// 优先级 (一般章节段落都带有排序的优先级 从0开始)
-    var priority:NSNumber!
+    var priority: NSNumber!
     
     /// 本章有多少页
-    var pageCount:NSNumber! = NSNumber(value: 0)
+    var pageCount: NSNumber! = NSNumber(value: 0)
     
     /// 分页数据
-    var pageModels:[SYReadPageModel]! = []
+    var pageModels: [SYReadPageModel]! = []
     
+    /// 章节价格(＞0则需要付费订阅才能观看)
+    var chapterMoney: Int!
     
     // MARK: 快捷获取
     
     /// 当前章节是否为第一个章节
-    var isFirstChapter:Bool! { return (previousChapterID == SY_READ_NO_MORE_CHAPTER) }
+    var isFirstChapter: Bool! { return (previousChapterID == SY_READ_NO_MORE_CHAPTER) }
     
     /// 当前章节是否为最后一个章节
-    var isLastChapter:Bool! { return (nextChapterID == SY_READ_NO_MORE_CHAPTER) }
+    var isLastChapter: Bool! { return (nextChapterID == SY_READ_NO_MORE_CHAPTER) }
     
     /// 完整章节名称
-    var fullName:String! { return DZM_READ_CHAPTER_NAME(name) }
+    var fullName: String! { return DZM_READ_CHAPTER_NAME(name) }
     
     /// 完整富文本内容
-    var fullContent:NSAttributedString!
+    var fullContent: NSAttributedString!
     
     /// 分页总高 (上下滚动模式使用)
-    var pageTotalHeight:CGFloat {
+    var pageTotalHeight: CGFloat {
         
-        var pageTotalHeight:CGFloat = 0
+        var pageTotalHeight: CGFloat = 0
         
         for pageModel in pageModels {
             
@@ -72,7 +74,7 @@ class SYReadChapterModel: NSObject,NSCoding {
     // MARK: -- 更新字体
     
     /// 内容属性变化记录(我这里就只判断内容了字体属性变化了，标题也就跟着变化或者保存变化都无所谓了。如果有需求可以在加上比较标题属性变化)
-    private var attributes:[NSAttributedString.Key:Any]! = [:]
+    private var attributes: [NSAttributedString.Key:Any]! = [:]
     
     /// 更新字体
     func updateFont() {
@@ -214,6 +216,8 @@ class SYReadChapterModel: NSObject,NSCoding {
         
         pageModels = aDecoder.decodeObject(forKey: "pageModels") as? [SYReadPageModel]
         
+        chapterMoney = aDecoder.decodeObject(forKey: "chapterMoney") as? Int
+        
         attributes = aDecoder.decodeObject(forKey: "attributes") as? [NSAttributedString.Key:Any]
     }
     
@@ -238,6 +242,8 @@ class SYReadChapterModel: NSObject,NSCoding {
         aCoder.encode(pageCount, forKey: "pageCount")
         
         aCoder.encode(pageModels, forKey: "pageModels")
+        
+        aCoder.encode(chapterMoney, forKey: "chapterMoney")
         
         aCoder.encode(attributes, forKey: "attributes")
     }

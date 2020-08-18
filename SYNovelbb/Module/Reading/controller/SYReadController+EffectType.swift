@@ -47,7 +47,7 @@ extension SYReadController {
             
             pageViewController.setViewControllers((displayController != nil ? [displayController!] : nil), direction: .forward, animated: false, completion: nil)
             
-        }else if effectType == .translation { // 平移
+        } else if effectType == .translation { // 平移
             
             if displayController == nil { return }
             
@@ -187,29 +187,24 @@ extension SYReadController {
     
     /// 切换结果
     func coverController(_ coverController: DZMCoverController, currentController: UIViewController?, finish isFinish: Bool) {
-        
         // 记录
         currentDisplayController = currentController as? SYReadViewController
-        
         // 更新阅读记录
         updateReadRecord(controller: currentDisplayController)
     }
     
     /// 将要显示的控制器
     func coverController(_ coverController: DZMCoverController, willTransitionToPendingController pendingController: UIViewController?) {
-        
         readMenu.showMenu(isShow: false)
     }
     
     /// 获取上一个控制器
     func coverController(_ coverController: DZMCoverController, getAboveControllerWithCurrentController currentController: UIViewController?) -> UIViewController? {
-        
         return GetAboveReadViewController()
     }
     
     /// 获取下一个控制器
     func coverController(_ coverController: DZMCoverController, getBelowControllerWithCurrentController currentController: UIViewController?) -> UIViewController? {
-        
         return GetBelowReadViewController()
     }
     

@@ -15,4 +15,6 @@
 /// 进度条
 #import "ASValueTrackingSlider.h"
 
+#import <CommonCrypto/CommonDigest.h>
+
 #endif /* SYNovelbb_Bridging_Header_h */

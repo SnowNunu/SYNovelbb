@@ -26,15 +26,12 @@ class SYReadViewController: SYViewController {
     private var readView:SYReadView!
     
     /// 书籍首页视图
-    private var homeView:SYReadHomeView!
+    private var subscribeView: SYReadSubscribeView!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         // 设置阅读背景
         view.backgroundColor = SYReadConfigure.shared().bgColor
-        
         // 刷新阅读进度
         reloadProgress()
     }
@@ -63,25 +60,20 @@ class SYReadViewController: SYViewController {
     
     /// 初始化阅读视图
     func initReadView() {
-        
-//        // 是否为书籍首页
-//        if recordModel.pageModel.isHomePage {
-//
-//            topView.isHidden = true
-//            bottomView.isHidden = true
-//
-//            homeView = SYReadHomeView()
-//            homeView.readModel = readModel
-//            view.addSubview(homeView)
-//            homeView.frame = DZM_READ_VIEW_RECT
-//
-//        }else{
-            
+        // 是否为免费章节
+        if recordModel.chapterModel.chapterMoney == 0 {
             readView = SYReadView()
             readView.content = recordModel.contentAttributedString
             view.addSubview(readView)
             readView.frame = SY_READ_VIEW_RECT
-//        }
+        } else {
+            subscribeView = SYReadSubscribeView()
+            subscribeView.readModel = readModel
+            view.addSubview(subscribeView)
+            subscribeView.frame = self.view.frame
+            topView.isHidden = true
+            bottomView.isHidden = true
+        }
     }
     
     /// 刷新阅读进度显示

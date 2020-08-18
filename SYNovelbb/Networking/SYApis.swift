@@ -228,7 +228,7 @@ extension TargetType {
     }
     
     private var baseCacheKey : String {
-        return "[\(self.method.rawValue)] \(self.baseURL.absoluteString)/\(self.path)"
+        return "\(self.baseURL.absoluteString)\(self.path)"
     }
     
     private var cacheKey: String {

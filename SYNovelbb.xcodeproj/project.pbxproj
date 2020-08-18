@@ -141,7 +141,7 @@
 		7B9B96EE24E144100011DB29 /* SYReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B96B224E144100011DB29 /* SYReadViewController.swift */; };
 		7B9B96EF24E144100011DB29 /* SYReadViewBGController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B96B324E144100011DB29 /* SYReadViewBGController.swift */; };
 		7B9B96F024E144100011DB29 /* SYReadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B96B524E144100011DB29 /* SYReadViewCell.swift */; };
-		7B9B96F124E144100011DB29 /* SYReadHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B96B624E144100011DB29 /* SYReadHomeView.swift */; };
+		7B9B96F124E144100011DB29 /* SYReadSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B96B624E144100011DB29 /* SYReadSubscribeView.swift */; };
 		7B9B96F224E144100011DB29 /* SYReadViewStatusBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B96B724E144100011DB29 /* SYReadViewStatusBottomView.swift */; };
 		7B9B96F424E144100011DB29 /* SYReadViewStatusTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B96B924E144100011DB29 /* SYReadViewStatusTopView.swift */; };
 		7B9B96F624E144100011DB29 /* SYReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B96BB24E144100011DB29 /* SYReadView.swift */; };
@@ -342,7 +342,7 @@
 		7B9B96B224E144100011DB29 /* SYReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadViewController.swift; sourceTree = "<group>"; };
 		7B9B96B324E144100011DB29 /* SYReadViewBGController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadViewBGController.swift; sourceTree = "<group>"; };
 		7B9B96B524E144100011DB29 /* SYReadViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadViewCell.swift; sourceTree = "<group>"; };
-		7B9B96B624E144100011DB29 /* SYReadHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadHomeView.swift; sourceTree = "<group>"; };
+		7B9B96B624E144100011DB29 /* SYReadSubscribeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadSubscribeView.swift; sourceTree = "<group>"; };
 		7B9B96B724E144100011DB29 /* SYReadViewStatusBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadViewStatusBottomView.swift; sourceTree = "<group>"; };
 		7B9B96B924E144100011DB29 /* SYReadViewStatusTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadViewStatusTopView.swift; sourceTree = "<group>"; };
 		7B9B96BB24E144100011DB29 /* SYReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYReadView.swift; sourceTree = "<group>"; };
@@ -1481,7 +1481,7 @@
 			isa = PBXGroup;
 			children = (
 				7B9B96B524E144100011DB29 /* SYReadViewCell.swift */,
-				7B9B96B624E144100011DB29 /* SYReadHomeView.swift */,
+				7B9B96B624E144100011DB29 /* SYReadSubscribeView.swift */,
 				7B9B96B724E144100011DB29 /* SYReadViewStatusBottomView.swift */,
 				7B9B96B924E144100011DB29 /* SYReadViewStatusTopView.swift */,
 				7B9B96BB24E144100011DB29 /* SYReadView.swift */,
@@ -2144,7 +2144,7 @@
 				7B847D0B24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift in Sources */,
 				7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */,
 				7B9B970224E144100011DB29 /* DZMCoverController.m in Sources */,
-				7B9B96F124E144100011DB29 /* SYReadHomeView.swift in Sources */,
+				7B9B96F124E144100011DB29 /* SYReadSubscribeView.swift in Sources */,
 				7B9B970C24E144100011DB29 /* SYReadLeftView.swift in Sources */,
 				7B750E2124D3FD360007BCD0 /* SYMineBindingVC.swift in Sources */,
 				7B847CFF24CE733F00E9ADFD /* SYGenderVC.swift in Sources */,

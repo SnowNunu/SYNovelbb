@@ -61,8 +61,6 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
         activityIndicatorView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        // 初始化书籍阅读记录
-        updateReadRecord(recordModel: readModel.recordModel)
         // 获取章节目录信息
         loadingCatalogData()
         view.bringSubviewToFront(activityIndicatorView)

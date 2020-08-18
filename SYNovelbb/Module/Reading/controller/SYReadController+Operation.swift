@@ -42,7 +42,7 @@ extension SYReadController {
     }
     
     /// 获取上一页控制器
-    func GetAboveReadViewController() ->UIViewController? {
+    func GetAboveReadViewController() -> UIViewController? {
         
         let recordModel = GetAboveReadRecordModel(recordModel: readModel.recordModel)
         
@@ -114,35 +114,6 @@ extension SYReadController {
             // 加载章节数据
             let result = chapterID.compare(recordModel.chapterModel.chapterId)
             _ = self.loadingNewReadRecord(isNext: true, isAbove: result == .orderedAscending, bid: bookID!, cid: chapterID.stringValue, recordModel: recordModel)
-            
-//            NJHTTPTool.request_novel_read(bookID, chapterID) { [weak self] (type, response, error) in
-//
-//                MBProgressHUD.hide(self?.view)
-//
-//                if type == .success {
-//
-//                    // 获取章节数据
-//                    let data = HTTP_RESPONSE_DATA_DICT(response)
-//
-//                    // 解析章节数据
-//                    let chapterModel = SYReadChapterModel(data)
-//
-//                    // 章节类容需要进行排版一篇
-//                    chapterModel.content = SYReadParser.contentTypesetting(content: chapterModel.content)
-//
-//                    // 保存
-//                    chapterModel.save()
-//
-//                    // 修改阅读记录
-//                    recordModel.modify(chapterID: chapterModel.chapterID, toPage: toPage, isSave: false)
-//
-//                    // 更新阅读记录
-//                    self?.updateReadRecord(recordModel: recordModel)
-//
-//                    // 展示阅读记录
-//                    self?.creatPageController(displayController: GetReadViewController(recordModel: recordModel))
-//                }
-//            }
         }
         
         // ----- 搜索网络小说 -----
@@ -224,7 +195,7 @@ extension SYReadController {
         let chapterID = recordModel.chapterModel.nextChapterID
         // 最后一章 最后一页
         if recordModel.isLastChapter && recordModel.isLastPage {
-            logDebug("已经是最后一页了")
+            MBProgressHUD.show(message: "It's already the last chapter", toView: self.view)
             return nil
         }
         // 最后一页
@@ -240,8 +211,6 @@ extension SYReadController {
                 return self.loadingNewReadRecord(isNext: true, isAbove: false, bid: bookID!, cid: chapterID!.stringValue, recordModel: recordModel)
             }
         } else { recordModel.nextPage() }
-        
-        // ----- 搜索网络小说 -----
         
 //        // 预加载下一章(可选)
 //        if readModel.bookSourceType == .network { // 网络小说
@@ -293,6 +262,7 @@ extension SYReadController {
                         chapterModel.chapterId = NSNumber(value: Int(model.cid)!)
                         chapterModel.name = model.title
                         chapterModel.content = model.contents
+                        chapterModel.chapterMoney = model.chapterMoney
                         // 获取章节内容的接口中不存在上下章节的章节id，得从目录接口中获取
                         if self.readModel.chapterListModels.count > 0 {
                             // 目录数据已获取到
@@ -322,6 +292,7 @@ extension SYReadController {
                         if self.activityIndicatorView.isAnimating {
                             self.activityIndicatorView.stopAnimating()
                         }
+                        self.leftView.isTop = self.readModel.recordModel.chapterModel.chapterId.compare(self.readModel.chapterListModels.last!.id) == .orderedSame
                         self.leftView.updateUI()
                     }
                 }
@@ -335,7 +306,6 @@ extension SYReadController {
     
     /// 更新阅读记录(左右翻页模式)
     func updateReadRecord(controller:SYReadViewController!) {
-        
         updateReadRecord(recordModel: controller?.recordModel)
     }
     
@@ -343,7 +313,6 @@ extension SYReadController {
     func updateReadRecord(recordModel:SYReadRecordModel!) {
         if recordModel != nil {
             if recordModel.chapterModel == nil {
-                activityIndicatorView.startAnimating()
                 // 首次阅读
                 SYProvider.rx.request(.firstChapter(bid: readModel.bookID))
                     .map(resultList: SYChapterModel.self)
@@ -364,6 +333,7 @@ extension SYReadController {
                                                 chapterModel.content = model.contents
                                                 chapterModel.nextChapterID = NSNumber(value: Int(chapter.nextID)!)
                                                 chapterModel.previousChapterID = NSNumber(value: Int(chapter.prevID)!)
+                                                chapterModel.chapterMoney = model.chapterMoney
                                                 chapterModel.save()
 
                                                 self.readModel.recordModel.modify(chapterID: chapterModel.chapterId, location: 0)
@@ -372,11 +342,15 @@ extension SYReadController {
                                                 if self.activityIndicatorView.isAnimating {
                                                     self.activityIndicatorView.stopAnimating()
                                                 }
+                                                self.leftView.isTop = self.readModel.recordModel.chapterModel.chapterId.compare(self.readModel.chapterListModels.last!.id) == .orderedSame
                                                 self.leftView.updateUI()
                                             }
                                         }
                                     }) { (error) in
                                         logError(error.localizedDescription)
+                                        if self.activityIndicatorView.isAnimating {
+                                            self.activityIndicatorView.stopAnimating()
+                                        }
                                     }
                                     .disposed(by: self.disposeBag)
                             }
@@ -392,12 +366,23 @@ extension SYReadController {
                 SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = recordModel.locationFirst
                 self.showReadingView()
                 self.leftView.updateUI()
+                if self.activityIndicatorView.isAnimating {
+                    self.activityIndicatorView.stopAnimating()
+                }
             }
         }
     }
     
     // 加载目录数据
     func loadingCatalogData() {
+        activityIndicatorView.startAnimating()
+        /*
+            这里使用缓存数据的方法时会偶现一个问题，数据明明已经写入缓存中，下次直接读取
+         时偶尔会读出空缓存的情况，换了几个缓存框架都会出现这样的问题，暂时不能确定到底是
+         什么原因导致，可能moya框架问题，也可能时进行缓存的接口是同步返回数据的，我的部分
+         读写操作是异步的，其实我也换过同步的读写缓存框架，这个bug也还是会偶现，留待后面
+         再进行分析优化。
+         */
         SYProvider.rx.cacheRequest(.chapters(bid: readModel.bookID), cacheType: .default)
             .map(resultList: SYCatalogModel.self)
             .subscribe(onSuccess: { [unowned self] (response) in
@@ -418,6 +403,7 @@ extension SYReadController {
                         }
                         self.readModel.chapterListModels = catalogArray
                         self.leftView.volumeTitle.text = catalog.volumeTitle
+                        self.updateReadRecord(recordModel: self.readModel.recordModel)
                     }
                 }
             }) { (error) in

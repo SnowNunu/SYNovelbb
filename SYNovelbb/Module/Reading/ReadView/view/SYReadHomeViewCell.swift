@@ -11,7 +11,7 @@ import UIKit
 class SYReadHomeViewCell: UITableViewCell {
 
     /// 书籍首页视图
-    private(set) var homeView:SYReadHomeView!
+    private(set) var homeView: SYReadSubscribeView!
     
     class func cell(_ tableView:UITableView) -> SYReadHomeViewCell {
         
@@ -39,7 +39,7 @@ class SYReadHomeViewCell: UITableViewCell {
     private func addSubviews() {
         
         // 书籍首页
-        homeView = SYReadHomeView()
+        homeView = SYReadSubscribeView()
         contentView.addSubview(homeView)
     }
     

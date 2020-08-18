@@ -32,6 +32,7 @@ target 'SYNovelbb' do
   # YYKit
   pod 'YYCategories'
   pod 'YYText'
+  pod 'YYCache'
   
   # 上下拉刷新
   pod 'MJRefresh', '~> 3.4.3'
@@ -43,8 +44,6 @@ target 'SYNovelbb' do
   pod 'NVActivityIndicatorView'
   # 提示框
   pod 'MBProgressHUD', '~> 1.2.0'
-  # 缓存库
-  pod 'Cache', '>= 5.0.0'
   
   # 内购
   pod 'SwiftyStoreKit'
