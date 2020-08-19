@@ -84,6 +84,14 @@ class SYHomeVC: SYBaseVC {
                     header.banner.delegate = self
                     header.banner.dataSource = self
                     
+                    // 书库筛选页面
+                    header.listBtn.rx.tap
+                        .bind{ [unowned self] in
+                            let vc = SYBookFilterVC()
+                            self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    .disposed(by: header.disposeBag)
+                    
                     // 随机推荐
                     header.rankBtn.rx.tap
                         .bind { [unowned self] in

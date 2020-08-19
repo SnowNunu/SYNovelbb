@@ -44,6 +44,10 @@ enum SYApis {
     
     case hotSearch
     
+    case bookFilter
+    
+    case allBook(params: [String: String], pageIndex: Int)
+    
     // MARK: Library模块
     case recommendBooks
     
@@ -92,6 +96,10 @@ extension SYApis: TargetType {
             return "/1/book/bookcase"
         case .hotSearch:
             return "/1/book/search_hot"
+        case .bookFilter:
+            return "/1/book/listset"
+        case .allBook(_, _):
+            return "/1/book/all"
         case .hotBooks:
             return "/1/book/all"
         case .rankList(_, _):
@@ -167,6 +175,14 @@ extension SYApis {
         case .hotBooks:
             paramters["d"] = 2
             paramters["PageIndex"] = 1
+            paramters["PageSize"] = 20
+            return paramters
+            
+        case .allBook(let params, let pageIndex):
+            for key in params.keys {
+                paramters[key] = params[key]
+            }
+            paramters["PageIndex"] = pageIndex
             paramters["PageSize"] = 20
             return paramters
             

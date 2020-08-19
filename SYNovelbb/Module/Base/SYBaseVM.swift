@@ -58,6 +58,7 @@ class SYBaseVM: NSObject {
     
     override init() {
         super.init()
+        logInfo("\(self)已释放")
     }
     
 }

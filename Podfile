@@ -4,8 +4,8 @@
 target 'SYNovelbb' do
   use_frameworks!
 
-  pod 'RxSwift', '~> 5.1.0'
-  pod 'RxCocoa', '~> 5.1.0'
+  pod 'RxSwift', '~> 5.1.1'
+  pod 'RxCocoa', '~> 5.1.1'
   pod 'RxDataSources', '~> 4.0.1'
   pod 'Moya/RxSwift', '~> 14.0'
   pod 'R.swift'
