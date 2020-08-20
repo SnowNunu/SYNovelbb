@@ -104,6 +104,8 @@
 		7B8DB49424D03379005D9D6B /* SYMineCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB49324D03379005D9D6B /* SYMineCenterVC.swift */; };
 		7B8DB49624D0338C005D9D6B /* SYMineCenterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB49524D0338C005D9D6B /* SYMineCenterVM.swift */; };
 		7B935A3124ECC0210060A4CB /* SYBookFilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B935A3024ECC0210060A4CB /* SYBookFilterHeaderView.swift */; };
+		7B9414D124EE103A0083FAA8 /* SYBookFilterOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414D024EE103A0083FAA8 /* SYBookFilterOptionsCell.swift */; };
+		7B9414D324EE222F0083FAA8 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414D224EE222F0083FAA8 /* Operators.swift */; };
 		7B947C8724DA4E5400735F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B947C8624DA4E5400735F7B /* Main.storyboard */; };
 		7B947C8924DA4E8C00735F7B /* SYMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C8824DA4E8C00735F7B /* SYMainVC.swift */; };
 		7B947C8E24DA5FEF00735F7B /* UserDefaults+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */; };
@@ -307,6 +309,8 @@
 		7B8DB49324D03379005D9D6B /* SYMineCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterVC.swift; sourceTree = "<group>"; };
 		7B8DB49524D0338C005D9D6B /* SYMineCenterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterVM.swift; sourceTree = "<group>"; };
 		7B935A3024ECC0210060A4CB /* SYBookFilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterHeaderView.swift; sourceTree = "<group>"; };
+		7B9414D024EE103A0083FAA8 /* SYBookFilterOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterOptionsCell.swift; sourceTree = "<group>"; };
+		7B9414D224EE222F0083FAA8 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		7B947C8624DA4E5400735F7B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7B947C8824DA4E8C00735F7B /* SYMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMainVC.swift; sourceTree = "<group>"; };
 		7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Cache.swift"; sourceTree = "<group>"; };
@@ -672,6 +676,7 @@
 			children = (
 				7B34624724C982CA0090ACFF /* LogManager.swift */,
 				7B2DCEA224DD35F3005D86A0 /* CacheManager.swift */,
+				7B9414D224EE222F0083FAA8 /* Operators.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1663,6 +1668,7 @@
 				7B935A3024ECC0210060A4CB /* SYBookFilterHeaderView.swift */,
 				7B9FC23D24ED160300047C52 /* SYBookFilterCell.swift */,
 				7B9FC23F24ED32BC00047C52 /* SYBookFilterOptionsView.swift */,
+				7B9414D024EE103A0083FAA8 /* SYBookFilterOptionsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2135,6 +2141,7 @@
 				7B8576D824D17EF0002D99EF /* SYMineAboutVC.swift in Sources */,
 				7B9B967424E10F730011DB29 /* SYSearchFooter.swift in Sources */,
 				7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */,
+				7B9414D324EE222F0083FAA8 /* Operators.swift in Sources */,
 				7B11212C24D3DE700067C530 /* SYMineRechargeCell.swift in Sources */,
 				7B8576E524D189D2002D99EF /* Bundle+Extension.swift in Sources */,
 				7B9B96FF24E144100011DB29 /* SYKeyedArchiver.swift in Sources */,
@@ -2169,6 +2176,7 @@
 				7B2DCEA524DD47DC005D86A0 /* SYSearchHistoryCell.swift in Sources */,
 				7B3643CF24C9250C0025B65B /* SYResponseModel.swift in Sources */,
 				7B34623424C95A560090ACFF /* UIColor+Extension.swift in Sources */,
+				7B9414D124EE103A0083FAA8 /* SYBookFilterOptionsCell.swift in Sources */,
 				7B9B96F224E144100011DB29 /* SYReadViewStatusBottomView.swift in Sources */,
 				7B9B968C24E143E90011DB29 /* SYReadController+EffectType.swift in Sources */,
 				7B8DB48C24D02ADC005D9D6B /* SYRankListModel.swift in Sources */,

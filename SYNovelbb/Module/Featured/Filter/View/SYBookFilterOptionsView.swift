@@ -9,10 +9,18 @@
 import UIKit
 import RxDataSources
 import RxRelay
+import RxSwift
 
 class SYBookFilterOptionsView: UIView {
     
+    private weak var owner: SYBookFilterVC!
+    
     var datasource = BehaviorRelay<[SectionModel<String, SYFilterKeyModel>]>(value: [SectionModel<String, SYFilterKeyModel>]())
+    
+    var disposeBag = DisposeBag()
+    
+    /// 搜素关键字
+    var params = BehaviorRelay<[String: String]>(value: [String: String]())
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +37,7 @@ class SYBookFilterOptionsView: UIView {
     private func setupConstraints() {
         collectionView.snp.makeConstraints { (make) in
             make.centerX.width.top.equalToSuperview()
-            make.bottom.equalTo(underLine.snp.top)
+            make.height.equalTo(0)
         }
         underLine.snp.makeConstraints { (make) in
             make.width.centerX.bottom.equalToSuperview()
@@ -38,12 +46,9 @@ class SYBookFilterOptionsView: UIView {
     }
     
     private func rxBind() {
-//        let ds = RxCollectionViewSectionedReloadDataSource<SectionModel<String, sy>>
-        let ds = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYFilterKeyModel>>.init(configureCell: { (_, collectionView, indexPath, model) -> UICollectionViewCell in
-            
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SYEmptyCell.className(), for: indexPath) as! SYEmptyCell
-                return cell
-        })
+        
+        collectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
@@ -51,9 +56,14 @@ class SYBookFilterOptionsView: UIView {
     }
     
     lazy var collectionView: UICollectionView = {
-        let flowLayout = SYAlignFlowLayout(.left, 25)
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 25
+        flowLayout.scrollDirection = .vertical
+        flowLayout.sectionInset = .init(top: 0, left: 15, bottom: 0, right: 15)
         let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .white
+        collectionView.register(SYBookFilterOptionsCell.self, forCellWithReuseIdentifier: SYBookFilterOptionsCell.className())
         return collectionView
     }()
     
@@ -62,4 +72,18 @@ class SYBookFilterOptionsView: UIView {
         view.backgroundColor = UIColor(242, 242, 242)
         return view
     }()
+    
+}
+
+extension SYBookFilterOptionsView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let model = datasource.value[indexPath.section].items[indexPath.row]
+            let size = model.title.size(.systemFont(ofSize: 11, weight: .regular))
+            return .init(width: ceil(size.width), height: 15)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return .init(width: ScreenWidth, height: 10)
+    }
 }
