@@ -66,6 +66,11 @@ enum SYApis {
     
     /// 获取书籍的所有目录信息
     case chapters(bid: String)
+    
+    // MARK: 书籍详情模块
+    
+    /// 获取书籍相关信息
+    case bookInfo(bid: String)
 }
 
 extension SYApis: TargetType {
@@ -116,6 +121,8 @@ extension SYApis: TargetType {
             return "/1/book/content"
         case .chapters(_):
             return "/1/book/chapter"
+        case .bookInfo(_):
+            return "/1/book/info"
         }
     }
     
@@ -211,6 +218,10 @@ extension SYApis {
         case .chapters(let bid):
             paramters["bid"] = bid
             return paramters
+            
+        case .bookInfo(let bid):
+            paramters["bid"] = bid
+            return addUserParams(paramters)
             
         default:
             return paramters

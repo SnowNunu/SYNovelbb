@@ -106,6 +106,9 @@
 		7B935A3124ECC0210060A4CB /* SYBookFilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B935A3024ECC0210060A4CB /* SYBookFilterHeaderView.swift */; };
 		7B9414D124EE103A0083FAA8 /* SYBookFilterOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414D024EE103A0083FAA8 /* SYBookFilterOptionsCell.swift */; };
 		7B9414D324EE222F0083FAA8 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414D224EE222F0083FAA8 /* Operators.swift */; };
+		7B9414DA24EE51B90083FAA8 /* SYBookInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414D924EE51B90083FAA8 /* SYBookInfoVC.swift */; };
+		7B9414DC24EE51CA0083FAA8 /* SYBookInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414DB24EE51CA0083FAA8 /* SYBookInfoVM.swift */; };
+		7B9414DF24EE5EB40083FAA8 /* SYBookInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414DE24EE5EB40083FAA8 /* SYBookInfoHeaderView.swift */; };
 		7B947C8724DA4E5400735F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B947C8624DA4E5400735F7B /* Main.storyboard */; };
 		7B947C8924DA4E8C00735F7B /* SYMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C8824DA4E8C00735F7B /* SYMainVC.swift */; };
 		7B947C8E24DA5FEF00735F7B /* UserDefaults+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */; };
@@ -179,6 +182,8 @@
 		7B9FC23C24ED130800047C52 /* SYFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9FC23B24ED130800047C52 /* SYFilterModel.swift */; };
 		7B9FC23E24ED160300047C52 /* SYBookFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9FC23D24ED160300047C52 /* SYBookFilterCell.swift */; };
 		7B9FC24024ED32BC00047C52 /* SYBookFilterOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9FC23F24ED32BC00047C52 /* SYBookFilterOptionsView.swift */; };
+		7BA05EDA24F3A47200880E28 /* SYBookBriefInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA05ED924F3A47200880E28 /* SYBookBriefInfoCell.swift */; };
+		7BA05EDD24F3BC6C00880E28 /* SYBookInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA05EDC24F3BC6C00880E28 /* SYBookInfoModel.swift */; };
 		7BA1383924EBE3E700343D63 /* SYBookFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1383824EBE3E700343D63 /* SYBookFilterVC.swift */; };
 		7BA1383B24EBE40D00343D63 /* SYBookFilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1383A24EBE40D00343D63 /* SYBookFilterVM.swift */; };
 		7BA2E10424C995B60027A128 /* SYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2E10324C995B60027A128 /* SYHomeModel.swift */; };
@@ -311,6 +316,9 @@
 		7B935A3024ECC0210060A4CB /* SYBookFilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterHeaderView.swift; sourceTree = "<group>"; };
 		7B9414D024EE103A0083FAA8 /* SYBookFilterOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterOptionsCell.swift; sourceTree = "<group>"; };
 		7B9414D224EE222F0083FAA8 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		7B9414D924EE51B90083FAA8 /* SYBookInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookInfoVC.swift; sourceTree = "<group>"; };
+		7B9414DB24EE51CA0083FAA8 /* SYBookInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookInfoVM.swift; sourceTree = "<group>"; };
+		7B9414DE24EE5EB40083FAA8 /* SYBookInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookInfoHeaderView.swift; sourceTree = "<group>"; };
 		7B947C8624DA4E5400735F7B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7B947C8824DA4E8C00735F7B /* SYMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMainVC.swift; sourceTree = "<group>"; };
 		7B947C8D24DA5FEF00735F7B /* UserDefaults+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Cache.swift"; sourceTree = "<group>"; };
@@ -393,6 +401,8 @@
 		7B9FC23B24ED130800047C52 /* SYFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYFilterModel.swift; sourceTree = "<group>"; };
 		7B9FC23D24ED160300047C52 /* SYBookFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterCell.swift; sourceTree = "<group>"; };
 		7B9FC23F24ED32BC00047C52 /* SYBookFilterOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterOptionsView.swift; sourceTree = "<group>"; };
+		7BA05ED924F3A47200880E28 /* SYBookBriefInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookBriefInfoCell.swift; sourceTree = "<group>"; };
+		7BA05EDC24F3BC6C00880E28 /* SYBookInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookInfoModel.swift; sourceTree = "<group>"; };
 		7BA1383824EBE3E700343D63 /* SYBookFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterVC.swift; sourceTree = "<group>"; };
 		7BA1383A24EBE40D00343D63 /* SYBookFilterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterVM.swift; sourceTree = "<group>"; };
 		7BA2E10324C995B60027A128 /* SYHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeModel.swift; sourceTree = "<group>"; };
@@ -1254,6 +1264,50 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7B9414D524EE50D60083FAA8 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				7B9414D624EE516A0083FAA8 /* BookInfo */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		7B9414D624EE516A0083FAA8 /* BookInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7BA05EDB24F3BC4F00880E28 /* Model */,
+				7B9414DD24EE5E5C0083FAA8 /* View */,
+				7B9414D824EE51830083FAA8 /* ViewModel */,
+				7B9414D724EE517C0083FAA8 /* Controller */,
+			);
+			path = BookInfo;
+			sourceTree = "<group>";
+		};
+		7B9414D724EE517C0083FAA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B9414D924EE51B90083FAA8 /* SYBookInfoVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B9414D824EE51830083FAA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B9414DB24EE51CA0083FAA8 /* SYBookInfoVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B9414DD24EE5E5C0083FAA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B9414DE24EE5EB40083FAA8 /* SYBookInfoHeaderView.swift */,
+				7BA05ED924F3A47200880E28 /* SYBookBriefInfoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7B947C8C24DA5FE000735F7B /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -1352,6 +1406,7 @@
 				7B99BCAF24C81ACB003FF4E1 /* Featured */,
 				7B847D0C24CE9C8600E9ADFD /* Library */,
 				7B8DB48D24D03234005D9D6B /* Mine */,
+				7B9414D524EE50D60083FAA8 /* Details */,
 				7B9B967524E1438D0011DB29 /* Reading */,
 			);
 			path = Module;
@@ -1638,6 +1693,14 @@
 			children = (
 				7B9FC23924ED125900047C52 /* SYFilterKeyModel.swift */,
 				7B9FC23B24ED130800047C52 /* SYFilterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BA05EDB24F3BC4F00880E28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BA05EDC24F3BC6C00880E28 /* SYBookInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2100,6 +2163,7 @@
 				7B750E2324D3FD530007BCD0 /* SYMineBindingVM.swift in Sources */,
 				7B99BCB224C82D88003FF4E1 /* SYApis.swift in Sources */,
 				7B847D1C24CEBA3A00E9ADFD /* SYBaseBookModel.swift in Sources */,
+				7B9414DA24EE51B90083FAA8 /* SYBookInfoVC.swift in Sources */,
 				7B9B96F024E144100011DB29 /* SYReadViewCell.swift in Sources */,
 				7B9562E124E5321000695476 /* SYChapterModel.swift in Sources */,
 				7B8576C224D1556D002D99EF /* SYMineCenterFooter.swift in Sources */,
@@ -2142,6 +2206,7 @@
 				7B9B967424E10F730011DB29 /* SYSearchFooter.swift in Sources */,
 				7B3643CD24C922E60025B65B /* SYSingle+ModelMapper.swift in Sources */,
 				7B9414D324EE222F0083FAA8 /* Operators.swift in Sources */,
+				7BA05EDA24F3A47200880E28 /* SYBookBriefInfoCell.swift in Sources */,
 				7B11212C24D3DE700067C530 /* SYMineRechargeCell.swift in Sources */,
 				7B8576E524D189D2002D99EF /* Bundle+Extension.swift in Sources */,
 				7B9B96FF24E144100011DB29 /* SYKeyedArchiver.swift in Sources */,
@@ -2199,6 +2264,7 @@
 				7B9B96F424E144100011DB29 /* SYReadViewStatusTopView.swift in Sources */,
 				7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */,
 				7BEE4F0424DAB60100D5823A /* SYMainVM.swift in Sources */,
+				7B9414DF24EE5EB40083FAA8 /* SYBookInfoHeaderView.swift in Sources */,
 				7B9B96F724E144100011DB29 /* SYReadHomeViewCell.swift in Sources */,
 				7B9B96EB24E144100011DB29 /* SYReadParser.swift in Sources */,
 				7B9B970024E144100011DB29 /* SYCoreText.swift in Sources */,
@@ -2234,8 +2300,10 @@
 				7B9B970C24E144100011DB29 /* SYReadLeftView.swift in Sources */,
 				7B750E2124D3FD360007BCD0 /* SYMineBindingVC.swift in Sources */,
 				7B847CFF24CE733F00E9ADFD /* SYGenderVC.swift in Sources */,
+				7BA05EDD24F3BC6C00880E28 /* SYBookInfoModel.swift in Sources */,
 				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,
 				7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift in Sources */,
+				7B9414DC24EE51CA0083FAA8 /* SYBookInfoVM.swift in Sources */,
 				7B9B96A824E143F90011DB29 /* SYRMBottomView.swift in Sources */,
 				7B9B970524E144100011DB29 /* ASValueTrackingSlider.m in Sources */,
 				7B7DAB5324D2ABBE004944AE /* SYAutoSubscriptionModel.swift in Sources */,

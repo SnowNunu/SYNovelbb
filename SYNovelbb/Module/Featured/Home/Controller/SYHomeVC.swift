@@ -122,6 +122,15 @@ class SYHomeVC: SYBaseVC {
             .drive(collectionView.rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
         
+        collectionView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] (indexPath) in
+                let model = self.viewModel.datasource.value[indexPath.section].items[indexPath.row]
+                let vc = SYBookInfoVC()
+                vc.bookId = model.bid
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
@@ -257,7 +266,10 @@ extension SYHomeVC: JXBannerDelegate, JXBannerDataSource {
     
     // 点击cell回调
     func jxBanner(_ banner: JXBannerType, didSelectItemAt index: Int) {
-        self.navigationController?.pushViewController(UIViewController(), animated: true)
+        let model = viewModel.datasource.value.first!.items[index]
+        let vc = SYBookInfoVC()
+        vc.bookId = model.bid
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

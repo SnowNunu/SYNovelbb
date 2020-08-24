@@ -11,41 +11,43 @@ import HandyJSON
 
 class SYBaseBookModel: HandyJSON {
     
-    var bookTitle      : String!
+    var bookTitle       : String!
     
-    var cover          : String?
+    var cover           : String?
     
-    var bid            : String!
+    var bid             : String!
     
-    var author         : String?
+    var author          : String?
     
-    var readTxt        : String?
+    var readTxt         : String?
     
-    var readLable      : String?
+    var readLable       : String?
     
-    var intro   : String?
+    var intro           : String?
     
-    var isVip          : Bool!
+    var isVip           : Bool!
     
-    var isMark         : Bool!
+    var isMark          : Bool!
     
-    var vipUpdateTitle : String?
+    var vipUpdateTitle  : String?
     
     var bookLength      : String?
     
-    var lastUpdate     : String?
+    var lastUpdate      : String?
     
-    var lastUpdateId   : String?
+    var lastUpdateId    : String?
     
-    var lastUpdateTitle: String?
+    var lastUpdateTitle : String?
     
-    var readDate       : String?
+    var readDate        : String?
     
-    var tclass         : String?
+    var tclass          : String?
     
-    var Labels         : String?
+    var Labels          : String?
     
-    var state          : Int?
+    var state           : Int?
+    
+    var info            : SYBookIntroModel?
     
     required init() {}
     
@@ -54,6 +56,18 @@ class SYBaseBookModel: HandyJSON {
         mapper.specify(property: &bookLength, name: "booklength")
         mapper.specify(property: &bookTitle, name: "booktitle")
         mapper.specify(property: &intro, name: "Introduction")
+    }
+    
+}
+
+class SYBookIntroModel : HandyJSON {
+    
+    var introduction: String!
+    
+    required init() {}
+    
+    func mapping(mapper: HelpingMapper) {
+        mapper.specify(property: &introduction, name: "Introduction")
     }
     
 }
