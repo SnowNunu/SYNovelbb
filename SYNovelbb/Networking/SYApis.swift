@@ -71,6 +71,8 @@ enum SYApis {
     
     /// 获取书籍相关信息
     case bookInfo(bid: String)
+    
+    case bookComments(bid: String, pageIndex: Int)
 }
 
 extension SYApis: TargetType {
@@ -123,6 +125,8 @@ extension SYApis: TargetType {
             return "/1/book/chapter"
         case .bookInfo(_):
             return "/1/book/info"
+        case .bookComments(_, _):
+            return "/1/book/topic"
         }
     }
     
@@ -222,6 +226,12 @@ extension SYApis {
         case .bookInfo(let bid):
             paramters["bid"] = bid
             return addUserParams(paramters)
+            
+        case .bookComments(let bid, let pageIndex):
+            paramters["bid"] = bid
+            paramters["PageSize"] = 20
+            paramters["PageIndex"] = pageIndex
+            return paramters
             
         default:
             return paramters

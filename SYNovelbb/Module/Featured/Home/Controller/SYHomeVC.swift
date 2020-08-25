@@ -127,6 +127,7 @@ class SYHomeVC: SYBaseVC {
                 let model = self.viewModel.datasource.value[indexPath.section].items[indexPath.row]
                 let vc = SYBookInfoVC()
                 vc.bookId = model.bid
+                vc.bookName = model.bookTitle
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)

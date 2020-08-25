@@ -12,6 +12,9 @@ class SYBookInfoVC: SYBaseVC {
     
     var bookId: String!
     
+    var bookName: String!
+    
+    
     lazy var viewModel: SYBookInfoVM = {
         let vm = SYBookInfoVM(self)
         return vm
@@ -27,6 +30,8 @@ class SYBookInfoVC: SYBaseVC {
         view.addSubview(backBtn)
         view.addSubview(collectBtn)
         view.addSubview(readBtn)
+        chapterView.frame = .init(x: 0, y: ScreenHeight, width: ScreenWidth, height: 390)
+        view.addSubview(chapterView)
         
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .never
@@ -59,6 +64,7 @@ class SYBookInfoVC: SYBaseVC {
     }
     
     override func rxBind() {
+        tableView.prepare(viewModel, SYCommentModel.self, true)
         viewModel.requestStatus
             .skip(1)
             .subscribe(onNext: { [unowned self] (result, message) in
@@ -67,19 +73,70 @@ class SYBookInfoVC: SYBaseVC {
                 }
             })
             .disposed(by: disposeBag)
+
+        viewModel.datasource
+            .asDriver()
+            .drive(tableView.rx.items(cellIdentifier: SYBookCommentCell.className(), cellType: SYBookCommentCell.self)) { (row, model, cell) in
+                cell.selectionStyle = .none
+                cell.model = model
+            }
+            .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(true)
         activityIndicatorView.startAnimating()
+        
+        readBtn.rx.tap
+            .bind { [unowned self] in
+                let readModel = SYReadModel.model(bookID: self.bookId)
+                readModel.bookName = self.bookName
+                let vc  = SYReadController()
+                vc.readModel = readModel
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        headerView.seeAllBtn.addTarget(self, action: #selector(showChapterListView), for: .touchUpInside)
     }
     
     @objc func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
     
+    /// 从底部弹出章节列表
+    @objc func showChapterListView() {
+        view.addSubview(chapterBgView)
+        view.addSubview(chapterView)
+        chapterBgView.frame = view.frame
+        chapterView.frame = .init(x: 0, y: ScreenHeight, width: ScreenWidth, height: 390)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideChapterListView))
+        chapterBgView.addGestureRecognizer(gesture)
+        
+        UIView.animate(withDuration: 0.3) { [unowned self] in
+            self.chapterView.frame = .init(x: 0, y: ScreenHeight - 390, width: ScreenWidth, height: 390)
+        }
+    }
+    
+    /// 从底部移出章节列表
+    @objc func hideChapterListView() {
+        UIView.animate(withDuration: 0.3) {
+            self.chapterView.frame = .init(x: 0, y: ScreenHeight, width: ScreenWidth, height: 390)
+                    
+            // 提交一个延时任务线程
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.chapterView.removeFromSuperview()
+                self.chapterBgView.removeFromSuperview()
+            }
+        }
+    }
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.tableHeaderView = self.headerView
         tableView.tableHeaderView?.height = 1000
+        tableView.register(SYBookCommentCell.self, forCellReuseIdentifier: SYBookCommentCell.className())
+        tableView.rowHeight = 148
+        tableView.separatorStyle = .none
+        
         return tableView
     }()
     
@@ -115,6 +172,18 @@ class SYBookInfoVC: SYBaseVC {
         btn.setTitleColor(UIColor(52, 52, 52), for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
         return btn
+    }()
+    
+    lazy var chapterBgView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.1, alpha: 0.6)
+        return view
+    }()
+    
+    lazy var chapterView: SYBookChapterListView = {
+        let view = SYBookChapterListView()
+        view.backgroundColor = .white
+        return view
     }()
 
 }

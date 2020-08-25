@@ -16,9 +16,17 @@ class SYMainVC: SYBaseVC {
         return vm
     }()
     
+    @IBOutlet weak var bgView: UIView!
+    
     @IBOutlet weak var tipsView: UIView!
     
     @IBOutlet weak var detailLabel: UILabel!
+    
+    override func setupUI() {
+        activityIndicatorView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+    }
     
     override func rxBind() {
         viewModel.userIsOK
@@ -40,6 +48,8 @@ class SYMainVC: SYBaseVC {
                     if self.activityIndicatorView.isAnimating {
                         self.activityIndicatorView.stopAnimating()
                     }
+                    self.bgView.isHidden = true
+                    self.tipsView.isHidden = false
                     self.detailLabel.text = message
                 }
             })

@@ -126,6 +126,11 @@
 		7B99BCB524C8304A003FF4E1 /* SYAppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */; };
 		7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */; };
 		7B99BCBC24C843A9003FF4E1 /* SYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */; };
+		7B9AA84624F4AF4B00F6A70D /* SYCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA84524F4AF4B00F6A70D /* SYCommentModel.swift */; };
+		7B9AA84824F4AF6300F6A70D /* SYReplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA84724F4AF6300F6A70D /* SYReplayModel.swift */; };
+		7B9AA84A24F4E8B600F6A70D /* SYBookCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA84924F4E8B600F6A70D /* SYBookCommentCell.swift */; };
+		7B9AA84C24F513C700F6A70D /* SYBookChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA84B24F513C700F6A70D /* SYBookChapterListView.swift */; };
+		7B9AA84E24F51DCD00F6A70D /* SYBookChapterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA84D24F51DCD00F6A70D /* SYBookChapterListCell.swift */; };
 		7B9AB26524EA1FB500CF032B /* SYCatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AB26424EA1FB500CF032B /* SYCatalogModel.swift */; };
 		7B9B967024E0DF670011DB29 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B966F24E0DF670011DB29 /* String+Extension.swift */; };
 		7B9B967224E0F2DE0011DB29 /* SYHotSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B967124E0F2DE0011DB29 /* SYHotSearchCell.swift */; };
@@ -342,6 +347,11 @@
 		7B99BCB424C8304A003FF4E1 /* SYAppConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppConfigs.swift; sourceTree = "<group>"; };
 		7B99BCB624C83430003FF4E1 /* SYMoyaPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMoyaPlugins.swift; sourceTree = "<group>"; };
 		7B99BCBB24C843A9003FF4E1 /* SYTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYTabBarController.swift; sourceTree = "<group>"; };
+		7B9AA84524F4AF4B00F6A70D /* SYCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYCommentModel.swift; sourceTree = "<group>"; };
+		7B9AA84724F4AF6300F6A70D /* SYReplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYReplayModel.swift; sourceTree = "<group>"; };
+		7B9AA84924F4E8B600F6A70D /* SYBookCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookCommentCell.swift; sourceTree = "<group>"; };
+		7B9AA84B24F513C700F6A70D /* SYBookChapterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookChapterListView.swift; sourceTree = "<group>"; };
+		7B9AA84D24F51DCD00F6A70D /* SYBookChapterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookChapterListCell.swift; sourceTree = "<group>"; };
 		7B9AB26424EA1FB500CF032B /* SYCatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYCatalogModel.swift; sourceTree = "<group>"; };
 		7B9B966F24E0DF670011DB29 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		7B9B967124E0F2DE0011DB29 /* SYHotSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHotSearchCell.swift; sourceTree = "<group>"; };
@@ -1304,6 +1314,9 @@
 			children = (
 				7B9414DE24EE5EB40083FAA8 /* SYBookInfoHeaderView.swift */,
 				7BA05ED924F3A47200880E28 /* SYBookBriefInfoCell.swift */,
+				7B9AA84924F4E8B600F6A70D /* SYBookCommentCell.swift */,
+				7B9AA84B24F513C700F6A70D /* SYBookChapterListView.swift */,
+				7B9AA84D24F51DCD00F6A70D /* SYBookChapterListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1701,6 +1714,8 @@
 			isa = PBXGroup;
 			children = (
 				7BA05EDC24F3BC6C00880E28 /* SYBookInfoModel.swift */,
+				7B9AA84524F4AF4B00F6A70D /* SYCommentModel.swift */,
+				7B9AA84724F4AF6300F6A70D /* SYReplayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2149,6 +2164,7 @@
 				7B847D0624CE798400E9ADFD /* SYGenderModel.swift in Sources */,
 				7B34624824C982CA0090ACFF /* LogManager.swift in Sources */,
 				7B3643CB24C91E8C0025B65B /* R.generated.swift in Sources */,
+				7B9AA84824F4AF6300F6A70D /* SYReplayModel.swift in Sources */,
 				7B9B970924E144100011DB29 /* SYPageViewController.swift in Sources */,
 				7BA1383B24EBE40D00343D63 /* SYBookFilterVM.swift in Sources */,
 				7B9562E324E53CA100695476 /* SYChapterContentModel.swift in Sources */,
@@ -2156,6 +2172,7 @@
 				7B7DAB3F24D2640A004944AE /* SYMineSystemMsgVM.swift in Sources */,
 				7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */,
 				7B9B968924E143E90011DB29 /* SYReadController+Operation.swift in Sources */,
+				7B9AA84E24F51DCD00F6A70D /* SYBookChapterListCell.swift in Sources */,
 				7B9B96EF24E144100011DB29 /* SYReadViewBGController.swift in Sources */,
 				7B8DB49424D03379005D9D6B /* SYMineCenterVC.swift in Sources */,
 				7B947C8924DA4E8C00735F7B /* SYMainVC.swift in Sources */,
@@ -2195,6 +2212,7 @@
 				7B8576C724D163B3002D99EF /* SYMineSettingVC.swift in Sources */,
 				7B8A347A24D7DCFF00E19384 /* SYMineRecordModel.swift in Sources */,
 				7B9B967024E0DF670011DB29 /* String+Extension.swift in Sources */,
+				7B9AA84C24F513C700F6A70D /* SYBookChapterListView.swift in Sources */,
 				7B8DB47E24CFF7EF005D9D6B /* SYHotBooksVM.swift in Sources */,
 				7B8576E024D183C0002D99EF /* SYMineAboutModel.swift in Sources */,
 				7B8576CF24D174AE002D99EF /* SYMineSettingCell.swift in Sources */,
@@ -2214,6 +2232,7 @@
 				7B8576BB24D120AA002D99EF /* SYMineCenterCell.swift in Sources */,
 				7B9B96EC24E144100011DB29 /* SYReadViewScrollController.swift in Sources */,
 				7B847D1724CEAB2300E9ADFD /* SYLibraryEditHeader.swift in Sources */,
+				7B9AA84624F4AF4B00F6A70D /* SYCommentModel.swift in Sources */,
 				7B7DAB4224D2661C004944AE /* SYMineSystemMsgCell.swift in Sources */,
 				7B34624A24C983920090ACFF /* SYBaseVM.swift in Sources */,
 				7B3643D124C928920025B65B /* SYResponse+ModelMapper.swift in Sources */,
@@ -2301,6 +2320,7 @@
 				7B750E2124D3FD360007BCD0 /* SYMineBindingVC.swift in Sources */,
 				7B847CFF24CE733F00E9ADFD /* SYGenderVC.swift in Sources */,
 				7BA05EDD24F3BC6C00880E28 /* SYBookInfoModel.swift in Sources */,
+				7B9AA84A24F4E8B600F6A70D /* SYBookCommentCell.swift in Sources */,
 				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,
 				7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift in Sources */,
 				7B9414DC24EE51CA0083FAA8 /* SYBookInfoVM.swift in Sources */,

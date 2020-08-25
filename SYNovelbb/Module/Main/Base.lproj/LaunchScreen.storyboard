@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +13,52 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_book_top" translatesAutoresizingMaskIntoConstraints="NO" id="cFZ-bl-Lcg">
+                                <rect key="frame" x="300" y="83" width="80" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="LXm-dl-bKS"/>
+                                    <constraint firstAttribute="height" constant="61" id="jwp-LF-G2F"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_book_center" translatesAutoresizingMaskIntoConstraints="NO" id="Buk-0Y-J2V">
+                                <rect key="frame" x="157.5" y="403.5" width="99" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99" id="DeH-F1-TdD"/>
+                                    <constraint firstAttribute="height" constant="99" id="M2W-HI-6JQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here are all the good novels" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjO-aQ-qmp">
+                                <rect key="frame" x="92" y="582.5" width="230" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="z5h-Tf-yLa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OjO-aQ-qmp" firstAttribute="top" secondItem="Buk-0Y-J2V" secondAttribute="bottom" constant="80" id="0mW-Bv-S50"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cFZ-bl-Lcg" secondAttribute="trailing" constant="34" id="4H2-R1-Y4z"/>
+                            <constraint firstItem="Buk-0Y-J2V" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Gvm-QP-Y51"/>
+                            <constraint firstItem="Buk-0Y-J2V" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="SCZ-Rc-xCj"/>
+                            <constraint firstItem="OjO-aQ-qmp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WYo-fZ-wju"/>
+                            <constraint firstItem="cFZ-bl-Lcg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="njl-P3-ZLr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="72" y="100"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launch_book_center" width="148.5" height="148"/>
+        <image name="launch_book_top" width="119.5" height="92"/>
+    </resources>
 </document>

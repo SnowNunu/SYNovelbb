@@ -16,6 +16,24 @@ class SYBookInfoHeaderView: UIView {
     var disposeBag = DisposeBag()
     
     var datasource = BehaviorRelay<[String]>(value: [])
+    
+    var chapters: [String]! {
+        didSet {
+            for (index, value) in chapters.enumerated() {
+                let chapterLabel = UILabel()
+                chapterLabel.textColor = UIColor(198, 189, 172)
+                chapterLabel.font = .systemFont(ofSize: 12, weight: .regular)
+                chapterLabel.text = value
+                addSubview(chapterLabel)
+                
+                chapterLabel.snp.makeConstraints { (make) in
+                    make.left.equalToSuperview().offset(15)
+                    make.top.equalTo(libraryLabel.snp.bottom).offset(15 + 26 * index)
+                }
+            }
+        }
+    }
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +55,8 @@ class SYBookInfoHeaderView: UIView {
         addSubview(libraryLabel)
         addSubview(seeAllBtn)
         addSubview(underline3)
+        addSubview(commentLabel)
+        addSubview(writeBtn)
     }
     
     func setupConstraints() {
@@ -53,7 +73,7 @@ class SYBookInfoHeaderView: UIView {
         bookTitle.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(coverImage.snp.bottom).offset(15)
-            make.height.equalTo(20)
+            make.height.equalTo(25)
         }
         bookClass.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
@@ -102,6 +122,17 @@ class SYBookInfoHeaderView: UIView {
             make.top.equalTo(libraryLabel.snp.bottom).offset(130)
             make.width.centerX.equalToSuperview()
             make.height.equalTo(5)
+        }
+        commentLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(underline3.snp.bottom).offset(15)
+            make.height.equalTo(20)
+        }
+        writeBtn.snp.makeConstraints { (make) in
+            make.width.equalTo(90)
+            make.height.equalTo(20)
+            make.right.equalToSuperview().offset(-15)
+            make.centerY.equalTo(commentLabel)
         }
     }
     
@@ -170,7 +201,7 @@ class SYBookInfoHeaderView: UIView {
     lazy var introLabel: UILabel = {
         let label = UILabel()
         label.text = "Introduction"
-        label.textColor = UIColor(51, 51, 51)
+        label.textColor = UIColor(52, 52, 52)
         label.font = .systemFont(ofSize: 16, weight: .regular)
         return label
     }()
@@ -191,7 +222,7 @@ class SYBookInfoHeaderView: UIView {
     
     lazy var libraryLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(51, 51, 51)
+        label.textColor = UIColor(52, 52, 52)
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.text = "Library catalogue"
         return label
@@ -211,6 +242,24 @@ class SYBookInfoHeaderView: UIView {
         let view = UIView()
         view.backgroundColor = UIColor(242, 242, 242)
         return view
+    }()
+    
+    lazy var commentLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(52, 52, 52)
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.text = "Comment"
+        return label
+    }()
+    
+    lazy var writeBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitleColor(UIColor(198, 189, 172), for: .normal)
+        btn.setTitle("Write reviews  ", for: .normal)
+        btn.setImage(R.image.book_detail_edit(), for: .normal)
+        btn.semanticContentAttribute = .forceRightToLeft
+        btn.titleLabel?.font = .systemFont(ofSize: 10.5, weight: .regular)
+        return btn
     }()
     
 }
