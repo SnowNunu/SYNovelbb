@@ -23,7 +23,7 @@ class SYReadViewController: SYViewController {
     var bottomView:SYReadViewStatusBottomView!
     
     /// 阅读视图
-    private var readView:SYReadView!
+    private var readView: SYReadView!
     
     /// 书籍首页视图
     private var subscribeView: SYReadSubscribeView!
@@ -68,7 +68,8 @@ class SYReadViewController: SYViewController {
             readView.frame = SY_READ_VIEW_RECT
         } else {
             subscribeView = SYReadSubscribeView()
-            subscribeView.readModel = readModel
+            subscribeView.model = recordModel.chapterModel
+//            subscribeView.contentLabel.text = recordModel.chapterModel.content
             view.addSubview(subscribeView)
             subscribeView.frame = self.view.frame
             topView.isHidden = true

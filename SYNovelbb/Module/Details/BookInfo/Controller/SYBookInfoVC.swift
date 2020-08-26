@@ -28,7 +28,7 @@ class SYBookInfoVC: SYBaseVC {
     override func setupUI() {
         view.addSubview(tableView)
         view.addSubview(backBtn)
-        view.addSubview(collectBtn)
+        view.addSubview(bookshelfBtn)
         view.addSubview(readBtn)
         chapterView.frame = .init(x: 0, y: ScreenHeight, width: ScreenWidth, height: 390)
         view.addSubview(chapterView)
@@ -44,14 +44,14 @@ class SYBookInfoVC: SYBaseVC {
         }
         tableView.snp.makeConstraints { (make) in
             make.top.centerX.width.equalToSuperview()
-            make.bottom.equalTo(collectBtn.snp.top)
+            make.bottom.equalTo(bookshelfBtn.snp.top)
         }
         backBtn.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(15)
             make.height.width.equalTo(44)
             make.top.equalToSuperview().offset(StatusBarHeight)
         }
-        collectBtn.snp.makeConstraints { (make) in
+        bookshelfBtn.snp.makeConstraints { (make) in
             make.left.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalTo(49)
@@ -59,7 +59,7 @@ class SYBookInfoVC: SYBaseVC {
         }
         readBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview()
-            make.width.bottom.height.equalTo(collectBtn)
+            make.width.bottom.height.equalTo(bookshelfBtn)
         }
     }
     
@@ -82,8 +82,23 @@ class SYBookInfoVC: SYBaseVC {
             }
             .disposed(by: disposeBag)
         
-        viewModel.reloadSubject.onNext(true)
-        activityIndicatorView.startAnimating()
+        viewModel.isOnShelf
+            .skip(1)
+            .subscribe(onNext: { [unowned self] (bool) in
+                if bool {
+                    self.bookshelfBtn.setTitle("Remove from the shelf", for: .normal)
+                } else {
+                    self.bookshelfBtn.setTitle("Put it on the shelf", for: .normal)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        bookshelfBtn.rx
+            .tap
+            .bind { [unowned self] in
+                self.viewModel.isOnShelf.value ? self.viewModel.removeFromeShelf(bid: self.bookId) : self.viewModel.putOnShelf(bid: self.bookId)
+            }
+            .disposed(by: disposeBag)
         
         readBtn.rx.tap
             .bind { [unowned self] in
@@ -96,6 +111,23 @@ class SYBookInfoVC: SYBaseVC {
             .disposed(by: disposeBag)
         
         headerView.seeAllBtn.addTarget(self, action: #selector(showChapterListView), for: .touchUpInside)
+        
+        chapterView.tableView.rx
+            .itemSelected
+            .subscribe(onNext: { [unowned self] (indexPath) in
+                print(indexPath.row)
+                let model = self.chapterView.datasources.value[indexPath.row]
+                let readModel = SYReadModel.model(bookID: self.bookId)
+                readModel.bookName = self.bookName
+                readModel.recordModel.chapterModel = SYReadChapterModel.model(bookID: self.bookId, chapterID: NSNumber(value: model.cid.integer))
+                let vc  = SYReadController()
+                vc.readModel = readModel
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.reloadSubject.onNext(true)
+        activityIndicatorView.startAnimating()
     }
     
     @objc func goBack() {
@@ -156,7 +188,7 @@ class SYBookInfoVC: SYBaseVC {
     }()
     
     /// 添加到书架按钮
-    lazy var collectBtn: UIButton = {
+    lazy var bookshelfBtn: UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .white
         btn.setTitle("Put it on the shelf", for: .normal)

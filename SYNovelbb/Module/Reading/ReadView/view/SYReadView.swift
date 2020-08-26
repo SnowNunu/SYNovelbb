@@ -68,4 +68,8 @@ class SYReadView: UIView {
         
         fatalError("init(coder:) has not been implemented")
     }
+    
+    deinit {
+        print("\(self)已释放")
+    }
 }

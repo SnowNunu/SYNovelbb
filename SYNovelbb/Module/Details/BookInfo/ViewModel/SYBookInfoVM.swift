@@ -9,10 +9,15 @@
 
 import UIKit
 import RxRelay
+import HandyJSON
+import MBProgressHUD
 
 class SYBookInfoVM: RefreshVM<SYCommentModel> {
     
     private weak var owner: SYBookInfoVC!
+    
+    /// 是否在书架中
+    var isOnShelf = BehaviorRelay<Bool>(value: false)
     
     init(_ owner: SYBookInfoVC) {
         super.init()
@@ -57,6 +62,7 @@ class SYBookInfoVM: RefreshVM<SYCommentModel> {
                     if response.success {
                         if response.data != nil {
                             let model = response.data!.book
+                            self.isOnShelf.accept(response.data!.isMark)
                             self.owner.bookName = model?.bookTitle
                             self.owner.headerView.bookTitle.text = model?.bookTitle
                             self.owner.headerView.bookClass.text = model?.tclass
@@ -97,9 +103,6 @@ class SYBookInfoVM: RefreshVM<SYCommentModel> {
                                 catalogArray.append(chapter.title)
                             }
                             self.owner.headerView.chapters = catalogArray
-//                            self.readModel.chapterListModels = catalogArray
-//                            self.leftView.volumeTitle.text = catalog.volumeTitle
-//                            self.updateReadRecord(recordModel: self.readModel.recordModel)
                             group.leave()
                     }
                 }
@@ -113,5 +116,42 @@ class SYBookInfoVM: RefreshVM<SYCommentModel> {
             self.requestData(true)
         }
     }
+    
+    /// 加入书架
+    func putOnShelf(bid: String) {
+        SYProvider.rx.request(.addBookshelf(bid: bid, cid: ""))
+            .map(result: SYEmptyModel.self)
+            .subscribe(onSuccess: { (response) in
+                if response.success {
+                    self.isOnShelf.accept(true)
+                    MBProgressHUD.show(message: "Has been added to the bookshelf", toView: nil)
+                }
+            }) { (error) in
+                logError(self.errorMessage(error))
+                MBProgressHUD.show(message: self.errorMessage(error), toView: nil)
+            }
+            .disposed(by: disposeBag)
+    }
 
+    /// 移出书架
+    func removeFromeShelf(bid: String) {
+        SYProvider.rx.request(.removeBookshelf(bid: bid))
+            .map(result: SYEmptyModel.self)
+            .subscribe(onSuccess: { (response) in
+                if response.success {
+                    self.isOnShelf.accept(false)
+                    MBProgressHUD.show(message: "Has been removed from the bookshelf", toView: nil)
+                }
+            }) { (error) in
+                logError(self.errorMessage(error))
+            }
+            .disposed(by: disposeBag)
+    }
 }
+
+class SYEmptyModel: HandyJSON {
+    
+    required init() {}
+    
+}
+

@@ -11,11 +11,11 @@ import UIKit
 class SYReadSubscribeView: UIView {
     
     /// 当前阅读模型
-    var readModel: SYReadModel! {
+    var model: SYReadChapterModel! {
         didSet {
-            titleLabel.text = readModel.recordModel.chapterModel.name
-            contentLabel.text = readModel.recordModel.chapterModel.content
-            priceLabel.text = "\(readModel.recordModel.chapterModel.chapterMoney ?? 0) Coins to unlock this chapter"
+            titleLabel.text = model.name
+            contentLabel.text = model.content
+            priceLabel.text = "\(model.chapterMoney ?? 0) Coins to unlock this chapter"
         }
     }
 
@@ -154,5 +154,9 @@ class SYReadSubscribeView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("\(self)已释放")
     }
 }

@@ -79,7 +79,14 @@ enum SYApis {
     /// 获取书籍相关信息
     case bookInfo(bid: String)
     
+    /// 获取书籍评论
     case bookComments(bid: String, pageIndex: Int)
+    
+    /// 加入书架
+    case addBookshelf(bid: String, cid: String)
+    
+    /// 移出书架
+    case removeBookshelf(bid: String)
 }
 
 extension SYApis: TargetType {
@@ -136,13 +143,19 @@ extension SYApis: TargetType {
             return "/1/book/info"
         case .bookComments(_, _):
             return "/1/book/topic"
+        case .addBookshelf(_, _):
+            return "/1/member/addBookCase"
+        case .removeBookshelf(_):
+            return "/1/member/delBookCase"
         }
     }
     
     // 配置请求方法
     var method: Moya.Method {
         switch self {
-        case .touristLogin:
+        case .touristLogin,
+             .addBookshelf(_, _),
+             .removeBookshelf(_):
             return .post
         default:
             return .get
@@ -245,6 +258,17 @@ extension SYApis {
             paramters["PageSize"] = 20
             paramters["PageIndex"] = pageIndex
             return paramters
+            
+        case .addBookshelf(let bid, let cid):
+            paramters["bid"] = bid
+            if !cid.isEmpty {
+                paramters["cid"] = cid
+            }
+            return addUserParams(paramters)
+            
+        case .removeBookshelf(let bid):
+            paramters["bid"] = bid
+            return addUserParams(paramters)
             
         default:
             return paramters

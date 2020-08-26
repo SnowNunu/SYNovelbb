@@ -92,6 +92,7 @@ class SYGenderVC: SYBaseVC {
                     let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYHomeNormalHeader.className(), for: indexPath) as! SYHomeNormalHeader
                     let title = datasource.sectionModels[indexPath.section].model
                     header.titleLabel.text = title
+                    header.changeBtn.isHidden = true
                     return header
                 }
             } else {
@@ -105,6 +106,16 @@ class SYGenderVC: SYBaseVC {
             .disposed(by: disposeBag)
         
         collectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] (indexPath) in
+                let model = self.viewModel.datasource.value[indexPath.section].items[indexPath.row]
+                let vc = SYBookInfoVC()
+                vc.bookId = model.bid
+                vc.bookName = model.bookTitle
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
             .disposed(by: disposeBag)
         
         activityIndicatorView.startAnimating()
@@ -231,7 +242,10 @@ extension SYGenderVC: JXBannerDelegate, JXBannerDataSource {
     
     // 点击cell回调
     func jxBanner(_ banner: JXBannerType, didSelectItemAt index: Int) {
-        self.navigationController?.pushViewController(UIViewController(), animated: true)
+        let model = viewModel.datasource.value.first!.items[index]
+        let vc = SYBookInfoVC()
+        vc.bookId = model.bid
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -361,13 +361,52 @@ extension SYReadController {
                     }
                     .disposed(by: disposeBag)
             } else {
-                readModel.recordModel = recordModel
-                readModel.recordModel.save()
-                SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = recordModel.locationFirst
-                self.showReadingView()
-                self.leftView.updateUI()
-                if self.activityIndicatorView.isAnimating {
-                    self.activityIndicatorView.stopAnimating()
+                if recordModel.chapterModel.chapterId != nil && recordModel.chapterModel.content == nil {
+                    // 处理加载书籍指定章节的情况
+                    SYProvider.rx.request(.chapterContent(bid: recordModel.bookID, cid: recordModel.chapterModel.chapterId.stringValue, next: 0))
+                        .map(result: SYChapterContentModel.self).subscribe(onSuccess: { (response) in
+                        if response.success {
+                            if response.data != nil {
+                                let model = response.data!.chapter.first!   // 最终的章节内容
+                                let chapterModel = SYReadChapterModel()
+                                chapterModel.bookID = self.readModel.bookID
+                                chapterModel.chapterId = NSNumber(value: Int(model.cid)!)
+                                chapterModel.name = model.title
+                                chapterModel.content = model.contents
+                                let chapter = self.readModel.chapterListModels.filter { (model) -> Bool in
+                                    model.id.compare(recordModel.chapterModel.chapterId) == .orderedSame
+                                }.first!
+                                chapterModel.nextChapterID = NSNumber(value: Int(chapter.nextID)!)
+                                chapterModel.previousChapterID = NSNumber(value: Int(chapter.prevID)!)
+                                chapterModel.chapterMoney = model.chapterMoney
+                                chapterModel.save()
+
+                                self.readModel.recordModel.modify(chapterID: chapterModel.chapterId, location: 0)
+                                SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = recordModel.locationFirst
+                                self.showReadingView()
+                                if self.activityIndicatorView.isAnimating {
+                                    self.activityIndicatorView.stopAnimating()
+                                }
+                                self.leftView.isTop = self.readModel.recordModel.chapterModel.chapterId.compare(self.readModel.chapterListModels.last!.id) == .orderedSame
+                                self.leftView.updateUI()
+                            }
+                        }
+                    }) { (error) in
+                        logError(error.localizedDescription)
+                        if self.activityIndicatorView.isAnimating {
+                            self.activityIndicatorView.stopAnimating()
+                        }
+                    }
+                    .disposed(by: self.disposeBag)
+                } else {
+                    readModel.recordModel = recordModel
+                    readModel.recordModel.save()
+                    SY_READ_RECORD_CURRENT_CHAPTER_LOCATION = recordModel.locationFirst
+                    self.showReadingView()
+                    self.leftView.updateUI()
+                    if self.activityIndicatorView.isAnimating {
+                        self.activityIndicatorView.stopAnimating()
+                    }
                 }
             }
         }
