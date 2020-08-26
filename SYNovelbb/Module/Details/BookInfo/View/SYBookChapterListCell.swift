@@ -18,6 +18,7 @@ class SYBookChapterListCell: UITableViewCell {
         chapterLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(15)
+            make.right.equalTo(vipImage.snp.left).offset(-5)
         }
         vipImage.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()

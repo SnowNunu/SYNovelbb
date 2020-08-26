@@ -104,10 +104,11 @@ class SYBookInfoVC: SYBaseVC {
     
     /// 从底部弹出章节列表
     @objc func showChapterListView() {
-        view.addSubview(chapterBgView)
-        view.addSubview(chapterView)
         chapterBgView.frame = view.frame
         chapterView.frame = .init(x: 0, y: ScreenHeight, width: ScreenWidth, height: 390)
+        view.addSubview(chapterBgView)
+        view.addSubview(chapterView)
+        
         let gesture = UITapGestureRecognizer(target: self, action: #selector(hideChapterListView))
         chapterBgView.addGestureRecognizer(gesture)
         
@@ -181,7 +182,7 @@ class SYBookInfoVC: SYBaseVC {
     }()
     
     lazy var chapterView: SYBookChapterListView = {
-        let view = SYBookChapterListView()
+        let view = SYBookChapterListView.init(frame: .init(x: 0, y: ScreenHeight, width: ScreenWidth, height: 390))
         view.backgroundColor = .white
         return view
     }()

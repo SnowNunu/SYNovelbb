@@ -92,6 +92,7 @@ class SYBookStyle3Cell: UICollectionViewCell {
         btn.setTitle("Read", for: .normal)
         btn.setTitleColor(UIColor(51, 51, 51), for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        btn.isUserInteractionEnabled = false
         return btn
     }()
     

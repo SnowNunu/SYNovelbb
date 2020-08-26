@@ -32,7 +32,7 @@ class SYHomeVC: SYBaseVC {
     }()
     
     lazy var viewModel: SYHomeVM = {
-        let viewModel = SYHomeVM()
+        let viewModel = SYHomeVM(self)
         return viewModel
     }()
     
@@ -58,7 +58,9 @@ class SYHomeVC: SYBaseVC {
                 self.collectionView.reloadEmptyDataSet()
             })
             .disposed(by: disposeBag)
+        
         collectionView.prepare(viewModel, SectionModel<String, SYIndexModel>.self)
+        
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, SYIndexModel>>.init(configureCell: { (_, collectionView, indexPath, model) -> UICollectionViewCell in
             switch indexPath.section {
             case 1:
@@ -110,6 +112,21 @@ class SYHomeVC: SYBaseVC {
                 } else {
                     let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SYHomeNormalHeader.className(), for: indexPath) as! SYHomeNormalHeader
                     header.titleLabel.text = datasource.sectionModels[indexPath.section].model
+                    header.changeBtn.rx
+                        .tap
+                        .bind { [unowned self] in
+                            self.viewModel.changeHomeData(index: indexPath.section)
+                            // 开启旋转动画
+                            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+                            animation.toValue = NSNumber(value: .pi * 2.0)
+                            animation.duration = 1
+                            animation.repeatCount = HUGE
+                            animation.isCumulative = true
+                            header.changeBtn.imageView?.layer.add(animation, forKey: "rotationAnimation")
+                            header.changeBtn.tag = 880 + indexPath.section
+                            header.changeBtn.isUserInteractionEnabled = false   // 关闭响应避免重复点击
+                        }
+                        .disposed(by: header.disposeBag)
                     return header
                 }
             } else {

@@ -25,8 +25,8 @@ class SYHomeNormalHeader: UICollectionReusableView {
         addSubview(contentView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(changeBtn)
-        changeBtn.addSubview(changeLabel)
-        changeBtn.addSubview(changeImage)
+//        changeBtn.addSubview(changeLabel)
+//        changeBtn.addSubview(changeImage)
         setupLayouts()
     }
     
@@ -58,18 +58,18 @@ class SYHomeNormalHeader: UICollectionReusableView {
             make.centerY.height.equalToSuperview()
             make.right.equalToSuperview().offset(-15)
         }
-        changeLabel.snp.makeConstraints { (make) in
-            make.width.equalTo(40)
-            make.height.equalTo(11)
-            make.bottom.equalTo(titleLabel)
-            make.right.equalTo(changeImage.snp.left).offset(-5)
-        }
-        changeImage.snp.makeConstraints { (make) in
-            make.width.equalTo(13)
-            make.height.equalTo(12)
-            make.centerY.equalTo(changeLabel)
-            make.right.equalToSuperview()
-        }
+//        changeLabel.snp.makeConstraints { (make) in
+//            make.width.equalTo(40)
+//            make.height.equalTo(11)
+//            make.bottom.equalTo(titleLabel)
+//            make.right.equalTo(changeImage.snp.left).offset(-5)
+//        }
+//        changeImage.snp.makeConstraints { (make) in
+//            make.width.equalTo(13)
+//            make.height.equalTo(12)
+//            make.centerY.equalTo(changeLabel)
+//            make.right.equalToSuperview()
+//        }
     }
     
     lazy var lineView: UIView = {
@@ -92,22 +92,27 @@ class SYHomeNormalHeader: UICollectionReusableView {
     
     lazy var changeBtn: UIButton = {
         let btn = UIButton()
+        btn.setTitle("Change ", for: .normal)
+        btn.setTitleColor(UIColor(198, 189, 172), for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 10.5, weight: .regular)
+        btn.setImage(R.image.home_change(), for: .normal)
+        btn.semanticContentAttribute = .forceRightToLeft
         return btn
     }()
     
-    lazy var changeLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .right
-        label.textColor = UIColor(198, 189, 172)
-        label.text = "Change"
-        label.font = UIFont.systemFont(ofSize: 10.5, weight: .regular)
-        return label
-    }()
-    
-    lazy var changeImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = R.image.home_change()
-        return imageView
-    }()
+//    lazy var changeLabel: UILabel = {
+//        let label = UILabel()
+//        label.textAlignment = .right
+//        label.textColor = UIColor(198, 189, 172)
+//        label.text = "Change"
+//        label.font = UIFont.systemFont(ofSize: 10.5, weight: .regular)
+//        return label
+//    }()
+//
+//    lazy var changeImage: UIImageView = {
+//        let imageView = UIImageView()
+//        imageView.image = R.image.home_change()
+//        return imageView
+//    }()
         
 }

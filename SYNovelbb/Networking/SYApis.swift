@@ -30,10 +30,17 @@ enum SYApis {
     case userInfo
     
     // MARK: Featured模块
+    
+    /// 获取首页数据
     case homePage
     
+    /// 首页换一换
+    case homePageChange(index: Int)
+    
+    /// 获取male页数据
     case malePage
     
+    /// 获取female页数据
     case femalePage
     
     case hotBooks
@@ -95,6 +102,8 @@ extension SYApis: TargetType {
             return "/1/member/Info"
         case .homePage:
             return "/1/book/index_1"
+        case .homePageChange(_):
+            return "/1/book/index_1_change"
         case .malePage:
             return "/1/book/male_index"
         case .femalePage:
@@ -172,6 +181,10 @@ extension SYApis {
             return addUserParams(paramters)
             
         case .homePage:
+            return paramters
+            
+        case .homePageChange(let index):
+            paramters["model"] = index
             return paramters
         
         case .malePage:

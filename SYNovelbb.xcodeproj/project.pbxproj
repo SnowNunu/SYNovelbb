@@ -117,6 +117,7 @@
 		7B9562E324E53CA100695476 /* SYChapterContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9562E224E53CA100695476 /* SYChapterContentModel.swift */; };
 		7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */; };
 		7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */; };
+		7B998B3E24F5FF8B007908F4 /* SYBookInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414DB24EE51CA0083FAA8 /* SYBookInfoVM.swift */; };
 		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
 		7B99BC8624C80C81003FF4E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8524C80C81003FF4E1 /* Assets.xcassets */; };
 		7B99BC8924C80C81003FF4E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99BC8724C80C81003FF4E1 /* LaunchScreen.storyboard */; };
@@ -2348,6 +2349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B99BC9424C80C81003FF4E1 /* SYNovelbbTests.swift in Sources */,
+				7B998B3E24F5FF8B007908F4 /* SYBookInfoVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

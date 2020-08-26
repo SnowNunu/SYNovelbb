@@ -16,6 +16,8 @@ class SYBookChapterListView: UIView {
     var disposeBag = DisposeBag()
     
     var datasources = BehaviorRelay<[SYChapterModel]>(value: [SYChapterModel]())
+    
+    var isTop = BehaviorRelay<Bool>(value: true)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,6 +64,24 @@ class SYBookChapterListView: UIView {
             .drive(tableView.rx.items(cellIdentifier: SYBookChapterListCell.className(), cellType: SYBookChapterListCell.self)) { (row, model, cell) in
                 cell.model = model
                 cell.selectionStyle = .none
+            }
+            .disposed(by: disposeBag)
+        
+        isTop.subscribe(onNext: { [unowned self] (bool) in
+                if bool {
+                    self.actionBtn.setImage(R.image.reading_to_bottom(), for: .normal)
+                    self.tableView.scrollToTop()
+                } else {
+                    self.actionBtn.setImage(R.image.reading_to_top(), for: .normal)
+                    self.tableView.scrollToBottom()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        actionBtn.rx
+            .tap
+            .bind { [unowned self] in
+                self.isTop.accept(!self.isTop.value)
             }
             .disposed(by: disposeBag)
     }
