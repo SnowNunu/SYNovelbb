@@ -158,7 +158,10 @@ class SYReadChapterModel: NSObject,NSCoding {
     }
     
     /// 保存
-    func save() { SYKeyedArchiver.archiver(folderName: bookID, fileName: chapterId.stringValue, object: self) }
+    func save() {
+        
+        SYKeyedArchiver.archiver(folderName: bookID, fileName: chapterId.stringValue, object: self)
+    }
     
     /// 是否存在章节内容
     class func isExist(bookID:String!, chapterID:NSNumber!) ->Bool {

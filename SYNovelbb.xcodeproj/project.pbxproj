@@ -116,6 +116,7 @@
 		7B9562E124E5321000695476 /* SYChapterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9562E024E5321000695476 /* SYChapterModel.swift */; };
 		7B9562E324E53CA100695476 /* SYChapterContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9562E224E53CA100695476 /* SYChapterContentModel.swift */; };
 		7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */; };
+		7B961AD224F74919008B4448 /* SYBrowseRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B961AD124F74919008B4448 /* SYBrowseRecordModel.swift */; };
 		7B9739E824CAD47C00F36546 /* SYHomeNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */; };
 		7B998B3E24F5FF8B007908F4 /* SYBookInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414DB24EE51CA0083FAA8 /* SYBookInfoVM.swift */; };
 		7B99BC7D24C80C80003FF4E1 /* SYAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */; };
@@ -332,6 +333,7 @@
 		7B9562E024E5321000695476 /* SYChapterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYChapterModel.swift; sourceTree = "<group>"; };
 		7B9562E224E53CA100695476 /* SYChapterContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYChapterContentModel.swift; sourceTree = "<group>"; };
 		7B96024B24CAE76C009FCACA /* SYBookStyle2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookStyle2Cell.swift; sourceTree = "<group>"; };
+		7B961AD124F74919008B4448 /* SYBrowseRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBrowseRecordModel.swift; sourceTree = "<group>"; };
 		7B9739E724CAD47C00F36546 /* SYHomeNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYHomeNormalHeader.swift; sourceTree = "<group>"; };
 		7B99BC7924C80C80003FF4E1 /* Novelbb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novelbb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99BC7C24C80C80003FF4E1 /* SYAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppDelegate.swift; sourceTree = "<group>"; };
@@ -1714,6 +1716,7 @@
 		7BA05EDB24F3BC4F00880E28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B961AD124F74919008B4448 /* SYBrowseRecordModel.swift */,
 				7BA05EDC24F3BC6C00880E28 /* SYBookInfoModel.swift */,
 				7B9AA84524F4AF4B00F6A70D /* SYCommentModel.swift */,
 				7B9AA84724F4AF6300F6A70D /* SYReplayModel.swift */,
@@ -2169,6 +2172,7 @@
 				7B9B970924E144100011DB29 /* SYPageViewController.swift in Sources */,
 				7BA1383B24EBE40D00343D63 /* SYBookFilterVM.swift in Sources */,
 				7B9562E324E53CA100695476 /* SYChapterContentModel.swift in Sources */,
+				7B961AD224F74919008B4448 /* SYBrowseRecordModel.swift in Sources */,
 				7B11212A24D3C7250067C530 /* SYMineRechargeModel.swift in Sources */,
 				7B7DAB3F24D2640A004944AE /* SYMineSystemMsgVM.swift in Sources */,
 				7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */,

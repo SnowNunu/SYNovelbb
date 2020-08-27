@@ -69,7 +69,6 @@ class SYReadViewController: SYViewController {
         } else {
             subscribeView = SYReadSubscribeView()
             subscribeView.model = recordModel.chapterModel
-//            subscribeView.contentLabel.text = recordModel.chapterModel.content
             view.addSubview(subscribeView)
             subscribeView.frame = self.view.frame
             topView.isHidden = true

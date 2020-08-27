@@ -56,7 +56,12 @@ enum SYApis {
     case allBook(params: [String: String], pageIndex: Int)
     
     // MARK: Library模块
+    
+    /// 获取书架推荐书籍
     case recommendBooks
+    
+    /// 获取我的书架数据
+    case myBookshelf(pageIndex: Int)
     
     // MARK: Mine模块
     case systemMessage(pageIndex: Int)
@@ -117,6 +122,8 @@ extension SYApis: TargetType {
             return "/1/book/female_index"
         case .recommendBooks:
             return "/1/book/bookcase"
+        case .myBookshelf(_):
+            return "/1/member/bookcase"
         case .hotSearch:
             return "/1/book/search_hot"
         case .bookFilter:
@@ -208,6 +215,11 @@ extension SYApis {
             
         case .recommendBooks:
             return paramters
+            
+        case .myBookshelf(let pageIndex):
+            paramters["PageIndex"] = pageIndex
+            paramters["PageSize"] = 20
+            return addUserParams(paramters)
             
         case .hotBooks:
             paramters["d"] = 2

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 /// 记录当前章节阅读到的坐标
 var SY_READ_RECORD_CURRENT_CHAPTER_LOCATION: NSNumber!
@@ -134,8 +135,20 @@ class SYReadRecordModel: NSObject,NSCoding {
     
     /// 保存记录
     func save() {
-        
         SYKeyedArchiver.archiver(folderName: bookID, fileName: SY_READ_KEY_RECORD, object: self)
+        // 更新数据库阅读记录
+        let realm = try! Realm()
+        
+        let predicate = NSPredicate(format: "bookId = %@", self.bookID!)
+        let model = realm.objects(SYBrowseRecordModel.self).filter(predicate).first
+        if model != nil {
+            try! realm.write { [unowned self] in
+                model?.chapterId = self.chapterModel.chapterId.stringValue
+                model?.chapterTitle = self.chapterModel.name
+                model?.page = self.page.intValue
+                realm.add(model!, update: .modified)
+            }
+        }
     }
     
     /// 是否存在阅读记录

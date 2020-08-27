@@ -11,6 +11,7 @@ import UIKit
 import RxRelay
 import HandyJSON
 import MBProgressHUD
+import RealmSwift
 
 class SYBookInfoVM: RefreshVM<SYCommentModel> {
     
@@ -28,6 +29,7 @@ class SYBookInfoVM: RefreshVM<SYCommentModel> {
             .disposed(by: disposeBag)
     }
     
+    /// 请求书籍评论数据
     override func requestData(_ refresh: Bool) {
         super.requestData(refresh)
         SYProvider.rx.request(.bookComments(bid: self.owner.bookId, pageIndex: pageModel.currentPage))
@@ -62,6 +64,7 @@ class SYBookInfoVM: RefreshVM<SYCommentModel> {
                     if response.success {
                         if response.data != nil {
                             let model = response.data!.book
+                            self.recordBrowse(model!)
                             self.isOnShelf.accept(response.data!.isMark)
                             self.owner.bookName = model?.bookTitle
                             self.owner.headerView.bookTitle.text = model?.bookTitle
@@ -88,7 +91,7 @@ class SYBookInfoVM: RefreshVM<SYCommentModel> {
             .disposed(by: self.disposeBag)
         }
         
-        // 请求评论详情
+        // 请求所有章节信息
         group.enter()
         queue.async(group: group, qos: .default, flags: []) { [unowned self] in
             SYProvider.rx.cacheRequest(.chapters(bid: self.owner.bookId), cacheType: .default)
@@ -147,6 +150,28 @@ class SYBookInfoVM: RefreshVM<SYCommentModel> {
             }
             .disposed(by: disposeBag)
     }
+    
+    /// 写入浏览记录数据
+    func recordBrowse(_ model: SYBaseBookModel)  {
+        let realm = try! Realm()
+        try! realm.write() {
+            let record = SYBrowseRecordModel()
+            record.bookId = model.bid
+            record.tClass = model.tclass
+            record.bookTitle = model.bookTitle
+            record.author = model.author
+            record.bookLength = model.bookLength
+            record.state = model.state ?? 0
+            record.cover = model.cover
+            record.isVip = model.isVip
+            record.lastBrowse = NSDate()
+            record.labels = model.Labels
+            let user = realm.objects(SYUserModel.self).first!
+            record.uid = user.uid
+            realm.add(record, update: .modified)
+        }
+    }
+    
 }
 
 class SYEmptyModel: HandyJSON {
