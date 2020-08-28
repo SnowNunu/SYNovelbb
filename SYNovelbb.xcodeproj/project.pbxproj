@@ -70,8 +70,8 @@
 		7B847D0B24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D0A24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift */; };
 		7B847D1024CE9D1B00E9ADFD /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B847D0F24CE9D1B00E9ADFD /* Library.storyboard */; };
 		7B847D1224CE9D4E00E9ADFD /* SYLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1124CE9D4E00E9ADFD /* SYLibraryVC.swift */; };
-		7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift */; };
-		7B847D1724CEAB2300E9ADFD /* SYLibraryEditHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeader.swift */; };
+		7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift */; };
+		7B847D1724CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift */; };
 		7B847D1A24CEB4D000E9ADFD /* SYLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1924CEB4D000E9ADFD /* SYLibraryVM.swift */; };
 		7B847D1C24CEBA3A00E9ADFD /* SYBaseBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1B24CEBA3A00E9ADFD /* SYBaseBookModel.swift */; };
 		7B847D2324CED67C00E9ADFD /* SYLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D2224CED67C00E9ADFD /* SYLibraryCell.swift */; };
@@ -287,8 +287,8 @@
 		7B847D0A24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYGenderSlideHeader.swift; sourceTree = "<group>"; };
 		7B847D0F24CE9D1B00E9ADFD /* Library.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
 		7B847D1124CE9D4E00E9ADFD /* SYLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryVC.swift; sourceTree = "<group>"; };
-		7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibrayNormalHeader.swift; sourceTree = "<group>"; };
-		7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryEditHeader.swift; sourceTree = "<group>"; };
+		7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibrayNormalHeaderView.swift; sourceTree = "<group>"; };
+		7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryEditHeaderView.swift; sourceTree = "<group>"; };
 		7B847D1924CEB4D000E9ADFD /* SYLibraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryVM.swift; sourceTree = "<group>"; };
 		7B847D1B24CEBA3A00E9ADFD /* SYBaseBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBaseBookModel.swift; sourceTree = "<group>"; };
 		7B847D2224CED67C00E9ADFD /* SYLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryCell.swift; sourceTree = "<group>"; };
@@ -988,8 +988,8 @@
 		7B847D2024CED64500E9ADFD /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift */,
-				7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeader.swift */,
+				7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift */,
+				7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -2236,7 +2236,7 @@
 				7B8DB47C24CFF7A0005D9D6B /* SYHotBooksVC.swift in Sources */,
 				7B8576BB24D120AA002D99EF /* SYMineCenterCell.swift in Sources */,
 				7B9B96EC24E144100011DB29 /* SYReadViewScrollController.swift in Sources */,
-				7B847D1724CEAB2300E9ADFD /* SYLibraryEditHeader.swift in Sources */,
+				7B847D1724CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift in Sources */,
 				7B9AA84624F4AF4B00F6A70D /* SYCommentModel.swift in Sources */,
 				7B7DAB4224D2661C004944AE /* SYMineSystemMsgCell.swift in Sources */,
 				7B34624A24C983920090ACFF /* SYBaseVM.swift in Sources */,
@@ -2327,7 +2327,7 @@
 				7BA05EDD24F3BC6C00880E28 /* SYBookInfoModel.swift in Sources */,
 				7B9AA84A24F4E8B600F6A70D /* SYBookCommentCell.swift in Sources */,
 				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,
-				7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeader.swift in Sources */,
+				7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift in Sources */,
 				7B9414DC24EE51CA0083FAA8 /* SYBookInfoVM.swift in Sources */,
 				7B9B96A824E143F90011DB29 /* SYRMBottomView.swift in Sources */,
 				7B9B970524E144100011DB29 /* ASValueTrackingSlider.m in Sources */,

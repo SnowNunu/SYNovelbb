@@ -1,5 +1,5 @@
 //
-//  SYLibraryEditHeader.swift
+//  SYLibrayNormalHeaderView.swift
 //  SYNovelbb
 //
 //  Created by Mandora on 2020/7/27.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class SYLibraryEditHeader: UICollectionReusableView {
+class SYLibrayNormalHeaderView: UIView {
         
 }

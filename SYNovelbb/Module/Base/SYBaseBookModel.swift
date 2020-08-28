@@ -49,6 +49,8 @@ class SYBaseBookModel: HandyJSON {
     
     var info            : SYBookIntroModel?
     
+    var bookcase        : SYBookcaseModel?
+    
     required init() {}
     
     func mapping(mapper: HelpingMapper) {
@@ -60,7 +62,7 @@ class SYBaseBookModel: HandyJSON {
     
 }
 
-class SYBookIntroModel : HandyJSON {
+class SYBookIntroModel: HandyJSON {
     
     var introduction: String!
     
@@ -68,6 +70,24 @@ class SYBookIntroModel : HandyJSON {
     
     func mapping(mapper: HelpingMapper) {
         mapper.specify(property: &introduction, name: "Introduction")
+    }
+    
+}
+
+
+class SYBookcaseModel: HandyJSON {
+    
+    var title: String!
+    
+    var cid: String!
+    
+    var orders: Int!
+    
+    required init() {}
+    
+    func mapping(mapper: HelpingMapper) {
+        mapper.specify(property: &title, name: "Title")
+        mapper.specify(property: &orders, name: "Orders")
     }
     
 }

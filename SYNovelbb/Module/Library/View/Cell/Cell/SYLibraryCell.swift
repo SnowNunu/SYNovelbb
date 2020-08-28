@@ -27,7 +27,11 @@ class SYLibraryCell: UICollectionViewCell {
     var model: SYBaseBookModel? {
         didSet {
             cover.kf.setImage(with: URL(string: model?.cover ?? ""))
-            title.text = model?.readTxt
+            if model?.bookcase != nil {
+                title.text = model?.bookTitle
+            } else {
+                title.text = model?.readTxt
+            }
         }
     }
 }
