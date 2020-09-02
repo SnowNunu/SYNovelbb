@@ -8,12 +8,15 @@
 
 import UIKit
 import RxDataSources
+import RxRelay
 
 class SYLibraryVM: RefreshVM<SYBaseBookModel> {
     
     var recommendArray: [SYBaseBookModel]!
     
     var shelfArray: [SYBaseBookModel]!
+    
+    var checkArray = BehaviorRelay<[SYBaseBookModel]>(value: [SYBaseBookModel]())
     
     override init() {
         super.init()
@@ -51,7 +54,15 @@ class SYLibraryVM: RefreshVM<SYBaseBookModel> {
                             if response.data!.count > 3 {
                                 self.updateRefresh(refresh, response.data!, response.total)
                             } else {
-                                self.updateRefresh(refresh, response.data! + self.recommendArray, response.total)
+                                var temp = [SYBaseBookModel]()
+                                for recommendModel in self.recommendArray {
+                                    if !response.data!.contains(where: { (model) -> Bool in
+                                        return model.bid == recommendModel.bid
+                                    }) {
+                                        temp.append(recommendModel)
+                                    }
+                                }
+                                self.updateRefresh(refresh, response.data! + temp, response.total)
                             }
                         } else {
                             self.shelfArray += response.data!
@@ -66,6 +77,22 @@ class SYLibraryVM: RefreshVM<SYBaseBookModel> {
                     self.updateRefresh(true, self.recommendArray, 6)
                     self.requestStatus.accept((true, ""))
                 }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    /// 移出书架
+    func deleteFromBookcase(group: DispatchGroup, bid: String) {
+        group.enter()
+        SYProvider.rx.request(.removeBookshelf(bid: bid))
+            .map(result: SYEmptyModel.self)
+            .subscribe(onSuccess: { (response) in
+                if response.success {
+                    group.leave()
+                }
+            }) { (error) in
+                logError(self.errorMessage(error))
+                group.leave()
             }
             .disposed(by: disposeBag)
     }

@@ -106,6 +106,7 @@ class SYBookInfoVC: SYBaseVC {
                 readModel.bookName = self.bookName
                 let vc  = SYReadController()
                 vc.readModel = readModel
+                vc.onShelf = self.viewModel.isOnShelf.value
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
@@ -122,6 +123,7 @@ class SYBookInfoVC: SYBaseVC {
                 readModel.recordModel.chapterModel = SYReadChapterModel.model(bookID: self.bookId, chapterID: NSNumber(value: model.cid.integer))
                 let vc  = SYReadController()
                 vc.readModel = readModel
+                vc.onShelf = self.viewModel.isOnShelf.value
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)

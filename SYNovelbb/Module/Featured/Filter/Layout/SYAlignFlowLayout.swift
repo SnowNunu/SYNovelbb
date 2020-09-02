@@ -63,6 +63,7 @@ class SYAlignFlowLayout: UICollectionViewFlowLayout {
         minimumLineSpacing = 5
         sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
+    
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
         let layoutAttributes_super: [UICollectionViewLayoutAttributes] = super.layoutAttributesForElements(in: rect) ?? [UICollectionViewLayoutAttributes]()

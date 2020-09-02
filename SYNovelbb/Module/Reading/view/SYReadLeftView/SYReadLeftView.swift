@@ -60,6 +60,7 @@ class SYReadLeftView: UIView {
     func updateUI() {
         // 刷新分割线颜色(如果不需要刷新分割线颜色可以去掉,目前我是做了日夜间修改分割线颜色的操作)
         catalogView.tableView.reloadData()
+        
         if isTop {
             scrollBtn.setImage(R.image.reading_to_top()!, for: .normal)
         } else {

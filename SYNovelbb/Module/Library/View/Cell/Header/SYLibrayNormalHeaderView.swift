@@ -9,5 +9,13 @@
 import UIKit
 
 class SYLibrayNormalHeaderView: UIView {
+    
+    @IBOutlet weak var searchBtn: UIButton!
+    
+    @IBOutlet weak var addBtn: UIButton!
+    
+    @IBOutlet weak var historyBtn: UIButton!
+    
+    @IBOutlet weak var lastReadLabel: UILabel!
         
 }

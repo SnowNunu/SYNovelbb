@@ -67,7 +67,7 @@ extension SYReadController {
     
     
     /// 获取下一页控制器
-    func GetBelowReadViewController() ->UIViewController? {
+    func GetBelowReadViewController() -> UIViewController? {
         
         let recordModel = GetBelowReadRecordModel(recordModel: readModel.recordModel)
         
@@ -94,6 +94,9 @@ extension SYReadController {
         let bookID = recordModel.bookID
         // 检查是否存在章节内容
         let isExist = SYReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
+        
+        // 更新阅读记录
+        updateShelfRecord(bid: bookID!, cid: chapterID!.stringValue)
         
         // 存在
         if isExist {
@@ -162,6 +165,8 @@ extension SYReadController {
         }
         // 第一页
         if recordModel.isFirstPage {
+            // 更新阅读记录
+            updateShelfRecord(bid: bookID!, cid: chapterID!.stringValue)
             // 检查是否存在章节内容
             let isExist = SYReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
             // 存在
@@ -200,6 +205,8 @@ extension SYReadController {
         }
         // 最后一页
         if recordModel.isLastPage {
+            // 更新阅读记录
+            updateShelfRecord(bid: bookID!, cid: chapterID!.stringValue)
             // 检查是否存在章节内容
             let isExist = SYReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
             if isExist {
@@ -344,6 +351,7 @@ extension SYReadController {
                                                 }
                                                 self.leftView.isTop = self.readModel.recordModel.chapterModel.chapterId.compare(self.readModel.chapterListModels.last!.id) == .orderedSame
                                                 self.leftView.updateUI()
+                                                self.updateShelfRecord(bid: chapterModel.bookID, cid: chapterModel.chapterId.stringValue)
                                             }
                                         }
                                     }) { (error) in
@@ -361,6 +369,7 @@ extension SYReadController {
                     }
                     .disposed(by: disposeBag)
             } else {
+                self.updateShelfRecord(bid: recordModel.chapterModel.bookID, cid: recordModel.chapterModel.chapterId.stringValue)
                 if recordModel.chapterModel.chapterId != nil && recordModel.chapterModel.content == nil {
                     // 处理加载书籍指定章节的情况
                     SYProvider.rx.request(.chapterContent(bid: recordModel.bookID, cid: recordModel.chapterModel.chapterId.stringValue, next: 0))
@@ -449,6 +458,20 @@ extension SYReadController {
                 print(error)
             }
             .disposed(by: self.disposeBag)
+    }
+    
+    /// 更新书库阅读记录
+    func updateShelfRecord(bid: String, cid: String) {
+        if onShelf {
+            SYProvider.rx.request(.addBookshelf(bid: bid, cid: cid))
+                .map(result: SYEmptyModel.self)
+                .subscribe(onSuccess: { (response) in
+                
+                }) { (error) in
+                    logError(error.localizedDescription)
+                }
+                .disposed(by: disposeBag)
+        }
     }
     
 }

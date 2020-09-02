@@ -146,6 +146,7 @@ class SYReadRecordModel: NSObject,NSCoding {
                 model?.chapterId = self.chapterModel.chapterId.stringValue
                 model?.chapterTitle = self.chapterModel.name
                 model?.page = self.page.intValue
+                model?.lastBrowse = NSDate()
                 realm.add(model!, update: .modified)
             }
         }

@@ -43,6 +43,9 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     /// 用于区分正反面的值(勿动)
     var tempNumber: NSInteger = 1
     
+    /// 是否在书架中
+    var onShelf: Bool = false
+    
     lazy var disposeBag: DisposeBag = {
         return DisposeBag()
     }()
