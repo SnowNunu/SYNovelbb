@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import NVActivityIndicatorView
+import MBProgressHUD
 
 class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControllerDelegate , UIPageViewControllerDataSource, SYPageViewControllerDelegate, DZMCoverControllerDelegate, SYReadContentViewDelegate, SYReadCatalogViewDelegate {
 
@@ -109,6 +110,8 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
             // 初始化菜单
             readMenu = SYReadMenu(vc: self, delegate: self)
             
+            readMenu.topView.bookcaseBtn.isSelected = !self.onShelf
+            
             // 初始化控制器
             creatPageController(displayController: GetCurrentReadViewController(isUpdateFont: true))
         }
@@ -170,9 +173,34 @@ class SYReadController: SYViewController, SYReadMenuDelegate, UIPageViewControll
     }
     
     /// 点击书架(将当前书籍加入或移出书架)
-    func readMenuClickBookcase(readMenu:SYReadMenu!) {
-        // TODO: 欠缺移出加入书架逻辑
-        print("点击了书架按钮")
+    func readMenuClickBookcase(readMenu: SYReadMenu!) {
+        if self.onShelf {
+            SYProvider.rx.request(.removeBookshelf(bid: self.readModel.recordModel.bookID))
+                .map(result: SYEmptyModel.self)
+                .subscribe(onSuccess: { [unowned self] (response) in
+                    if response.success {
+                        readMenu.topView.bookcaseBtn.isSelected = true
+                        self.onShelf = false
+                        MBProgressHUD.show(message: "Has been removed from the bookshelf", toView: nil)
+                    }
+                }) { (error) in
+                    logError(error.localizedDescription)
+                }
+                .disposed(by: disposeBag)
+        } else {
+            SYProvider.rx.request(.addBookshelf(bid: self.readModel.recordModel.bookID, cid: self.readModel.recordModel.chapterModel.chapterId.stringValue))
+                .map(result: SYEmptyModel.self)
+                .subscribe(onSuccess: { [unowned self] (response) in
+                    if response.success {
+                        readMenu.topView.bookcaseBtn.isSelected = false
+                        self.onShelf = true
+                        MBProgressHUD.show(message: "Has been added to the bookshelf", toView: nil)
+                    }
+                }) { (error) in
+                    logError(error.localizedDescription)
+                }
+                .disposed(by: disposeBag)
+        }
     }
     
     /// 点击目录

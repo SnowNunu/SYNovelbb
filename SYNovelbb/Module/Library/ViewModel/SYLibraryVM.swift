@@ -18,6 +18,8 @@ class SYLibraryVM: RefreshVM<SYBaseBookModel> {
     
     var checkArray = BehaviorRelay<[SYBaseBookModel]>(value: [SYBaseBookModel]())
     
+    var isEdit = BehaviorRelay<Bool>(value: false)
+    
     override init() {
         super.init()
         reloadSubject.asObserver()
@@ -51,18 +53,22 @@ class SYLibraryVM: RefreshVM<SYBaseBookModel> {
                     if response.data != nil {
                         if self.pageModel.currentPage == 1 {
                             self.shelfArray = response.data!
-                            if response.data!.count > 3 {
+                            if self.isEdit.value {
                                 self.updateRefresh(refresh, response.data!, response.total)
                             } else {
-                                var temp = [SYBaseBookModel]()
-                                for recommendModel in self.recommendArray {
-                                    if !response.data!.contains(where: { (model) -> Bool in
-                                        return model.bid == recommendModel.bid
-                                    }) {
-                                        temp.append(recommendModel)
+                                if response.data!.count > 3 {
+                                    self.updateRefresh(refresh, response.data!, response.total)
+                                } else {
+                                    var temp = [SYBaseBookModel]()
+                                    for recommendModel in self.recommendArray {
+                                        if !response.data!.contains(where: { (model) -> Bool in
+                                            return model.bid == recommendModel.bid
+                                        }) {
+                                            temp.append(recommendModel)
+                                        }
                                     }
+                                    self.updateRefresh(refresh, response.data! + temp, response.total)
                                 }
-                                self.updateRefresh(refresh, response.data! + temp, response.total)
                             }
                         } else {
                             self.shelfArray += response.data!
@@ -74,7 +80,12 @@ class SYLibraryVM: RefreshVM<SYBaseBookModel> {
             }) { [unowned self] (error) in
                 logError(self.errorMessage(error))
                 if self.errorMessage(error) == "no find data" {
-                    self.updateRefresh(true, self.recommendArray, 6)
+                    self.shelfArray = nil
+                    if self.isEdit.value {
+                        self.updateRefresh(true, self.shelfArray, 0)
+                    } else {
+                        self.updateRefresh(true, self.recommendArray, 6)
+                    }
                     self.requestStatus.accept((true, ""))
                 }
             }

@@ -78,7 +78,8 @@ class SYRMTopView: SYRMBaseView {
     // 添加/移出书架按钮
     lazy var bookcaseBtn: UIButton = {
         let btn = UIButton()
-        btn.setImage(R.image.reading_add_bookcase()!, for: .normal)
+        btn.setImage(R.image.reading_del_bookcase(), for: .normal)
+        btn.setImage(R.image.reading_add_bookcase(), for: .selected)
         btn.contentHorizontalAlignment = .right
         btn.addTarget(self, action: #selector(clickBookcase), for: .touchUpInside)
         return btn

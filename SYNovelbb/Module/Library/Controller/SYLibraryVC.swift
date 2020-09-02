@@ -20,8 +20,6 @@ class SYLibraryVC: SYBaseVC {
     
     @IBOutlet weak var editHeaderView: SYLibraryEditHeaderView!
     
-    var isEdit = BehaviorRelay<Bool>(value: false)
-    
     lazy var collectionView: UICollectionView = {
         let layout = SYAlignFlowLayout(.left, 20)
         layout.sectionInset = .init(top: 20, left: 20, bottom: 0, right: 20)
@@ -54,7 +52,6 @@ class SYLibraryVC: SYBaseVC {
     }()
     
     override func setupUI() {
-        self.navigationController?.navigationBar.isHidden = true
         view.addSubview(collectionView)
         
         activityIndicatorView.snp.makeConstraints { (make) in
@@ -71,7 +68,7 @@ class SYLibraryVC: SYBaseVC {
             .asDriver()
             .drive(collectionView.rx.items(cellIdentifier: SYLibraryCell.className(), cellType: SYLibraryCell.self)) { (row, model, cell) in
                 cell.model = model
-                cell.checkBtn.isHidden = !self.isEdit.value
+                cell.checkBtn.isHidden = !self.viewModel.isEdit.value
                 if self.viewModel.checkArray.value.contains(where: { (checkModel) -> Bool in
                     return model.bid == checkModel.bid
                 })  {
@@ -87,8 +84,9 @@ class SYLibraryVC: SYBaseVC {
         collectionView.addGestureRecognizer(gesture)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         activityIndicatorView.startAnimating()
         viewModel.reloadSubject.onNext(true)
         
@@ -101,12 +99,13 @@ class SYLibraryVC: SYBaseVC {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func rxBind() {
-        isEdit.skip(1)
+        viewModel.isEdit.skip(1)
             .subscribe(onNext: { [unowned self] (bool) in
                 self.headerBgView.snp.updateConstraints { (make) in
                     make.height.equalTo(bool ? 44 : 102)
@@ -127,7 +126,7 @@ class SYLibraryVC: SYBaseVC {
         
         collectionView.rx.itemSelected
             .subscribe(onNext: { [unowned self] (indexPath) in
-                if self.isEdit.value {
+                if self.viewModel.isEdit.value {
                     if self.viewModel.checkArray.value.contains(where: { (model) -> Bool in
                         return model.bid == self.viewModel.shelfArray[indexPath.row].bid
                     }) {
@@ -174,12 +173,12 @@ class SYLibraryVC: SYBaseVC {
             .tap
             .bind { [unowned self] in
                 self.viewModel.datasource.acceptUpdate(byReplace: { [unowned self] _ in
-                    if self.viewModel.shelfArray.count > 3 {
+                    if self.viewModel.shelfArray != nil && self.viewModel.shelfArray.count > 3 {
                         return self.viewModel.shelfArray
                     } else {
                         var temp = [SYBaseBookModel]()
                         for recommendModel in self.viewModel.recommendArray {
-                            if !self.viewModel.shelfArray.contains(where: { (model) -> Bool in
+                            if self.viewModel.shelfArray != nil && !self.viewModel.shelfArray.contains(where: { (model) -> Bool in
                                 return model.bid == recommendModel.bid
                             }) {
                                 temp.append(recommendModel)
@@ -188,7 +187,7 @@ class SYLibraryVC: SYBaseVC {
                         return self.viewModel.shelfArray + temp
                     }
                 })
-                self.isEdit.accept(false)
+                self.viewModel.isEdit.accept(false)
             }
             .disposed(by: disposeBag)
         
@@ -215,19 +214,13 @@ class SYLibraryVC: SYBaseVC {
                         self.viewModel.deleteFromBookcase(group: group, bid: model.bid)
                     }
                     group.notify(queue: .main) {
+                        for checkModel in self.viewModel.checkArray.value {
+                            self.viewModel.shelfArray.removeAll { (model) -> Bool in
+                                return model.bid == checkModel.bid
+                            }
+                        }
                         self.viewModel.checkArray.acceptUpdate(byMutating: { $0.removeAll() })
-                        self.collectionView.reloadData()
-//                        var items = self.localData.value
-//                        for string in array {
-//                            items.removeAll(where: { $0.bid == string })
-//                        }
-//                        self.localData.value = items
-//                        self.editVariable.value = false
-//                        if items.count <= 3 {
-//                            self.reloadSubject.onNext(true)
-//                        } else {
-//                            self.datasource.value = [SectionModel.init(model: "", items: items)]
-//                        }
+                        self.viewModel.datasource.accept(self.viewModel.shelfArray)
                     }
                 }
             }
@@ -249,14 +242,14 @@ class SYLibraryVC: SYBaseVC {
     }
     
     @objc func longPressed() {
-        if !self.isEdit.value {
-            if viewModel.shelfArray.count > 0 {
+        if !self.viewModel.isEdit.value {
+            if viewModel.shelfArray != nil {
                 viewModel.datasource.acceptUpdate(byReplace: { _ in
                     viewModel.shelfArray
                 })
-                self.isEdit.accept(true)
+                self.viewModel.isEdit.accept(true)
             } else {
-                
+                MBProgressHUD.show(message: "Bookshelf is empty!", toView: nil)
             }
         }
     }
