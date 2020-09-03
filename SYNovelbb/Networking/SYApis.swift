@@ -92,6 +92,15 @@ enum SYApis {
     
     /// 移出书架
     case removeBookshelf(bid: String)
+    
+    // MARK: 内购模块
+    
+    // 获取订单号
+    case orderNum(price: String)
+    
+    // 验证订单
+    case verifyReceipt(receiptString: String, transactionId: String, orderNum: String)
+    
 }
 
 extension SYApis: TargetType {
@@ -154,6 +163,10 @@ extension SYApis: TargetType {
             return "/1/member/addBookCase"
         case .removeBookshelf(_):
             return "/1/member/delBookCase"
+        case .orderNum(_):
+            return "/1/member/PayConfirm"
+        case .verifyReceipt(_, _, _):
+            return "/1/member/IosPayNotify"
         }
     }
     
@@ -162,7 +175,8 @@ extension SYApis: TargetType {
         switch self {
         case .touristLogin,
              .addBookshelf(_, _),
-             .removeBookshelf(_):
+             .removeBookshelf(_),
+             .verifyReceipt(_, _, _):
             return .post
         default:
             return .get
@@ -280,6 +294,17 @@ extension SYApis {
             
         case .removeBookshelf(let bid):
             paramters["bid"] = bid
+            return addUserParams(paramters)
+            
+        case .orderNum(let price):
+            paramters["pType"] = 209
+            paramters["total_amount"] = price
+            return addUserParams(paramters)
+            
+        case .verifyReceipt(let receiptString, let transactionId, let orderNum):
+            paramters["orderNumber"] = orderNum
+            paramters["receiptdata"] = receiptString
+            paramters["trade_no"] = transactionId
             return addUserParams(paramters)
             
         default:

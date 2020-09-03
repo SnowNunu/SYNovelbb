@@ -33,7 +33,15 @@ class SYMineRechargeVC: SYBaseVC {
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SYMineRechargeHeader", for: indexPath)
                 return header
             } else {
-                let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SYMineRechargeFooter", for: indexPath)
+                let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SYMineRechargeFooter", for: indexPath) as! SYMineRechargeFooter
+                footer.rechargeBtn.rx.tap
+                    .bind { [unowned self] in
+                        if self.viewModel.datasource.value.count > 0 {
+                            let model = self.viewModel.datasource.value.first!.items[self.selectedIndex]
+                            ApplePayManager.share.checkPay(model)
+                        }
+                    }
+                    .disposed(by: footer.disposeBag)
                 return footer
             }
         })

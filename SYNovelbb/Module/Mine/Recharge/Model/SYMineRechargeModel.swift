@@ -19,6 +19,7 @@ struct SYMineRechargeModel {
     var selected = true
     
     init(productId: String!, price: String!, coins: String!, vouchers: String) {
+        self.productId = productId
         self.price = price
         if vouchers == "0" {
             self.content = "\(String(describing: coins!)) coins"

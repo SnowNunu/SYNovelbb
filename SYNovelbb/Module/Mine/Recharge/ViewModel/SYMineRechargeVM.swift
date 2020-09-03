@@ -13,7 +13,7 @@ class SYMineRechargeVM: RefreshVM<SectionModel<String, SYMineRechargeModel>> {
 
     override func requestData(_ refresh: Bool) {
         super.requestData(refresh)
-        SYProvider.rx.request(.productIds)
+        SYProvider.rx.cacheRequest(.productIds, cacheType: .base)
             .map(resultList: SYAppleProductModel.self)
             .subscribe(onSuccess: { (response) in
                 if response.success {
@@ -25,7 +25,6 @@ class SYMineRechargeVM: RefreshVM<SectionModel<String, SYMineRechargeModel>> {
                             models.append(model)
                         }
                         self.updateRefresh(true, [SectionModel.init(model: "recharge", items: models)], 1)
-                        
                     }
                 }
         }) { (error) in

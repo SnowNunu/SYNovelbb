@@ -12,6 +12,8 @@ import RxSwift
 
 class SYMineRechargeFooter: UICollectionReusableView {
     
+    @IBOutlet weak var rechargeBtn: UIButton!
+    
     var disposeBag = DisposeBag()
     
     override func prepareForReuse() {

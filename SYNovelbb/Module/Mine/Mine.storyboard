@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -443,6 +443,9 @@
                                         <constraint firstItem="xiU-te-Q9o" firstAttribute="leading" secondItem="eZF-lr-bUo" secondAttribute="leading" constant="15" id="ptX-Ac-Hdc"/>
                                         <constraint firstItem="ITn-Rv-TUz" firstAttribute="top" secondItem="xiU-te-Q9o" secondAttribute="bottom" constant="100" id="xtM-bY-AAY"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="rechargeBtn" destination="ITn-Rv-TUz" id="F4F-kB-jSA"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 #if DEBUG
 import Bagel
 #endif
@@ -15,11 +16,16 @@ import Bagel
 class SYAppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
+    var timer: DispatchSourceTimer!
+    
+    let disposeBag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         setupLog()
         setupRealm()
+        setupStoreKit()
         
         window = UIWindow(frame :UIScreen.main.bounds)
         window!.backgroundColor = UIColor.white
