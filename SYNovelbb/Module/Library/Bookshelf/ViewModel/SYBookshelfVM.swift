@@ -1,5 +1,5 @@
 //
-//  SYLibraryVM.swift
+//  SYBookshelfVM.swift
 //  SYNovelbb
 //
 //  Created by Mandora on 2020/7/27.
@@ -10,7 +10,7 @@ import UIKit
 import RxDataSources
 import RxRelay
 
-class SYLibraryVM: RefreshVM<SYBaseBookModel> {
+class SYBookshelfVM: RefreshVM<SYBaseBookModel> {
     
     var recommendArray: [SYBaseBookModel]!
     

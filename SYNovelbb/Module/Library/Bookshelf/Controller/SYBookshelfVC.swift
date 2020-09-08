@@ -1,5 +1,5 @@
 //
-//  SYLibraryVC.swift
+//  SYBookshelfVC.swift
 //  SYNovelbb
 //
 //  Created by Mandora on 2020/7/27.
@@ -12,13 +12,13 @@ import RxRelay
 import MBProgressHUD
 import RealmSwift
 
-class SYLibraryVC: SYBaseVC {
+class SYBookshelfVC: SYBaseVC {
     
     @IBOutlet weak var headerBgView: UIView!
     
-    @IBOutlet weak var normalHeaderView: SYLibrayNormalHeaderView!
+    @IBOutlet weak var normalHeaderView: SYBookshelfNormalHeaderView!
     
-    @IBOutlet weak var editHeaderView: SYLibraryEditHeaderView!
+    @IBOutlet weak var editHeaderView: SYBookshelfEditHeaderView!
     
     lazy var collectionView: UICollectionView = {
         let layout = SYAlignFlowLayout(.left, 20)
@@ -30,7 +30,7 @@ class SYLibraryVC: SYBaseVC {
         layout.itemSize = .init(width: width, height: height)
         
         let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(SYLibraryCell.self, forCellWithReuseIdentifier: SYLibraryCell.className())
+        collectionView.register(SYBookshelfCell.self, forCellWithReuseIdentifier: SYBookshelfCell.className())
         collectionView.backgroundColor = .white
         return collectionView
     }()
@@ -46,8 +46,8 @@ class SYLibraryVC: SYBaseVC {
         return btn
     }()
     
-    lazy var viewModel: SYLibraryVM = {
-        let vm = SYLibraryVM()
+    lazy var viewModel: SYBookshelfVM = {
+        let vm = SYBookshelfVM()
         return vm
     }()
     
@@ -66,7 +66,7 @@ class SYLibraryVC: SYBaseVC {
         
         viewModel.datasource
             .asDriver()
-            .drive(collectionView.rx.items(cellIdentifier: SYLibraryCell.className(), cellType: SYLibraryCell.self)) { (row, model, cell) in
+            .drive(collectionView.rx.items(cellIdentifier: SYBookshelfCell.className(), cellType: SYBookshelfCell.self)) { (row, model, cell) in
                 cell.model = model
                 cell.checkBtn.isHidden = !self.viewModel.isEdit.value
                 if self.viewModel.checkArray.value.contains(where: { (checkModel) -> Bool in
@@ -184,7 +184,11 @@ class SYLibraryVC: SYBaseVC {
                                 temp.append(recommendModel)
                             }
                         }
-                        return self.viewModel.shelfArray + temp
+                        if self.viewModel.shelfArray != nil {
+                            return self.viewModel.shelfArray + temp
+                        } else {
+                            return temp
+                        }
                     }
                 })
                 self.viewModel.isEdit.accept(false)
@@ -209,19 +213,32 @@ class SYLibraryVC: SYBaseVC {
                 if self.viewModel.checkArray.value.count == 0 {
                     MBProgressHUD.show(message: "Please select a book firstly", toView: nil)
                 } else {
-                    let group = DispatchGroup()
-                    for model in self.viewModel.checkArray.value {
-                        self.viewModel.deleteFromBookcase(group: group, bid: model.bid)
-                    }
-                    group.notify(queue: .main) {
-                        for checkModel in self.viewModel.checkArray.value {
-                            self.viewModel.shelfArray.removeAll { (model) -> Bool in
-                                return model.bid == checkModel.bid
-                            }
+                    let alert = UIAlertController(title: "", message: "Delete the book you selected", preferredStyle: .alert)
+                    
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    cancelAction.setValue(UIColor(177, 143, 0), forKey: "titleTextColor")
+                    
+                    let delAction = UIAlertAction(title: "Delete", style: .default) { (action) in
+                        let group = DispatchGroup()
+                        for model in self.viewModel.checkArray.value {
+                            self.viewModel.deleteFromBookcase(group: group, bid: model.bid)
                         }
-                        self.viewModel.checkArray.acceptUpdate(byMutating: { $0.removeAll() })
-                        self.viewModel.datasource.accept(self.viewModel.shelfArray)
+                        group.notify(queue: .main) {
+                            for checkModel in self.viewModel.checkArray.value {
+                                self.viewModel.shelfArray.removeAll { (model) -> Bool in
+                                    return model.bid == checkModel.bid
+                                }
+                            }
+                            self.viewModel.checkArray.acceptUpdate(byMutating: { $0.removeAll() })
+                            self.viewModel.datasource.accept(self.viewModel.shelfArray)
+                        }
                     }
+                    delAction.setValue(UIColor(177, 143, 0), forKey: "titleTextColor")
+                    alert.addAction(cancelAction)
+                    alert.addAction(delAction)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    
                 }
             }
             .disposed(by: disposeBag)
@@ -237,6 +254,12 @@ class SYLibraryVC: SYBaseVC {
             .bind { [unowned self] in
                 let vc = SYBookFilterVC()
                 self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        normalHeaderView.historyBtn.rx.tap
+            .bind { [unowned self] in
+                self.performSegue(withIdentifier: "enterBrowseRecordView", sender: self)
             }
             .disposed(by: disposeBag)
     }

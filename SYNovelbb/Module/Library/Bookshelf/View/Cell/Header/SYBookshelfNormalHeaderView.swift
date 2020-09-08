@@ -1,5 +1,5 @@
 //
-//  SYLibrayNormalHeaderView.swift
+//  SYBookshelfNormalHeaderView.swift
 //  SYNovelbb
 //
 //  Created by Mandora on 2020/7/27.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SYLibrayNormalHeaderView: UIView {
+class SYBookshelfNormalHeaderView: UIView {
     
     @IBOutlet weak var searchBtn: UIButton!
     

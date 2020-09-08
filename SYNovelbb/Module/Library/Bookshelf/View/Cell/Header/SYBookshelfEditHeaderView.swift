@@ -1,5 +1,5 @@
 //
-//  SYLibraryEditHeaderView.swift
+//  SYBookshelfEditHeaderView.swift
 //  SYNovelbb
 //
 //  Created by Mandora on 2020/7/27.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SYLibraryEditHeaderView: UIView {
+class SYBookshelfEditHeaderView: UIView {
     
     @IBOutlet weak var checkAllBtn: UIButton!
     

@@ -1,5 +1,5 @@
 //
-//  SYLibraryCell.swift
+//  SYBookshelfCell.swift
 //  SYNovelbb
 //
 //  Created by Mandora on 2020/7/27.
@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class SYLibraryCell: UICollectionViewCell {
+class SYBookshelfCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

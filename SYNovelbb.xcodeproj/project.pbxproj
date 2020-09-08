@@ -69,12 +69,12 @@
 		7B847D0824CE7A4A00E9ADFD /* SYGenderIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D0724CE7A4A00E9ADFD /* SYGenderIndexModel.swift */; };
 		7B847D0B24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D0A24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift */; };
 		7B847D1024CE9D1B00E9ADFD /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B847D0F24CE9D1B00E9ADFD /* Library.storyboard */; };
-		7B847D1224CE9D4E00E9ADFD /* SYLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1124CE9D4E00E9ADFD /* SYLibraryVC.swift */; };
-		7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift */; };
-		7B847D1724CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift */; };
-		7B847D1A24CEB4D000E9ADFD /* SYLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1924CEB4D000E9ADFD /* SYLibraryVM.swift */; };
+		7B847D1224CE9D4E00E9ADFD /* SYBookshelfVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1124CE9D4E00E9ADFD /* SYBookshelfVC.swift */; };
+		7B847D1524CEAB0C00E9ADFD /* SYBookshelfNormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1424CEAB0C00E9ADFD /* SYBookshelfNormalHeaderView.swift */; };
+		7B847D1724CEAB2300E9ADFD /* SYBookshelfEditHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1624CEAB2300E9ADFD /* SYBookshelfEditHeaderView.swift */; };
+		7B847D1A24CEB4D000E9ADFD /* SYBookshelfVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1924CEB4D000E9ADFD /* SYBookshelfVM.swift */; };
 		7B847D1C24CEBA3A00E9ADFD /* SYBaseBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D1B24CEBA3A00E9ADFD /* SYBaseBookModel.swift */; };
-		7B847D2324CED67C00E9ADFD /* SYLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D2224CED67C00E9ADFD /* SYLibraryCell.swift */; };
+		7B847D2324CED67C00E9ADFD /* SYBookshelfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B847D2224CED67C00E9ADFD /* SYBookshelfCell.swift */; };
 		7B8576B924D117B5002D99EF /* SYMineCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8576B824D117B5002D99EF /* SYMineCenterModel.swift */; };
 		7B8576BB24D120AA002D99EF /* SYMineCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8576BA24D120AA002D99EF /* SYMineCenterCell.swift */; };
 		7B8576BD24D1422F002D99EF /* SYMineCenterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8576BC24D1422F002D99EF /* SYMineCenterHeader.swift */; };
@@ -103,6 +103,9 @@
 		7B8DB49024D0327C005D9D6B /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8DB48F24D0327C005D9D6B /* Mine.storyboard */; };
 		7B8DB49424D03379005D9D6B /* SYMineCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB49324D03379005D9D6B /* SYMineCenterVC.swift */; };
 		7B8DB49624D0338C005D9D6B /* SYMineCenterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8DB49524D0338C005D9D6B /* SYMineCenterVM.swift */; };
+		7B91B58F2501E95100E8E76B /* SYBrowseRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91B58E2501E95100E8E76B /* SYBrowseRecordVC.swift */; };
+		7B91B5912501E96500E8E76B /* SYBrowseRecordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91B5902501E96500E8E76B /* SYBrowseRecordVM.swift */; };
+		7B91B59425020B3600E8E76B /* SYBrowseRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B91B59325020B3600E8E76B /* SYBrowseRecordCell.swift */; };
 		7B935A3124ECC0210060A4CB /* SYBookFilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B935A3024ECC0210060A4CB /* SYBookFilterHeaderView.swift */; };
 		7B9414D124EE103A0083FAA8 /* SYBookFilterOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414D024EE103A0083FAA8 /* SYBookFilterOptionsCell.swift */; };
 		7B9414D324EE222F0083FAA8 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9414D224EE222F0083FAA8 /* Operators.swift */; };
@@ -291,12 +294,12 @@
 		7B847D0724CE7A4A00E9ADFD /* SYGenderIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYGenderIndexModel.swift; sourceTree = "<group>"; };
 		7B847D0A24CE7E9C00E9ADFD /* SYGenderSlideHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYGenderSlideHeader.swift; sourceTree = "<group>"; };
 		7B847D0F24CE9D1B00E9ADFD /* Library.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
-		7B847D1124CE9D4E00E9ADFD /* SYLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryVC.swift; sourceTree = "<group>"; };
-		7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibrayNormalHeaderView.swift; sourceTree = "<group>"; };
-		7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryEditHeaderView.swift; sourceTree = "<group>"; };
-		7B847D1924CEB4D000E9ADFD /* SYLibraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryVM.swift; sourceTree = "<group>"; };
+		7B847D1124CE9D4E00E9ADFD /* SYBookshelfVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookshelfVC.swift; sourceTree = "<group>"; };
+		7B847D1424CEAB0C00E9ADFD /* SYBookshelfNormalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookshelfNormalHeaderView.swift; sourceTree = "<group>"; };
+		7B847D1624CEAB2300E9ADFD /* SYBookshelfEditHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookshelfEditHeaderView.swift; sourceTree = "<group>"; };
+		7B847D1924CEB4D000E9ADFD /* SYBookshelfVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookshelfVM.swift; sourceTree = "<group>"; };
 		7B847D1B24CEBA3A00E9ADFD /* SYBaseBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBaseBookModel.swift; sourceTree = "<group>"; };
-		7B847D2224CED67C00E9ADFD /* SYLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYLibraryCell.swift; sourceTree = "<group>"; };
+		7B847D2224CED67C00E9ADFD /* SYBookshelfCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookshelfCell.swift; sourceTree = "<group>"; };
 		7B8576B824D117B5002D99EF /* SYMineCenterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterModel.swift; sourceTree = "<group>"; };
 		7B8576BA24D120AA002D99EF /* SYMineCenterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterCell.swift; sourceTree = "<group>"; };
 		7B8576BC24D1422F002D99EF /* SYMineCenterHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterHeader.swift; sourceTree = "<group>"; };
@@ -325,6 +328,9 @@
 		7B8DB48F24D0327C005D9D6B /* Mine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		7B8DB49324D03379005D9D6B /* SYMineCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterVC.swift; sourceTree = "<group>"; };
 		7B8DB49524D0338C005D9D6B /* SYMineCenterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineCenterVM.swift; sourceTree = "<group>"; };
+		7B91B58E2501E95100E8E76B /* SYBrowseRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBrowseRecordVC.swift; sourceTree = "<group>"; };
+		7B91B5902501E96500E8E76B /* SYBrowseRecordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBrowseRecordVM.swift; sourceTree = "<group>"; };
+		7B91B59325020B3600E8E76B /* SYBrowseRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBrowseRecordCell.swift; sourceTree = "<group>"; };
 		7B935A3024ECC0210060A4CB /* SYBookFilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterHeaderView.swift; sourceTree = "<group>"; };
 		7B9414D024EE103A0083FAA8 /* SYBookFilterOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBookFilterOptionsCell.swift; sourceTree = "<group>"; };
 		7B9414D224EE222F0083FAA8 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -958,9 +964,9 @@
 		7B847D0C24CE9C8600E9ADFD /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				7B847D0E24CE9D0000E9ADFD /* View */,
-				7B847D1824CEB47200E9ADFD /* ViewModel */,
-				7B847D0D24CE9CB600E9ADFD /* Controller */,
+				7B91B5882501E5A000E8E76B /* BrowseRecord */,
+				7B91B5872501E57200E8E76B /* Bookshelf */,
+				7B847D0F24CE9D1B00E9ADFD /* Library.storyboard */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -968,7 +974,7 @@
 		7B847D0D24CE9CB600E9ADFD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7B847D1124CE9D4E00E9ADFD /* SYLibraryVC.swift */,
+				7B847D1124CE9D4E00E9ADFD /* SYBookshelfVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -977,7 +983,6 @@
 			isa = PBXGroup;
 			children = (
 				7B847D1324CEA32400E9ADFD /* Cell */,
-				7B847D0F24CE9D1B00E9ADFD /* Library.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -994,7 +999,7 @@
 		7B847D1824CEB47200E9ADFD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7B847D1924CEB4D000E9ADFD /* SYLibraryVM.swift */,
+				7B847D1924CEB4D000E9ADFD /* SYBookshelfVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1002,8 +1007,8 @@
 		7B847D2024CED64500E9ADFD /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				7B847D1424CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift */,
-				7B847D1624CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift */,
+				7B847D1424CEAB0C00E9ADFD /* SYBookshelfNormalHeaderView.swift */,
+				7B847D1624CEAB2300E9ADFD /* SYBookshelfEditHeaderView.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1011,7 +1016,7 @@
 		7B847D2124CED64E00E9ADFD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				7B847D2224CED67C00E9ADFD /* SYLibraryCell.swift */,
+				7B847D2224CED67C00E9ADFD /* SYBookshelfCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1289,6 +1294,50 @@
 				7B8DB49524D0338C005D9D6B /* SYMineCenterVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B91B5872501E57200E8E76B /* Bookshelf */ = {
+			isa = PBXGroup;
+			children = (
+				7B847D0E24CE9D0000E9ADFD /* View */,
+				7B847D1824CEB47200E9ADFD /* ViewModel */,
+				7B847D0D24CE9CB600E9ADFD /* Controller */,
+			);
+			path = Bookshelf;
+			sourceTree = "<group>";
+		};
+		7B91B5882501E5A000E8E76B /* BrowseRecord */ = {
+			isa = PBXGroup;
+			children = (
+				7B91B59225020B1C00E8E76B /* View */,
+				7B91B58A2501E90500E8E76B /* ViewModel */,
+				7B91B5892501E7E100E8E76B /* Controller */,
+			);
+			path = BrowseRecord;
+			sourceTree = "<group>";
+		};
+		7B91B5892501E7E100E8E76B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B91B58E2501E95100E8E76B /* SYBrowseRecordVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B91B58A2501E90500E8E76B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B91B5902501E96500E8E76B /* SYBrowseRecordVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B91B59225020B1C00E8E76B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B91B59325020B3600E8E76B /* SYBrowseRecordCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7B9414D524EE50D60083FAA8 /* Details */ = {
@@ -2178,7 +2227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8576BD24D1422F002D99EF /* SYMineCenterHeader.swift in Sources */,
-				7B847D1224CE9D4E00E9ADFD /* SYLibraryVC.swift in Sources */,
+				7B847D1224CE9D4E00E9ADFD /* SYBookshelfVC.swift in Sources */,
 				7B2DCEA724DD4E4D005D86A0 /* SYSearchHeader.swift in Sources */,
 				7B847D0624CE798400E9ADFD /* SYGenderModel.swift in Sources */,
 				7B34624824C982CA0090ACFF /* LogManager.swift in Sources */,
@@ -2192,9 +2241,11 @@
 				7B7DAB3F24D2640A004944AE /* SYMineSystemMsgVM.swift in Sources */,
 				7B22C7A424D2CF53002F8037 /* SYMineAccountModel.swift in Sources */,
 				7B9B968924E143E90011DB29 /* SYReadController+Operation.swift in Sources */,
+				7B91B58F2501E95100E8E76B /* SYBrowseRecordVC.swift in Sources */,
 				7B9AA84E24F51DCD00F6A70D /* SYBookChapterListCell.swift in Sources */,
 				7B9B96EF24E144100011DB29 /* SYReadViewBGController.swift in Sources */,
 				7B8DB49424D03379005D9D6B /* SYMineCenterVC.swift in Sources */,
+				7B91B5912501E96500E8E76B /* SYBrowseRecordVM.swift in Sources */,
 				7B947C8924DA4E8C00735F7B /* SYMainVC.swift in Sources */,
 				7B22C79C24D2BAEF002F8037 /* SYMineAccountVM.swift in Sources */,
 				7B750E2324D3FD530007BCD0 /* SYMineBindingVM.swift in Sources */,
@@ -2253,7 +2304,7 @@
 				7B8DB47C24CFF7A0005D9D6B /* SYHotBooksVC.swift in Sources */,
 				7B8576BB24D120AA002D99EF /* SYMineCenterCell.swift in Sources */,
 				7B9B96EC24E144100011DB29 /* SYReadViewScrollController.swift in Sources */,
-				7B847D1724CEAB2300E9ADFD /* SYLibraryEditHeaderView.swift in Sources */,
+				7B847D1724CEAB2300E9ADFD /* SYBookshelfEditHeaderView.swift in Sources */,
 				7B9AA84624F4AF4B00F6A70D /* SYCommentModel.swift in Sources */,
 				7B7DAB4224D2661C004944AE /* SYMineSystemMsgCell.swift in Sources */,
 				7B34624A24C983920090ACFF /* SYBaseVM.swift in Sources */,
@@ -2273,7 +2324,7 @@
 				7B7DAB3D24D263F9004944AE /* SYMineSystemMsgVC.swift in Sources */,
 				7B9B970B24E144100011DB29 /* SYReadCatalogView.swift in Sources */,
 				7B9B969F24E143F90011DB29 /* SYRMSettingView.swift in Sources */,
-				7B847D1A24CEB4D000E9ADFD /* SYLibraryVM.swift in Sources */,
+				7B847D1A24CEB4D000E9ADFD /* SYBookshelfVM.swift in Sources */,
 				7B9B96FC24E144100011DB29 /* SYColorList.swift in Sources */,
 				7B9B96A724E143F90011DB29 /* SYRMProgressView.swift in Sources */,
 				7B7DAB5124D2A7BB004944AE /* SYMineSubscriptionCell.swift in Sources */,
@@ -2321,11 +2372,12 @@
 				7B34625424C98BCC0090ACFF /* BehaviorRelay+Extension.swift in Sources */,
 				7B8576D124D174BF002D99EF /* SYMineSettingFooter.swift in Sources */,
 				7B8DB48924D02067005D9D6B /* SYRankListVM.swift in Sources */,
+				7B91B59425020B3600E8E76B /* SYBrowseRecordCell.swift in Sources */,
 				7B9B970824E144100011DB29 /* SYViewController.swift in Sources */,
 				7B22C7AB24D2D899002F8037 /* SYMineRecordVC.swift in Sources */,
 				7B22C79A24D2BADA002F8037 /* SYMineAccountVC.swift in Sources */,
 				7B22C7AD24D2D8AD002F8037 /* SYMineRecordVM.swift in Sources */,
-				7B847D2324CED67C00E9ADFD /* SYLibraryCell.swift in Sources */,
+				7B847D2324CED67C00E9ADFD /* SYBookshelfCell.swift in Sources */,
 				7B34624C24C9871B0090ACFF /* SYHomeVM.swift in Sources */,
 				7BB4D05324DBF1EC00CAF8C0 /* SYSearchVM.swift in Sources */,
 				7B9B96FA24E144100011DB29 /* SYPublic.swift in Sources */,
@@ -2346,7 +2398,7 @@
 				7BA05EDD24F3BC6C00880E28 /* SYBookInfoModel.swift in Sources */,
 				7B9AA84A24F4E8B600F6A70D /* SYBookCommentCell.swift in Sources */,
 				7B34624F24C987D50090ACFF /* SYRefreshServer.swift in Sources */,
-				7B847D1524CEAB0C00E9ADFD /* SYLibrayNormalHeaderView.swift in Sources */,
+				7B847D1524CEAB0C00E9ADFD /* SYBookshelfNormalHeaderView.swift in Sources */,
 				7B9414DC24EE51CA0083FAA8 /* SYBookInfoVM.swift in Sources */,
 				7B9B96A824E143F90011DB29 /* SYRMBottomView.swift in Sources */,
 				7B9B970524E144100011DB29 /* ASValueTrackingSlider.m in Sources */,
