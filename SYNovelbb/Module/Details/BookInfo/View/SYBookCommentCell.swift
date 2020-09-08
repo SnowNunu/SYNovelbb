@@ -65,16 +65,13 @@ class SYBookCommentCell: UITableViewCell {
     lazy var bgView: UIView = {
         let view = UIView()
         view.frame = .init(x: 15, y: 0, width: ScreenWidth - 30, height: 128)
-        view.layer.shadowColor = UIColor(193, 193, 193, 0.75).cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 0)
-        view.layer.shadowOpacity = 0.75
-        view.layer.shadowRadius = 7
-        // layerFillCode
-        let layer = CALayer()
-        layer.frame = view.bounds
-        layer.backgroundColor = UIColor(255, 255, 255).cgColor
-        view.layer.addSublayer(layer)
+        view.backgroundColor = .white
         view.layer.cornerRadius = 7
+        view.layer.masksToBounds = false
+        view.layer.shadowColor =  UIColor(193, 193, 193, 0.75).cgColor
+        view.layer.shadowOffset = .init(width: 0, height: 0)
+        view.layer.shadowOpacity = 0.8
+        view.layer.shadowRadius = 7
         return view
     }()
     

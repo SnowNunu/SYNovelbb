@@ -20,6 +20,22 @@ class SYMineCenterCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        bgView.frame = .init(x: 15, y: 0, width: ScreenWidth - 30, height: 50)
+        lineView.snp.makeConstraints { (make) in
+            make.height.equalTo(1)
+            make.width.equalTo(bgView).offset(-50)
+            make.bottom.centerX.equalToSuperview()
+        }
+        iconImage.snp.makeConstraints { (make) in
+            make.width.equalTo(15.5)
+            make.height.equalTo(16.5)
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(25.5)
+        }
+        titleLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(iconImage.snp.right).offset(19.5)
+        }
     }
 
     var model: SYMineCenterModel? {
