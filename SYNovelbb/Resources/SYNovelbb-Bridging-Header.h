@@ -17,4 +17,13 @@
 
 #import <CommonCrypto/CommonDigest.h>
 
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+
+#import "JPUSHService.h"
+#import <UserNotifications/UserNotifications.h>
+
+//微信SDK头文件
+#import "WXApi.h"
+
 #endif /* SYNovelbb_Bridging_Header_h */

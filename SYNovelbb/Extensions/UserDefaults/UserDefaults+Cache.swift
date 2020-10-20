@@ -13,5 +13,17 @@ let userDefault = UserDefaults.standard
 
 extension UserDefaults {
     
-    
+    var isBookcase: Bool {
+        get {
+            guard let result = (object(forKey: "isBookcase") as? Bool) else {
+                return false
+            }
+            return result
+        }
+        set {
+            set(newValue, forKey: "isBookcase")
+            synchronize()
+        }
+    }
+        
 }

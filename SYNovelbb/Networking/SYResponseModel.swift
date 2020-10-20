@@ -38,6 +38,20 @@ class SYResponseModel<T>: SYModel {
     }
 }
 
+// MARK: 超级书架响应类
+class QMResponseModel<T>: SYModel {
+    
+    /// 响应码
+    var code: NSInteger!
+    
+    /// (分页时总数量)
+    var count: NSInteger? = 0
+    
+    /// 核心数据
+    var data: T?
+    
+}
+
 // MARK: 请求返回错误信息类model
 class MessageModel: SYModel {
    

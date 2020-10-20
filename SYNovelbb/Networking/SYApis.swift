@@ -101,17 +101,36 @@ enum SYApis {
     // 验证订单
     case verifyReceipt(receiptString: String, transactionId: String, orderNum: String)
     
+    // 获取首页书籍列表
+    
+    
+    case getBookList(page: Int, limit: Int)
+    
+    
+    case getBookPageList(bookId: Int, page: Int, limit: Int)
+    
+    
+    case getBookPageContent(bookId: Int, bookPageNum: Int)
+    
 }
 
 extension SYApis: TargetType {
     
     // 配置请求url
     var baseURL: URL {
-        #if DEBUG
-        return URL(string: Configs.Network.dev_url)!
-        #else
-        return URL(string: Configs.Network.pro_url)!
-        #endif
+        
+        switch self {
+        case .getBookList(_, _),
+             .getBookPageList(_, _, _),
+             .getBookPageContent(_, _):
+            return URL(string: "https://qw.chuchu.com")!
+        default:
+            #if DEBUG
+            return URL(string: Configs.Network.dev_url)!
+            #else
+            return URL(string: Configs.Network.pro_url)!
+            #endif
+        }
     }
     
     // 配置请求path
@@ -167,6 +186,12 @@ extension SYApis: TargetType {
             return "/1/member/PayConfirm"
         case .verifyReceipt(_, _, _):
             return "/1/member/IosPayNotify"
+        case .getBookList(_, _):
+            return "/api/getBookList.html"
+        case .getBookPageList(_, _, _):
+            return "/api/getBookPageList"
+        case .getBookPageContent(_, _):
+            return "/api/getBookPageContent.html"
         }
     }
     
@@ -306,6 +331,22 @@ extension SYApis {
             paramters["receiptdata"] = receiptString
             paramters["trade_no"] = transactionId
             return addUserParams(paramters)
+            
+        case .getBookList(let page, let limit):
+            paramters["page"] = page
+            paramters["limit"] = limit
+            return paramters
+            
+        case.getBookPageList(let bookId, let page, let limit):
+            paramters["book_id"] = bookId
+            paramters["page"] = page
+            paramters["limit"] = limit
+            return paramters
+            
+        case .getBookPageContent(let bookId, let bookPageNum):
+            paramters["book_id"] = bookId
+            paramters["book_page_num"] = bookPageNum
+            return paramters
             
         default:
             return paramters

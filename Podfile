@@ -24,10 +24,13 @@ target 'SYNovelbb' do
   # 占位图
   pod 'DZNEmptyDataSet'
   
-  # FireBae统计分析
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/DynamicLinks'
+#  # FireBae统计分析
+#  pod 'Firebase/Analytics'
+#  pod 'Firebase/Messaging'
+#  pod 'Firebase/DynamicLinks'
+
+  # 极光推送
+  pod 'JPush'
   
   # YYKit
   pod 'YYCategories'
@@ -57,6 +60,8 @@ target 'SYNovelbb' do
   pod 'mob_sharesdk'  # 主模块
   pod 'mob_sharesdk/ShareSDKPlatforms/Apple' # 苹果登录
   pod 'mob_sharesdk/ShareSDKPlatforms/Facebook_Lite'  # Facebook登录
+  pod 'mob_sharesdk/ShareSDKPlatforms/WeChat' # 微信登录
+  
   # Google登录
   pod 'GoogleSignIn'
   # Line登录
@@ -67,9 +72,6 @@ target 'SYNovelbb' do
   
   # UI调试
   pod 'LookinServer', :configurations => ['Debug']
-  
-  # 网络请求监控
-  pod 'Bagel', :configurations => ['Debug']
 
   target 'SYNovelbbTests' do
     inherit! :search_paths
@@ -81,4 +83,3 @@ target 'SYNovelbb' do
   end
 
 end
- xxx

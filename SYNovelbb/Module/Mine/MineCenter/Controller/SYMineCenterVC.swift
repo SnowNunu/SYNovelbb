@@ -16,7 +16,7 @@ class SYMineCenterVC: SYBaseVC {
     
     @IBOutlet weak var headerView: SYMineCenterHeader!
     
-    var token : NotificationToken?
+    var token: NotificationToken?
     
     lazy var viewModel: SYMineCenterVM = {
         let vm = SYMineCenterVM.init(self)

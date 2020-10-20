@@ -42,7 +42,7 @@ extension String {
     }
     
     //MARK: 计算文字宽高
-    func getTextHeigh(font: UIFont, width: CGFloat) -> CGFloat {
+    func getTextHeight(font: UIFont, width: CGFloat) -> CGFloat {
         
         return self.textSize(font: font, width: width, height: CGFloat(MAXFLOAT)).height
     }

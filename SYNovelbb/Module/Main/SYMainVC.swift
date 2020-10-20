@@ -34,7 +34,12 @@ class SYMainVC: SYBaseVC {
             .subscribe(onNext: { (isOK) in
                 if isOK {
                     DispatchQueue.main.async {
-                        UIApplication.shared.keyWindow?.rootViewController = SYTabBarController()
+                        userDefault.isBookcase = true
+                        if userDefault.isBookcase {
+                            UIApplication.shared.keyWindow?.rootViewController = R.storyboard.bookcase().instantiateInitialViewController()
+                        } else {
+                            UIApplication.shared.keyWindow?.rootViewController = SYTabBarController()
+                        }
                     }
                 }
             }).disposed(by: disposeBag)

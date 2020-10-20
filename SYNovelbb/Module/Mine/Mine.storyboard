@@ -38,7 +38,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-3I-HpQ">
-                                                    <rect key="frame" x="112" y="41" width="61.5" height="22"/>
+                                                    <rect key="frame" x="112" y="41" width="287" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="a42-8X-qhQ"/>
                                                     </constraints>
@@ -61,6 +61,7 @@
                                                 <constraint firstItem="eyt-MR-pS9" firstAttribute="leading" secondItem="Yr9-Dj-kUJ" secondAttribute="leading" constant="87" id="ARG-d7-4jd"/>
                                                 <constraint firstItem="eyt-MR-pS9" firstAttribute="top" secondItem="Yr9-Dj-kUJ" secondAttribute="top" id="Kps-fd-Wo4"/>
                                                 <constraint firstItem="7NO-ZK-cC0" firstAttribute="leading" secondItem="Ngh-3I-HpQ" secondAttribute="leading" id="cPT-R1-Qxr"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ngh-3I-HpQ" secondAttribute="trailing" constant="15" id="s8e-Fz-Haa"/>
                                                 <constraint firstItem="7NO-ZK-cC0" firstAttribute="top" secondItem="Ngh-3I-HpQ" secondAttribute="bottom" constant="10" id="uQJ-MO-pq7"/>
                                             </constraints>
                                         </view>

@@ -8,12 +8,9 @@
 
 import UIKit
 import RxSwift
-#if DEBUG
-import Bagel
-#endif
 
 @UIApplicationMain
-class SYAppDelegate: UIResponder, UIApplicationDelegate {
+class SYAppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     
     var window: UIWindow?
     
@@ -26,17 +23,31 @@ class SYAppDelegate: UIResponder, UIApplicationDelegate {
         setupLog()
         setupRealm()
         setupStoreKit()
+        setupShareSDK()
+        setupJPush(launchOptions)
         
         window = UIWindow(frame :UIScreen.main.bounds)
         window!.backgroundColor = UIColor.white
         window?.rootViewController = R.storyboard.main().instantiateInitialViewController()!
         window?.makeKeyAndVisible()
         
-        #if DEBUG
-        Bagel.start()
-        #endif
-        
         return true
+    }
+    
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        return WXApi.handleOpen(url, delegate: self)
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return WXApi.handleOpen(url, delegate: self)
+    }
+    
+    func onReq(_ req: BaseReq) {
+        print(req)
+    }
+    
+    func onResp(_ resp: BaseResp) {
+        print(resp)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

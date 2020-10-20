@@ -15,9 +15,15 @@ class SYNavigationController: UINavigationController {
         super.viewDidLoad()
         // 开启右滑返回手势
         self.fd_fullscreenPopGestureRecognizer.isEnabled = true
-        self.navigationBar.barTintColor = .white
-        self.navigationBar.isTranslucent = false
-        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor :UIColor(51, 51, 51)]
+        if userDefault.isBookcase {
+            self.navigationBar.barTintColor = UIColor(24, 144, 255)
+            self.navigationBar.isTranslucent = false
+            self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        } else {
+            self.navigationBar.barTintColor = .white
+            self.navigationBar.isTranslucent = false
+            self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor :UIColor(51, 51, 51)]
+        }
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -26,7 +32,11 @@ class SYNavigationController: UINavigationController {
             viewController.hidesBottomBarWhenPushed = true
             
             let backButton : UIButton = UIButton(type : .system)
-            backButton.setImage(UIImage(named :"navigation_back")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            if userDefault.isBookcase {
+                backButton.setImage(UIImage(named :"navigation_back_white")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            } else {
+                backButton.setImage(UIImage(named :"navigation_back")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            }
             backButton.addTarget(self, action :#selector(goBack), for: .touchUpInside)
             backButton.sizeToFit()
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:backButton)
