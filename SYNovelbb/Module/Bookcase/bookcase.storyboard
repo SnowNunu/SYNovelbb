@@ -132,7 +132,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZu-vb-9Pc">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1q-HD-CPt">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1q-HD-CPt">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDd-9E-4ZG">
@@ -223,6 +223,7 @@
                         <outlet property="contentLabel" destination="Gcy-U3-I0C" id="ku4-93-hoF"/>
                         <outlet property="lastBtn" destination="fR1-I8-d28" id="Zu6-fi-tJ4"/>
                         <outlet property="nextBtn" destination="7Vh-Ra-xjV" id="F8o-fg-kzz"/>
+                        <outlet property="scrollView" destination="JZu-vb-9Pc" id="jnM-r0-Czc"/>
                         <outlet property="titleLabel" destination="VDd-9E-4ZG" id="6sa-1J-GXX"/>
                     </connections>
                 </viewController>

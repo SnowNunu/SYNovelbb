@@ -52,6 +52,7 @@
 		7B3C0C33253EBE5100CE0B04 /* QMBookChapterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3C0C32253EBE5100CE0B04 /* QMBookChapterModel.swift */; };
 		7B3C0C3B253EBF3200CE0B04 /* QMRedirectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3C0C3A253EBF3200CE0B04 /* QMRedirectModel.swift */; };
 		7B3C0C43253EC8D600CE0B04 /* QMBookContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3C0C42253EC8D600CE0B04 /* QMBookContentModel.swift */; };
+		7B3C0C4C253EFD3A00CE0B04 /* QMScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3C0C4B253EFD3A00CE0B04 /* QMScrollView.swift */; };
 		7B710ACB24CFDB5500517F43 /* SYEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B710ACA24CFDB5500517F43 /* SYEmptyCell.swift */; };
 		7B710ACE24CFEBA700517F43 /* SYBlankFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B710ACD24CFEBA700517F43 /* SYBlankFooter.swift */; };
 		7B750E2124D3FD360007BCD0 /* SYMineBindingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B750E2024D3FD360007BCD0 /* SYMineBindingVC.swift */; };
@@ -289,6 +290,7 @@
 		7B3C0C32253EBE5100CE0B04 /* QMBookChapterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMBookChapterModel.swift; sourceTree = "<group>"; };
 		7B3C0C3A253EBF3200CE0B04 /* QMRedirectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMRedirectModel.swift; sourceTree = "<group>"; };
 		7B3C0C42253EC8D600CE0B04 /* QMBookContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMBookContentModel.swift; sourceTree = "<group>"; };
+		7B3C0C4B253EFD3A00CE0B04 /* QMScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMScrollView.swift; sourceTree = "<group>"; };
 		7B710ACA24CFDB5500517F43 /* SYEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYEmptyCell.swift; sourceTree = "<group>"; };
 		7B710ACD24CFEBA700517F43 /* SYBlankFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYBlankFooter.swift; sourceTree = "<group>"; };
 		7B750E2024D3FD360007BCD0 /* SYMineBindingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMineBindingVC.swift; sourceTree = "<group>"; };
@@ -808,6 +810,7 @@
 		7B3C0C21253EAEEF00CE0B04 /* BookContent */ = {
 			isa = PBXGroup;
 			children = (
+				7B3C0C4A253EFD1700CE0B04 /* View */,
 				7B3C0C31253EBE3800CE0B04 /* Model */,
 				7B3C0C23253EAF2F00CE0B04 /* ViewModel */,
 				7B3C0C22253EAF1F00CE0B04 /* Controller */,
@@ -839,6 +842,14 @@
 				7B3C0C42253EC8D600CE0B04 /* QMBookContentModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7B3C0C4A253EFD1700CE0B04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B3C0C4B253EFD3A00CE0B04 /* QMScrollView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7B710ACC24CFEB6700517F43 /* footer */ = {
@@ -2414,6 +2425,7 @@
 				7B8576E024D183C0002D99EF /* SYMineAboutModel.swift in Sources */,
 				7B8576CF24D174AE002D99EF /* SYMineSettingCell.swift in Sources */,
 				7B99BCB724C83430003FF4E1 /* SYMoyaPlugins.swift in Sources */,
+				7B3C0C4C253EFD3A00CE0B04 /* QMScrollView.swift in Sources */,
 				7B7DAB4924D2A2AE004944AE /* SYMineSubscriptionVC.swift in Sources */,
 				7B96024C24CAE76C009FCACA /* SYBookStyle2Cell.swift in Sources */,
 				7B8576E224D187EF002D99EF /* SYMineAboutHeader.swift in Sources */,

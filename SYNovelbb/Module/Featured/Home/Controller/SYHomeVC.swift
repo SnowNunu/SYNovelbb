@@ -46,28 +46,6 @@ class SYHomeVC: SYBaseVC {
         activityIndicatorView.snp.makeConstraints { (make) in
             make.edges.equalTo(collectionView)
         }
-        
-        let btn = UIButton()
-        btn.backgroundColor = .red
-        view.addSubview(btn)
-        view.bringSubviewToFront(btn)
-        btn.snp.makeConstraints { (make) in
-            make.width.height.equalTo(50)
-            make.center.equalTo(view)
-        }
-            
-        btn.rx.tap
-            .bind {
-                let launchMiniProgramReq = WXLaunchMiniProgramReq.object()
-                launchMiniProgramReq.userName = "gh_18147a2253d5"
-//                launchMiniProgramReq.path = "pages/adPageContent/adPageContent?book_id=29&book_page_num=4"
-                launchMiniProgramReq.miniProgramType = .preview
-                WXApi.send(launchMiniProgramReq) { (bool) in
-                    print(bool)
-                    print(WXApi.getVersion())
-                }
-            }
-            .disposed(by: disposeBag)
     }
     
     override func rxBind() {
