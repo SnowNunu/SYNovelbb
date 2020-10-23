@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import AdSupport
 
 class QMBookContentVC: SYBaseVC {
     
@@ -87,6 +88,8 @@ class QMBookContentVC: SYBaseVC {
             }
             .disposed(by: disposeBag)
         
+        
+        
         nextBtn.rx.tap
             .bind { [unowned self] in
                 let model = viewModel.datasource.value.filter { (model) -> Bool in
@@ -96,13 +99,16 @@ class QMBookContentVC: SYBaseVC {
                     self.pageNum += 1
                     self.changePage()
                 } else {
+                    var idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+                    if idfa == "00000000-0000-0000-0000-000000000000" {
+                        idfa = String.uuid()
+                    }
                     let launchMiniProgramReq = WXLaunchMiniProgramReq.object()
                     launchMiniProgramReq.userName = "gh_18147a2253d5"
-                    launchMiniProgramReq.path = String.init(format: "pages/adPageContent/adPageContent?book_id=%d&book_page_num=%d&phone_code=%@", arguments: [self.bookId, model.redirect!.bookPageId, "asdkjqwelkqwjelkjqlwej"])
+                    launchMiniProgramReq.path = String.init(format: "pages/adPageContent/adPageContent?book_id=%d&book_page_num=%d&phone_code=%@", arguments: [self.bookId, model.redirect!.bookPageId, idfa])
                     launchMiniProgramReq.miniProgramType = .preview
                     WXApi.send(launchMiniProgramReq) { (bool) in
                         print(bool)
-                        print(WXApi.getVersion())
                     }
                 }
             }

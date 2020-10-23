@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AdSupport
 
 extension SYAppDelegate: JPUSHRegisterDelegate {
     
@@ -27,6 +28,7 @@ extension SYAppDelegate: JPUSHRegisterDelegate {
         let userInfo = notification.request.content.userInfo
         if notification.request.trigger?.isKind(of: UNPushNotificationTrigger.self) ?? false {
             JPUSHService.handleRemoteNotification(userInfo)
+            JPUSHService.setBadge(0)
         }
         completionHandler(Int(UNNotificationPresentationOptions.alert.rawValue))  // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
     }
@@ -35,6 +37,10 @@ extension SYAppDelegate: JPUSHRegisterDelegate {
         let userInfo = response.notification.request.content.userInfo;
         if response.notification.request.trigger?.isKind(of: UNPushNotificationTrigger.self) ?? false {
             JPUSHService.handleRemoteNotification(userInfo)
+            JPUSHService.setBadge(0)
+            if userInfo["bid"] != nil {
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "enterBookContentView"), object: self, userInfo: userInfo)
+            }
           }
           completionHandler();  // 系统要求执行这个方法
     }
@@ -49,6 +55,23 @@ extension SYAppDelegate: JPUSHRegisterDelegate {
     
     func jpushNotificationAuthorization(_ status: JPAuthorizationStatus, withInfo info: [AnyHashable : Any]!) {
         print("极光推送授权状态:%d",status)
+        if status == .statusAuthorized {
+            let jPushId = JPUSHService.registrationID()
+            var idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+            if idfa == "00000000-0000-0000-0000-000000000000" {
+                idfa = String.uuid()
+            }
+            SYProvider.rx.request(.reportJPushInfo(phoneCode: idfa, jPushId: jPushId!))
+                .qm_map(result: QMJPushModel.self)
+                .subscribe { (response) in
+                    if response.data != nil {
+                        print("JPushId上传成功")
+                    }
+                } onError: { (error) in
+                    print(error)
+                }
+                .disposed(by: disposeBag)
+        }
     }
     
     

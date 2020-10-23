@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 extension String {
     
@@ -221,4 +222,35 @@ extension NSAttributedString {
         
         return attributedText
     }
+}
+
+extension String {
+    
+    static public func uuid() -> String {
+        let boundID = "com.quwang.ComicsReader"
+        let uuidKey = "\(boundID).uuid"
+        let keychain = Keychain(service: boundID)
+        var uuid: String? = keychain[string: uuidKey]
+
+        if uuid != nil {
+            return uuid!
+        }
+        uuid = UUID().uuidString
+        do {
+            try keychain.set(uuid!, key: uuidKey)
+        }
+        catch let error {
+            print(error)
+        }
+        return uuid!
+    }
+    
+//    static public func isFirstInstall() -> Bool {
+//        let boundID = "com.quwang.ComicsReader"
+//        let installKey = "\(boundID).install"
+//        let keychain = Keychain(service: boundID)
+//        
+//        var uuid: String? = keychain[string: installKey]
+//    }
+    
 }

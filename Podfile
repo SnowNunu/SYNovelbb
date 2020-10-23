@@ -24,6 +24,8 @@ target 'SYNovelbb' do
   # 占位图
   pod 'DZNEmptyDataSet'
   
+  pod 'KeychainAccess'
+  
 #  # FireBae统计分析
 #  pod 'Firebase/Analytics'
 #  pod 'Firebase/Messaging'

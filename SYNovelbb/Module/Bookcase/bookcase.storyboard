@@ -124,7 +124,7 @@
         <!--Book ContentVC-->
         <scene sceneID="NU4-ZB-bwR">
             <objects>
-                <viewController id="y4m-gQ-rCz" customClass="QMBookContentVC" customModule="Novelbb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QMBookContentVC" id="y4m-gQ-rCz" customClass="QMBookContentVC" customModule="Novelbb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Foa-vC-Q4q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

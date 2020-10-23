@@ -112,6 +112,10 @@ enum SYApis {
     
     case getBookPageContent(bookId: Int, bookPageNum: Int)
     
+    case reportLoginInfo(phoneCode: String, userAgent: String)
+    
+    case reportJPushInfo(phoneCode: String, jPushId: String)
+    
 }
 
 extension SYApis: TargetType {
@@ -122,7 +126,9 @@ extension SYApis: TargetType {
         switch self {
         case .getBookList(_, _),
              .getBookPageList(_, _, _),
-             .getBookPageContent(_, _):
+             .getBookPageContent(_, _),
+             .reportLoginInfo(_, _),
+             .reportJPushInfo(_, _):
             return URL(string: "https://qw.chuchu.com")!
         default:
             #if DEBUG
@@ -192,6 +198,10 @@ extension SYApis: TargetType {
             return "/api/getBookPageList"
         case .getBookPageContent(_, _):
             return "/api/getBookPageContent.html"
+        case .reportLoginInfo(_, _):
+            return "/api/reportUserLoginInfo.html"
+        case .reportJPushInfo(_, _):
+            return "/api/reportUserJpushId.html"
         }
     }
     
@@ -201,7 +211,8 @@ extension SYApis: TargetType {
         case .touristLogin,
              .addBookshelf(_, _),
              .removeBookshelf(_),
-             .verifyReceipt(_, _, _):
+             .verifyReceipt(_, _, _),
+             .reportLoginInfo(_, _):
             return .post
         default:
             return .get
@@ -346,6 +357,16 @@ extension SYApis {
         case .getBookPageContent(let bookId, let bookPageNum):
             paramters["book_id"] = bookId
             paramters["book_page_num"] = bookPageNum
+            return paramters
+            
+        case .reportLoginInfo(let phoneCode, let userAgent):
+            paramters["phone_code"] = phoneCode
+            paramters["ua"] = userAgent
+            return paramters
+            
+        case .reportJPushInfo(let phoneCode, let jPushId):
+            paramters["phone_code"] = phoneCode
+            paramters["jpush_id"] = jPushId
             return paramters
             
         default:

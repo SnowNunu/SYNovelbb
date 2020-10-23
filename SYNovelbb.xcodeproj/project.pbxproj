@@ -214,10 +214,12 @@
 		7BB4D05524DBF3F000CAF8C0 /* Featured.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB4D05424DBF3F000CAF8C0 /* Featured.storyboard */; };
 		7BB4D05824DC032000CAF8C0 /* SYSearchResultFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4D05724DC032000CAF8C0 /* SYSearchResultFlowLayout.swift */; };
 		7BB4D05C24DC04A900CAF8C0 /* SYSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4D05B24DC04A900CAF8C0 /* SYSearchResultCell.swift */; };
+		7BB5B3B625403235009838E9 /* QMJPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB5B3B525403235009838E9 /* QMJPushModel.swift */; };
 		7BB69B0524FF833A00E3719C /* ApplePayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB69B0424FF833A00E3719C /* ApplePayManager.swift */; };
 		7BB69B0724FF9E3200E3719C /* SYApplePurchaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB69B0624FF9E3200E3719C /* SYApplePurchaseModel.swift */; };
 		7BB69B0924FFA38200E3719C /* SYAppleVerifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB69B0824FFA38200E3719C /* SYAppleVerifyModel.swift */; };
 		7BB69B0B24FFA3C200E3719C /* SYOrderNumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB69B0A24FFA3C200E3719C /* SYOrderNumModel.swift */; };
+		7BB7F8A1253FFCF2006005D5 /* QMUserLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7F8A0253FFCF2006005D5 /* QMUserLoginModel.swift */; };
 		7BEE4F0424DAB60100D5823A /* SYMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE4F0324DAB60100D5823A /* SYMainVM.swift */; };
 		7BF5202C253D82A500CEE828 /* SYAppDelegate+ShareSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5202B253D82A500CEE828 /* SYAppDelegate+ShareSDK.swift */; };
 		7BF520D1253D927200CEE828 /* SYAppDelegate+JPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF520D0253D927200CEE828 /* SYAppDelegate+JPush.swift */; };
@@ -460,10 +462,12 @@
 		7BB4D05424DBF3F000CAF8C0 /* Featured.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Featured.storyboard; sourceTree = "<group>"; };
 		7BB4D05724DC032000CAF8C0 /* SYSearchResultFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchResultFlowLayout.swift; sourceTree = "<group>"; };
 		7BB4D05B24DC04A900CAF8C0 /* SYSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYSearchResultCell.swift; sourceTree = "<group>"; };
+		7BB5B3B525403235009838E9 /* QMJPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMJPushModel.swift; sourceTree = "<group>"; };
 		7BB69B0424FF833A00E3719C /* ApplePayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplePayManager.swift; sourceTree = "<group>"; };
 		7BB69B0624FF9E3200E3719C /* SYApplePurchaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYApplePurchaseModel.swift; sourceTree = "<group>"; };
 		7BB69B0824FFA38200E3719C /* SYAppleVerifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYAppleVerifyModel.swift; sourceTree = "<group>"; };
 		7BB69B0A24FFA3C200E3719C /* SYOrderNumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYOrderNumModel.swift; sourceTree = "<group>"; };
+		7BB7F8A0253FFCF2006005D5 /* QMUserLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMUserLoginModel.swift; sourceTree = "<group>"; };
 		7BEE4F0324DAB60100D5823A /* SYMainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYMainVM.swift; sourceTree = "<group>"; };
 		7BF51FEB253D762700CEE828 /* Novelbb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Novelbb.entitlements; sourceTree = "<group>"; };
 		7BF5202B253D82A500CEE828 /* SYAppDelegate+ShareSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SYAppDelegate+ShareSDK.swift"; sourceTree = "<group>"; };
@@ -1954,6 +1958,8 @@
 			isa = PBXGroup;
 			children = (
 				7BAE75C0253E87C20048CEFB /* QMBookcaseListModel.swift */,
+				7BB7F8A0253FFCF2006005D5 /* QMUserLoginModel.swift */,
+				7BB5B3B525403235009838E9 /* QMJPushModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2496,6 +2502,7 @@
 				7BA2E10424C995B60027A128 /* SYHomeModel.swift in Sources */,
 				7B9B96F424E144100011DB29 /* SYReadViewStatusTopView.swift in Sources */,
 				7B813C6924CA858D00614BF6 /* SYBookStyle1Cell.swift in Sources */,
+				7BB7F8A1253FFCF2006005D5 /* QMUserLoginModel.swift in Sources */,
 				7BEE4F0424DAB60100D5823A /* SYMainVM.swift in Sources */,
 				7B9414DF24EE5EB40083FAA8 /* SYBookInfoHeaderView.swift in Sources */,
 				7B9B96F724E144100011DB29 /* SYReadHomeViewCell.swift in Sources */,
@@ -2535,6 +2542,7 @@
 				7B9B970C24E144100011DB29 /* SYReadLeftView.swift in Sources */,
 				7BAE75C1253E87C20048CEFB /* QMBookcaseListModel.swift in Sources */,
 				7B750E2124D3FD360007BCD0 /* SYMineBindingVC.swift in Sources */,
+				7BB5B3B625403235009838E9 /* QMJPushModel.swift in Sources */,
 				7B847CFF24CE733F00E9ADFD /* SYGenderVC.swift in Sources */,
 				7BA05EDD24F3BC6C00880E28 /* SYBookInfoModel.swift in Sources */,
 				7B9AA84A24F4E8B600F6A70D /* SYBookCommentCell.swift in Sources */,
