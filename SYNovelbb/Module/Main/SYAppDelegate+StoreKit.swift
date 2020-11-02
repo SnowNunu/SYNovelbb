@@ -23,7 +23,7 @@ extension SYAppDelegate {
                         if purchase.needsFinishTransaction {
                             let realm = try! Realm()
                             let predicate = NSPredicate(format: "productId = %@ AND status = '0'", purchase.productId)
-                            let model = realm.objects(SYApplePurchaseModel.self).filter(predicate).sorted(byKeyPath: "", ascending: false).first
+                            let model = realm.objects(SYApplePurchaseModel.self).filter(predicate).sorted(byKeyPath: "purchaseDate", ascending: false).first
                             if model != nil {
                                 model!.receiptData = SwiftyStoreKit.localReceiptData!
                                 model!.status = "1"
@@ -39,6 +39,7 @@ extension SYAppDelegate {
                 }
             }
         }
+        startOrderMonitor()
     }
     
     /// 监听支付成功未校验的订单
@@ -47,7 +48,7 @@ extension SYAppDelegate {
         timer.schedule(deadline: .now(), repeating: .seconds(60))
         timer.setEventHandler(handler: { [unowned self] in
             let realm = try! Realm()
-            let predicate = NSPredicate(format: "status = 1")
+            let predicate = NSPredicate(format: "status = '1'")
             let purchases = realm.objects(SYApplePurchaseModel.self).filter(predicate)
             if purchases.count > 0 {
                 for purchase in purchases {
@@ -76,13 +77,17 @@ extension SYAppDelegate {
                         
                         if model.isSuccess {
                             if purchase != nil {
-                                purchase!.status = "2"
-                                realm.add(purchase!, update: .modified)
+                                try! realm.write {
+                                    purchase!.status = "2"
+                                    realm.add(purchase!, update: .modified)
+                                }
                             }
                         } else {
                             if purchase != nil {
-                                purchase!.status = "3"
-                                realm.add(purchase!, update: .modified)
+                                try! realm.write {
+                                    purchase!.status = "3"
+                                    realm.add(purchase!, update: .modified)
+                                }
                             }
                         }
                     }

@@ -21,6 +21,11 @@ class SYBookFilterVC: SYBaseVC {
         let vm = SYBookFilterVM.init(self)
         return vm
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
 
     override func setupUI() {
         title = "Bookshelf"
@@ -128,6 +133,15 @@ class SYBookFilterVC: SYBaseVC {
         
         activityIndicatorView.startAnimating()
         viewModel.requestFilterInfo()
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] (indexPath) in
+                let model = self.viewModel.datasource.value[indexPath.row]
+                let vc = SYBookInfoVC()
+                vc.bookId = model.bid
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     lazy var tableView: UITableView = {

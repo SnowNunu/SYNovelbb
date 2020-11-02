@@ -166,15 +166,18 @@ class ApplePayManager {
                         if model.isSuccess {
                             MBProgressHUD.show(message: "Congratulations on your successful recharge!", toView: nil)
                             if purchase != nil {
-                                purchase!.status = "2"
-                                realm.add(purchase!, update: .modified)
+                                try! realm.write {
+                                    purchase!.status = "2"
+                                    realm.add(purchase!, update: .modified)
+                                }
                             }
-//                            NotificationCenter.default.post(name: NotificationName.User.RechargeSuccess, object: nil)
                         } else {
                             MBProgressHUD.show(message: "Credential verification failed!", toView: nil)
                             if purchase != nil {
-                                purchase!.status = "3"
-                                realm.add(purchase!, update: .modified)
+                                try! realm.write {
+                                    purchase!.status = "3"
+                                    realm.add(purchase!, update: .modified)
+                                }
                             }
                         }
                     }

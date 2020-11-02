@@ -26,6 +26,11 @@ class SYHotBooksVC: SYBaseVC {
         let vm = SYHotBooksVM()
         return vm
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
 
     override func setupUI() {
         self.title = "Hot book"
@@ -40,11 +45,22 @@ class SYHotBooksVC: SYBaseVC {
             return cell
         })
         
-        viewModel.datasource.asDriver().drive(collectionView.rx.items(dataSource: datasource)).disposed(by: disposeBag)
+        viewModel.datasource.asDriver()
+            .drive(collectionView.rx.items(dataSource: datasource))
+            .disposed(by: disposeBag)
     }
     
     override func rxBind() {
         collectionView.prepare(viewModel, SectionModel<String, SYBaseBookModel>.self)
         collectionView.headerRefreshing()
+        collectionView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] (indexPath) in
+                let model = self.viewModel.datasource.value[indexPath.section].items[indexPath.row]
+                let vc = SYBookInfoVC()
+                vc.bookId = model.bid
+                vc.bookName = model.bookTitle
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }

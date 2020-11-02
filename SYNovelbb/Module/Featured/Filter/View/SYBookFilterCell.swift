@@ -18,6 +18,7 @@ class SYBookFilterCell: UITableViewCell {
     }
     
     private func setupUI() {
+        self.selectionStyle = .none
         addSubview(coverImage)
         addSubview(titleLabel)
         addSubview(contentLabel)

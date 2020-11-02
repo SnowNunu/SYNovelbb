@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SYMineAccountVC: SYBaseVC {
     
     @IBOutlet weak var backBtn: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var coinsLabel: UILabel!
+    
+    @IBOutlet weak var vouchersLabel: UILabel!
     
     lazy var viewModel: SYMineAccountVM = {
         let vm = SYMineAccountVM()
@@ -22,6 +27,12 @@ class SYMineAccountVC: SYBaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        viewModel.updateUserInfo()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func setupUI() {
@@ -47,6 +58,19 @@ class SYMineAccountVC: SYBaseVC {
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.userInfo
+            .skip(1)
+            .subscribe(onNext: { [unowned self] (model) in
+                self.coinsLabel.text = "\(model.vipMoney)"
+                self.vouchersLabel.text = "\(model.Diamonds)"
+            })
+            .disposed(by: disposeBag)
     }
-
+    
+    @IBAction func enterRechargeView(_ sender: Any) {
+        let vc = R.storyboard.mine.mineRechargeVC()!
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

@@ -68,6 +68,15 @@ class SYRankListVC: SYBaseVC {
     override func rxBind() {
         collectionView.prepare(viewModel, SYRankListModel.self, true)
         collectionView.headerRefreshing()
+        collectionView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] (indexPath) in
+                let model = self.viewModel.datasource.value[indexPath.row]
+                let vc = SYBookInfoVC()
+                vc.bookId = model.bid
+                vc.bookName = model.bookTitle
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
 }

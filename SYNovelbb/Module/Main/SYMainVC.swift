@@ -34,7 +34,7 @@ class SYMainVC: SYBaseVC {
             .subscribe(onNext: { (isOK) in
                 if isOK {
                     DispatchQueue.main.async {
-                        userDefault.isBookcase = true
+                        userDefault.isBookcase = false
                         if userDefault.isBookcase {
                             UIApplication.shared.keyWindow?.rootViewController = R.storyboard.bookcase().instantiateInitialViewController()
                         } else {
